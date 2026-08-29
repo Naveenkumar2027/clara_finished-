@@ -336,7 +336,11 @@ const COMPARISON_NARRATION_SECTIONS = 3;
 function processResponseSentences(value: unknown): string[] {
   const text = String(value ?? '').replace(/\s+/g, ' ').trim();
   if (!text) return [];
-  const matches = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? [];
+  // Kannada (and Devanagari) use U+0964 "।" as a sentence terminator
+  // in addition to ASCII ".!?" — it must be recognized as a boundary
+  // so per-sentence reveal cadence fires for Indic text. U+0965 is the
+  // double danda used for paragraph-style breaks.
+  const matches = text.match(/[^.!?\u0964\u0965]+[.!?\u0964\u0965]+|[^.!?\u0964\u0965]+$/g) ?? [];
   return matches.map((sentence) => sentence.trim()).filter(Boolean);
 }
 

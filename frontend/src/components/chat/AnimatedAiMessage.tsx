@@ -72,6 +72,12 @@ export default function AnimatedAiMessage({
     if (!usePlaybackSync) return totalChars;
     const p = Math.min(1, Math.max(0, playbackProgress ?? 0));
     if (p >= 0.999) return totalChars;
+    // When totalChars is small (e.g. 1), floor(p * 1) can stay at 0 even
+    // for p close to 1.0, leaving the last (and only) grapheme hidden.
+    // Reveal all once progress is high enough that only the last 1
+    // grapheme would otherwise be hidden — preserves the trailing
+    // punctuation / danda / combining mark / ZWJ-joined grapheme.
+    if (totalChars > 0 && p >= 1 - 1 / totalChars) return totalChars;
     return Math.floor(p * totalChars);
   }, [usePlaybackSync, playbackProgress, totalChars]);
 
