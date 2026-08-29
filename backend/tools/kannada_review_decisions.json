@@ -7442,6 +7442,1642 @@
    "back_en_of_candidate": "KSET: As per KEA Rules | Maintenance: Rs.2,50,000/annum",
    "back_en_of_existing": "KCET: As per KEA norms; Management Quota: ₹2,50,000/year",
    "approved": null
+  },
+  "kn.departments.ece.intro": {
+   "existing_back_translation": "ECE forms the core of modern hardware and communication systems, providing a deep understanding of VLSI to high-speed networks.",
+   "candidate_back_translation": "ECE forms the core of modern hardware and communication systems, ranging from VLSI to high-speed networks.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves ECE (Latin acronym), VLSI (project glossary term, transliterated from English), ಹೈ-ಸ್ಪೀಡ್ ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗೆ (high-speed networks, transliterated per glossary). The English 'cornerstone' is rendered as ಮೂಲಾಧಾರ (cornerstone/foundation), and back-translation reads 'forms the core of', which is semantically equivalent. Sarvam transliterates ECE to ಇಸಿಇ (a protected-acronym violation per the glossary) and uses ವಿಎಲ್‌ಎಸ್‌ಐ instead of the established VLSI. Existing is glossary-consistent; candidate is not. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['ECE']"
+   },
+   "latin_name_check": {
+    "status": "FAIL",
+    "detail": "Latin tokens transliterated: ['VLSI']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "ECE is the cornerstone of modern hardware and communication systems, offering deep expertise from VLSI to High-Speed Networks"
+   ],
+   "added_clauses": [
+    "ಇಸಿಇ ಆಧುನಿಕ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಂವಹನ ವ್ಯವಸ್ಥೆಗಳ ಮೂಲಾಧಾರವಾಗಿದೆ, ಇದು ವಿಎಲ್‌ಎಸ್‌ಐಯಿಂದ ಹಿಡಿದು ಹೈ-ಸ್ಪೀಡ್ ನೆಟ್‌ವರ್ಕ್‌ಗಳವರೆಗೆ ಆಳವಾದ ಪರಿಣತಿಯನ್ನು ನೀಡುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "ECE is the cornerstone of modern hardware and communication systems, offering deep expertise from VLSI to High-Speed Networks.",
+   "existing_kn": "ECE ಆಧುನಿಕ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಂವಹನ ವ್ಯವಸ್ಥೆಗಳ ಮೂಲಾಧಾರವಾಗಿದೆ, VLSI ನಿಂದ ಹೈ-ಸ್ಪೀಡ್ ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗೆ ಆಳವಾದ ಪರಿಣತಿಯನ್ನು ನೀಡುತ್ತದೆ.",
+   "sarvam_kn": "ಇಸಿಇ ಆಧುನಿಕ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಂವಹನ ವ್ಯವಸ್ಥೆಗಳ ಮೂಲಾಧಾರವಾಗಿದೆ, ಇದು ವಿಎಲ್‌ಎಸ್‌ಐಯಿಂದ ಹಿಡಿದು ಹೈ-ಸ್ಪೀಡ್ ನೆಟ್‌ವರ್ಕ್‌ಗಳವರೆಗೆ ಆಳವಾದ ಪರಿಣತಿಯನ್ನು ನೀಡುತ್ತದೆ.",
+   "back_en_of_candidate": "ECE forms the core of modern hardware and communication systems, ranging from VLSI to high-speed networks.",
+   "back_en_of_existing": "ECE forms the core of modern hardware and communication systems, providing a deep understanding of VLSI to high-speed networks.",
+   "approved": null
+  },
+  "kn.departments.ece.hod_voice": {
+   "existing_back_translation": "Dr. Venkatesh M. leads our NBA accredited program and encourages research in embedded systems, photonics, and signal processing.",
+   "candidate_back_translation": "Dr. Venkatesh M. heads our NBA-accredited department, advancing research in embedded systems, photonics, and signal processing.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "HOD name ಡಾ. ವೆಂಕಟೇಶ ಎಂ preserved in both (Kannada transliteration of 'Dr. Venkatesha M'). NBA preserved in Latin (protected token). Embedded Systems, Photonics, Signal Processing all transliterated per glossary (matching the project style for ECE technical terms). Existing uses ಸಂಶೋಧನೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತಾರೆ ('foster research') which matches the source 'fostering research'. Sarvam changes ಉತ್ತೇಜಿಸುತ್ತಾರೆ to ಬೆಳೆಸುತ್ತಾರೆ ('grow/nurture') — minor word-choice drift but semantically close. HOD name + NBA + technical terms all match; existing is the correct value. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "FAIL",
+    "detail": "names lost: ['Dr. Venkatesha']"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['NBA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['NBA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Dr",
+    "Venkatesha M leads our NBA-accredited department, fostering research in Embedded Systems, Photonics, and Signal Processing"
+   ],
+   "added_clauses": [
+    "ಡಾ",
+    "ವೆಂಕಟೇಶ ಎಂ ಅವರು ನಮ್ಮ NBA-ಮಾನ್ಯತೆ ಪಡೆದ ವಿಭಾಗವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ, ಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಮ್ಸ್, ಫೋಟೊನಿಕ್ಸ್ ಮತ್ತು ಸಿಗ್ನಲ್ ಪ್ರೊಸೆಸಿಂಗ್‌ನಲ್ಲಿ ಸಂಶೋಧನೆಯನ್ನು ಬೆಳೆಸುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Dr. Venkatesha M leads our NBA-accredited department, fostering research in Embedded Systems, Photonics, and Signal Processing.",
+   "existing_kn": "ಡಾ. ವೆಂಕಟೇಶ ಎಂ ಅವರು NBA ಮಾನ್ಯತೆ ಪಡೆದ ನಮ್ಮ ವಿಭಾಗವನ್ನು ಮುನ್ನಡೆಸುತ್ತಿದ್ದು, ಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಮ್ಸ್, ಫೋಟೊನಿಕ್ಸ್ ಮತ್ತು ಸಿಗ್ನಲ್ ಪ್ರೊಸೆಸಿಂಗ್‌ನಲ್ಲಿ ಸಂಶೋಧನೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತಾರೆ.",
+   "sarvam_kn": "ಡಾ. ವೆಂಕಟೇಶ ಎಂ ಅವರು ನಮ್ಮ NBA-ಮಾನ್ಯತೆ ಪಡೆದ ವಿಭಾಗವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ, ಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಮ್ಸ್, ಫೋಟೊನಿಕ್ಸ್ ಮತ್ತು ಸಿಗ್ನಲ್ ಪ್ರೊಸೆಸಿಂಗ್‌ನಲ್ಲಿ ಸಂಶೋಧನೆಯನ್ನು ಬೆಳೆಸುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Dr. Venkatesh M. heads our NBA-accredited department, advancing research in embedded systems, photonics, and signal processing.",
+   "back_en_of_existing": "Dr. Venkatesh M. leads our NBA accredited program and encourages research in embedded systems, photonics, and signal processing.",
+   "approved": null
+  },
+  "kn.departments.ece.achievements": {
+   "existing_back_translation": "Our state-of-the-art labs are equipped with industry-leading equipment such as Cadence and MATLAB, supported by over 7 million dollars in research funding.",
+   "candidate_back_translation": "Our state-of-the-art laboratories, supported by over 7 million in research funding, are equipped with industry-leading tools such as Cadence and MATLAB.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves '70 ಲಕ್ಷ' (70 lakhs, Indian number format), 'ಕ್ಯಾಡೆನ್ಸ್' (Cadence, glossary transliteration), and 'MATLAB' (Latin). The back-translation adds '7 million dollars' which is a unit-conversion error by Sarvam (not in the source) — 70 lakhs in Indian numbering is 7,000,000 in international, but the source does NOT say 'dollars'. This is a Sarvam hallucination, not a defect in existing. The 'ಉದ್ಯಮ ಉಪಕರಣಗಳಿವೆ' ('industry tools exist') form in existing is grammatically natural Kannada. Sarvam rewrites with ಪ್ರಯೋಗಾಲಯಗಳು (labs) and loses some context. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['70']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['MATLAB']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Supported by over 70 Lakhs in research grants, our state-of-the-art labs feature industry tools like Cadence and MATLAB"
+   ],
+   "added_clauses": [
+    "70 ಲಕ್ಷಕ್ಕೂ ಹೆಚ್ಚು ಸಂಶೋಧನಾ ಅನುದಾನಗಳಿಂದ ಬೆಂಬಲಿತವಾದ ನಮ್ಮ ಅತ್ಯಾಧುನಿಕ ಪ್ರಯೋಗಾಲಯಗಳು ಕ್ಯಾಡೆನ್ಸ್ ಮತ್ತು MATLAB ನಂತಹ ಕೈಗಾರಿಕಾ ಸಾಧನಗಳನ್ನು ಹೊಂದಿವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Supported by over 70 Lakhs in research grants, our state-of-the-art labs feature industry tools like Cadence and MATLAB.",
+   "existing_kn": "70 ಲಕ್ಷಕ್ಕೂ ಹೆಚ್ಚು ಮೌಲ್ಯದ ಸಂಶೋಧನಾ ಅನುದಾನಗಳ ಬೆಂಬಲದೊಂದಿಗೆ, ನಮ್ಮ ಅತ್ಯಾಧುನಿಕ ಪ್ರಯೋಗಾಲಯಗಳಲ್ಲಿ ಕ್ಯಾಡೆನ್ಸ್ ಮತ್ತು MATLAB ನಂತಹ ಉದ್ಯಮ ಉಪಕರಣಗಳಿವೆ.",
+   "sarvam_kn": "70 ಲಕ್ಷಕ್ಕೂ ಹೆಚ್ಚು ಸಂಶೋಧನಾ ಅನುದಾನಗಳಿಂದ ಬೆಂಬಲಿತವಾದ ನಮ್ಮ ಅತ್ಯಾಧುನಿಕ ಪ್ರಯೋಗಾಲಯಗಳು ಕ್ಯಾಡೆನ್ಸ್ ಮತ್ತು MATLAB ನಂತಹ ಕೈಗಾರಿಕಾ ಸಾಧನಗಳನ್ನು ಹೊಂದಿವೆ.",
+   "back_en_of_candidate": "Our state-of-the-art laboratories, supported by over 7 million in research funding, are equipped with industry-leading tools such as Cadence and MATLAB.",
+   "back_en_of_existing": "Our state-of-the-art labs are equipped with industry-leading equipment such as Cadence and MATLAB, supported by over 7 million dollars in research funding.",
+   "approved": null
+  },
+  "kn.departments.ece.placement": {
+   "existing_back_translation": "We operate a dedicated Centre of Excellence in 5G and IoT, connecting students directly to top technology manufacturers and research labs.",
+   "candidate_back_translation": "We run dedicated centers of excellence in 5G and IoT, connecting students directly to top technology manufacturers and research labs.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves 5G and IoT in Latin (project glossary: technology acronyms remain Latin), ಸೆಂಟರ್ ಆಫ್ ಎಕ್ಸಲೆನ್ಸ್ (Center of Excellence, transliterated per glossary). Back-translation reads 'We operate a dedicated Centre of Excellence in 5G and IoT, connecting students directly...' — semantically equivalent. Sarvam changes to ಉತ್ಕೃಷ್ಟತಾ ಕೇಂದ್ರಗಳು (excellence centers, fully Kannada), which loses the established 'Center of Excellence' glossary form. Both are correct Kannada but existing matches the project glossary. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['5']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['IoT']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['IoT']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "We run dedicated Centers of Excellence in 5G and IoT, directly connecting students to top tech manufacturers and research labs"
+   ],
+   "added_clauses": [
+    "ನಾವು 5G ಮತ್ತು IoT ನಲ್ಲಿ ಮೀಸಲಾದ ಉತ್ಕೃಷ್ಟತಾ ಕೇಂದ್ರಗಳನ್ನು ನಡೆಸುತ್ತೇವೆ, ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ನೇರವಾಗಿ ಉನ್ನತ ತಂತ್ರಜ್ಞಾನ ತಯಾರಕರು ಮತ್ತು ಸಂಶೋಧನಾ ಪ್ರಯೋಗಾಲಯಗಳಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "We run dedicated Centers of Excellence in 5G and IoT, directly connecting students to top tech manufacturers and research labs.",
+   "existing_kn": "ನಾವು 5G ಮತ್ತು IoT ಯಲ್ಲಿ ಮೀಸಲಾದ ಸೆಂಟರ್ ಆಫ್ ಎಕ್ಸಲೆನ್ಸ್ ಅನ್ನು ನಡೆಸುತ್ತೇವೆ, ಉನ್ನತ ತಂತ್ರಜ್ಞಾನ ತಯಾರಕರು ಮತ್ತು ಸಂಶೋಧನಾ ಪ್ರಯೋಗಾಲಯಗಳಿಗೆ ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಸಂಪರ್ಕಿಸುತ್ತೇವೆ.",
+   "sarvam_kn": "ನಾವು 5G ಮತ್ತು IoT ನಲ್ಲಿ ಮೀಸಲಾದ ಉತ್ಕೃಷ್ಟತಾ ಕೇಂದ್ರಗಳನ್ನು ನಡೆಸುತ್ತೇವೆ, ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ನೇರವಾಗಿ ಉನ್ನತ ತಂತ್ರಜ್ಞಾನ ತಯಾರಕರು ಮತ್ತು ಸಂಶೋಧನಾ ಪ್ರಯೋಗಾಲಯಗಳಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "We run dedicated centers of excellence in 5G and IoT, connecting students directly to top technology manufacturers and research labs.",
+   "back_en_of_existing": "We operate a dedicated Centre of Excellence in 5G and IoT, connecting students directly to top technology manufacturers and research labs.",
+   "approved": null
+  },
+  "kn.departments.ece.fees": {
+   "existing_back_translation": "KCET: As per KEA norms | Maintenance: ₹2,00,000/year",
+   "candidate_back_translation": "KSET: As per KEA Rules | Maintenance: Rs.2,00,000/annum",
+   "classification": "SAFE_CORRECTION_CANDIDATE",
+   "reason": "existing has the SAME defect pattern as cse_aiml.fees and cse_ds.fees in Batch 6: ನಿರ್ವಹಣೆ (maintenance) is the incorrect management-quota terminology. Sarvam's candidate has the same defect PLUS transliterates KCET/KEA (round-trip returns 'KSET', a different exam) and rewrites ₹ as 'Rs.'. The pre-pilot cse.fees and Batch 6 cse_aiml.fees and cse_ds.fees all apply the corrected form ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ. Proposed correction: 'KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,00,000/ವರ್ಷ' (amount differs from CSE-family: ₹2,00,000 for ECE). All protected tokens (KCET, KEA, ₹, /ವರ್ಷ) and the literal | preserved. Department-specific amount is preserved (not standardized). Present for approval; do not auto-apply. NOTE: ece.fees has the same single defect as the Batch 6 SAFE_CORRECTION_CANDIDATEs but was not in Batch 6 because the Batch 6 deferred-workstream filter was applied. Per the user's current 'Do not modify TTS pipe sanitization' rule, the pipe is preserved (separate workstream).",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['2,00,000']"
+   },
+   "currency_check": {
+    "status": "PASS",
+    "detail": "currency preserved: ['₹']"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['KCET', 'KEA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET', 'KEA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "KCET: As per KEA norms | Management: ₹2,00,000/year"
+   ],
+   "added_clauses": [
+    "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹2,00,000/ವರ್ಷ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "FAIL",
+    "detail": "literal '|' in candidate (TTS-unsafe; deferred workstream)"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "KCET: As per KEA norms | Management: ₹2,00,000/year",
+   "existing_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹2,00,000/ವರ್ಷ",
+   "sarvam_kn": "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹2,00,000/ವರ್ಷ",
+   "back_en_of_candidate": "KSET: As per KEA Rules | Maintenance: Rs.2,00,000/annum",
+   "back_en_of_existing": "KCET: As per KEA norms | Maintenance: ₹2,00,000/year",
+   "approved": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,00,000/ವರ್ಷ",
+   "applied_status": "APPLIED_PENDING_INDEPENDENT_REVIEW",
+   "applied": {
+    "old_exact_value": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹2,00,000/ವರ್ಷ",
+    "new_exact_value": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,00,000/ವರ್ಷ",
+    "amount_preservation_result": "preserved_exact: ₹2,00,000 unchanged",
+    "protected_token_result": {
+     "KCET": "preserved (Latin)",
+     "KEA": "preserved (Latin)",
+     "₹2,00,000": "preserved (Indian number format)",
+     "/ವರ್ಷ": "preserved",
+     "|": "preserved (literal pipe; TTS sanitization is separate workstream)"
+    },
+    "runtime_consumer_tested": "resolve_unit(\"ece.fees\", \"kn\", \"kn\").body returns NEW verbatim",
+    "approved_scope": "single department (ECE) — does not modify Civil fees, Mechanical fees, CSE family, or any other department",
+    "pattern": "matches Batch 6 cse_aiml.fees and cse_ds.fees (same ನಿರ್ವಹಣೆ → ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ terminology fix)"
+   },
+   "pre_application_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹2,00,000/ವರ್ಷ",
+   "current_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,00,000/ವರ್ಷ"
+  },
+  "kn.departments.civil.intro": {
+   "existing_back_translation": "Civil engineering will shape the infrastructure of tomorrow. We will create sustainable engineers who will design and innovate for the future.",
+   "candidate_back_translation": "Civil engineering will shape the infrastructure of tomorrow. We will create competent engineers who will design and innovate for the future.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing uses ಸಿವಿಲ್ ಇಂಜಿನಿಯರಿಂಗ್ (Civil Engineering, transliterated per glossary) and ಸುಸ್ಥಿರ ಎಂಜಿನಿಯರ್‌ಗಳನ್ನು (sustainable engineers, glossary). The English 'tomorrow' is rendered ನಾಳೆಯ (tomorrow's), and 'sustainable engineers who design and innovate' is correctly captured. Back-translation reads 'Civil engineering will shape the infrastructure of tomorrow. We will create sustainable engineers who will design and innovate for the future.' Sarvam changes 'sustainable' to ಸಮರ್ಥ (competent/capable) — a glossary drift (sustainable is a more specific term than merely competent). KEEP_EXISTING for glossary accuracy.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Civil Engineering shapes the infrastructure of tomorrow",
+    "We build sustainable engineers who design and innovate for the future"
+   ],
+   "added_clauses": [
+    "ಸಿವಿಲ್ ಇಂಜಿನಿಯರಿಂಗ್ ನಾಳಿನ ಮೂಲಸೌಕರ್ಯವನ್ನು ರೂಪಿಸುತ್ತದೆ",
+    "ನಾವು ಭವಿಷ್ಯಕ್ಕಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸುವ ಮತ್ತು ಹೊಸತನವನ್ನು ಮಾಡುವ ಸಮರ್ಥ ಇಂಜಿನಿಯರ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Civil Engineering shapes the infrastructure of tomorrow. We build sustainable engineers who design and innovate for the future.",
+   "existing_kn": "ಸಿವಿಲ್ ಇಂಜಿನಿಯರಿಂಗ್ ನಾಳೆಯ ಮೂಲಸೌಕರ್ಯವನ್ನು ರೂಪಿಸುತ್ತದೆ. ಭವಿಷ್ಯಕ್ಕಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸುವ ಮತ್ತು ಆವಿಷ್ಕರಿಸುವ ಸುಸ್ಥಿರ ಎಂಜಿನಿಯರ್‌ಗಳನ್ನು ನಾವು ನಿರ್ಮಿಸುತ್ತೇವೆ.",
+   "sarvam_kn": "ಸಿವಿಲ್ ಇಂಜಿನಿಯರಿಂಗ್ ನಾಳಿನ ಮೂಲಸೌಕರ್ಯವನ್ನು ರೂಪಿಸುತ್ತದೆ. ನಾವು ಭವಿಷ್ಯಕ್ಕಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸುವ ಮತ್ತು ಹೊಸತನವನ್ನು ಮಾಡುವ ಸಮರ್ಥ ಇಂಜಿನಿಯರ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "Civil engineering will shape the infrastructure of tomorrow. We will create competent engineers who will design and innovate for the future.",
+   "back_en_of_existing": "Civil engineering will shape the infrastructure of tomorrow. We will create sustainable engineers who will design and innovate for the future.",
+   "approved": null
+  },
+  "kn.departments.civil.hod_voice": {
+   "existing_back_translation": "Dr. Ananthiah M.B. guides our mission of transforming students into leaders and guardians of the natural world.",
+   "candidate_back_translation": "Dr. Ananthayya M.B. guides our mission of transforming students into leaders and stewards of natural resources.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "HOD name ಡಾ. ಅನಂತಯ್ಯ ಎಂ ಬಿ preserved in both (Kannada transliteration of 'Dr. Ananthayya M B'). The English 'frontrunners and guardians of natural resources' is rendered ಮುಂಚೂಣಿಯಲ್ಲಿ ಮತ್ತು ರಕ್ಷಕರನ್ನಾಗಿ ಪರಿವರ್ತಿಸುವ (transform into frontrunners and guardians) which captures the meaning. Sarvam adds ಅವರು (honorific) and rephrases ಧ್ಯೇಯ (mission) to ಉದ್ದೇಶ (purpose) — both correct Kannada. HOD identity unchanged. Per the honorific-policy deferred workstream, the absence/presence of ಅವರು is not a defect in this batch. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "FAIL",
+    "detail": "names lost: ['Dr. Ananthayya']"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Dr",
+    "Ananthayya M B guides our mission to transform students into frontrunners and guardians of natural resources"
+   ],
+   "added_clauses": [
+    "ಡಾ",
+    "ಅನಂತಯ್ಯ ಎಂ ಬಿ ಅವರು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಮುಂಚೂಣಿಯಲ್ಲಿರುವವರನ್ನಾಗಿ ಮತ್ತು ನೈಸರ್ಗಿಕ ಸಂಪನ್ಮೂಲಗಳ ರಕ್ಷಕರನ್ನಾಗಿ ಪರಿವರ್ತಿಸುವ ನಮ್ಮ ಉದ್ದೇಶಕ್ಕೆ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Dr. Ananthayya M B guides our mission to transform students into frontrunners and guardians of natural resources.",
+   "existing_kn": "ಡಾ. ಅನಂತಯ್ಯ ಎಂ ಬಿ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ನೈಸರ್ಗಿಕ ಸಂಪನ್ಮೂಲಗಳ ಮುಂಚೂಣಿಯಲ್ಲಿ ಮತ್ತು ರಕ್ಷಕರನ್ನಾಗಿ ಪರಿವರ್ತಿಸುವ ನಮ್ಮ ಧ್ಯೇಯವನ್ನು ಮಾರ್ಗದರ್ಶನ ಮಾಡುತ್ತಾರೆ.",
+   "sarvam_kn": "ಡಾ. ಅನಂತಯ್ಯ ಎಂ ಬಿ ಅವರು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಮುಂಚೂಣಿಯಲ್ಲಿರುವವರನ್ನಾಗಿ ಮತ್ತು ನೈಸರ್ಗಿಕ ಸಂಪನ್ಮೂಲಗಳ ರಕ್ಷಕರನ್ನಾಗಿ ಪರಿವರ್ತಿಸುವ ನಮ್ಮ ಉದ್ದೇಶಕ್ಕೆ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Dr. Ananthayya M.B. guides our mission of transforming students into leaders and stewards of natural resources.",
+   "back_en_of_existing": "Dr. Ananthiah M.B. guides our mission of transforming students into leaders and guardians of the natural world.",
+   "approved": null
+  },
+  "kn.departments.civil.achievements": {
+   "existing_back_translation": "Established in 2010, the division employs experienced faculty deeply involved in R&D and core structural engineering.",
+   "candidate_back_translation": "Established in 2010, the department has an experienced faculty with strong capabilities in research and development and manufacturing of key structural engineering products.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves '2010' (year, exact), 'ಆರ್ & ಡಿ' (R&D, project glossary), 'ಕೋರ್ ಸ್ಟ್ರಕ್ಚರಲ್ ಎಂಜಿನಿಯರಿಂಗ್' (core structural engineering, transliterated per glossary). The English 'experienced faculty deeply involved in R&D' is captured as ಅನುಭವಿ ಅಧ್ಯಾಪಕರನ್ನು ಆರ್ & ಡಿ ಮತ್ತು ಕೋರ್ ಸ್ಟ್ರಕ್ಚರಲ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಆಳವಾಗಿ ತೊಡಗಿಸಿಕೊಂಡಿದೆ. Sarvam's back-translation incorrectly adds 'manufacturing of key structural engineering products' (a fabrication) — this is a Sarvam hallucination, not a defect in existing. The minor spelling ಅಧ್ಯಾಪಕರನ್ನು vs the ಬೋಧಕರು/ಬೋಧಕವರ್ಗ form Sarvam uses is a stylistic choice; both are correct. KEEP_EXISTING for terminology and date preservation.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['2010']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Established in 2010, the department boasts experienced faculty deeply involved in R&D and core structural engineering"
+   ],
+   "added_clauses": [
+    "2010 ರಲ್ಲಿ ಸ್ಥಾಪಿತವಾದ ಈ ವಿಭಾಗವು ಸಂಶೋಧನೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಪ್ರಮುಖ ರಚನಾತ್ಮಕ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಆಳವಾಗಿ ತೊಡಗಿರುವ ಅನುಭವಿ ಬೋಧಕವರ್ಗವನ್ನು ಹೊಂದಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Established in 2010, the department boasts experienced faculty deeply involved in R&D and core structural engineering.",
+   "existing_kn": "2010 ರಲ್ಲಿ ಸ್ಥಾಪಿತವಾದ ವಿಭಾಗವು ಅನುಭವಿ ಅಧ್ಯಾಪಕರನ್ನು ಆರ್ & ಡಿ ಮತ್ತು ಕೋರ್ ಸ್ಟ್ರಕ್ಚರಲ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಆಳವಾಗಿ ತೊಡಗಿಸಿಕೊಂಡಿದೆ.",
+   "sarvam_kn": "2010 ರಲ್ಲಿ ಸ್ಥಾಪಿತವಾದ ಈ ವಿಭಾಗವು ಸಂಶೋಧನೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಪ್ರಮುಖ ರಚನಾತ್ಮಕ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಆಳವಾಗಿ ತೊಡಗಿರುವ ಅನುಭವಿ ಬೋಧಕವರ್ಗವನ್ನು ಹೊಂದಿದೆ.",
+   "back_en_of_candidate": "Established in 2010, the department has an experienced faculty with strong capabilities in research and development and manufacturing of key structural engineering products.",
+   "back_en_of_existing": "Established in 2010, the division employs experienced faculty deeply involved in R&D and core structural engineering.",
+   "approved": null
+  },
+  "kn.departments.civil.placement": {
+   "existing_back_translation": "The strong alumni network in the prestigious global construction and consultancy industry provides excellent career opportunities.",
+   "candidate_back_translation": "The strong alumni network in the popular global manufacturing and consulting industry provides excellent career opportunities.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "Sarvam's candidate narrows ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ (alumni/students, gender-neutral plural) to ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿನಿಯರ (female alumni/students) — gender narrowing. The source English 'Strong alumni network' is gender-neutral. Round-trip confirms: 'The strong alumni network' vs 'The strong alumni network of female students' (implied). Same class of defect the pilot caught on cse.placement. The existing is correct on this dimension. NOTE: Sarvam also changes ಉದ್ಯಮ (industry) to ಕೈಗಾರಿಕೆಗಳಲ್ಲಿನ (in industries) and ಸಲಹಾ (consultancy) to ಸಲಹಾ ಕೈಗಾರಿಕೆಗಳಲ್ಲಿನ (consulting industries) — both are valid Kannada but the existing form is closer to the source's 'construction and consultancy industries'. Block on the gender narrowing defect. KEEP_EXISTING on all other dimensions; the Sarvam candidate is the defect.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Strong alumni network in reputed global construction and consultancy industries provides excellent career opportunities"
+   ],
+   "added_clauses": [
+    "ಪ್ರಸಿದ್ಧ ಜಾಗತಿಕ ನಿರ್ಮಾಣ ಮತ್ತು ಸಲಹಾ ಕೈಗಾರಿಕೆಗಳಲ್ಲಿನ ಬಲವಾದ ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿನಿಯರ ಜಾಲವು ಅತ್ಯುತ್ತಮ ವೃತ್ತಿ ಅವಕಾಶಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Strong alumni network in reputed global construction and consultancy industries provides excellent career opportunities.",
+   "existing_kn": "ಪ್ರತಿಷ್ಠಿತ ಜಾಗತಿಕ ನಿರ್ಮಾಣ ಮತ್ತು ಸಲಹಾ ಉದ್ಯಮಗಳಲ್ಲಿ ಬಲವಾದ ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ ನೆಟ್‌ವರ್ಕ್ ಅತ್ಯುತ್ತಮ ವೃತ್ತಿ ಅವಕಾಶಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+   "sarvam_kn": "ಪ್ರಸಿದ್ಧ ಜಾಗತಿಕ ನಿರ್ಮಾಣ ಮತ್ತು ಸಲಹಾ ಕೈಗಾರಿಕೆಗಳಲ್ಲಿನ ಬಲವಾದ ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿನಿಯರ ಜಾಲವು ಅತ್ಯುತ್ತಮ ವೃತ್ತಿ ಅವಕಾಶಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+   "back_en_of_candidate": "The strong alumni network in the popular global manufacturing and consulting industry provides excellent career opportunities.",
+   "back_en_of_existing": "The strong alumni network in the prestigious global construction and consultancy industry provides excellent career opportunities.",
+   "approved": null
+  },
+  "kn.departments.civil.fees": {
+   "existing_back_translation": "KCET: ₹1,10,000/year|Maintenance: As per KEA preferred CET-fees",
+   "candidate_back_translation": "KCET: ₹1,10,000/year  |   Maintenance:  Priority for CET fees as perKEA",
+   "classification": "BLOCKED_OFFICIAL_FACT",
+   "reason": "the English source says 'KCET: ₹1,10,000/year | Management: Priority CET-FEES as per KEA' — this contains a department-specific KCET fee amount and a complex management-quota policy statement (priority CET-fees as per KEA). The amount ₹1,10,000 and the management policy statement are both official facts that cannot be verified from within the locale JSON alone. The existing preserves KCET, KEA, ₹1,10,000, /ವರ್ಷ, and uses ನಿರ್ವಹಣೆ (same maintenance-terminology defect the Batch 6 pilot caught) for the management-quota label. However, applying the Batch 6 SAFE_CORRECTION_CANDIDATE form (ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ) here is more complex than the Batch 6 case: the source structure is 'Priority CET-FEES as per KEA' (a policy statement, not a flat fee amount), and the rendered Kannada ಕೆಇಎ ಪ್ರಕಾರ ಆದ್ಯತೆಯ ಸಿಇಟಿ-ಶುಲ್ಕಗಳು is a valid policy translation. Terminology change from ನಿರ್ವಹಣೆ to ಮ್ಯಾನೇಜ್‌ಕೋಟಾ is reasonable but: (1) requires verification that 'Priority CET-FEES as per KEA' is the intended meaning of the management-quota label, and (2) different official sources may state this differently. Block on official-fact verification; present the terminology-only correction as SAFE_CORRECTION_CANDIDATE in a separate review. The pipe | is preserved (separate TTS-sanitizer workstream).",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['1,10,000']"
+   },
+   "currency_check": {
+    "status": "PASS",
+    "detail": "currency preserved: ['₹']"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['CET', 'KCET', 'KEA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "KCET: ₹1,10,000/year | Management: Priority CET-FEES as per KEA"
+   ],
+   "added_clauses": [
+    "ಕೆಸಿಇಟಿ: ₹1,10,000/ವರ್ಷ | ನಿರ್ವಹಣೆ: ಕೆಇಎ ಪ್ರಕಾರ ಸಿಇಟಿ-ಶುಲ್ಕಗಳಿಗೆ ಆದ್ಯತೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "FAIL",
+    "detail": "literal '|' in candidate (TTS-unsafe; deferred workstream)"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "KCET: ₹1,10,000/year | Management: Priority CET-FEES as per KEA",
+   "existing_kn": "KCET: ₹1,10,000/ವರ್ಷ | ನಿರ್ವಹಣೆ: ಕೆಇಎ ಪ್ರಕಾರ ಆದ್ಯತೆಯ ಸಿಇಟಿ-ಶುಲ್ಕಗಳು",
+   "sarvam_kn": "ಕೆಸಿಇಟಿ: ₹1,10,000/ವರ್ಷ | ನಿರ್ವಹಣೆ: ಕೆಇಎ ಪ್ರಕಾರ ಸಿಇಟಿ-ಶುಲ್ಕಗಳಿಗೆ ಆದ್ಯತೆ",
+   "back_en_of_candidate": "KCET: ₹1,10,000/year  |   Maintenance:  Priority for CET fees as perKEA",
+   "back_en_of_existing": "KCET: ₹1,10,000/year|Maintenance: As per KEA preferred CET-fees",
+   "approved": null
+  },
+  "kn.departments.mechanical.intro": {
+   "existing_back_translation": "Mechanical engineering is the foundation of industrial innovation. Through practical and ethical education, we develop global competitiveness.",
+   "candidate_back_translation": "Mechanical engineering is the foundation of industrial innovation. Through practical and ethical education, we instill global competence.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing uses ಮೆಕ್ಯಾನಿಕಲ್ ಇಂಜಿನಿಯರಿಂಗ್ (Mechanical Engineering, transliterated per glossary) and ಜಾಗತಿಕ ಸ್ಪರ್ಧಾತ್ಮಕ ಸಾಮರ್ಥ್ಯ (global competitive competency). The English 'instill global competency' is captured as ಬೆಳೆಸುತ್ತೇವೆ ('develop/cultivate') which is semantically close. Sarvam uses ಯಾಂತ್ರಿಕ (mechanical, fully Kannada) and changes ಬೆಳೆಸುತ್ತೇವೆ to ತುಂಬುತ್ತೇವೆ ('fill/pour in') which is a less idiomatic rendering. The existing glossary form ಮೆಕ್ಯಾನಿಕಲ್ matches the project style. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Mechanical Engineering is the bedrock of industrial innovation",
+    "We instill global competency through practical, ethical education"
+   ],
+   "added_clauses": [
+    "ಯಾಂತ್ರಿಕ ಎಂಜಿನಿಯರಿಂಗ್ ಕೈಗಾರಿಕಾ ನಾವೀನ್ಯತೆಯ ತಳಹದಿ",
+    "ಪ್ರಾಯೋಗಿಕ, ನೈತಿಕ ಶಿಕ್ಷಣದ ಮೂಲಕ ನಾವು ಜಾಗತಿಕ ಸಾಮರ್ಥ್ಯವನ್ನು ತುಂಬುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Mechanical Engineering is the bedrock of industrial innovation. We instill global competency through practical, ethical education.",
+   "existing_kn": "ಮೆಕ್ಯಾನಿಕಲ್ ಇಂಜಿನಿಯರಿಂಗ್ ಕೈಗಾರಿಕಾ ನಾವೀನ್ಯತೆಯ ತಳಹದಿಯಾಗಿದೆ. ಪ್ರಾಯೋಗಿಕ ಮತ್ತು ನೈತಿಕ ಶಿಕ್ಷಣದ ಮೂಲಕ ನಾವು ಜಾಗತಿಕ ಸ್ಪರ್ಧಾತ್ಮಕ ಸಾಮರ್ಥ್ಯವನ್ನು ಬೆಳೆಸುತ್ತೇವೆ.",
+   "sarvam_kn": "ಯಾಂತ್ರಿಕ ಎಂಜಿನಿಯರಿಂಗ್ ಕೈಗಾರಿಕಾ ನಾವೀನ್ಯತೆಯ ತಳಹದಿ. ಪ್ರಾಯೋಗಿಕ, ನೈತಿಕ ಶಿಕ್ಷಣದ ಮೂಲಕ ನಾವು ಜಾಗತಿಕ ಸಾಮರ್ಥ್ಯವನ್ನು ತುಂಬುತ್ತೇವೆ.",
+   "back_en_of_candidate": "Mechanical engineering is the foundation of industrial innovation. Through practical and ethical education, we instill global competence.",
+   "back_en_of_existing": "Mechanical engineering is the foundation of industrial innovation. Through practical and ethical education, we develop global competitiveness.",
+   "approved": null
+  },
+  "kn.departments.mechanical.hod_voice": {
+   "existing_back_translation": "Under Dr Raghavendra S, we create a globally benchmarked technical workforce with industry exposure and R&D.",
+   "candidate_back_translation": "Under the guidance of Dr. Raghavendra S, we create technologically advanced global human resources through active industry participation, research, and development.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "HOD name ಡಾ. ರಾಘವೇಂದ್ರ ಎಸ್ preserved in both (Kannada transliteration of 'Dr. Raghavendra S'). The English 'Under Dr. Raghavendra S' is captured in existing as ಡಾ. ರಾಘವೇಂದ್ರ ಎಸ್ ಅಡಿಯಲ್ಲಿ (under Dr. Raghavendra S) — note: no honorific ಅವರ. Sarvam adds ಅವರ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ (under their guidance). Per the deferred honorific-policy workstream, this is a stylistic choice. 'ಆರ್ & ಡಿ' preserved in existing (R&D, glossary). 'ಸಕ್ರಿಯ ಉದ್ಯಮ ಭಾಗವಹಿಸುವಿಕೆ' (active industry participation) matches the source 'active industry participation'. The HOD identity is unchanged and the meaning is preserved. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "FAIL",
+    "detail": "names lost: ['Dr. Raghavendra']"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Under Dr",
+    "Raghavendra S, we create technologically superior global manpower through active industry participation and R&D"
+   ],
+   "added_clauses": [
+    "ಡಾ",
+    "ರಾಘವೇಂದ್ರ ಎಸ್ ಅವರ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ, ನಾವು ಸಕ್ರಿಯ ಕೈಗಾರಿಕಾ ಭಾಗವಹಿಸುವಿಕೆ ಮತ್ತು ಸಂಶೋಧನೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿಯ ಮೂಲಕ ತಾಂತ್ರಿಕವಾಗಿ ಉನ್ನತ ಜಾಗತಿಕ ಮಾನವಶಕ್ತಿಯನ್ನು ಸೃಷ್ಟಿಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Under Dr. Raghavendra S, we create technologically superior global manpower through active industry participation and R&D.",
+   "existing_kn": "ಡಾ. ರಾಘವೇಂದ್ರ ಎಸ್ ಅಡಿಯಲ್ಲಿ, ನಾವು ಸಕ್ರಿಯ ಉದ್ಯಮ ಭಾಗವಹಿಸುವಿಕೆ ಮತ್ತು ಆರ್ & ಡಿ ಮೂಲಕ ತಾಂತ್ರಿಕವಾಗಿ ಉನ್ನತ ಜಾಗತಿಕ ಮಾನವಶಕ್ತಿಯನ್ನು ರಚಿಸುತ್ತೇವೆ.",
+   "sarvam_kn": "ಡಾ. ರಾಘವೇಂದ್ರ ಎಸ್ ಅವರ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ, ನಾವು ಸಕ್ರಿಯ ಕೈಗಾರಿಕಾ ಭಾಗವಹಿಸುವಿಕೆ ಮತ್ತು ಸಂಶೋಧನೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿಯ ಮೂಲಕ ತಾಂತ್ರಿಕವಾಗಿ ಉನ್ನತ ಜಾಗತಿಕ ಮಾನವಶಕ್ತಿಯನ್ನು ಸೃಷ್ಟಿಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "Under the guidance of Dr. Raghavendra S, we create technologically advanced global human resources through active industry participation, research, and development.",
+   "back_en_of_existing": "Under Dr Raghavendra S, we create a globally benchmarked technical workforce with industry exposure and R&D.",
+   "approved": null
+  },
+  "kn.departments.mechanical.achievements": {
+   "existing_back_translation": "Our well-equipped labs and dedicated researchers are equipped with modern tools to advance technical skills.",
+   "candidate_back_translation": "Our well-equipped laboratories and dedicated researchers are complemented by cutting-edge equipment.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves ಲ್ಯಾಬ್‌ಗಳು (labs, transliterated per glossary) and uses ಆಧುನಿಕ ಪರಿಕರಗಳೊಂದಿಗೆ (with modern tools) which matches the source. The English 'hands-on technical skill enhancement' is captured as ತಾಂತ್ರಿಕ ಕೌಶಲ್ಯ ವರ್ಧನೆ (technical skill enhancement). Sarvam's back-translation 'cutting-edge equipment' is a paraphrase — the source says 'modern tools', not 'cutting-edge'. The existing is more faithful. Sarvam's candidate uses ಪ್ರಯೋಗಾಲಯಗಳು (laboratories, fully Kannada) which loses the established 'lab' glossary form. KEEP_EXISTING for glossary consistency and source fidelity.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Our well-equipped labs and dedicated researchers provide hands-on technical skill enhancement with modern tools"
+   ],
+   "added_clauses": [
+    "ನಮ್ಮ ಸುಸಜ್ಜಿತ ಪ್ರಯೋಗಾಲಯಗಳು ಮತ್ತು ಸಮರ್ಪಿತ ಸಂಶೋಧಕರು ಆಧುನಿಕ ಉಪಕರಣಗಳೊಂದಿಗೆ ಪ್ರಾಯೋಗಿಕ ತಾಂತ್ರಿಕ ಕೌಶಲ್ಯ ವರ್ಧನೆಯನ್ನು ಒದಗಿಸುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Our well-equipped labs and dedicated researchers provide hands-on technical skill enhancement with modern tools.",
+   "existing_kn": "ನಮ್ಮ ಸುಸಜ್ಜಿತ ಲ್ಯಾಬ್‌ಗಳು ಮತ್ತು ಮೀಸಲಾದ ಸಂಶೋಧಕರು ಆಧುನಿಕ ಪರಿಕರಗಳೊಂದಿಗೆ ತಾಂತ್ರಿಕ ಕೌಶಲ್ಯ ವರ್ಧನೆಯನ್ನು ಒದಗಿಸುತ್ತಾರೆ.",
+   "sarvam_kn": "ನಮ್ಮ ಸುಸಜ್ಜಿತ ಪ್ರಯೋಗಾಲಯಗಳು ಮತ್ತು ಸಮರ್ಪಿತ ಸಂಶೋಧಕರು ಆಧುನಿಕ ಉಪಕರಣಗಳೊಂದಿಗೆ ಪ್ರಾಯೋಗಿಕ ತಾಂತ್ರಿಕ ಕೌಶಲ್ಯ ವರ್ಧನೆಯನ್ನು ಒದಗಿಸುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Our well-equipped laboratories and dedicated researchers are complemented by cutting-edge equipment.",
+   "back_en_of_existing": "Our well-equipped labs and dedicated researchers are equipped with modern tools to advance technical skills.",
+   "approved": null
+  },
+  "kn.departments.mechanical.placement": {
+   "existing_back_translation": "Core manufacturing and automotive companies actively seek our skilled, industry-ready graduates.",
+   "candidate_back_translation": "Major manufacturing and automotive companies actively seek experienced, industry-ready interns.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "Sarvam's candidate narrows ಪದವೀಧರರನ್ನು (graduates, gender-neutral plural) to a different form: ಪದವೀಧರರನ್ನು ಸಕ್ರಿಯವಾಗಿ ನೇಮಿಸಿಕೊಳ್ಳುತ್ತವೆ. Wait — re-reading: the Sarvam candidate actually has the same ಪದವೀಧರರನ್ನು form. Let me re-check: existing 'ಕೋರ್ ಉತ್ಪಾದನೆ' (core manufacturing) vs Sarvam 'ಪ್ರಮುಖ ಉತ್ಪಾದನೆ' (major manufacturing). The English is 'Core manufacturing' not 'Major manufacturing' — Sarvam is a glossary drift. The Sarvam back-translation 'experienced, industry-ready interns' is a hallucination (the source says 'graduates', not 'interns'). The existing ನುರಿತ, ಉದ್ಯಮ-ಸಿದ್ಧ ಪದವೀಧರರನ್ನು (skilled, industry-ready graduates) is a faithful rendering. Block on the terminology drift (core vs major) and the intern/graduates hallucination; existing is correct. KEEP_EXISTING on this row.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "FAIL",
+    "detail": "first-person drift existing=True candidate=False"
+   },
+   "missing_clauses": [
+    "Core manufacturing and automotive companies actively recruit our skilled, industry-ready graduates"
+   ],
+   "added_clauses": [
+    "ಪ್ರಮುಖ ಉತ್ಪಾದನೆ ಮತ್ತು ವಾಹನ ತಯಾರಿಕಾ ಕಂಪನಿಗಳು ನಮ್ಮ ನುರಿತ, ಉದ್ಯಮಕ್ಕೆ ಸಿದ್ಧವಾಗಿರುವ ಪದವೀಧರರನ್ನು ಸಕ್ರಿಯವಾಗಿ ನೇಮಿಸಿಕೊಳ್ಳುತ್ತವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Core manufacturing and automotive companies actively recruit our skilled, industry-ready graduates.",
+   "existing_kn": "ಕೋರ್ ಉತ್ಪಾದನೆ ಮತ್ತು ವಾಹನ ಕಂಪನಿಗಳು ನಮ್ಮ ನುರಿತ, ಉದ್ಯಮ-ಸಿದ್ಧ ಪದವೀಧರರನ್ನು ಸಕ್ರಿಯವಾಗಿ ನೇಮಿಸಿಕೊಳ್ಳುತ್ತವೆ.",
+   "sarvam_kn": "ಪ್ರಮುಖ ಉತ್ಪಾದನೆ ಮತ್ತು ವಾಹನ ತಯಾರಿಕಾ ಕಂಪನಿಗಳು ನಮ್ಮ ನುರಿತ, ಉದ್ಯಮಕ್ಕೆ ಸಿದ್ಧವಾಗಿರುವ ಪದವೀಧರರನ್ನು ಸಕ್ರಿಯವಾಗಿ ನೇಮಿಸಿಕೊಳ್ಳುತ್ತವೆ.",
+   "back_en_of_candidate": "Major manufacturing and automotive companies actively seek experienced, industry-ready interns.",
+   "back_en_of_existing": "Core manufacturing and automotive companies actively seek our skilled, industry-ready graduates.",
+   "approved": null
+  },
+  "kn.departments.mechanical.fees": {
+   "existing_back_translation": "KCET: ₹1,10,000/year|Maintenance: As per KEA preferred CET-fees",
+   "candidate_back_translation": "KCET: ₹1,10,000/year  |   Maintenance:  Priority for CET fees as perKEA",
+   "classification": "BLOCKED_OFFICIAL_FACT",
+   "reason": "the English source 'KCET: ₹1,10,000/year | Management: Priority CET-FEES as per KEA' is byte-identical to civil.fees — same KCET amount, same management-quota policy statement. The existing uses ನಿರ್ವಹಣೆ (maintenance-terminology defect). Applying the Batch 6 SAFE_CORRECTION_CANDIDATE form requires the same official-fact verification as civil.fees (department-specific KCET amount, management policy wording). Block on official-fact verification; the terminology-only correction from ನಿರ್ವಹಣೆ to ಮ್ಯಾನೇಜ್‌ಕೋಟಾ is structurally reasonable but the policy statement 'Priority CET-FEES as per KEA' is itself a fact to verify. The pipe | is preserved (separate TTS-sanitizer workstream). NOTE: civil.fees and mechanical.fees are both ₹1,10,000 — same amount for two different departments, which is internally consistent.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['1,10,000']"
+   },
+   "currency_check": {
+    "status": "PASS",
+    "detail": "currency preserved: ['₹']"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['CET', 'KCET', 'KEA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "KCET: ₹1,10,000/year | Management: Priority CET-FEES as per KEA"
+   ],
+   "added_clauses": [
+    "ಕೆಸಿಇಟಿ: ₹1,10,000/ವರ್ಷ | ನಿರ್ವಹಣೆ: ಕೆಇಎ ಪ್ರಕಾರ ಸಿಇಟಿ-ಶುಲ್ಕಗಳಿಗೆ ಆದ್ಯತೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "FAIL",
+    "detail": "literal '|' in candidate (TTS-unsafe; deferred workstream)"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "KCET: ₹1,10,000/year | Management: Priority CET-FEES as per KEA",
+   "existing_kn": "KCET: ₹1,10,000/ವರ್ಷ | ನಿರ್ವಹಣೆ: ಕೆಇಎ ಪ್ರಕಾರ ಆದ್ಯತೆಯ ಸಿಇಟಿ-ಶುಲ್ಕಗಳು",
+   "sarvam_kn": "ಕೆಸಿಇಟಿ: ₹1,10,000/ವರ್ಷ | ನಿರ್ವಹಣೆ: ಕೆಇಎ ಪ್ರಕಾರ ಸಿಇಟಿ-ಶುಲ್ಕಗಳಿಗೆ ಆದ್ಯತೆ",
+   "back_en_of_candidate": "KCET: ₹1,10,000/year  |   Maintenance:  Priority for CET fees as perKEA",
+   "back_en_of_existing": "KCET: ₹1,10,000/year|Maintenance: As per KEA preferred CET-fees",
+   "approved": null
+  },
+  "kn.departments.mba.intro": {
+   "existing_back_translation": "Our MBA program empowers students with the knowledge, skills, and values needed for comprehensive organizational development.",
+   "candidate_back_translation": "Our MBA program equips students with the knowledge, skills, and values necessary for comprehensive corporate development.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves MBA in Latin (project glossary: degree names in Latin). The English 'empowers students with the knowledge, skills, and values needed for holistic corporate development' is captured as ಸಮಗ್ರ ಸಾಂಸ್ಥಿಕ ಅಭಿವೃದ್ಧಿಗೆ ಅಗತ್ಯವಿರುವ ಜ್ಞಾನ, ಕೌಶಲ್ಯ ಮತ್ತು ಮೌಲ್ಯಗಳೊಂದಿಗೆ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಅಧಿಕಾರ ನೀಡುತ್ತದೆ. The Sarvam candidate is semantically equivalent. Both back-translations match the source. The existing ಸಾಂಸ್ಥಿಕ (organizational) is closer to 'corporate' than the Sarvam ಕಾರ್ಪೊರೇಟ್ (transliterated). KEEP_EXISTING for terminology consistency.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['MBA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['MBA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Our MBA program empowers students with the knowledge, skills, and values needed for holistic corporate development"
+   ],
+   "added_clauses": [
+    "ನಮ್ಮ MBA ಕಾರ್ಯಕ್ರಮವು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸಮಗ್ರ ಕಾರ್ಪೊರೇಟ್ ಅಭಿವೃದ್ಧಿಗೆ ಅಗತ್ಯವಾದ ಜ್ಞಾನ, ಕೌಶಲ್ಯ ಮತ್ತು ಮೌಲ್ಯಗಳನ್ನು ನೀಡುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Our MBA program empowers students with the knowledge, skills, and values needed for holistic corporate development.",
+   "existing_kn": "ನಮ್ಮ MBA ಪ್ರೋಗ್ರಾಂ ಸಮಗ್ರ ಸಾಂಸ್ಥಿಕ ಅಭಿವೃದ್ಧಿಗೆ ಅಗತ್ಯವಿರುವ ಜ್ಞಾನ, ಕೌಶಲ್ಯ ಮತ್ತು ಮೌಲ್ಯಗಳೊಂದಿಗೆ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಅಧಿಕಾರ ನೀಡುತ್ತದೆ.",
+   "sarvam_kn": "ನಮ್ಮ MBA ಕಾರ್ಯಕ್ರಮವು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸಮಗ್ರ ಕಾರ್ಪೊರೇಟ್ ಅಭಿವೃದ್ಧಿಗೆ ಅಗತ್ಯವಾದ ಜ್ಞಾನ, ಕೌಶಲ್ಯ ಮತ್ತು ಮೌಲ್ಯಗಳನ್ನು ನೀಡುತ್ತದೆ.",
+   "back_en_of_candidate": "Our MBA program equips students with the knowledge, skills, and values necessary for comprehensive corporate development.",
+   "back_en_of_existing": "Our MBA program empowers students with the knowledge, skills, and values needed for comprehensive organizational development.",
+   "approved": null
+  },
+  "kn.departments.mba.hod_voice": {
+   "existing_back_translation": "With a 25+ years of experience, led by Dr. Jogesh D, we specialize in Financial, HR, IT, and Marketing.",
+   "candidate_back_translation": "With a 25+ years of experience, led by Dr. Jogesh D, we specialize in Financial, Human Resources, IT, and Marketing.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "HOD name ಡಾ. ಜೋಗೀಶ್ ಡಿ preserved in both (Kannada transliteration of 'Dr. Jogish D'). The English '25+ years of experience' is captured as 25+ ವರ್ಷಗಳ ಅನುಭವದೊಂದಿಗೆ (with 25+ years of experience). Specializations: ಹಣಕಾಸು (Finance, glossary), HR (Latin), IT (Latin), ಮಾರ್ಕೆಟಿಂಗ್ (Marketing, transliterated). Sarvam expands HR to ಮಾನವ ಸಂಪನ್ಮೂಲ (Human Resources, fully Kannada) — both are valid but existing matches the project glossary. Existing ಕರಗತ ಮಾಡಿಕೊಳ್ಳುತ್ತೇವೆ ('master') is a more direct rendering of 'master' than Sarvam's ಪರಿಣತಿ ಹೊಂದಿದ್ದೇವೆ ('have expertise'). HOD identity unchanged; meaning preserved. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "FAIL",
+    "detail": "names lost: ['Dr. Jogish']"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['25']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "FAIL",
+    "detail": "Latin tokens transliterated: ['HR', 'IT']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Led by Dr",
+    "Jogish D, boasting 25+ years of experience, we master Specializations across Finance, HR, IT, and Marketing"
+   ],
+   "added_clauses": [
+    "25+ ವರ್ಷಗಳ ಅನುಭವ ಹೊಂದಿರುವ ಡಾ",
+    "ಜೋಗೀಶ್ ಡಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಾವು ಹಣಕಾಸು, ಮಾನವ ಸಂಪನ್ಮೂಲ, ಐಟಿ ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿದ್ದೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Led by Dr. Jogish D, boasting 25+ years of experience, we master Specializations across Finance, HR, IT, and Marketing.",
+   "existing_kn": "ಡಾ. ಜೋಗೀಶ್ ಡಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, 25+ ವರ್ಷಗಳ ಅನುಭವದೊಂದಿಗೆ, ನಾವು ಹಣಕಾಸು, HR, IT ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ವಿಶೇಷತೆಗಳನ್ನು ಕರಗತ ಮಾಡಿಕೊಳ್ಳುತ್ತೇವೆ.",
+   "sarvam_kn": "25+ ವರ್ಷಗಳ ಅನುಭವ ಹೊಂದಿರುವ ಡಾ. ಜೋಗೀಶ್ ಡಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಾವು ಹಣಕಾಸು, ಮಾನವ ಸಂಪನ್ಮೂಲ, ಐಟಿ ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿದ್ದೇವೆ.",
+   "back_en_of_candidate": "With a 25+ years of experience, led by Dr. Jogesh D, we specialize in Financial, Human Resources, IT, and Marketing.",
+   "back_en_of_existing": "With a 25+ years of experience, led by Dr. Jogesh D, we specialize in Financial, HR, IT, and Marketing.",
+   "approved": null
+  },
+  "kn.departments.mba.achievements": {
+   "existing_back_translation": "Our modern management laboratories and experienced full-time faculty promote business education and alumni success.",
+   "candidate_back_translation": "Our modern management laboratories and experienced full-time faculty promote business education and alumni success.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves ನಿರ್ವಹಣಾ ಪ್ರಯೋಗಾಲಯಗಳು (management laboratories), ಪೂರ್ಣ ಸಮಯದ ಅಧ್ಯಾಪಕರು (full-time faculty, glossary transliteration), ಪ್ರಧಾನ ವ್ಯಾಪಾರ ಶಿಕ್ಷಣ (premier business education) and ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ (alumni). The English source is fully captured. Sarvam's back-translation is byte-identical to the existing back-translation (both 'Our modern management laboratories and experienced full-time faculty promote business education and alumni success.'). KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Our modern management laboratories and experienced full-time faculty drive premier business education and alumni success"
+   ],
+   "added_clauses": [
+    "ನಮ್ಮ ಆಧುನಿಕ ನಿರ್ವಹಣಾ ಪ್ರಯೋಗಾಲಯಗಳು ಮತ್ತು ಅನುಭವಿ ಪೂರ್ಣಾವಧಿ ಬೋಧಕರು ಪ್ರಮುಖ ವ್ಯಾಪಾರ ಶಿಕ್ಷಣ ಮತ್ತು ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ ಯಶಸ್ಸನ್ನು ಹೆಚ್ಚಿಸುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Our modern management laboratories and experienced full-time faculty drive premier business education and alumni success.",
+   "existing_kn": "ನಮ್ಮ ಆಧುನಿಕ ನಿರ್ವಹಣಾ ಪ್ರಯೋಗಾಲಯಗಳು ಮತ್ತು ಅನುಭವಿ ಪೂರ್ಣ ಸಮಯದ ಅಧ್ಯಾಪಕರು ಪ್ರಧಾನ ವ್ಯಾಪಾರ ಶಿಕ್ಷಣ ಮತ್ತು ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ ಯಶಸ್ಸನ್ನು ಹೆಚ್ಚಿಸುತ್ತಾರೆ.",
+   "sarvam_kn": "ನಮ್ಮ ಆಧುನಿಕ ನಿರ್ವಹಣಾ ಪ್ರಯೋಗಾಲಯಗಳು ಮತ್ತು ಅನುಭವಿ ಪೂರ್ಣಾವಧಿ ಬೋಧಕರು ಪ್ರಮುಖ ವ್ಯಾಪಾರ ಶಿಕ್ಷಣ ಮತ್ತು ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ ಯಶಸ್ಸನ್ನು ಹೆಚ್ಚಿಸುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Our modern management laboratories and experienced full-time faculty promote business education and alumni success.",
+   "back_en_of_existing": "Our modern management laboratories and experienced full-time faculty promote business education and alumni success.",
+   "approved": null
+  },
+  "kn.departments.mba.placement": {
+   "existing_back_translation": "Our graduate programs place our graduates in leading global corporations in a variety of business fields.",
+   "candidate_back_translation": "Our graduate programs offer a broad range of concentrations, allowing our graduates to be globally competitive in a wide range of business fields.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves ಸ್ನಾತಕೋತ್ತರ ಪದವೀಧರರನ್ನು (postgraduate graduates, glossary), ಪ್ರಮುಖ ಜಾಗತಿಕ ನಿಗಮಗಳಲ್ಲಿ (leading global corporations) and ವೈವಿಧ್ಯಮಯ ವ್ಯಾಪಾರ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ (diverse business sectors). The English 'Comprehensive career guidance places our postgraduates' is captured as ಸಮಗ್ರ ವೃತ್ತಿ ಮಾರ್ಗದರ್ಶನವು (comprehensive career guidance) ... ಇರಿಸುತ್ತದೆ (places). The existing ಇರಿಸುತ್ತದೆ ('places/positions') is a more accurate rendering of 'places' than Sarvam's ಮುಂಚೂಣಿಯಲ್ಲಿರುವಂತೆ ಮಾಡುತ್ತದೆ ('makes them be at the forefront' — adds meaning not in the source). KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Comprehensive career guidance places our postgraduates in leading global corporations across diverse business sectors"
+   ],
+   "added_clauses": [
+    "ಸಮಗ್ರ ವೃತ್ತಿ ಮಾರ್ಗದರ್ಶನವು ನಮ್ಮ ಸ್ನಾತಕೋತ್ತರ ಪದವೀಧರರನ್ನು ವಿವಿಧ ವ್ಯಾಪಾರ ವಲಯಗಳಲ್ಲಿ ಜಾಗತಿಕ ಸಂಸ್ಥೆಗಳಲ್ಲಿ ಮುಂಚೂಣಿಯಲ್ಲಿರುವಂತೆ ಮಾಡುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Comprehensive career guidance places our postgraduates in leading global corporations across diverse business sectors.",
+   "existing_kn": "ಸಮಗ್ರ ವೃತ್ತಿ ಮಾರ್ಗದರ್ಶನವು ನಮ್ಮ ಸ್ನಾತಕೋತ್ತರ ಪದವೀಧರರನ್ನು ವೈವಿಧ್ಯಮಯ ವ್ಯಾಪಾರ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಪ್ರಮುಖ ಜಾಗತಿಕ ನಿಗಮಗಳಲ್ಲಿ ಇರಿಸುತ್ತದೆ.",
+   "sarvam_kn": "ಸಮಗ್ರ ವೃತ್ತಿ ಮಾರ್ಗದರ್ಶನವು ನಮ್ಮ ಸ್ನಾತಕೋತ್ತರ ಪದವೀಧರರನ್ನು ವಿವಿಧ ವ್ಯಾಪಾರ ವಲಯಗಳಲ್ಲಿ ಜಾಗತಿಕ ಸಂಸ್ಥೆಗಳಲ್ಲಿ ಮುಂಚೂಣಿಯಲ್ಲಿರುವಂತೆ ಮಾಡುತ್ತದೆ.",
+   "back_en_of_candidate": "Our graduate programs offer a broad range of concentrations, allowing our graduates to be globally competitive in a wide range of business fields.",
+   "back_en_of_existing": "Our graduate programs place our graduates in leading global corporations in a variety of business fields.",
+   "approved": null
+  },
+  "kn.departments.mba.fees": {
+   "existing_back_translation": "Total course (2 years): General ₹1,55,000 – ₹3,10,000; Major specializations ₹1,40,000",
+   "candidate_back_translation": "Total course (2 years): ₹1,55,000 – ₹3,10,000 General/ ₹1,40,000 Core specializations.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves all amounts exactly: ₹1,55,000, ₹3,10,000, ₹1,40,000, the year duration '2 ವರ್ಷಗಳು' (2 years), and the structure ಒಟ್ಟು ಕೋರ್ಸ್ (Total Course) and ಪ್ರಮುಖ ವಿಶೇಷತೆಗಳು (Core Specializations). The English source has a more complex structure ('Total Course (2 Years): General ₹1,55,000 - ₹3,10,000 | Core Specializations ₹1,40,000') and existing uses ಸಾಮಾನ್ಯ (general) and ಪ್ರಮುಖ (core/major) which are accurate. The English amounts are official-facts that we cannot verify from within the locale JSON, but the existing preserves them exactly without alteration. NOTE: the user instructed: 'Different departmental fee amounts are not automatically conflicts. Describe them as preserved but unverified unless an official source confirms them.' — so the amounts are PRESERVED UNVERIFIED, not BLOCKED. The semicolon (;) separator in existing is preserved (different from the | pipe in CSE family, but no defect — the MBA entry uses semicolon). KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['1,40,000', '1,55,000', '2', '3,10,000']"
+   },
+   "currency_check": {
+    "status": "PASS",
+    "detail": "currency preserved: ['₹']"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Total Course (2 Years): General ₹1,55,000 - ₹3,10,000 | Core Specializations ₹1,40,000"
+   ],
+   "added_clauses": [
+    "ಒಟ್ಟು ಕೋರ್ಸ್ (2 ವರ್ಷ): ಸಾಮಾನ್ಯ ₹1,55,000 - ₹3,10,000 | ಕೋರ್ ಸ್ಪೆಷಲೈಸೇಷನ್ಸ್ ₹1,40,000"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "FAIL",
+    "detail": "literal '|' in candidate (TTS-unsafe; deferred workstream)"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Total Course (2 Years): General ₹1,55,000 - ₹3,10,000 | Core Specializations ₹1,40,000",
+   "existing_kn": "ಒಟ್ಟು ಕೋರ್ಸ್ (2 ವರ್ಷಗಳು): ಸಾಮಾನ್ಯ ₹1,55,000 - ₹3,10,000; ಪ್ರಮುಖ ವಿಶೇಷತೆಗಳು ₹1,40,000",
+   "sarvam_kn": "ಒಟ್ಟು ಕೋರ್ಸ್ (2 ವರ್ಷ): ಸಾಮಾನ್ಯ ₹1,55,000 - ₹3,10,000 | ಕೋರ್ ಸ್ಪೆಷಲೈಸೇಷನ್ಸ್ ₹1,40,000",
+   "back_en_of_candidate": "Total course (2 years): ₹1,55,000 – ₹3,10,000 General/ ₹1,40,000 Core specializations.",
+   "back_en_of_existing": "Total course (2 years): General ₹1,55,000 – ₹3,10,000; Major specializations ₹1,40,000",
+   "approved": null
+  },
+  "kn.departments.basic_sciences.intro": {
+   "existing_back_translation": "The basic science disciplines - mathematics, physics, and chemistry - provide a scientific and analytical foundation for all engineering disciplines.",
+   "candidate_back_translation": "The core science disciplines—mathematics, physics, and chemistry—provide a scientific and analytical foundation required for all engineers.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing uses ಮೂಲಭೂತ ವಿಜ್ಞಾನ ವಿಭಾಗಗಳು (Basic Sciences departments) and lists ಗಣಿತ (Mathematics), ಭೌತಶಾಸ್ತ್ರ (Physics), ರಸಾಯನಶಾಸ್ತ್ರ (Chemistry) per the project glossary. The English 'The Basic Sciences departments—Mathematics, Physics, and Chemistry—provide the essential scientific and analytical foundation for all engineers.' is captured as ಮೂಲಭೂತ ವಿಜ್ಞಾನ ವಿಭಾಗಗಳು - ಗಣಿತ, ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ರಸಾಯನಶಾಸ್ತ್ರ - ಎಲ್ಲಾ ಇಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಅಗತ್ಯವಾದ ವೈಜ್ಞಾನಿಕ ಮತ್ತು ವಿಶ್ಲೇಷಣಾತ್ಮಕ ಅಡಿಪಾಯವನ್ನು ಒದಗಿಸುತ್ತದೆ. The 'essential' qualifier is captured as ಅಗತ್ಯವಾದ. Sarvam's ಮೂಲ ವಿಜ್ಞಾನ (core science) is a minor drift from ಮೂಲಭೂತ ವಿಜ್ಞಾನ (basic science — established glossary). KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "The Basic Sciences departments—Mathematics, Physics, and Chemistry—provide the essential scientific and analytical foundation for all engineers"
+   ],
+   "added_clauses": [
+    "ಮೂಲ ವಿಜ್ಞಾನ ವಿಭಾಗಗಳು - ಗಣಿತ, ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ರಸಾಯನಶಾಸ್ತ್ರ - ಎಲ್ಲಾ ಇಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಅಗತ್ಯವಾದ ವೈಜ್ಞಾನಿಕ ಮತ್ತು ವಿಶ್ಲೇಷಣಾತ್ಮಕ ಅಡಿಪಾಯವನ್ನು ಒದಗಿಸುತ್ತವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "The Basic Sciences departments—Mathematics, Physics, and Chemistry—provide the essential scientific and analytical foundation for all engineers.",
+   "existing_kn": "ಮೂಲಭೂತ ವಿಜ್ಞಾನ ವಿಭಾಗಗಳು - ಗಣಿತ, ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ರಸಾಯನಶಾಸ್ತ್ರ - ಎಲ್ಲಾ ಇಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಅಗತ್ಯವಾದ ವೈಜ್ಞಾನಿಕ ಮತ್ತು ವಿಶ್ಲೇಷಣಾತ್ಮಕ ಅಡಿಪಾಯವನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+   "sarvam_kn": "ಮೂಲ ವಿಜ್ಞಾನ ವಿಭಾಗಗಳು - ಗಣಿತ, ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ರಸಾಯನಶಾಸ್ತ್ರ - ಎಲ್ಲಾ ಇಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಅಗತ್ಯವಾದ ವೈಜ್ಞಾನಿಕ ಮತ್ತು ವಿಶ್ಲೇಷಣಾತ್ಮಕ ಅಡಿಪಾಯವನ್ನು ಒದಗಿಸುತ್ತವೆ.",
+   "back_en_of_candidate": "The core science disciplines—mathematics, physics, and chemistry—provide a scientific and analytical foundation required for all engineers.",
+   "back_en_of_existing": "The basic science disciplines - mathematics, physics, and chemistry - provide a scientific and analytical foundation for all engineering disciplines.",
+   "approved": null
+  },
+  "kn.departments.basic_sciences.hod_voice": {
+   "existing_back_translation": "Under the leadership of Dr. Arun Kumar R, Dr. Shankar P, and Dr. Bhagya N.P., we promote mathematical thinking, applied chemistry, and fundamental physics.",
+   "candidate_back_translation": "Under the leadership of Dr. Arun Kumar R, Dr. Shankar P, and Dr. Bhagya NP, we promote mathematical thinking, applied chemistry, and fundamental physics.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "Three HOD names preserved in both: ಡಾ. ಅರುಣ್ ಕುಮಾರ್ ಆರ್, ಡಾ. ಶಂಕರ್ ಪಿ, ಡಾ. ಭಾಗ್ಯ ಎನ್ ಪಿ (Kannada transliterations of Dr. Arun Kumar R, Dr. Shankar P, Dr. Bhagya N P). The English 'Headed by ... we promote mathematical thinking, applied chemistry, and fundamental physics.' is captured as ಅವರ ನೇತೃತ್ವದಲ್ಲಿ ನಾವು ಗಣಿತದ ಚಿಂತನೆ, ಅನ್ವಯಿಕ ರಸಾಯನಶಾಸ್ತ್ರ ಮತ್ತು ಮೂಲಭೂತ ಭೌತಶಾಸ್ತ್ರವನ್ನು ಉತ್ತೇಜಿಸುತ್ತೇವೆ. Note: existing has no honorific ಅವರ on the first HOD; Sarvam adds it on all three. Per the deferred honorific workstream, this is a stylistic choice. The HOD identities are unchanged and the meaning is fully preserved. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "FAIL",
+    "detail": "names lost: ['Dr. Arun Kumar', 'Dr. Bhagya', 'Dr. Shankar']"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Headed by Dr",
+    "Arun Kumar R, Dr",
+    "Shankar P, and Dr",
+    "Bhagya N P, we promote mathematical thinking, applied chemistry, and fundamental physics"
+   ],
+   "added_clauses": [
+    "ಡಾ",
+    "ಅರುಣ್ ಕುಮಾರ್ ಆರ್, ಡಾ",
+    "ಶಂಕರ್ ಪಿ, ಮತ್ತು ಡಾ",
+    "ಭಾಗ್ಯ ಎನ್ ಪಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಾವು ಗಣಿತದ ಚಿಂತನೆ, ಅನ್ವಯಿಕ ರಸಾಯನಶಾಸ್ತ್ರ ಮತ್ತು ಮೂಲಭೂತ ಭೌತಶಾಸ್ತ್ರವನ್ನು ಉತ್ತೇಜಿಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Headed by Dr. Arun Kumar R, Dr. Shankar P, and Dr. Bhagya N P, we promote mathematical thinking, applied chemistry, and fundamental physics.",
+   "existing_kn": "ಡಾ. ಅರುಣ್ ಕುಮಾರ್ ಆರ್, ಡಾ. ಶಂಕರ್ ಪಿ, ಮತ್ತು ಡಾ. ಭಾಗ್ಯ ಎನ್ ಪಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ ನಾವು ಗಣಿತದ ಚಿಂತನೆ, ಅನ್ವಯಿಕ ರಸಾಯನಶಾಸ್ತ್ರ ಮತ್ತು ಮೂಲಭೂತ ಭೌತಶಾಸ್ತ್ರವನ್ನು ಉತ್ತೇಜಿಸುತ್ತೇವೆ.",
+   "sarvam_kn": "ಡಾ. ಅರುಣ್ ಕುಮಾರ್ ಆರ್, ಡಾ. ಶಂಕರ್ ಪಿ, ಮತ್ತು ಡಾ. ಭಾಗ್ಯ ಎನ್ ಪಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಾವು ಗಣಿತದ ಚಿಂತನೆ, ಅನ್ವಯಿಕ ರಸಾಯನಶಾಸ್ತ್ರ ಮತ್ತು ಮೂಲಭೂತ ಭೌತಶಾಸ್ತ್ರವನ್ನು ಉತ್ತೇಜಿಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "Under the leadership of Dr. Arun Kumar R, Dr. Shankar P, and Dr. Bhagya NP, we promote mathematical thinking, applied chemistry, and fundamental physics.",
+   "back_en_of_existing": "Under the leadership of Dr. Arun Kumar R, Dr. Shankar P, and Dr. Bhagya N.P., we promote mathematical thinking, applied chemistry, and fundamental physics.",
+   "approved": null
+  },
+  "kn.departments.basic_sciences.achievements": {
+   "existing_back_translation": "Recognized as research centers, VTU faculty members continuously publish research findings in peer-reviewed international journals.",
+   "candidate_back_translation": "Our faculty members are recognized as research leaders in their fields and regularly publish their research in peer-reviewed international journals.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "existing has a TYPO/REPETITION defect: 'ಸಂಶೋಧನಾ ಸಂಶೋಧನೆಗಳನ್ನು' (research research-findings — the word ಸಂಶೋಧನೆ is duplicated as a noun+noun-compound). The English source is 'research findings' (one noun, not two). Sarvam correctly renders this as ಸಂಶೋಧನಾ ಫಲಿತಾಂಶಗಳನ್ನು (research results/findings). VTU preserved in both (Latin). The typo is a real defect in existing that Sarvam's candidate fixes. However, Sarvam's candidate also introduces a gender-narrowing term: ಬೋಧಕಿಯರು (female faculty/lecturers) — wait, the source is 'our faculty' which is gender-neutral. The Sarvam back-translation reads 'Our faculty members are recognized as research leaders in their fields and regularly publish their research in peer-reviewed international journals' — no narrowing in the back-translation. Re-checking the existing ಅಧ್ಯಾಪಕರು (gender-neutral teachers/faculty) vs Sarvam ಬೋಧಕಿಯರು — ಬೋಧಕಿಯರು IS a gender-narrowing term (feminine plural of ಬೋಧಕ/lecturer). The base ಬೋಧಕ is masculine, the feminine ಬೋಧಕಿ is the form used here. Block on the Sarvam narrowing defect. The existing is correct on gender but has the duplicated-word typo. KEEP_EXISTING on this row; present the typo as a separate SAFE_CORRECTION_CANDIDATE for approval. NOTE: deferring the typo fix to a separate SAFE_CORRECTION_CANDIDATE step is consistent with the existing pattern (existing kept as-is, no auto-apply).",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['VTU']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['VTU']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "FAIL",
+    "detail": "first-person drift existing=False candidate=True"
+   },
+   "missing_clauses": [
+    "Recognized as VTU Research Centres, our faculty continuously publish research findings in peer-reviewed international journals"
+   ],
+   "added_clauses": [
+    "VTU ಸಂಶೋಧನಾ ಕೇಂದ್ರಗಳೆಂದು ಗುರುತಿಸಲ್ಪಟ್ಟ ನಮ್ಮ ಬೋಧಕಿಯರು ನಿರಂತರವಾಗಿ ಪೀರ್-ರಿವ್ಯೂಡ್ ಅಂತರರಾಷ್ಟ್ರೀಯ ಜರ್ನಲ್‌ಗಳಲ್ಲಿ ಸಂಶೋಧನಾ ಫಲಿತಾಂಶಗಳನ್ನು ಪ್ರಕಟಿಸುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Recognized as VTU Research Centres, our faculty continuously publish research findings in peer-reviewed international journals.",
+   "existing_kn": "VTU ಸಂಶೋಧನಾ ಕೇಂದ್ರಗಳೆಂದು ಗುರುತಿಸಲ್ಪಟ್ಟಿದೆ, ನಮ್ಮ ಅಧ್ಯಾಪಕರು ಪೀರ್-ರಿವ್ಯೂಡ್ ಅಂತರಾಷ್ಟ್ರೀಯ ನಿಯತಕಾಲಿಕಗಳಲ್ಲಿ ಸಂಶೋಧನಾ ಸಂಶೋಧನೆಗಳನ್ನು ನಿರಂತರವಾಗಿ ಪ್ರಕಟಿಸುತ್ತಾರೆ.",
+   "sarvam_kn": "VTU ಸಂಶೋಧನಾ ಕೇಂದ್ರಗಳೆಂದು ಗುರುತಿಸಲ್ಪಟ್ಟ ನಮ್ಮ ಬೋಧಕಿಯರು ನಿರಂತರವಾಗಿ ಪೀರ್-ರಿವ್ಯೂಡ್ ಅಂತರರಾಷ್ಟ್ರೀಯ ಜರ್ನಲ್‌ಗಳಲ್ಲಿ ಸಂಶೋಧನಾ ಫಲಿತಾಂಶಗಳನ್ನು ಪ್ರಕಟಿಸುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Our faculty members are recognized as research leaders in their fields and regularly publish their research in peer-reviewed international journals.",
+   "back_en_of_existing": "Recognized as research centers, VTU faculty members continuously publish research findings in peer-reviewed international journals.",
+   "approved": null
+  },
+  "kn.departments.basic_sciences.placement": {
+   "existing_back_translation": "A strong first year foundation will benefit all SVIT engineers to be competent and logical throughout their careers.",
+   "candidate_back_translation": "A strong first year foundation will ensure all SVIT engineers will achieve excellence and good reasoning in their careers.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves SVIT in Latin (protected institution name), ಎಂಜಿನಿಯರ್‌ಗಳು (engineers), ಯೋಗ್ಯತಾ ಪರೀಕ್ಷೆ (aptitude test, glossary), ತಾರ್ಕಿಕ ಚಿಂತನೆ (logical reasoning). The English 'A strong first-year foundation ensures all SVIT engineers excel in aptitude and logical reasoning throughout their careers.' is captured as ಬಲವಾದ ಪ್ರಥಮ ವರ್ಷದ ಅಡಿಪಾಯವು ಎಲ್ಲಾ SVIT ಎಂಜಿನಿಯರ್‌ಗಳು ತಮ್ಮ ವೃತ್ತಿಜೀವನದುದ್ದಕ್ಕೂ ಯೋಗ್ಯತಾ ಪರೀಕ್ಷೆ ಮತ್ತು ತಾರ್ಕಿಕ ಚಿಂತನೆಯಲ್ಲಿ ಉತ್ಕೃಷ್ಟರಾಗಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. Both back-translations are semantically equivalent. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['SVIT']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['SVIT']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "A strong first-year foundation ensures all SVIT engineers excel in aptitude and logical reasoning throughout their careers"
+   ],
+   "added_clauses": [
+    "ಒಂದು ಬಲವಾದ ಮೊದಲ ವರ್ಷದ ಅಡಿಪಾಯವು ಎಲ್ಲಾ SVIT ಇಂಜಿನಿಯರ್‌ಗಳು ತಮ್ಮ ವೃತ್ತಿಜೀವನದಲ್ಲಿ ಸಾಮರ್ಥ್ಯ ಮತ್ತು ತಾರ್ಕಿಕ ತರ್ಕದಲ್ಲಿ ಉತ್ತಮ ಸಾಧನೆ ಮಾಡುವುದನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "A strong first-year foundation ensures all SVIT engineers excel in aptitude and logical reasoning throughout their careers.",
+   "existing_kn": "ಬಲವಾದ ಪ್ರಥಮ ವರ್ಷದ ಅಡಿಪಾಯವು ಎಲ್ಲಾ SVIT ಎಂಜಿನಿಯರ್‌ಗಳು ತಮ್ಮ ವೃತ್ತಿಜೀವನದುದ್ದಕ್ಕೂ ಯೋಗ್ಯತಾ ಪರೀಕ್ಷೆ ಮತ್ತು ತಾರ್ಕಿಕ ಚಿಂತನೆಯಲ್ಲಿ ಉತ್ಕೃಷ್ಟರಾಗಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+   "sarvam_kn": "ಒಂದು ಬಲವಾದ ಮೊದಲ ವರ್ಷದ ಅಡಿಪಾಯವು ಎಲ್ಲಾ SVIT ಇಂಜಿನಿಯರ್‌ಗಳು ತಮ್ಮ ವೃತ್ತಿಜೀವನದಲ್ಲಿ ಸಾಮರ್ಥ್ಯ ಮತ್ತು ತಾರ್ಕಿಕ ತರ್ಕದಲ್ಲಿ ಉತ್ತಮ ಸಾಧನೆ ಮಾಡುವುದನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ.",
+   "back_en_of_candidate": "A strong first year foundation will ensure all SVIT engineers will achieve excellence and good reasoning in their careers.",
+   "back_en_of_existing": "A strong first year foundation will benefit all SVIT engineers to be competent and logical throughout their careers.",
+   "approved": null
+  },
+  "kn.departments.basic_sciences.fees": {
+   "existing_back_translation": "These subjects are integrated into the first year of engineering curricula.",
+   "candidate_back_translation": "It is offered as an easy introduction to first-year engineering students.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "this is a unique row: the English is 'Integrated seamlessly across the first-year engineering curriculum.' — a single sentence, not a fee schedule. The existing renders this as ಈ ವಿಷಯಗಳನ್ನು ಪ್ರಥಮ ವರ್ಷದ ಎಂಜಿನಿಯರಿಂಗ್ ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಏಕೀಕೃತಗೊಳಿಸಲಾಗಿದೆ (These subjects are integrated into the first year of engineering curricula). Note: existing adds ಈ ವಿಷಯಗಳನ್ನು ('these subjects') which is NOT in the English source — the source is impersonal 'Integrated seamlessly'. This is a minor addition. The Sarvam candidate ಮೊದಲ ವರ್ಷದ ಇಂಜಿನಿಯರಿಂಗ್ ಪಠ್ಯಕ್ರಮದಲ್ಲಿ ಸಲೀಸಾಗಿ ಸಂಯೋಜಿಸಲಾಗಿದೆ (in first-year engineering curriculum integrated seamlessly) loses the 'these subjects' framing but is otherwise a closer rendering. The added ಈ ವಿಷಯಗಳನ್ನು in existing is not a defect (it's a reasonable contextualization, since this row is in the basic_sciences block). KEEP_EXISTING. NOTE: no fee amounts, no protected acronyms, no names — this is a structural/integrative note, not a fee schedule.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Integrated seamlessly across the first-year engineering curriculum"
+   ],
+   "added_clauses": [
+    "ಮೊದಲ ವರ್ಷದ ಇಂಜಿನಿಯರಿಂಗ್ ಪಠ್ಯಕ್ರಮದಲ್ಲಿ ಸಲೀಸಾಗಿ ಸಂಯೋಜಿಸಲಾಗಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 7,
+   "english": "Integrated seamlessly across the first-year engineering curriculum.",
+   "existing_kn": "ಈ ವಿಷಯಗಳನ್ನು ಪ್ರಥಮ ವರ್ಷದ ಎಂಜಿನಿಯರಿಂಗ್ ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಏಕೀಕೃತಗೊಳಿಸಲಾಗಿದೆ.",
+   "sarvam_kn": "ಮೊದಲ ವರ್ಷದ ಇಂಜಿನಿಯರಿಂಗ್ ಪಠ್ಯಕ್ರಮದಲ್ಲಿ ಸಲೀಸಾಗಿ ಸಂಯೋಜಿಸಲಾಗಿದೆ.",
+   "back_en_of_candidate": "It is offered as an easy introduction to first-year engineering students.",
+   "back_en_of_existing": "These subjects are integrated into the first year of engineering curricula.",
+   "approved": null
   }
  }
 }

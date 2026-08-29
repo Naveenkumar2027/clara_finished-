@@ -1377,4 +1377,223 @@ automatically conflicts" — each row's currency is preserved.
 
 ---
 
+## Section 24 — Batch 7 (mechanical review, no production writes)
+
+### Scope
+
+Process the next 25 genuinely unreviewed production-reachable
+Kannada values in deterministic inventory order. Do not include:
+previously reviewed rows, applied correction rows, blocked rows,
+native-review rows, 3 unreachable session keys, citation-artifact
+rows (deferred workstream), or 12 non-reviewable rows. The 25 rows
+are ece, civil, mechanical, mba, basic_sciences × 5 fields each
+(intro, hod_voice, achievements, placement, fees).
+
+### Methodology
+
+- Read EN and existing KN from authoritative locale JSON via
+  `load_locale_data_for_lang_key('kn')`.
+- Triple-translate each row: EN→KN (Sarvam candidate),
+  candidate→EN (round-trip), existing→EN (round-trip of current).
+- 72 Sarvam API calls + 3 cache hits = 75 total, 0 errors.
+- Compare candidate and existing on glossary, protected tokens
+  (acronyms, numbers, currency, HOD names), gender neutrality,
+  terminology drift, and source fidelity.
+- For each row: 25 structured evidence fields, 1 of 8 allowed
+  classifications, no production writes.
+- The pipe `|` in CSE-family fees is preserved (separate TTS
+  sanitizer workstream; does not invalidate terminology
+  corrections).
+
+### Per-row verdicts (25 rows)
+
+| Row | Classification | Verdict |
+|---|---|---|
+| kn.departments.ece.intro | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.ece.hod_voice | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.ece.achievements | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.ece.placement | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.ece.fees | SAFE_CORRECTION_CANDIDATE | present for approval (NOT auto-applied) |
+| kn.departments.civil.intro | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.civil.hod_voice | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.civil.achievements | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.civil.placement | BLOCKED_LINGUISTIC | KEEP_EXISTING (Sarvam has gender narrowing) |
+| kn.departments.civil.fees | BLOCKED_OFFICIAL_FACT | KEEP_EXISTING (requires official-fact verification) |
+| kn.departments.mechanical.intro | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.mechanical.hod_voice | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.mechanical.achievements | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.mechanical.placement | BLOCKED_LINGUISTIC | KEEP_EXISTING (terminology drift + interns hallucination) |
+| kn.departments.mechanical.fees | BLOCKED_OFFICIAL_FACT | KEEP_EXISTING (requires official-fact verification) |
+| kn.departments.mba.intro | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.mba.hod_voice | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.mba.achievements | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.mba.placement | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.mba.fees | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING (amounts preserved) |
+| kn.departments.basic_sciences.intro | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.basic_sciences.hod_voice | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.basic_sciences.achievements | BLOCKED_LINGUISTIC | KEEP_EXISTING (typo present; Sarvam has gender narrowing) |
+| kn.departments.basic_sciences.placement | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING |
+| kn.departments.basic_sciences.fees | KEEP_EXISTING_MECHANICALLY_SUPPORTED | KEEP_EXISTING (no fee schedule, structural note) |
+
+**Count:** 19 KEEP_EXISTING_MECHANICALLY_SUPPORTED, 1
+SAFE_CORRECTION_CANDIDATE, 3 BLOCKED_LINGUISTIC, 2
+BLOCKED_OFFICIAL_FACT.
+
+### SAFE_CORRECTION_CANDIDATE — ece.fees (present for approval, NOT auto-applied)
+
+| Field | Value |
+|---|---|
+| ID | kn.departments.ece.fees |
+| English source | `KCET: As per KEA norms \| Management: ₹2,00,000/year` |
+| Existing (pre-pilot) | `KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ನಿರ್ವಹಣೆ: ₹2,00,000/ವರ್ಷ` |
+| Sarvam candidate | (rejected — transliterates KCET/KEA, rewrites ₹ as Rs., same terminology defect) |
+| Defect | `ನಿರ್ವಹಣೆ` ("maintenance") is incorrect management-quota terminology. Same defect class as cse.fees (Batch 5), cse_aiml.fees, cse_ds.fees (Batch 6). |
+| Proposed correction | `KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,00,000/ವರ್ಷ` |
+| Protected tokens preserved | KCET (Latin), KEA (Latin), ₹2,00,000 (Indian format), /ವರ್ಷ, literal \| |
+| Department-specific amount | ₹2,00,000 (different from cse ₹3,50,000, cse_aiml ₹3,50,000, cse_ds ₹3,00,000) |
+| Status | AWAITING USER APPROVAL — do not auto-apply |
+
+### BLOCKED items (kept as existing, no production write)
+
+- **civil.placement** (BLOCKED_LINGUISTIC): Sarvam's candidate
+  narrows ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ (gender-neutral alumni) to
+  ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿನಿಯರ (female alumni). Same class of defect
+  the Batch 5 pilot caught on cse.placement. KEEP_EXISTING.
+
+- **mechanical.placement** (BLOCKED_LINGUISTIC): Sarvam's
+  candidate drifts ಕೋರ್ (core) → ಪ್ರಮುಖ (major/major) and
+  hallucinates "experienced, industry-ready interns" in the
+  back-translation (source says "graduates", not "interns").
+  KEEP_EXISTING.
+
+- **basic_sciences.achievements** (BLOCKED_LINGUISTIC): existing
+  has a duplicated-word typo `ಸಂಶೋಧನಾ ಸಂಶೋಧನೆಗಳನ್ನು` (research
+  research-findings); Sarvam's candidate fixes the typo but
+  introduces a gender-narrowing term ಬೋಧಕಿಯರು (feminine plural).
+  KEEP_EXISTING on this row; the typo fix is deferred to a
+  separate SAFE_CORRECTION_CANDIDATE step.
+
+- **civil.fees** (BLOCKED_OFFICIAL_FACT): KCET amount ₹1,10,000
+  and the management-quota policy statement "Priority CET-FEES
+  as per KEA" are official facts that cannot be verified from
+  within the locale JSON. The ನಿರ್ವಹಣೆ terminology defect is
+  present, but the policy statement is structurally different
+  from the CSE-family's flat-rate form; applying the Batch 6
+  correction requires verifying the management-policy wording.
+  KEEP_EXISTING.
+
+- **mechanical.fees** (BLOCKED_OFFICIAL_FACT): same structure
+  and amount as civil.fees. Same deferred workstream.
+
+### Cumulative state (post-Batch 7)
+
+```
+TOTAL PRODUCTION-REACHABLE:           209
+TOTAL DECISIONS (pilot + b2-b7):      165  (15 pilot + 6 × 25 batches)
+PRODUCTION-REACHABLE MECHANICALLY
+  REVIEWED (B ∩ A):                   160
+  of which:
+    KEEP_EXISTING_MECHANICALLY_SUPPORTED:  19 (this batch)
+    SAFE_CORRECTION_CANDIDATES:             1 (this batch, ece.fees — applied below)
+    BLOCKED_LINGUISTIC:                     3 (this batch)
+    BLOCKED_OFFICIAL_FACT:                  2 (this batch)
+    + 135 prior-batch production-reachable reviews
+NON-REVIEWABLE ROWS IN DECISIONS:       5  (B − A: 4 *.name + 1 affiliations)
+DUPLICATE DECISIONS:                     0
+REMAINING UNREVIEWED:                  49  (A − B)
+SARVAM API CALLS:                      72
+CACHE HITS:                             3
+```
+
+Of the 49 remaining unreviewed rows, **all 49** have `[cite:
+NNN]` citation markers in their English source. Per the
+user's policy, the citation-artifact rows remain deferred
+until the source-text policy is resolved. There are zero
+genuinely unreviewed non-citation rows left after Batch 7.
+
+### Reconciliation note (post-Batch 7 verification)
+
+The user's pre-Batch-7 brief stated "REMAINING UNREVIEWED:
+69" and "PREVIOUSLY MECHANICALLY REVIEWED THROUGH BATCH 6:
+140" — arithmetic implies 209 − 140 = 69. The user's
+Batch 7 instructions stated "Expected mechanically reviewed:
+165" and "Expected unreviewed: 44" — arithmetic implies
+209 − 165 = 44.
+
+Both expected pairs are mutually inconsistent with the
+exact-set reconciliation. The 5 non-reviewable rows in the
+decisions file (4 *.name + 1 affiliations) are valid
+evidence records but are NOT in the production-reachable
+inventory set A. They inflate the "decisions" count
+without inflating the "production-reachable reviewed"
+count. The correct accounting is:
+
+- 165 total decisions = 160 (B ∩ A) + 5 (B − A)
+- 209 production-reachable = 160 reviewed + 49 unreviewed
+
+The "44 expected unreviewed" was arithmetically forced by
+treating B (decisions) and A (production-reachable) as if
+they had the same cardinality, which they do not. The "49
+remaining" is the correct count when computed from the
+exact set difference A − B.
+
+### ECE fees correction — APPLIED (Part 3)
+
+After reconciliation, the Batch 7 `SAFE_CORRECTION_CANDIDATE`
+for `kn.departments.ece.fees` was applied with the user's
+explicit authorization. The change is the same single
+defect class as the Batch 6 corrections (ನಿರ್ವಹಣೆ →
+ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ). Protected tokens preserved exactly.
+
+| Field | Value |
+|---|---|
+| ID | `kn.departments.ece.fees` |
+| Old (verified exact match) | `KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ನಿರ್ವಹಣೆ: ₹2,00,000/ವರ್ಷ` |
+| New (applied) | `KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,00,000/ವರ್ಷ` |
+| Diff | 1 line in `backend/data/locales/kn.json` (line 205) |
+| KCET | preserved (Latin) |
+| KEA | preserved (Latin) |
+| ₹2,00,000 | preserved (Indian number format) |
+| /ವರ್ಷ | preserved |
+| literal \| | preserved (TTS sanitization is separate workstream) |
+| Original classification | preserved as `SAFE_CORRECTION_CANDIDATE` |
+| `applied_status` (new) | `APPLIED_PENDING_INDEPENDENT_REVIEW` |
+| `pre_application_kn` | the old value (recorded) |
+| `current_kn` | the new value (recorded) |
+| `approved` | the new value (recorded) |
+| Pattern match | byte-identical to Batch 6 cse_aiml.fees and cse_ds.fees corrections |
+
+### Files changed (post-Batch 7)
+
+- `backend/data/locales/kn.json` — 1 line edit (ECE fees).
+- `backend/tools/kannada_review_decisions.json` — 25 entries
+  added (Batch 7) + 1 entry updated (ECE fees application
+  metadata). Total decisions: 165.
+- `backend/tests/test_kannada_safe_pilot_batch2_fee_terminology.py` —
+  8 new tests for ECE fees, all passing. Total in file: 19.
+- `KANNADA_COMPLETE_LANGUAGE_REMEDIATION.md` — section 24
+  (this section) added; this batch's evidence recorded.
+- No commit, no push per user instruction.
+
+### Tests run
+
+- `python -m pytest backend/tests/test_kannada_decision_schema.py
+  backend/tests/test_kannada_safe_pilot_batch1_exact_strings.py
+  backend/tests/test_kannada_safe_pilot_batch2_fee_terminology.py
+  backend/tests/test_kannada_corrected_locale_integration.py -q`
+  → **46 passed in 0.60s** (38 prior + 8 new ECE).
+
+### Git diff check
+
+- `git diff --check` → clean.
+- `git status --short`:
+  ```
+   M KANNADA_COMPLETE_LANGUAGE_REMEDIATION.md
+   M backend/data/locales/kn.json
+   M backend/tests/test_kannada_safe_pilot_batch2_fee_terminology.py
+   M backend/tools/kannada_review_decisions.json
+  ```
+
+---
+
 End of audit.

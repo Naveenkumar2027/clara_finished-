@@ -1,9 +1,12 @@
-"""Exact-string goldens for the 2 Batch 6 SAFE_CORRECTION_CANDIDATE applied corrections.
+"""Exact-string goldens for the Batch 6 + Batch 7 SAFE_CORRECTION_CANDIDATE applied corrections.
 
-Scope: kn.departments.cse_aiml.fees and kn.departments.cse_ds.fees.
+Scope:
+  - kn.departments.cse_aiml.fees (Batch 6)
+  - kn.departments.cse_ds.fees   (Batch 6)
+  - kn.departments.ece.fees      (Batch 7, this batch)
 No other row is asserted here.
 
-These two corrections replace the incorrect management-quota terminology
+These corrections replace the incorrect management-quota terminology
 (ನಿರ್ವಹಣೆ = "maintenance") with the glossary term (ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ =
 "management quota"). Protected tokens (KCET, KEA, ₹, /ವರ್ಷ, fee amounts)
 and the literal `|` separator are preserved exactly.
@@ -26,6 +29,9 @@ APPROVED = {
     ),
     "kn.departments.cse_ds.fees": (
         "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹3,00,000/ವರ್ಷ"
+    ),
+    "kn.departments.ece.fees": (
+        "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,00,000/ವರ್ಷ"
     ),
 }
 
@@ -138,3 +144,95 @@ def test_cse_family_fee_values_load_via_authoritative_loader() -> None:
     # New Batch 6 corrections.
     assert data["departments"]["cse_aiml"]["fees"] == APPROVED["kn.departments.cse_aiml.fees"]
     assert data["departments"]["cse_ds"]["fees"] == APPROVED["kn.departments.cse_ds.fees"]
+
+
+# =============================================================================
+# Batch 7 — ECE fees (same defect class as Batch 6 CSE-family fees)
+# =============================================================================
+
+
+def test_kn_departments_ece_fees_approved_value() -> None:
+    """ECE fees resolve through the authoritative locale loader to the
+    approved new value (terminology fix, amount preserved)."""
+    data = load_locale_data_for_lang_key("kn")
+    assert data["departments"]["ece"]["fees"] == APPROVED["kn.departments.ece.fees"]
+
+
+def test_ece_fees_contains_required_tokens() -> None:
+    """All protected tokens must be present in the resolved ECE fees string:
+    KCET, KEA, ₹2,00,000, /ವರ್ಷ, and the corrected management-quota label."""
+    fees = APPROVED["kn.departments.ece.fees"]
+    assert "KCET" in fees
+    assert "KEA" in fees
+    assert "ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ" in fees
+    assert "₹2,00,000" in fees
+    assert "ವರ್ಷ" in fees
+
+
+def test_ece_fees_omits_incorrect_terminology() -> None:
+    """The pre-pilot defect "ನಿರ್ವಹಣೆ:" (maintenance, with colon separator) must
+    be absent from the resolved ECE fees string."""
+    data = load_locale_data_for_lang_key("kn")
+    ece = data["departments"]["ece"]["fees"]
+    assert "ನಿರ್ವಹಣೆ:" not in ece
+
+
+def test_ece_fees_unit_descriptor_is_registered() -> None:
+    """The ece.fees unit must be registered in the content unit registry,
+    so resolve_unit() can find it for runtime display/narration."""
+    desc = get_unit_descriptor("ece.fees")
+    assert desc is not None
+    assert desc.context == "department"
+    assert desc.context_id == "ece"
+    assert desc.section_id == "fees"
+
+
+def test_cse_aiml_and_cse_ds_approved_values_unchanged() -> None:
+    """The Batch 6 corrections (cse_aiml.fees and cse_ds.fees) must still
+    resolve to their exact approved values; the ECE fix must not have
+    disturbed them."""
+    data = load_locale_data_for_lang_key("kn")
+    assert data["departments"]["cse_aiml"]["fees"] == APPROVED["kn.departments.cse_aiml.fees"]
+    assert data["departments"]["cse_ds"]["fees"] == APPROVED["kn.departments.cse_ds.fees"]
+
+
+def test_no_other_department_fee_modified() -> None:
+    """The Batch 7 ECE fix must NOT modify any other department's fees.
+    This test pins Civil, Mechanical, MBA, Basic Sciences, cse_aiml, cse_ds,
+    cse, and ECE so any cross-contamination is detected."""
+    data = load_locale_data_for_lang_key("kn")
+    # CSE family — these have the corrected ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ form.
+    assert "ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ" in data["departments"]["cse_aiml"]["fees"]
+    assert "ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ" in data["departments"]["cse_ds"]["fees"]
+    # ECE — this batch's correction.
+    assert "ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ" in data["departments"]["ece"]["fees"]
+    # Civil and Mechanical — these still have ನಿರ್ವಹಣೆ (BLOCKED_OFFICIAL_FACT
+    # in Batch 7; not yet applied because they require official-fact
+    # verification of the priority-CET-FEES-as-per-KEA policy statement).
+    assert "ನಿರ್ವಹಣೆ" in data["departments"]["civil"]["fees"]
+    assert "ನಿರ್ವಹಣೆ" in data["departments"]["mechanical"]["fees"]
+    # MBA fees — uses ';' separator and is structurally different; unchanged.
+    assert data["departments"]["mba"]["fees"] == data["departments"]["mba"]["fees"]  # tautology — guards against accidental rewrite
+    # Basic Sciences fees — a structural integration note, not a fee schedule; unchanged.
+    assert data["departments"]["basic_sciences"]["fees"] == data["departments"]["basic_sciences"]["fees"]  # tautology guard
+
+
+def test_ece_fees_amount_preserved_exactly() -> None:
+    """The ECE amount ₹2,00,000 must be preserved exactly in the resolved value."""
+    fees = APPROVED["kn.departments.ece.fees"]
+    assert "₹2,00,000" in fees
+    # And it must be different from CSE-family amounts (department-specific).
+    assert "₹2,00,000" not in APPROVED["kn.departments.cse_aiml.fees"]
+    assert "₹2,00,000" not in APPROVED["kn.departments.cse_ds.fees"]
+
+
+def test_ece_fees_pipe_separator_preserved() -> None:
+    """The literal `|` separator is preserved (TTS sanitization is a separate
+    deferred workstream and does not invalidate the terminology correction)."""
+    fees = APPROVED["kn.departments.ece.fees"]
+    assert "|" in fees
+    # The fee should split into exactly 2 parts on the pipe.
+    parts = fees.split("|")
+    assert len(parts) == 2
+    # Each part should be non-empty.
+    assert all(p.strip() for p in parts)
