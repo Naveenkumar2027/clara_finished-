@@ -4152,6 +4152,3296 @@
    "back_en_of_candidate": "Select the program.",
    "back_en_of_existing": "Select the program.",
    "approved": null
+  },
+  "ui.comparison.swipe_hint": {
+   "existing_back_translation": "The insights continue automatically – one step at a time for each program.",
+   "candidate_back_translation": "The insights continue automatically – one beat per program, in sync.",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಒಳನೋಟಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮುಂದುವರಿಯುತ್ತವೆ — ಪ್ರತಿ ಕಾರ್ಯಕ್ರಮಕ್ಕೆ ಒಂದೊಂದು ಹಂತ translates as 'Insights continue automatically — one step at a time for each program'. Candidate transliterates 'beat' and 'sync' (ಬೀಟ್, ಸಿಂಕ್) and uses 'program' (ಪ್ರೋಗ್ರಾಂ). Both are reasonable. Existing is more idiomatic but loses the 'in sync' feel; candidate preserves the rhythm. Defer to a native speaker on tone for this display-only hint.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Insights advance automatically — one beat per program, in sync"
+   ],
+   "added_clauses": [
+    "ಒಳನೋಟಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮುಂದುವರಿಯುತ್ತವೆ - ಪ್ರತಿ ಪ್ರೋಗ್ರಾಂಗೆ ಒಂದು ಬೀಟ್, ಸಿಂಕ್‌ನಲ್ಲಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Insights advance automatically — one beat per program, in sync.",
+   "existing_kn": "ಒಳನೋಟಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮುಂದುವರಿಯುತ್ತವೆ — ಪ್ರತಿ ಕಾರ್ಯಕ್ರಮಕ್ಕೆ ಒಂದೊಂದು ಹಂತ.",
+   "sarvam_kn": "ಒಳನೋಟಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮುಂದುವರಿಯುತ್ತವೆ - ಪ್ರತಿ ಪ್ರೋಗ್ರಾಂಗೆ ಒಂದು ಬೀಟ್, ಸಿಂಕ್‌ನಲ್ಲಿ.",
+   "back_en_of_candidate": "The insights continue automatically – one beat per program, in sync.",
+   "back_en_of_existing": "The insights continue automatically – one step at a time for each program.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.comparison.highlighted": {
+   "existing_back_translation": "Recommended Selection",
+   "candidate_back_translation": "The recommended focus is",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಶಿಫಾರಸು ಮಾಡಿದ ಆಯ್ಕೆ ('Recommended Selection') and candidate ಶಿಫಾರಸು ಮಾಡಲಾದ ಗಮನ ('Recommended Focus') are both valid Kannada. The English source is 'Recommended focus'. The existing value uses 'ಆಯ್ಕೆ' (selection) which is close but not exact; the candidate uses 'ಗಮನ' (focus) which is more literal. Stylistic. Default KEEP_EXISTING; defer on consistency.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Recommended focus"
+   ],
+   "added_clauses": [
+    "ಶಿಫಾರಸು ಮಾಡಲಾದ ಗಮನ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Recommended focus",
+   "existing_kn": "ಶಿಫಾರಸು ಮಾಡಿದ ಆಯ್ಕೆ",
+   "sarvam_kn": "ಶಿಫಾರಸು ಮಾಡಲಾದ ಗಮನ",
+   "back_en_of_candidate": "The recommended focus is",
+   "back_en_of_existing": "Recommended Selection",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.fees": {
+   "existing_back_translation": "The fee information for the {department} department is being displayed on the screen.",
+   "candidate_back_translation": "Showing the fee information for the {department}.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate transliterates the placeholder {department} to {ಇಲಾಖೆ} and adds the redundant 'ಇಲಾಖೆಗೆ' ('to the department'), producing a structurally broken template that will fail at runtime. Existing preserves the {department} placeholder in Latin. Block.",
+   "placeholder_check": {
+    "status": "FAIL",
+    "detail": "placeholders en=['{department}'] cand=[]"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing fee information for the {department} department"
+   ],
+   "added_clauses": [
+    "{ಇಲಾಖೆ} ಇಲಾಖೆಗೆ ಶುಲ್ಕದ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [
+    "ಇಲಾಖೆ in candidate (rejected glossary term for academic department)"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing fee information for the {department} department.",
+   "existing_kn": "{department} ವಿಭಾಗದ ಶುಲ್ಕದ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "{ಇಲಾಖೆ} ಇಲಾಖೆಗೆ ಶುಲ್ಕದ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "Showing the fee information for the {department}.",
+   "back_en_of_existing": "The fee information for the {department} department is being displayed on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.documents": {
+   "existing_back_translation": "Required documents: {items}.",
+   "candidate_back_translation": "Required documents: {items}.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಅಗತ್ಯವಿರುವ ದಾಖಲೆಗಳು: {items}. and candidate ಬೇಕಾಗಿರುವ ದಾಖಲೆಗಳು: {ಐಟಂಗಳು}. — candidate transliterates the {items} placeholder to {ಐಟಂಗಳು} (Kannada for 'items'). Placeholder must remain in Latin for the runtime template substitution. Block candidate; keep existing.",
+   "placeholder_check": {
+    "status": "FAIL",
+    "detail": "placeholders en=['{items}'] cand=[]"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "The required documents are: {items}"
+   ],
+   "added_clauses": [
+    "ಬೇಕಾಗಿರುವ ದಾಖಲೆಗಳು: {ಐಟಂಗಳು}"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "The required documents are: {items}.",
+   "existing_kn": "ಅಗತ್ಯವಿರುವ ದಾಖಲೆಗಳು: {items}.",
+   "sarvam_kn": "ಬೇಕಾಗಿರುವ ದಾಖಲೆಗಳು: {ಐಟಂಗಳು}.",
+   "back_en_of_candidate": "Required documents: {items}.",
+   "back_en_of_existing": "Required documents: {items}.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.location": {
+   "existing_back_translation": "SVIT is located at Rajanukunte, Yelahanka Road, Bengaluru, Karnataka 560 064.",
+   "candidate_back_translation": "SVIT is located at Rajanukonda, Yelahanka, Bangalore, Karnataka 560 064.",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಬೆಂಗಳೂರಿನ ಯಲಹಂಕ ಮಾರ್ಗದ ರಾಜಾನುಕುಂಟೆ, ಕರ್ನಾಟಕ 560 064ರಲ್ಲಿ ಇದೆ uses literal English word order ('in Bengaluru's Yelahanka road's Rajanukunte'). Candidate ರಾಜಾನುಕುಂಟೆಯಲ್ಲಿ, ಯಲಹಂಕ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560 064ರ ಮೂಲಕ ಇದೆ uses a more natural Kannada address order ('at Rajanukunte, via Yelahanka, Bengaluru, Karnataka 560 064'). Candidate also transliterates SVIT to ಎಸ್‌.ವಿ.ಐ.ಟಿ.ಯು with full-stop initials. Existing is closer to the project glossary (SVIT in Latin). Defer on address order; existing wins on protected acronym.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['064', '560']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['SVIT']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['SVIT']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "SVIT is located in Rajanukunte, via Yelahanka, Bengaluru, Karnataka 560 064"
+   ],
+   "added_clauses": [
+    "ಎಸ್‌",
+    "ವಿ",
+    "ಐ",
+    "ಟಿ",
+    "ಯು ರಾಜಾನುಕುಂಟೆಯಲ್ಲಿ, ಯಲಹಂಕ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560 064ರ ಮೂಲಕ ಇದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "SVIT is located in Rajanukunte, via Yelahanka, Bengaluru, Karnataka 560 064.",
+   "existing_kn": "SVIT ಬೆಂಗಳೂರಿನ ಯಲಹಂಕ ಮಾರ್ಗದ ರಾಜಾನುಕುಂಟೆ, ಕರ್ನಾಟಕ 560 064ರಲ್ಲಿ ಇದೆ.",
+   "sarvam_kn": "ಎಸ್‌.ವಿ.ಐ.ಟಿ.ಯು ರಾಜಾನುಕುಂಟೆಯಲ್ಲಿ, ಯಲಹಂಕ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560 064ರ ಮೂಲಕ ಇದೆ.",
+   "back_en_of_candidate": "SVIT is located at Rajanukonda, Yelahanka, Bangalore, Karnataka 560 064.",
+   "back_en_of_existing": "SVIT is located at Rajanukunte, Yelahanka Road, Bengaluru, Karnataka 560 064.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.admissions": {
+   "existing_back_translation": "The login information is being displayed on the screen.",
+   "candidate_back_translation": "The login information is being displayed on the screen.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಪ್ರವೇಶಾತಿಯ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ uses 'ಪ್ರವೇಶಾತಿಯ' (admission-process, a formal compound). Candidate uses 'ಪ್ರವೇಶ' (admission, more common). Both back-translate to 'login information' which is wrong (the model confuses 'admission' with 'login'). Existing is more formal but uses a non-standard compound; candidate is more idiomatic but loses formality. The English source is 'Showing admissions information on screen'. Stylistic; defer to a native speaker on house style. Default KEEP_EXISTING for consistency with the rest of the ui.action.* block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing admissions information on screen"
+   ],
+   "added_clauses": [
+    "ಪರದೆಯ ಮೇಲೆ ಪ್ರವೇಶ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing admissions information on screen.",
+   "existing_kn": "ಪ್ರವೇಶಾತಿಯ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "ಪರದೆಯ ಮೇಲೆ ಪ್ರವೇಶ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "The login information is being displayed on the screen.",
+   "back_en_of_existing": "The login information is being displayed on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.placements": {
+   "existing_back_translation": "The placement information is shown on the screen.",
+   "candidate_back_translation": "The information about the deployment is shown on a screen.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate ನಿಯೋಜನೆಯ ಮಾಹಿತಿ means 'deployment information' (ನಿಯೋಜನೆ = deployment/appointment). The English source is 'placement information'. The existing ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಮಾಹಿತಿ uses the protected-token transliteration. Sarvam's back-translation confirmed the semantic drift ('information about the deployment'). Same pattern as Batch 4's ui.cards.training_objectives.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing placement information on screen"
+   ],
+   "added_clauses": [
+    "ಪರದೆಯ ಮೇಲೆ ನಿಯೋಜನೆಯ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing placement information on screen.",
+   "existing_kn": "ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "ಪರದೆಯ ಮೇಲೆ ನಿಯೋಜನೆಯ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "The information about the deployment is shown on a screen.",
+   "back_en_of_existing": "The placement information is shown on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.department": {
+   "existing_back_translation": "The information of the {department} department is being displayed on the screen.",
+   "candidate_back_translation": "The information about the department is being displayed on the screen.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate transliterates {department} to {ಇಲಾಖೆ} AND uses 'ಇಲಾಖೆ' as a separate word ('ಇಲಾಖೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿ' = 'information about the department'), so the placeholder is both transliterated AND rendered as a redundant literal word. Runtime substitution will fail. Existing preserves the Latin placeholder correctly.",
+   "placeholder_check": {
+    "status": "FAIL",
+    "detail": "placeholders en=['{department}'] cand=[]"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing information about the {department} department on screen"
+   ],
+   "added_clauses": [
+    "{ಇಲಾಖೆ} ಇಲಾಖೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [
+    "ಇಲಾಖೆ in candidate (rejected glossary term for academic department)"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing information about the {department} department on screen.",
+   "existing_kn": "{department} ವಿಭಾಗದ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "{ಇಲಾಖೆ} ಇಲಾಖೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "The information about the department is being displayed on the screen.",
+   "back_en_of_existing": "The information of the {department} department is being displayed on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.hod": {
+   "existing_back_translation": "The information of the head of the {department} section is being displayed on the screen.",
+   "candidate_back_translation": "The information about the head of the department is being shown.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "same placeholder violation as ui.action.department and ui.action.fees: candidate transliterates {department} to {ಇಲಾಖೆ} and adds 'ಇಲಾಖೆಯ' ('of the department') as a redundant literal. Block.",
+   "placeholder_check": {
+    "status": "FAIL",
+    "detail": "placeholders en=['{department}'] cand=[]"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing Head of Department information for the {department} department"
+   ],
+   "added_clauses": [
+    "{ಇಲಾಖೆ} ಇಲಾಖೆಯ ಮುಖ್ಯಸ್ಥರ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [
+    "ಇಲಾಖೆ in candidate (rejected glossary term for academic department)"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing Head of Department information for the {department} department.",
+   "existing_kn": "{department} ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "{ಇಲಾಖೆ} ಇಲಾಖೆಯ ಮುಖ್ಯಸ್ಥರ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "The information about the head of the department is being shown.",
+   "back_en_of_existing": "The information of the head of the {department} section is being displayed on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.college": {
+   "existing_back_translation": "The information for the requested college is being displayed on the screen.",
+   "candidate_back_translation": "The screen displays the college information that was requested.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಕೋರಿದ ಕಾಲೇಜಿನ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ and candidate ಪರದೆಯ ಮೇಲೆ ವಿನಂತಿಸಿದ ಕಾಲೇಜಿನ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ differ only in word order. Both back-translate to the same English. Existing matches the verb-form pattern of the other ui.action.* rows ('ತೋರಿಸಲಾಗುತ್ತಿದೆ' = 'is being shown', present continuous). KEEP_EXISTING for block consistency.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing the requested college information on screen"
+   ],
+   "added_clauses": [
+    "ಪರದೆಯ ಮೇಲೆ ವಿನಂತಿಸಿದ ಕಾಲೇಜಿನ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing the requested college information on screen.",
+   "existing_kn": "ಕೋರಿದ ಕಾಲೇಜಿನ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "ಪರದೆಯ ಮೇಲೆ ವಿನಂತಿಸಿದ ಕಾಲೇಜಿನ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "The screen displays the college information that was requested.",
+   "back_en_of_existing": "The information for the requested college is being displayed on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.principal": {
+   "existing_back_translation": "The principals information is being shown on the screen.",
+   "candidate_back_translation": "The principal's profile is shown on the screen.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಪ್ರಾಂಶುಪಾಲರ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ and candidate ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ differ in 'ಮಾಹಿತಿ' (information) vs 'ಪ್ರೊಫೈಲ್' (profile). The English source uses 'profile'. Candidate is more literal. Stylistic. KEEP_EXISTING for block consistency; defer on house style for 'profile' vs 'information'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing the Principal profile on screen"
+   ],
+   "added_clauses": [
+    "ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing the Principal profile on screen.",
+   "existing_kn": "ಪ್ರಾಂಶುಪಾಲರ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "The principal's profile is shown on the screen.",
+   "back_en_of_existing": "The principals information is being shown on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "ui.action.vice_principal": {
+   "existing_back_translation": "The information of the vice-principal is being displayed on the screen.",
+   "candidate_back_translation": "The screen displays the profile of the sub-principal.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "same pattern as ui.action.principal: existing ಉಪ ಪ್ರಾಂಶುಪಾಲರ ಮಾಹಿತಿಯನ್ನು vs candidate ಉಪ ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಅನ್ನು. Stylistic. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Showing the Vice Principal profile on screen"
+   ],
+   "added_clauses": [
+    "ಪರದೆಯ ಮೇಲೆ ಉಪ ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಅನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Showing the Vice Principal profile on screen.",
+   "existing_kn": "ಉಪ ಪ್ರಾಂಶುಪಾಲರ ಮಾಹಿತಿಯನ್ನು ಪರದೆಯ ಮೇಲೆ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "sarvam_kn": "ಪರದೆಯ ಮೇಲೆ ಉಪ ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಅನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+   "back_en_of_candidate": "The screen displays the profile of the sub-principal.",
+   "back_en_of_existing": "The information of the vice-principal is being displayed on the screen.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.about": {
+   "existing_back_translation": "Sai Vidya Institute of Technology (SVIT), Rajanukunte, Yelahanka Road, Bangalore, Karnataka - 560 064. Established in 2008. Campus: 12 acres. Students: 1,511+. Faculty: 94+.",
+   "candidate_back_translation": "Sai Vidya Institute of Technology (Svit) [citation: 8] Rajanukunte, Via Yelahanka, Bangalore, Karnataka 560 064 [citation: 9] Established: 2008 [citation: 10] Campus: 12 acres [citation: 12] Students: 1,511+ [citation: 13] Faculty: 94+ [citation: 14]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: N]' citation artifacts after every fact (ಉಲ್ಲೇಖ = citation/reference), reproducing the English source's [cite: N] markers. The existing value uses clean sentences with periods and drops the citation artifacts. The English source itself contains citation artifacts; this is a separate 'citation artifacts' deferred workstream. The existing value's omission of citations is itself a defect (it drops evidence), but candidate's reproduction of citations in a different script is a runtime-display issue: the kiosk would render '[ಉಲ್ಲೇಖ: 8]' as visible text, which is not production-grade. Block candidate; leave the citation-artifacts decision in the deferred workstream.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['064', '1,511', '10', '12', '12', '13', '14', '2008', '560', '8', '9', '94']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['SVIT']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['SVIT']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Sai Vidya Institute of Technology (SVIT) [cite: 8] Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064 [cite: 9] Established: 2008 [cite: 10] Campus: 12 acres [cite: 12] Students: 1,511+ [cite: 13] Faculty: 94+ [cite: 14]"
+   ],
+   "added_clauses": [
+    "ಸಾಯಿ ವಿದ್ಯಾ ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಟೆಕ್ನಾಲಜಿ (ಎಸ್ವಿಐಟಿ) [ಉಲ್ಲೇಖ: 8] ರಾಜಾನುಕುಂಟೆ, ವಯಾ ಯಲಹಂಕ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560 064 [ಉಲ್ಲೇಖ: 9] ಸ್ಥಾಪನೆ: 2008 [ಉಲ್ಲೇಖ: 10] ಕ್ಯಾಂಪಸ್: 12 ಎಕರೆಗಳು [ಉಲ್ಲೇಖ: 12] ವಿದ್ಯಾರ್ಥಿಗಳು: 1,511+ [ಉಲ್ಲೇಖ: 13] ಅಧ್ಯಾಪಕರು: 94+ [ಉಲ್ಲೇಖ: 14]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Sai Vidya Institute of Technology (SVIT) [cite: 8] Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064 [cite: 9] Established: 2008 [cite: 10] Campus: 12 acres [cite: 12] Students: 1,511+ [cite: 13] Faculty: 94+ [cite: 14]",
+   "existing_kn": "ಸಾಯಿ ವಿದ್ಯಾ ಇನ್‌ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಟೆಕ್ನಾಲಜಿ (SVIT), ರಾಜನುಕುಂಟೆ, ಯಲಹಂಕಾ ಮಾರ್ಗ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ - 560 064. ಸ್ಥಾಪನೆ: 2008. ಆವರಣ: 12 ಎಕರೆ. ವಿದ್ಯಾರ್ಥಿಗಳು: 1,511+. ಬೋಧಕ ಸಿಬ್ಬಂದಿ: 94+.",
+   "sarvam_kn": "ಸಾಯಿ ವಿದ್ಯಾ ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಟೆಕ್ನಾಲಜಿ (ಎಸ್ವಿಐಟಿ) [ಉಲ್ಲೇಖ: 8] ರಾಜಾನುಕುಂಟೆ, ವಯಾ ಯಲಹಂಕ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560 064 [ಉಲ್ಲೇಖ: 9] ಸ್ಥಾಪನೆ: 2008 [ಉಲ್ಲೇಖ: 10] ಕ್ಯಾಂಪಸ್: 12 ಎಕರೆಗಳು [ಉಲ್ಲೇಖ: 12] ವಿದ್ಯಾರ್ಥಿಗಳು: 1,511+ [ಉಲ್ಲೇಖ: 13] ಅಧ್ಯಾಪಕರು: 94+ [ಉಲ್ಲೇಖ: 14]",
+   "back_en_of_candidate": "Sai Vidya Institute of Technology (Svit) [citation: 8] Rajanukunte, Via Yelahanka, Bangalore, Karnataka 560 064 [citation: 9] Established: 2008 [citation: 10] Campus: 12 acres [citation: 12] Students: 1,511+ [citation: 13] Faculty: 94+ [citation: 14]",
+   "back_en_of_existing": "Sai Vidya Institute of Technology (SVIT), Rajanukunte, Yelahanka Road, Bangalore, Karnataka - 560 064. Established in 2008. Campus: 12 acres. Students: 1,511+. Faculty: 94+.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.vision_and_mission": {
+   "existing_back_translation": "\"To contribute skilled and intelligent engineers and business executives dedicated to building a strong India and a progressive world globally.\" 1. To provide quality education and skill-based training to prepare dedicated engineers and managers. 2. To promote research, innovation, and ethical practices by creating a supportive learning environment. 3. To undertake educational and entrepreneurial collaborative projects that transform young minds into socially responsible and globally competent professionals. 4. To enhance the personality traits and leadership skills that foster entrepreneurship in students.",
+   "candidate_back_translation": "\"To contribute dedicated, skilled, and intelligent engineers and business executives to build a strong India and a globally progressive world.\" [Reference: 86] 1. Provide quality education and skill-based training to produce dedicated engineers and managers. [Reference: 88] 2. Promote research, innovation, and ethical practices by creating a supportive learning environment. [Reference: 89] 3. Undertake educational and industrial collaboration projects that transform young minds into socially responsible and globally competent professionals. [Reference: 90] 4. Enhance the personality traits and leadership skills that foster entrepreneurship in students. [Reference: 91]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "same citation-artifact pattern as kn.institution_overview.about: candidate adds '[ಉಲ್ಲೇಖ: 86/88/89/90/91]' after each numbered mission point. Existing drops them. Block candidate for the same display-suitability reason; leave the citation-artifacts policy in the deferred workstream.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['1', '2', '3', '4', '86', '88', '89', '90', '91']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "\"Contribute dedicated, skilled, and intelligent engineers and business administrators to architect a strong India and a globally progressive world",
+    "\" [cite: 86] 1",
+    "Provide quality education and skill-based training to produce dedicated engineers and managers [cite: 88] 2",
+    "Promote research, innovation, and ethical practices by creating a supportive learning environment [cite: 89] 3",
+    "Undertake collaborative projects with academia and industry that transform young minds into socially responsible and globally competent professionals [cite: 90] 4",
+    "Enhance personality traits and leadership skills that foster entrepreneurship among students [cite: 91]"
+   ],
+   "added_clauses": [
+    "\"ಒಂದು ಬಲಿಷ್ಠ ಭಾರತ ಮತ್ತು ಜಾಗತಿಕವಾಗಿ ಪ್ರಗತಿಪರ ಜಗತ್ತನ್ನು ರೂಪಿಸಲು ಸಮರ್ಪಿತ, ನುರಿತ ಮತ್ತು ಬುದ್ಧಿವಂತ ಎಂಜಿನಿಯರ್‌ಗಳು ಮತ್ತು ವ್ಯವಹಾರ ನಿರ್ವಾಹಕರನ್ನು ಕೊಡುಗೆ ನೀಡಿ",
+    "\" [ಉಲ್ಲೇಖ: 86] 1",
+    "ಸಮರ್ಪಿತ ಎಂಜಿನಿಯರ್‌ಗಳು ಮತ್ತು ವ್ಯವಸ್ಥಾಪಕರನ್ನು ಉತ್ಪಾದಿಸಲು ಗುಣಮಟ್ಟದ ಶಿಕ್ಷಣ ಮತ್ತು ಕೌಶಲ್ಯ ಆಧಾರಿತ ತರಬೇತಿಯನ್ನು ನೀಡಿ [ಉಲ್ಲೇಖ: 88] 2",
+    "ಬೆಂಬಲಿತ ಕಲಿಕೆಯ ವಾತಾವರಣವನ್ನು ರಚಿಸುವ ಮೂಲಕ ಸಂಶೋಧನೆ, ನಾವೀನ್ಯತೆ ಮತ್ತು ನೈತಿಕ ಅಭ್ಯಾಸಗಳನ್ನು ಉತ್ತೇಜಿಸಿ [ಉಲ್ಲೇಖ: 89] 3",
+    "ಯುವ ಮನಸ್ಸುಗಳನ್ನು ಸಾಮಾಜಿಕವಾಗಿ ಜವಾಬ್ದಾರಿಯುತ ಮತ್ತು ಜಾಗತಿಕವಾಗಿ ಸಮರ್ಥ ವೃತ್ತಿಪರರನ್ನಾಗಿ ಪರಿವರ್ತಿಸುವ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ಕೈಗಾರಿಕಾ ಸಹಯೋಗದ ಯೋಜನೆಗಳನ್ನು ಕೈಗೊಳ್ಳಿ [ಉಲ್ಲೇಖ: 90] 4",
+    "ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಬೆಳೆಸುವ ವ್ಯಕ್ತಿತ್ವ ಲಕ್ಷಣಗಳು ಮತ್ತು ನಾಯಕತ್ವ ಕೌಶಲ್ಯಗಳನ್ನು ಹೆಚ್ಚಿಸಿ [ಉಲ್ಲೇಖ: 91]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "\"Contribute dedicated, skilled, and intelligent engineers and business administrators to architect a strong India and a globally progressive world.\" [cite: 86] 1. Provide quality education and skill-based training to produce dedicated engineers and managers [cite: 88] 2. Promote research, innovation, and ethical practices by creating a supportive learning environment [cite: 89] 3. Undertake collaborative projects with academia and industry that transform young minds into socially responsible and globally competent professionals [cite: 90] 4. Enhance personality traits and leadership skills that foster entrepreneurship among students [cite: 91]",
+   "existing_kn": "\"ಬಲವಾದ ಭಾರತ ಮತ್ತು ಜಾಗತಿಕವಾಗಿ ಪ್ರಗತಿಪರ ವಿಶ್ವವನ್ನು ರಚಿಸಲು ಸಮರ್ಪಿತ, ಕೌಶಲ್ಯಪೂರ್ಣ ಮತ್ತು ಬುದ್ಧಿವಂತ ಎಂಜಿನಿಯರ್‌ಗಳು ಮತ್ತು ವ್ಯಾಪಾರ ನಿರ್ವಾಹಕರನ್ನು ಕೊಡುಗೆ ನೀಡಿ.\" 1. ಸಮರ್ಪಿತ ಎಂಜಿನಿಯರ್‌ಗಳು ಮತ್ತು ವ್ಯವಸ್ಥಾಪಕರನ್ನು ತಯಾರಿಸಲು ಗುಣಮಟ್ಟದ ಶಿಕ್ಷಣ ಮತ್ತು ಕೌಶಲ್ಯ ಆಧಾರಿತ ತರಬೇತಿಯನ್ನು ನೀಡುವುದು. 2. ಪೋಷಕ ಕಲಿಕೆಯ ವಾತಾವರಣವನ್ನು ರಚಿಸುವ ಮೂಲಕ ಸಂಶೋಧನೆ, ನಾವೀನ್ಯತೆ ಮತ್ತು ನೈತಿಕ ಅಭ್ಯಾಸಗಳನ್ನು ಉತ್ತೇಜಿಸುವುದು. 3. ಯುವ ಮನಸ್ಸುಗಳನ್ನು ಸಾಮಾಜಿಕವಾಗಿ ಜವಾಬ್ದಾರ ಮತ್ತು ಜಾಗತಿಕವಾಗಿ ಸಕ್ಷಮ ವೃತ್ತಿಪರರಾಗಿ ಪರಿವರ್ತಿಸುವ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ಉದ್ಯಮ ಸಹಯೋಗಿ ಯೋಜನೆಗಳನ್ನು ಕೈಗೊಳ್ಳುವುದು. 4. ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಬೆಳೆಸುವ ವ್ಯಕ್ತಿತ್ವ ಲಕ್ಷಣಗಳು ಮತ್ತು ನಾಯಕತ್ವ ಕೌಶಲ್ಯಗಳನ್ನು ಹೆಚ್ಚಿಸುವುದು.",
+   "sarvam_kn": "\"ಒಂದು ಬಲಿಷ್ಠ ಭಾರತ ಮತ್ತು ಜಾಗತಿಕವಾಗಿ ಪ್ರಗತಿಪರ ಜಗತ್ತನ್ನು ರೂಪಿಸಲು ಸಮರ್ಪಿತ, ನುರಿತ ಮತ್ತು ಬುದ್ಧಿವಂತ ಎಂಜಿನಿಯರ್‌ಗಳು ಮತ್ತು ವ್ಯವಹಾರ ನಿರ್ವಾಹಕರನ್ನು ಕೊಡುಗೆ ನೀಡಿ.\" [ಉಲ್ಲೇಖ: 86] 1. ಸಮರ್ಪಿತ ಎಂಜಿನಿಯರ್‌ಗಳು ಮತ್ತು ವ್ಯವಸ್ಥಾಪಕರನ್ನು ಉತ್ಪಾದಿಸಲು ಗುಣಮಟ್ಟದ ಶಿಕ್ಷಣ ಮತ್ತು ಕೌಶಲ್ಯ ಆಧಾರಿತ ತರಬೇತಿಯನ್ನು ನೀಡಿ [ಉಲ್ಲೇಖ: 88] 2. ಬೆಂಬಲಿತ ಕಲಿಕೆಯ ವಾತಾವರಣವನ್ನು ರಚಿಸುವ ಮೂಲಕ ಸಂಶೋಧನೆ, ನಾವೀನ್ಯತೆ ಮತ್ತು ನೈತಿಕ ಅಭ್ಯಾಸಗಳನ್ನು ಉತ್ತೇಜಿಸಿ [ಉಲ್ಲೇಖ: 89] 3. ಯುವ ಮನಸ್ಸುಗಳನ್ನು ಸಾಮಾಜಿಕವಾಗಿ ಜವಾಬ್ದಾರಿಯುತ ಮತ್ತು ಜಾಗತಿಕವಾಗಿ ಸಮರ್ಥ ವೃತ್ತಿಪರರನ್ನಾಗಿ ಪರಿವರ್ತಿಸುವ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ಕೈಗಾರಿಕಾ ಸಹಯೋಗದ ಯೋಜನೆಗಳನ್ನು ಕೈಗೊಳ್ಳಿ [ಉಲ್ಲೇಖ: 90] 4. ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಬೆಳೆಸುವ ವ್ಯಕ್ತಿತ್ವ ಲಕ್ಷಣಗಳು ಮತ್ತು ನಾಯಕತ್ವ ಕೌಶಲ್ಯಗಳನ್ನು ಹೆಚ್ಚಿಸಿ [ಉಲ್ಲೇಖ: 91]",
+   "back_en_of_candidate": "\"To contribute dedicated, skilled, and intelligent engineers and business executives to build a strong India and a globally progressive world.\" [Reference: 86] 1. Provide quality education and skill-based training to produce dedicated engineers and managers. [Reference: 88] 2. Promote research, innovation, and ethical practices by creating a supportive learning environment. [Reference: 89] 3. Undertake educational and industrial collaboration projects that transform young minds into socially responsible and globally competent professionals. [Reference: 90] 4. Enhance the personality traits and leadership skills that foster entrepreneurship in students. [Reference: 91]",
+   "back_en_of_existing": "\"To contribute skilled and intelligent engineers and business executives dedicated to building a strong India and a progressive world globally.\" 1. To provide quality education and skill-based training to prepare dedicated engineers and managers. 2. To promote research, innovation, and ethical practices by creating a supportive learning environment. 3. To undertake educational and entrepreneurial collaborative projects that transform young minds into socially responsible and globally competent professionals. 4. To enhance the personality traits and leadership skills that foster entrepreneurship in students.",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.affiliations_and_accreditations": {
+   "existing_back_translation": "{\"university\": \"Visvesvaraya Technological University (VTU), Belgaum\", \"technical_approval\": \"All India Council for Technical Education (AICTE), New Delhi\", \"government_recognition\": \"The Government of Karnataka\", \"accreditation\": \"NAAC Grade A\", \"nba_accreditation\": \"Available for selected categories (ECE).\"}",
+   "candidate_back_translation": "{\"university\": \"Visvesvaraya Technological University (VTU), Belgaum [reference: 18]\", \"technical_approval\": \"All India Council for Technical Education (AICTE), New Delhi [reference: 18]\", \"government_recognition\": \"Government of Karnataka [reference: 19]\", \"accreditation\": \"NAAC Grade A [reference: 20]\", \"nba_accreditation\": \"Available for selected departments (ECE) [reference: 21]}",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds [ಉಲ್ಲೇಖ: 18/18/19/20/21] citation artifacts (citation-artifact deferred workstream) AND transliterates protected acronyms VTU to ವಿ.ಟಿ.ಯು. and ECE to ಇಸಿಇ (protected-acronyms policy); AICTE is preserved in Latin, showing Sarvam's per-value transliteration is inconsistent. The English source value is a Python-dict-as-string, so the row is also part of the structured-eligibility-fields workstream, but the Sarvam call has now succeeded (retry used per-key segments; 11 API calls; all 3 ops complete), so the BLOCKED_RUNTIME_STRUCTURE classification that was previously assigned without all mandatory evidence is corrected to BLOCKED_LINGUISTIC based on the actual candidate content.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['18', '18', '19', '20', '21']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['ECE', 'VTU']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['AICTE', 'ECE', 'NAAC', 'VTU', 'accreditation', 'approval', 'government', 'nba', 'recognition', 'technical', 'university']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "{'university': 'Visvesvaraya Technological University (VTU), Belagavi [cite: 18]', 'technical_approval': 'All India Council for Technical Education (AICTE), New Delhi [cite: 18]', 'government_recognition': 'Government of Karnataka [cite: 19]', 'accreditation': 'NAAC Grade A [cite: 20]', 'nba_accreditation': 'Available for select departments (ECE) [cite: 21]'}"
+   ],
+   "added_clauses": [
+    "{\"university\": \"ವಿಶ್ವೇಶ್ವರಯ್ಯ ತಾಂತ್ರಿಕ ವಿಶ್ವವಿದ್ಯಾಲಯ (ವಿ",
+    "ಟಿ",
+    "ಯು",
+    "), ಬೆಳಗಾವಿ [ಉಲ್ಲೇಖ: 18]\", \"technical_approval\": \"ಅಖಿಲ ಭಾರತ ತಾಂತ್ರಿಕ ಶಿಕ್ಷಣ ಮಂಡಳಿ (AICTE), ನವದೆಹಲಿ [ಉಲ್ಲೇಖ: 18]\", \"government_recognition\": \"ಕರ್ನಾಟಕ ಸರ್ಕಾರ [ಉಲ್ಲೇಖ: 19]\", \"accreditation\": \"NAAC ಗ್ರೇಡ್ A [ಉಲ್ಲೇಖ: 20]\", \"nba_accreditation\": \"ಆಯ್ದ ಇಲಾಖೆಗಳಿಗೆ ಲಭ್ಯವಿದೆ (ಇಸಿಇ) [ಉಲ್ಲೇಖ: 21]\"}"
+   ],
+   "terminology_conflicts": [
+    "ಇಲಾಖೆ in candidate (rejected glossary term for academic department)"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "{'university': 'Visvesvaraya Technological University (VTU), Belagavi [cite: 18]', 'technical_approval': 'All India Council for Technical Education (AICTE), New Delhi [cite: 18]', 'government_recognition': 'Government of Karnataka [cite: 19]', 'accreditation': 'NAAC Grade A [cite: 20]', 'nba_accreditation': 'Available for select departments (ECE) [cite: 21]'}",
+   "existing_kn": "{'university': 'ವಿಶ್ವೇಶ್ವರಯ್ಯ ತಾಂತ್ರಿಕ ವಿಶ್ವವಿದ್ಯಾಲಯ (VTU), ಬೆಳಗಾವಿ', 'technical_approval': 'ಅಖಿಲ ಭಾರತ ತಾಂತ್ರಿಕ ಶಿಕ್ಷಣ ಮಂಡಳಿ (AICTE), ನವದೆಹಲಿ', 'government_recognition': 'ಕರ್ನಾಟಕ ಸರ್ಕಾರ', 'accreditation': 'NAAC ಗ್ರೇಡ್ A', 'nba_accreditation': 'ಆಯ್ದ ವಿಭಾಗಗಳಿಗೆ (ECE) ಲಭ್ಯ'}",
+   "sarvam_kn": "{\"university\": \"ವಿಶ್ವೇಶ್ವರಯ್ಯ ತಾಂತ್ರಿಕ ವಿಶ್ವವಿದ್ಯಾಲಯ (ವಿ.ಟಿ.ಯು.), ಬೆಳಗಾವಿ [ಉಲ್ಲೇಖ: 18]\", \"technical_approval\": \"ಅಖಿಲ ಭಾರತ ತಾಂತ್ರಿಕ ಶಿಕ್ಷಣ ಮಂಡಳಿ (AICTE), ನವದೆಹಲಿ [ಉಲ್ಲೇಖ: 18]\", \"government_recognition\": \"ಕರ್ನಾಟಕ ಸರ್ಕಾರ [ಉಲ್ಲೇಖ: 19]\", \"accreditation\": \"NAAC ಗ್ರೇಡ್ A [ಉಲ್ಲೇಖ: 20]\", \"nba_accreditation\": \"ಆಯ್ದ ಇಲಾಖೆಗಳಿಗೆ ಲಭ್ಯವಿದೆ (ಇಸಿಇ) [ಉಲ್ಲೇಖ: 21]\"}",
+   "back_en_of_candidate": "{\"university\": \"Visvesvaraya Technological University (VTU), Belgaum [reference: 18]\", \"technical_approval\": \"All India Council for Technical Education (AICTE), New Delhi [reference: 18]\", \"government_recognition\": \"Government of Karnataka [reference: 19]\", \"accreditation\": \"NAAC Grade A [reference: 20]\", \"nba_accreditation\": \"Available for selected departments (ECE) [reference: 21]}",
+   "back_en_of_existing": "{\"university\": \"Visvesvaraya Technological University (VTU), Belgaum\", \"technical_approval\": \"All India Council for Technical Education (AICTE), New Delhi\", \"government_recognition\": \"The Government of Karnataka\", \"accreditation\": \"NAAC Grade A\", \"nba_accreditation\": \"Available for selected categories (ECE).\"}",
+   "approved": null,
+   "sarvam_error": null,
+   "retry_api_calls": 11,
+   "previous_classification_was": "BLOCKED_RUNTIME_STRUCTURE (no candidate evidence)"
+  },
+  "kn.institution_overview.additional_details.tagline": {
+   "existing_back_translation": "\"Learn leadership\"",
+   "candidate_back_translation": "\"Learn to take leadership\" [Quote: 15]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 15]' after the closing quote. Existing drops it. Same citation-artifact pattern. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['15']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "\"Learn to Lead\" [cite: 15]"
+   ],
+   "added_clauses": [
+    "\"ನಾಯಕತ್ವ ವಹಿಸಲು ಕಲಿಯಿರಿ\" [ಉಲ್ಲೇಖ: 15]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "\"Learn to Lead\" [cite: 15]",
+   "existing_kn": "\"ನಾಯಕತ್ವವನ್ನು ಕಲಿಯಿರಿ\"",
+   "sarvam_kn": "\"ನಾಯಕತ್ವ ವಹಿಸಲು ಕಲಿಯಿರಿ\" [ಉಲ್ಲೇಖ: 15]",
+   "back_en_of_candidate": "\"Learn to take leadership\" [Quote: 15]",
+   "back_en_of_existing": "\"Learn leadership\"",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.motto": {
+   "existing_back_translation": "To \"empower tomorrow's engineers with cutting-edge education, industry-relevant curriculum and top-quality placements\".",
+   "candidate_back_translation": "Empowering future generations of engineers with advanced education, industry-relevant curriculum and top-quality job prospects [Ref: 16]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 16]' after the closing quote. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['16']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['Edge']"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "\"Empowering Engineers of Tomorrow with Cutting-Edge Education, Industry-Driven Curriculum, and Top Placements\" [cite: 16]"
+   ],
+   "added_clauses": [
+    "\"ಅತ್ಯಾಧುನಿಕ ಶಿಕ್ಷಣ, ಉದ್ಯಮ-ಚಾಲಿತ ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಉನ್ನತ ಉದ್ಯೋಗಾವಕಾಶಗಳೊಂದಿಗೆ ಭವಿಷ್ಯದ ಇಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಅಧಿಕಾರ ನೀಡುವುದು\" [ಉಲ್ಲೇಖ: 16]"
+   ],
+   "terminology_conflicts": [
+    "candidate translates 'placements' to a non-glossary synonym"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "\"Empowering Engineers of Tomorrow with Cutting-Edge Education, Industry-Driven Curriculum, and Top Placements\" [cite: 16]",
+   "existing_kn": "\"ನಾಳಿನ ಎಂಜಿನಿಯರ್‌ಗಳನ್ನು ಅತ್ಯಾಧುನಿಕ ಶಿಕ್ಷಣ, ಉದ್ಯಮಾಧಾರಿತ ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಉನ್ನತ ಪ್ಲೇಸ್‌ಮೆಂಟ್‌ಗಳೊಂದಿಗೆ ಸಬಲೀಕರಣಗೊಳಿಸುವುದು\"",
+   "sarvam_kn": "\"ಅತ್ಯಾಧುನಿಕ ಶಿಕ್ಷಣ, ಉದ್ಯಮ-ಚಾಲಿತ ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಉನ್ನತ ಉದ್ಯೋಗಾವಕಾಶಗಳೊಂದಿಗೆ ಭವಿಷ್ಯದ ಇಂಜಿನಿಯರ್‌ಗಳಿಗೆ ಅಧಿಕಾರ ನೀಡುವುದು\" [ಉಲ್ಲೇಖ: 16]",
+   "back_en_of_candidate": "Empowering future generations of engineers with advanced education, industry-relevant curriculum and top-quality job prospects [Ref: 16]",
+   "back_en_of_existing": "To \"empower tomorrow's engineers with cutting-edge education, industry-relevant curriculum and top-quality placements\".",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.founded_by": {
+   "existing_back_translation": "Shri Sai Vidya Vikas Shikshan Samiti (a group of renowned educationists)",
+   "candidate_back_translation": "Shri Sai Vidya Vikas Shikshan Samiti (group of leading educationists) [Reference: 11]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 11]' after the closing parenthesis. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['11']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Sri Sai Vidya Vikas Shikshana Samithi (Group of eminent academicians) [cite: 11]"
+   ],
+   "added_clauses": [
+    "ಶ್ರೀ ಸಾಯಿ ವಿದ್ಯಾ ವಿಕಾಸ್ ಶಿಕ್ಷಣ ಸಮಿತಿ (ಪ್ರಮುಖ ಶಿಕ್ಷಣ ತಜ್ಞರ ಗುಂಪು) [ಉಲ್ಲೇಖ: 11]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Sri Sai Vidya Vikas Shikshana Samithi (Group of eminent academicians) [cite: 11]",
+   "existing_kn": "ಶ್ರೀ ಸಾಯಿ ವಿದ್ಯಾ ವಿಕಾಸ ಶಿಕ್ಷಣ ಸಮಿತಿ (ಪ್ರಖ್ಯಾತ ಶಿಕ್ಷಣತಜ್ಞರ ಗುಂಪು)",
+   "sarvam_kn": "ಶ್ರೀ ಸಾಯಿ ವಿದ್ಯಾ ವಿಕಾಸ್ ಶಿಕ್ಷಣ ಸಮಿತಿ (ಪ್ರಮುಖ ಶಿಕ್ಷಣ ತಜ್ಞರ ಗುಂಪು) [ಉಲ್ಲೇಖ: 11]",
+   "back_en_of_candidate": "Shri Sai Vidya Vikas Shikshan Samiti (group of leading educationists) [Reference: 11]",
+   "back_en_of_existing": "Shri Sai Vidya Vikas Shikshan Samiti (a group of renowned educationists)",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.infrastructure[0]": {
+   "existing_back_translation": "Modern infrastructure with state-of-the-art laboratories",
+   "candidate_back_translation": "Modern infrastructure and state-of-the-art laboratories [23]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 23]'. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['23']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Modern infrastructure with advanced laboratories [cite: 23]"
+   ],
+   "added_clauses": [
+    "ಆಧುನಿಕ ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ಅತ್ಯಾಧುನಿಕ ಪ್ರಯೋಗಾಲಯಗಳು [ಉಲ್ಲೇಖ: 23]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Modern infrastructure with advanced laboratories [cite: 23]",
+   "existing_kn": "ಸುಧಾರಿತ ಪ್ರಯೋಗಾಲಯಗಳೊಂದಿಗೆ ಆಧುನಿಕ ಮೂಲಸೌಕರ್ಯ",
+   "sarvam_kn": "ಆಧುನಿಕ ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ಅತ್ಯಾಧುನಿಕ ಪ್ರಯೋಗಾಲಯಗಳು [ಉಲ್ಲೇಖ: 23]",
+   "back_en_of_candidate": "Modern infrastructure and state-of-the-art laboratories [23]",
+   "back_en_of_existing": "Modern infrastructure with state-of-the-art laboratories",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.infrastructure[1]": {
+   "existing_back_translation": "Well-stocked libraries and extensive learning resources",
+   "candidate_back_translation": "Well-stocked libraries and extensive learning resources [24]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 24]'. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['24']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Well-equipped libraries and extensive learning resources [cite: 24]"
+   ],
+   "added_clauses": [
+    "ಉತ್ತಮವಾಗಿ ಸಜ್ಜುಗೊಂಡ ಗ್ರಂಥಾಲಯಗಳು ಮತ್ತು ವ್ಯಾಪಕವಾದ ಕಲಿಕಾ ಸಂಪನ್ಮೂಲಗಳು [ಉಲ್ಲೇಖ: 24]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Well-equipped libraries and extensive learning resources [cite: 24]",
+   "existing_kn": "ಸುಸಜ್ಜಿತ ಗ್ರಂಥಾಲಯಗಳು ಮತ್ತು ವ್ಯಾಪಕ ಕಲಿಕಾ ಸಂಪನ್ಮೂಲಗಳು",
+   "sarvam_kn": "ಉತ್ತಮವಾಗಿ ಸಜ್ಜುಗೊಂಡ ಗ್ರಂಥಾಲಯಗಳು ಮತ್ತು ವ್ಯಾಪಕವಾದ ಕಲಿಕಾ ಸಂಪನ್ಮೂಲಗಳು [ಉಲ್ಲೇಖ: 24]",
+   "back_en_of_candidate": "Well-stocked libraries and extensive learning resources [24]",
+   "back_en_of_existing": "Well-stocked libraries and extensive learning resources",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.infrastructure[2]": {
+   "existing_back_translation": "State-of-the-art computer centers",
+   "candidate_back_translation": "The most modern computer centers [citation needed]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 25]'. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['25']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "State-of-the-art computer centers [cite: 25]"
+   ],
+   "added_clauses": [
+    "ಅತ್ಯಾಧುನಿಕ ಗಣಕಯಂತ್ರ ಕೇಂದ್ರಗಳು [ಉಲ್ಲೇಖ: 25]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "State-of-the-art computer centers [cite: 25]",
+   "existing_kn": "ಅತ್ಯಾಧುನಿಕ ಕಂಪ್ಯೂಟರ್ ಕೇಂದ್ರಗಳು",
+   "sarvam_kn": "ಅತ್ಯಾಧುನಿಕ ಗಣಕಯಂತ್ರ ಕೇಂದ್ರಗಳು [ಉಲ್ಲೇಖ: 25]",
+   "back_en_of_candidate": "The most modern computer centers [citation needed]",
+   "back_en_of_existing": "State-of-the-art computer centers",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.infrastructure[3]": {
+   "existing_back_translation": "Makerspace lab for innovation and prototyping",
+   "candidate_back_translation": "Makerspace lab for innovation and prototyping [26]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 26]'. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['26']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Makers Space Lab for innovation and prototyping [cite: 26]"
+   ],
+   "added_clauses": [
+    "ನಾವೀನ್ಯತೆ ಮತ್ತು ಮೂಲಮಾದರಿಗಾಗಿ ಮೇಕರ್ಸ್ ಸ್ಪೇಸ್ ಲ್ಯಾಬ್ [ಉಲ್ಲೇಖ: 26]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Makers Space Lab for innovation and prototyping [cite: 26]",
+   "existing_kn": "ನಾವೀನ್ಯತೆ ಮತ್ತು ಮೂಲಮಾದರಿಗಾಗಿ ಮೇಕರ್ಸ್ ಸ್ಪೇಸ್ ಲ್ಯಾಬ್",
+   "sarvam_kn": "ನಾವೀನ್ಯತೆ ಮತ್ತು ಮೂಲಮಾದರಿಗಾಗಿ ಮೇಕರ್ಸ್ ಸ್ಪೇಸ್ ಲ್ಯಾಬ್ [ಉಲ್ಲೇಖ: 26]",
+   "back_en_of_candidate": "Makerspace lab for innovation and prototyping [26]",
+   "back_en_of_existing": "Makerspace lab for innovation and prototyping",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.infrastructure[4]": {
+   "existing_back_translation": "Active student clubs and cultural facilities",
+   "candidate_back_translation": "Active student clubs and cultural facilities [27]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 27]'. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['27']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Active student clubs and cultural facilities [cite: 27]"
+   ],
+   "added_clauses": [
+    "ಚಟುವಟಿಕೆಯ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಗಳು ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಸೌಲಭ್ಯಗಳು [ಉಲ್ಲೇಖ: 27]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Active student clubs and cultural facilities [cite: 27]",
+   "existing_kn": "ಸಕ್ರಿಯ ವಿದ್ಯಾರ್ಥಿ ಕ್ಲಬ್‌ಗಳು ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಸೌಲಭ್ಯಗಳು",
+   "sarvam_kn": "ಚಟುವಟಿಕೆಯ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಗಳು ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಸೌಲಭ್ಯಗಳು [ಉಲ್ಲೇಖ: 27]",
+   "back_en_of_candidate": "Active student clubs and cultural facilities [27]",
+   "back_en_of_existing": "Active student clubs and cultural facilities",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.infrastructure[5]": {
+   "existing_back_translation": "Places for co-curricular activities",
+   "candidate_back_translation": "Co-curricular program venues [citation needed]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 28]'. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['28']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Co-curricular event spaces [cite: 28]"
+   ],
+   "added_clauses": [
+    "ಸಹ-ಪಠ್ಯಕ್ರಮದ ಕಾರ್ಯಕ್ರಮದ ಸ್ಥಳಗಳು [ಉಲ್ಲೇಖ: 28]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Co-curricular event spaces [cite: 28]",
+   "existing_kn": "ಸಹಪಠ್ಯ ಚಟುವಟಿಕೆಗಳ ಸ್ಥಳಗಳು",
+   "sarvam_kn": "ಸಹ-ಪಠ್ಯಕ್ರಮದ ಕಾರ್ಯಕ್ರಮದ ಸ್ಥಳಗಳು [ಉಲ್ಲೇಖ: 28]",
+   "back_en_of_candidate": "Co-curricular program venues [citation needed]",
+   "back_en_of_existing": "Places for co-curricular activities",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.institution_overview.additional_details.infrastructure[6]": {
+   "existing_back_translation": "Business Collaboration Centers",
+   "candidate_back_translation": "Industrial collaboration centers [reference: 29]",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate adds '[ಉಲ್ಲೇಖ: 29]'. Existing drops it. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['29']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Industry collaboration centers [cite: 29]"
+   ],
+   "added_clauses": [
+    "ಕೈಗಾರಿಕಾ ಸಹಯೋಗ ಕೇಂದ್ರಗಳು [ಉಲ್ಲೇಖ: 29]"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 5,
+   "english": "Industry collaboration centers [cite: 29]",
+   "existing_kn": "ಉದ್ಯಮ ಸಹಯೋಗ ಕೇಂದ್ರಗಳು",
+   "sarvam_kn": "ಕೈಗಾರಿಕಾ ಸಹಯೋಗ ಕೇಂದ್ರಗಳು [ಉಲ್ಲೇಖ: 29]",
+   "back_en_of_candidate": "Industrial collaboration centers [reference: 29]",
+   "back_en_of_existing": "Business Collaboration Centers",
+   "approved": null,
+   "sarvam_error": null
+  },
+  "kn.admissions_and_fees.entrance_exams[0]": {
+   "existing_back_translation": "KCET",
+   "candidate_back_translation": "KSET",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves the protected acronym KCET in Latin (KCET → KCET). Sarvam transliterates to ಕೆಸಿಇಟಿ and the round-trip returns 'KSET' — a different exam (Karnataka State Eligibility Test). This is a protected-acronym violation AND a semantic drift (wrong exam name on round-trip). Existing wins; reject candidate.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['KCET']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "KCET"
+   ],
+   "added_clauses": [
+    "ಕೆಸಿಇಟಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "KCET",
+   "existing_kn": "KCET",
+   "sarvam_kn": "ಕೆಸಿಇಟಿ",
+   "back_en_of_candidate": "KSET",
+   "back_en_of_existing": "KCET",
+   "approved": null
+  },
+  "kn.admissions_and_fees.entrance_exams[1]": {
+   "existing_back_translation": "COMEDK",
+   "candidate_back_translation": "Kamadke",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves COMEDK in Latin. Sarvam transliterates to ಕಾಮಡ್ಕೆ and the round-trip returns 'Kamadke' — a place name in Karnataka, not the Consortium of Medical, Engineering and Dental Colleges of Karnataka entrance exam. Protected-acronym violation + glossary violation. Existing wins.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['COMEDK']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['COMEDK']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "COMEDK"
+   ],
+   "added_clauses": [
+    "ಕಾಮಡ್ಕೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "COMEDK",
+   "existing_kn": "COMEDK",
+   "sarvam_kn": "ಕಾಮಡ್ಕೆ",
+   "back_en_of_candidate": "Kamadke",
+   "back_en_of_existing": "COMEDK",
+   "approved": null
+  },
+  "kn.admissions_and_fees.entrance_exams[2]": {
+   "existing_back_translation": "Management",
+   "candidate_back_translation": "Management",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ (transliterated 'management') is the glossary term for the management quota. Sarvam returns ನಿರ್ವಹಣೆ ('maintenance') — the same terminology defect the pilot caught on kn.departments.cse.fees. Existing is correct; candidate is the defect. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Management"
+   ],
+   "added_clauses": [
+    "ನಿರ್ವಹಣೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Management",
+   "existing_kn": "ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್",
+   "sarvam_kn": "ನಿರ್ವಹಣೆ",
+   "back_en_of_candidate": "Management",
+   "back_en_of_existing": "Management",
+   "approved": null
+  },
+  "kn.admissions_and_fees.fee_structures.ug_kcet": {
+   "existing_back_translation": "In accordance with government/KEA standards. Please contact the admissions department for the latest official KCET fee.",
+   "candidate_back_translation": "According to government/KEA regulations, please contact the admissions department for the latest official KCET fee information.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing preserves both protected acronyms KEA and KCET in Latin. Sarvam transliterates both to Kannada initials (ಕೆಇಎ, ಕೆಸಿಇಟಿ). Protected-acronym violation. Existing wins; reject candidate.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['KCET', 'KEA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET', 'KEA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "As per Government/KEA norms",
+    "Please contact Admission Block for the latest official KCET fee"
+   ],
+   "added_clauses": [
+    "ಸರ್ಕಾರ/ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ",
+    "ಇತ್ತೀಚಿನ ಅಧಿಕೃತ ಕೆಸಿಇಟಿ ಶುಲ್ಕಕ್ಕಾಗಿ ಪ್ರವೇಶ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "As per Government/KEA norms. Please contact Admission Block for the latest official KCET fee.",
+   "existing_kn": "ಸರ್ಕಾರಿ/KEA ಮಾನದಂಡಗಳಿಗೆ ಅನುಗುಣವಾಗಿ. ಇತ್ತೀಚಿನ ಅಧಿಕೃತ KCET ಶುಲ್ಕಕ್ಕಾಗಿ ದಯವಿಟ್ಟು ಪ್ರವೇಶ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+   "sarvam_kn": "ಸರ್ಕಾರ/ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ. ಇತ್ತೀಚಿನ ಅಧಿಕೃತ ಕೆಸಿಇಟಿ ಶುಲ್ಕಕ್ಕಾಗಿ ಪ್ರವೇಶ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+   "back_en_of_candidate": "According to government/KEA regulations, please contact the admissions department for the latest official KCET fee information.",
+   "back_en_of_existing": "In accordance with government/KEA standards. Please contact the admissions department for the latest official KCET fee.",
+   "approved": null
+  },
+  "kn.admissions_and_fees.fee_structures.additional_fees": {
+   "existing_back_translation": "In addition to tuition, lodging, exam, and other formal fees may apply. Contact the admissions department for a complete schedule and payment options.",
+   "candidate_back_translation": "Tuition fees, hostel charges, exam fees, and other statutory fees may be applicable. Visit the admissions section for the complete schedule and payment options.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಶಿಕ್ಷಣ ಶುಲ್ಕ ('tuition fee') + ವಿಧಿಬದ್ಧ ('statutory') + ಸಂಪರ್ಕಿಸಿ ('contact') vs candidate ಬೋಧನಾ ಶುಲ್ಕ ('teaching fee') + ಶಾಸನಬದ್ಧ ('statutory') + ಭೇಟಿ ನೀಡಿ ('visit'). Both are valid Kannada; existing uses more formal academic vocabulary matching the project's house style for fee structures. KEEP_EXISTING for block consistency.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Hostel, examination, and other statutory fees may apply in addition to tuition",
+    "Visit the Admission Block for the complete schedule and payment options"
+   ],
+   "added_clauses": [
+    "ಬೋಧನಾ ಶುಲ್ಕದ ಜೊತೆಗೆ ಹಾಸ್ಟೆಲ್, ಪರೀಕ್ಷೆ ಮತ್ತು ಇತರ ಶಾಸನಬದ್ಧ ಶುಲ್ಕಗಳು ಅನ್ವಯವಾಗಬಹುದು",
+    "ಸಂಪೂರ್ಣ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ಪಾವತಿ ಆಯ್ಕೆಗಳಿಗಾಗಿ ಪ್ರವೇಶ ವಿಭಾಗಕ್ಕೆ ಭೇಟಿ ನೀಡಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Hostel, examination, and other statutory fees may apply in addition to tuition. Visit the Admission Block for the complete schedule and payment options.",
+   "existing_kn": "ಶಿಕ್ಷಣ ಶುಲ್ಕದ ಜೊತೆಗೆ ವಸತಿ, ಪರೀಕ್ಷೆ ಮತ್ತು ಇತರ ವಿಧಿಬದ್ಧ ಶುಲ್ಕಗಳು ಅನ್ವಯವಾಗಬಹುದು. ಸಂಪೂರ್ಣ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ಪಾವತಿ ಆಯ್ಕೆಗಳಿಗಾಗಿ ಪ್ರವೇಶ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+   "sarvam_kn": "ಬೋಧನಾ ಶುಲ್ಕದ ಜೊತೆಗೆ ಹಾಸ್ಟೆಲ್, ಪರೀಕ್ಷೆ ಮತ್ತು ಇತರ ಶಾಸನಬದ್ಧ ಶುಲ್ಕಗಳು ಅನ್ವಯವಾಗಬಹುದು. ಸಂಪೂರ್ಣ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ಪಾವತಿ ಆಯ್ಕೆಗಳಿಗಾಗಿ ಪ್ರವೇಶ ವಿಭಾಗಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.",
+   "back_en_of_candidate": "Tuition fees, hostel charges, exam fees, and other statutory fees may be applicable. Visit the admissions section for the complete schedule and payment options.",
+   "back_en_of_existing": "In addition to tuition, lodging, exam, and other formal fees may apply. Contact the admissions department for a complete schedule and payment options.",
+   "approved": null
+  },
+  "kn.departments.cse.name": {
+   "existing_back_translation": "Computer Science and Engineering",
+   "candidate_back_translation": "Computer Science and Engineering",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ preserves 'ಕಂಪ್ಯೂಟರ್' (computer, transliterated) — note the cse.intro was corrected in the pilot from 'ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ' to 'ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್' but the cse.name is a different row that was not part of the pilot. Candidate ಗಣಕ ವಿಜ್ಞಾನ uses the Kannada noun for 'computer' (ಗಣಕ). Both back-translate to the same English. Defer to a native speaker on the project-house style: 'ಕಂಪ್ಯೂಟರ್' (transliterated) or 'ಗಣಕ' (Kannada noun) for the word 'computer' in department names.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Computer Science & Engineering"
+   ],
+   "added_clauses": [
+    "ಗಣಕ ವಿಜ್ಞಾನ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Computer Science & Engineering",
+   "existing_kn": "ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್",
+   "sarvam_kn": "ಗಣಕ ವಿಜ್ಞಾನ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್",
+   "back_en_of_candidate": "Computer Science and Engineering",
+   "back_en_of_existing": "Computer Science and Engineering",
+   "approved": null
+  },
+  "kn.departments.cse.achievements": {
+   "existing_back_translation": "Our labs are state of the art and have consistently ranked among the top institutions in the country in national hackathons.",
+   "candidate_back_translation": "Our labs are state-of-the-art, which ensures top VTU rankings and consistent success in national hackathons.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಲ್ಯಾಬ್‌ಗಳು (labs, transliterated) + ಶ್ರೇಯಾಂಕಗಳನ್ನು (rankings) + ಖಾತ್ರಿಪಡಿಸುತ್ತದೆ (ensures) preserves VTU in Latin and uses the project glossary. Candidate ಪ್ರಯೋಗಾಲಯಗಳು (laboratories, fully Kannada) + ಶ್ರೇಯಾಂಕಗಳನ್ನು + ಖಚಿತಪಡಿಸುತ್ತದೆ (ensures) is more idiomatic Kannada but loses the familiar 'lab' form. Both back-translate correctly. KEEP_EXISTING for consistency with the rest of the CSE block; defer on house style.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['VTU']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['VTU']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Our labs are state-of-the-art, ensuring strong VTU rankings and continuous success in national hackathons"
+   ],
+   "added_clauses": [
+    "ನಮ್ಮ ಪ್ರಯೋಗಾಲಯಗಳು ಅತ್ಯಾಧುನಿಕವಾಗಿವೆ, ಇದು ಬಲವಾದ VTU ಶ್ರೇಯಾಂಕಗಳನ್ನು ಮತ್ತು ರಾಷ್ಟ್ರೀಯ ಹ್ಯಾಕಥಾನ್‌ಗಳಲ್ಲಿ ನಿರಂತರ ಯಶಸ್ಸನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Our labs are state-of-the-art, ensuring strong VTU rankings and continuous success in national hackathons.",
+   "existing_kn": "ನಮ್ಮ ಲ್ಯಾಬ್‌ಗಳು ಅತ್ಯಾಧುನಿಕವಾಗಿದ್ದು, ಬಲವಾದ VTU ಶ್ರೇಯಾಂಕಗಳನ್ನು ಮತ್ತು ರಾಷ್ಟ್ರೀಯ ಹ್ಯಾಕಥಾನ್‌ಗಳಲ್ಲಿ ನಿರಂತರ ಯಶಸ್ಸನ್ನು ಖಾತ್ರಿಪಡಿಸುತ್ತದೆ.",
+   "sarvam_kn": "ನಮ್ಮ ಪ್ರಯೋಗಾಲಯಗಳು ಅತ್ಯಾಧುನಿಕವಾಗಿವೆ, ಇದು ಬಲವಾದ VTU ಶ್ರೇಯಾಂಕಗಳನ್ನು ಮತ್ತು ರಾಷ್ಟ್ರೀಯ ಹ್ಯಾಕಥಾನ್‌ಗಳಲ್ಲಿ ನಿರಂತರ ಯಶಸ್ಸನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ.",
+   "back_en_of_candidate": "Our labs are state-of-the-art, which ensures top VTU rankings and consistent success in national hackathons.",
+   "back_en_of_existing": "Our labs are state of the art and have consistently ranked among the top institutions in the country in national hackathons.",
+   "approved": null
+  },
+  "kn.departments.cse_aiml.name": {
+   "existing_back_translation": "CSE (AI & ML)",
+   "candidate_back_translation": "CSE (AI & ML)",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate are byte-identical: 'CSE (AI & ML)'. Both round-trip correctly.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['AI', 'CSE', 'ML']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['AI', 'CSE', 'ML']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [],
+   "added_clauses": [],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "CSE (AI & ML)",
+   "existing_kn": "CSE (AI & ML)",
+   "sarvam_kn": "CSE (AI & ML)",
+   "back_en_of_candidate": "CSE (AI & ML)",
+   "back_en_of_existing": "CSE (AI & ML)",
+   "approved": null
+  },
+  "kn.departments.cse_aiml.intro": {
+   "existing_back_translation": "The AI and Machine Learning division pioneers the future of intelligent systems. We prepare innovators for the rapidly evolving tech landscape.",
+   "candidate_back_translation": "The AI and Machine Learning division drives the future of intelligent systems. We prepare innovators for the rapidly evolving technology landscape.",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಪ್ರವರ್ತಿಸುತ್ತದೆ (pioneers) + ಟೆಕ್ ಲ್ಯಾಂಡ್‌ಸ್ಕೇಪ್ (tech landscape, transliterated) vs candidate ಮುನ್ನಡೆಸುತ್ತದೆ (leads) + ತಂತ್ರಜ್ಞಾನದ ಭೂದೃಶ್ಯ (technology landscape, fully Kannada). Both back-translate to the same English. Existing is closer to the source ('pioneers' vs 'leads' — pioneers matches the source; leads is a softer term). Defer on house style for 'tech landscape' vs 'technology landscape'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['AI']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['AI']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "The AI & Machine Learning department pioneers the future of intelligent systems",
+    "We prepare innovators for the rapidly evolving tech landscape"
+   ],
+   "added_clauses": [
+    "AI ಮತ್ತು ಮೆಷಿನ್ ಲರ್ನಿಂಗ್ ವಿಭಾಗವು ಬುದ್ಧಿವಂತ ವ್ಯವಸ್ಥೆಗಳ ಭವಿಷ್ಯವನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ",
+    "ನಾವು ತ್ವರಿತವಾಗಿ ವಿಕಸನಗೊಳ್ಳುತ್ತಿರುವ ತಂತ್ರಜ್ಞಾನದ ಭೂದೃಶ್ಯಕ್ಕಾಗಿ ನಾವೀನ್ಯಕಾರರನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "The AI & Machine Learning department pioneers the future of intelligent systems. We prepare innovators for the rapidly evolving tech landscape.",
+   "existing_kn": "AI ಮತ್ತು ಯಂತ್ರ ಕಲಿಕೆ ವಿಭಾಗವು ಬುದ್ಧಿವಂತ ವ್ಯವಸ್ಥೆಗಳ ಭವಿಷ್ಯವನ್ನು ಪ್ರವರ್ತಿಸುತ್ತದೆ. ನಾವು ವೇಗವಾಗಿ ವಿಕಸನಗೊಳ್ಳುತ್ತಿರುವ ಟೆಕ್ ಲ್ಯಾಂಡ್‌ಸ್ಕೇಪ್‌ಗಾಗಿ ನಾವೀನ್ಯಕಾರರನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತೇವೆ.",
+   "sarvam_kn": "AI ಮತ್ತು ಮೆಷಿನ್ ಲರ್ನಿಂಗ್ ವಿಭಾಗವು ಬುದ್ಧಿವಂತ ವ್ಯವಸ್ಥೆಗಳ ಭವಿಷ್ಯವನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ. ನಾವು ತ್ವರಿತವಾಗಿ ವಿಕಸನಗೊಳ್ಳುತ್ತಿರುವ ತಂತ್ರಜ್ಞಾನದ ಭೂದೃಶ್ಯಕ್ಕಾಗಿ ನಾವೀನ್ಯಕಾರರನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "The AI and Machine Learning division drives the future of intelligent systems. We prepare innovators for the rapidly evolving technology landscape.",
+   "back_en_of_existing": "The AI and Machine Learning division pioneers the future of intelligent systems. We prepare innovators for the rapidly evolving tech landscape.",
+   "approved": null
+  },
+  "kn.departments.cse_aiml.hod_voice": {
+   "existing_back_translation": "Under the guidance of Dr. T.G. Manjunath, we emphasize a curriculum that is NEP-2020 compliant, enriched with in-depth learning and real-world AI applications.",
+   "candidate_back_translation": "Under the guidance of Dr. T.G. Manjunath, we emphasize curriculum that adheres to NEP-2020, enriched with immersive learning and real-world AI applications.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "HOD name ಡಾ. ಟಿ ಜಿ ಮಂಜುನಾಥ preserved in both (Kannada transliteration of 'Dr. T G Manjunath'). Existing uses honorific compound ಮಂಜುನಾಥರ ('Manjunathar' = Manjunath + honorific); candidate uses ಮಂಜುನಾಥ ಅವರ ('Manjunath avar' = Manjunath + 'avar' honorific). Both honorific forms are correct Kannada. HOD identity is unchanged. The HOD-name script policy (Kannada transliteration vs official Latin spelling) remains a deferred workstream per the pilot, so the cse_aiml name follows the same Kannada-transliteration form as the cse pilot. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['2020']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['AI']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['AI', 'NEP']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Guided by Dr",
+    "T G Manjunatha, we emphasize a NEP-2020 compliant curriculum enriched with deep learning and real-world AI applications"
+   ],
+   "added_clauses": [
+    "ಡಾ",
+    "ಟಿ ಜಿ ಮಂಜುನಾಥ ಅವರ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ, ನಾವು NEP-2020 ಅನುಸರಣೆಯ ಪಠ್ಯಕ್ರಮಕ್ಕೆ ಒತ್ತು ನೀಡುತ್ತೇವೆ, ಇದು ಆಳವಾದ ಕಲಿಕೆ ಮತ್ತು ನೈಜ-ಪ್ರಪಂಚದ AI ಅನ್ವಯಿಕೆಗಳಿಂದ ಸಮೃದ್ಧವಾಗಿದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Guided by Dr. T G Manjunatha, we emphasize a NEP-2020 compliant curriculum enriched with deep learning and real-world AI applications.",
+   "existing_kn": "ಡಾ. ಟಿ ಜಿ ಮಂಜುನಾಥರ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ, ಆಳವಾದ ಕಲಿಕೆ ಮತ್ತು ನೈಜ-ಪ್ರಪಂಚದ AI ಅಪ್ಲಿಕೇಶನ್‌ಗಳೊಂದಿಗೆ ಪುಷ್ಟೀಕರಿಸಿದ NEP-2020 ಕಂಪ್ಲೈಂಟ್ ಪಠ್ಯಕ್ರಮಕ್ಕೆ ನಾವು ಒತ್ತು ನೀಡುತ್ತೇವೆ.",
+   "sarvam_kn": "ಡಾ. ಟಿ ಜಿ ಮಂಜುನಾಥ ಅವರ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ, ನಾವು NEP-2020 ಅನುಸರಣೆಯ ಪಠ್ಯಕ್ರಮಕ್ಕೆ ಒತ್ತು ನೀಡುತ್ತೇವೆ, ಇದು ಆಳವಾದ ಕಲಿಕೆ ಮತ್ತು ನೈಜ-ಪ್ರಪಂಚದ AI ಅನ್ವಯಿಕೆಗಳಿಂದ ಸಮೃದ್ಧವಾಗಿದೆ.",
+   "back_en_of_candidate": "Under the guidance of Dr. T.G. Manjunath, we emphasize curriculum that adheres to NEP-2020, enriched with immersive learning and real-world AI applications.",
+   "back_en_of_existing": "Under the guidance of Dr. T.G. Manjunath, we emphasize a curriculum that is NEP-2020 compliant, enriched with in-depth learning and real-world AI applications.",
+   "approved": null
+  },
+  "kn.departments.cse_aiml.achievements": {
+   "existing_back_translation": "Our 2021 batch has secured four university ranks at the VTU level, showcasing our academic rigour and the excellence of our students.",
+   "candidate_back_translation": "Our Class of 2021 achieved four university rankings at the VTU level, demonstrating our academic rigour and student excellence.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಬ್ಯಾಚ್ (batch, transliterated) vs candidate ತಂಡ (team, fully Kannada). The English source is 'Our 2021 batch' where 'batch' means a graduating class; ತಂಡ means 'team' which is a wrong meaning. Defect in candidate. KEEP_EXISTING for accuracy. VTU and FOUR preserved in both.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['2021']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['VTU']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['VTU']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Our 2021 batch secured FOUR university ranks at the VTU level, showcasing our academic rigor and student excellence"
+   ],
+   "added_clauses": [
+    "ನಮ್ಮ 2021ರ ತಂಡವು VTU ಮಟ್ಟದಲ್ಲಿ ನಾಲ್ಕು ವಿಶ್ವವಿದ್ಯಾಲಯ ಶ್ರೇಯಾಂಕಗಳನ್ನು ಪಡೆದುಕೊಂಡಿದೆ, ಇದು ನಮ್ಮ ಶೈಕ್ಷಣಿಕ ಕಠಿಣತೆ ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳ ಉತ್ಕೃಷ್ಟತೆಯನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Our 2021 batch secured FOUR university ranks at the VTU level, showcasing our academic rigor and student excellence.",
+   "existing_kn": "ನಮ್ಮ 2021 ರ ಬ್ಯಾಚ್ VTU ಮಟ್ಟದಲ್ಲಿ ನಾಲ್ಕು ವಿಶ್ವವಿದ್ಯಾನಿಲಯ ಶ್ರೇಣಿಗಳನ್ನು ಪಡೆದುಕೊಂಡಿದೆ, ನಮ್ಮ ಶೈಕ್ಷಣಿಕ ಕಠಿಣತೆ ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳ ಶ್ರೇಷ್ಠತೆಯನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ.",
+   "sarvam_kn": "ನಮ್ಮ 2021ರ ತಂಡವು VTU ಮಟ್ಟದಲ್ಲಿ ನಾಲ್ಕು ವಿಶ್ವವಿದ್ಯಾಲಯ ಶ್ರೇಯಾಂಕಗಳನ್ನು ಪಡೆದುಕೊಂಡಿದೆ, ಇದು ನಮ್ಮ ಶೈಕ್ಷಣಿಕ ಕಠಿಣತೆ ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳ ಉತ್ಕೃಷ್ಟತೆಯನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ.",
+   "back_en_of_candidate": "Our Class of 2021 achieved four university rankings at the VTU level, demonstrating our academic rigour and student excellence.",
+   "back_en_of_existing": "Our 2021 batch has secured four university ranks at the VTU level, showcasing our academic rigour and the excellence of our students.",
+   "approved": null
+  },
+  "kn.departments.cse_aiml.placement": {
+   "existing_back_translation": "Students gain experience through supervised internships and workshops with industry professionals.",
+   "candidate_back_translation": "Students gain practical experience through supervised internships and workshops with industry professionals.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate narrows ವಿದ್ಯಾರ್ಥಿಗಳು (students, gender-neutral) to ವಿದ್ಯಾರ್ಥಿನಿಯರು (female students) — gender narrowing. The source English is 'Students' (gender-neutral). The narrowing is confirmed by the round-trip back-translation ('Students gain practical experience' vs 'Female students gain practical experience'). This is the same class of defect the pilot caught on kn.departments.cse.placement. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Students gain hands-on experience through stipend-based internships and targeted workshops with industry experts"
+   ],
+   "added_clauses": [
+    "ವಿದ್ಯಾರ್ಥಿನಿಯರು ಶಿಷ್ಯವೇತನ ಆಧಾರಿತ ಇಂಟರ್ನ್‌ಶಿಪ್‌ಗಳು ಮತ್ತು ಉದ್ಯಮ ತಜ್ಞರೊಂದಿಗೆ ಗುರಿಯಾಗಿಸಿಕೊಂಡ ಕಾರ್ಯಾಗಾರಗಳ ಮೂಲಕ ಪ್ರಾಯೋಗಿಕ ಅನುಭವವನ್ನು ಪಡೆಯುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Students gain hands-on experience through stipend-based internships and targeted workshops with industry experts.",
+   "existing_kn": "ವಿದ್ಯಾರ್ಥಿಗಳು ಸ್ಟೈಫಂಡ್ ಆಧಾರಿತ ಇಂಟರ್ನ್‌ಶಿಪ್‌ಗಳು ಮತ್ತು ಉದ್ಯಮದ ತಜ್ಞರೊಂದಿಗೆ ಉದ್ದೇಶಿತ ಕಾರ್ಯಾಗಾರಗಳ ಮೂಲಕ ಅನುಭವವನ್ನು ಪಡೆಯುತ್ತಾರೆ.",
+   "sarvam_kn": "ವಿದ್ಯಾರ್ಥಿನಿಯರು ಶಿಷ್ಯವೇತನ ಆಧಾರಿತ ಇಂಟರ್ನ್‌ಶಿಪ್‌ಗಳು ಮತ್ತು ಉದ್ಯಮ ತಜ್ಞರೊಂದಿಗೆ ಗುರಿಯಾಗಿಸಿಕೊಂಡ ಕಾರ್ಯಾಗಾರಗಳ ಮೂಲಕ ಪ್ರಾಯೋಗಿಕ ಅನುಭವವನ್ನು ಪಡೆಯುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Students gain practical experience through supervised internships and workshops with industry professionals.",
+   "back_en_of_existing": "Students gain experience through supervised internships and workshops with industry professionals.",
+   "approved": null
+  },
+  "kn.departments.cse_aiml.fees": {
+   "existing_back_translation": "KCET: As per KEA norms | Maintenance: ₹3,50,000/year",
+   "candidate_back_translation": "KSET: As per KEA Rules | Maintenance: Rs.3,50,000/annum",
+   "classification": "SAFE_CORRECTION_CANDIDATE",
+   "applied_status": "APPLIED_PENDING_INDEPENDENT_REVIEW",
+   "applied": {
+    "old_exact_value": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ",
+    "new_exact_value": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹3,50,000/ವರ್ಷ",
+    "approved_scope": "Replace only the management-quota terminology. Preserve KCET, KEA, ₹, the department-specific amount ₹3,50,000, the /ವರ್ಷ suffix, the literal `|` pipe separator, and every other character. No other Kannada value, no fee amount, no other language, no TTS, no routing change.",
+    "amount_preservation_result": "PASS — ₹3,50,000 preserved exactly; /ವರ್ಷ preserved; ₹ currency symbol preserved.",
+    "protected_token_result": "PASS — KCET (Latin), KEA (Latin), ₹ (currency), 3,50,000 (Indian number format), /ವರ್ಷ (Kannada year suffix) all preserved byte-for-byte. The literal `|` pipe separator is also preserved (separate TTS-sanitizer deferred workstream).",
+    "runtime_consumer_tested": "backend/services/content/content_unit_resolver.py:resolve_unit(unit_id='cse_aiml.fees', language='Kannada', language_code='kn') → routes through _resolve_department_unit → ContentResolver.resolve(ResolveRequest(surface=SURFACE_DEPARTMENT_OVERVIEW, department='cse_aiml')) → reads kn.json via load_locale_data_for_lang_key('kn') → returns CanonicalContent section 'fees' whose .body equals the new exact value. Also verified end-to-end via get_unit_descriptor('cse_aiml.fees') (registered) and load_locale_data_for_lang_key('kn')['departments']['cse_aiml']['fees'] (== new exact value).",
+    "test_file": "backend/tests/test_kannada_safe_pilot_batch2_fee_terminology.py"
+   },
+   "reason": "existing has THREE defects: (1) the `|` pipe separator (TTS-sanitizer-deferred workstream); (2) the terminology defect ನಿರ್ವಹಣೆ (maintenance) which the pilot corrected on cse.fees to ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ (management quota); (3) Sarvam's candidate has the same defect PLUS transliterates protected acronyms KCET/KEA. The proposed correction is the CSE-pilot applied form: 'KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್: ₹3,50,000/ವರ್ಷ'. The pipe is a separate deferred workstream and does not block the terminology correction. Currency ₹3,50,000 preserved exactly. Present for approval; do not auto-apply.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['3,50,000']"
+   },
+   "currency_check": {
+    "status": "PASS",
+    "detail": "currency preserved: ['₹']"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['KCET', 'KEA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET', 'KEA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "KCET: As per KEA norms | Management: ₹3,50,000/year"
+   ],
+   "added_clauses": [
+    "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "FAIL",
+    "detail": "literal '|' in candidate (TTS-unsafe; deferred workstream)"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "KCET: As per KEA norms | Management: ₹3,50,000/year",
+   "existing_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ",
+   "pre_application_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ",
+   "current_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹3,50,000/ವರ್ಷ",
+   "sarvam_kn": "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ",
+   "back_en_of_candidate": "KSET: As per KEA Rules | Maintenance: Rs.3,50,000/annum",
+   "back_en_of_existing": "KCET: As per KEA norms | Maintenance: ₹3,50,000/year",
+   "approved": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹3,50,000/ವರ್ಷ"
+  },
+  "kn.departments.cse_ds.name": {
+   "existing_back_translation": "CSE (Data Science)",
+   "candidate_back_translation": "CSE (Data Science)",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing 'CSE (ಡೇಟಾ ಸೈನ್ಸ್)' (CSE in Latin, ಡೇಟಾ ಸೈನ್ಸ್ in Kannada transliteration) and candidate 'CSE (ಡೇಟಾ ಸೈನ್ಸ್)' are byte-identical. Both round-trip to 'CSE (Data Science)'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['CSE']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['CSE']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "CSE (Data Science)"
+   ],
+   "added_clauses": [
+    "CSE (ಡೇಟಾ ಸೈನ್ಸ್)"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "CSE (Data Science)",
+   "existing_kn": "CSE (ಡೇಟಾ ಸೈನ್ಸ್)",
+   "sarvam_kn": "CSE (ಡೇಟಾ ಸೈನ್ಸ್)",
+   "back_en_of_candidate": "CSE (Data Science)",
+   "back_en_of_existing": "CSE (Data Science)",
+   "approved": null
+  },
+  "kn.departments.cse_ds.intro": {
+   "existing_back_translation": "Data science is the backbone of modern analytics. We equip students with scientific methods to extract insights from complex data.",
+   "candidate_back_translation": "Data science is the backbone of modern analytics. We teach students scientific methods to extract knowledge from complex data.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate narrows ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು (students, gender-neutral) to ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ (to female students) — gender narrowing. Source English 'We equip students' is gender-neutral. Round-trip confirms: 'We equip students' vs 'We teach female students'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Data Science is the backbone of modern analytics",
+    "We equip students with scientific methods to extract knowledge from complex data"
+   ],
+   "added_clauses": [
+    "ಡೇಟಾ ಸೈನ್ಸ್ ಆಧುನಿಕ ವಿಶ್ಲೇಷಣೆಯ ಬೆನ್ನೆಲುಬು",
+    "ಸಂಕೀರ್ಣ ದತ್ತಾಂಶದಿಂದ ಜ್ಞಾನವನ್ನು ಹೊರತೆಗೆಯಲು ನಾವು ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ ವೈಜ್ಞಾನಿಕ ವಿಧಾನಗಳನ್ನು ಕಲಿಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Data Science is the backbone of modern analytics. We equip students with scientific methods to extract knowledge from complex data.",
+   "existing_kn": "ಡೇಟಾ ಸೈನ್ಸ್ ಆಧುನಿಕ ವಿಶ್ಲೇಷಣೆಯ ಬೆನ್ನೆಲುಬು. ಸಂಕೀರ್ಣ ಡೇಟಾದಿಂದ ಜ್ಞಾನವನ್ನು ಹೊರತೆಗೆಯಲು ನಾವು ವೈಜ್ಞಾನಿಕ ವಿಧಾನಗಳೊಂದಿಗೆ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಸಜ್ಜುಗೊಳಿಸುತ್ತೇವೆ.",
+   "sarvam_kn": "ಡೇಟಾ ಸೈನ್ಸ್ ಆಧುನಿಕ ವಿಶ್ಲೇಷಣೆಯ ಬೆನ್ನೆಲುಬು. ಸಂಕೀರ್ಣ ದತ್ತಾಂಶದಿಂದ ಜ್ಞಾನವನ್ನು ಹೊರತೆಗೆಯಲು ನಾವು ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ ವೈಜ್ಞಾನಿಕ ವಿಧಾನಗಳನ್ನು ಕಲಿಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "Data science is the backbone of modern analytics. We teach students scientific methods to extract knowledge from complex data.",
+   "back_en_of_existing": "Data science is the backbone of modern analytics. We equip students with scientific methods to extract insights from complex data.",
+   "approved": null
+  },
+  "kn.departments.cse_ds.hod_voice": {
+   "existing_back_translation": "Dr. Nagashree N. directs our commitment to generate knowledge through cutting-edge concepts and rigorous analytical training.",
+   "candidate_back_translation": "Dr. Nagashree N. directs our commitment to generate knowledge through cutting-edge concepts and rigorous analytical training.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate are byte-identical. HOD name ಡಾ. ನಾಗಶ್ರೀ ಎನ್ (Dr. Nagashree N) preserved in both. Round-trip 'Dr. Nagashree N. directs our commitment to generate knowledge through cutting-edge concepts and rigorous analytical training' on both sides.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "FAIL",
+    "detail": "names lost: ['Dr. Nagashree']"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Dr",
+    "Nagashree N directs our commitment to generate knowledge through state-of-the-art concepts and rigorous analytical training"
+   ],
+   "added_clauses": [
+    "ಡಾ",
+    "ನಾಗಶ್ರೀ ಎನ್ ಅವರು ಅತ್ಯಾಧುನಿಕ ಪರಿಕಲ್ಪನೆಗಳು ಮತ್ತು ಕಠಿಣ ವಿಶ್ಲೇಷಣಾತ್ಮಕ ತರಬೇತಿಯ ಮೂಲಕ ಜ್ಞಾನವನ್ನು ಉತ್ಪಾದಿಸುವ ನಮ್ಮ ಬದ್ಧತೆಯನ್ನು ನಿರ್ದೇಶಿಸುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Dr. Nagashree N directs our commitment to generate knowledge through state-of-the-art concepts and rigorous analytical training.",
+   "existing_kn": "ಡಾ. ನಾಗಶ್ರೀ ಎನ್ ಅವರು ಅತ್ಯಾಧುನಿಕ ಪರಿಕಲ್ಪನೆಗಳು ಮತ್ತು ಕಠಿಣ ವಿಶ್ಲೇಷಣಾತ್ಮಕ ತರಬೇತಿಯ ಮೂಲಕ ಜ್ಞಾನವನ್ನು ಉತ್ಪಾದಿಸುವ ನಮ್ಮ ಬದ್ಧತೆಯನ್ನು ನಿರ್ದೇಶಿಸುತ್ತಾರೆ.",
+   "sarvam_kn": "ಡಾ. ನಾಗಶ್ರೀ ಎನ್ ಅವರು ಅತ್ಯಾಧುನಿಕ ಪರಿಕಲ್ಪನೆಗಳು ಮತ್ತು ಕಠಿಣ ವಿಶ್ಲೇಷಣಾತ್ಮಕ ತರಬೇತಿಯ ಮೂಲಕ ಜ್ಞಾನವನ್ನು ಉತ್ಪಾದಿಸುವ ನಮ್ಮ ಬದ್ಧತೆಯನ್ನು ನಿರ್ದೇಶಿಸುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Dr. Nagashree N. directs our commitment to generate knowledge through cutting-edge concepts and rigorous analytical training.",
+   "back_en_of_existing": "Dr. Nagashree N. directs our commitment to generate knowledge through cutting-edge concepts and rigorous analytical training.",
+   "approved": null
+  },
+  "kn.departments.cse_ds.achievements": {
+   "existing_back_translation": "Since its opening in 2021, our students have already achieved three university ranks at the VTU level.",
+   "candidate_back_translation": "Since its inception in 2021, our female students have already secured three university rankings at the VTU level.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate narrows ವಿದ್ಯಾರ್ಥಿಗಳು (students) to ವಿದ್ಯಾರ್ಥಿನಿಯರು (female students) — gender narrowing. Source English 'our students' is gender-neutral. Round-trip confirms: 'our students have already secured' vs 'our female students have already secured'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['2021']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['VTU']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['VTU']"
+   },
+   "gender_narrowing": {
+    "status": "FAIL",
+    "detail": "narrowing terms existing=[] candidate=['female']"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Since starting in 2021, our students have already secured THREE university ranks at the VTU level"
+   ],
+   "added_clauses": [
+    "2021 ರಲ್ಲಿ ಪ್ರಾರಂಭವಾದಾಗಿನಿಂದ, ನಮ್ಮ ವಿದ್ಯಾರ್ಥಿನಿಯರು ಈಗಾಗಲೇ VTU ಮಟ್ಟದಲ್ಲಿ ಮೂರು ವಿಶ್ವವಿದ್ಯಾಲಯ ಶ್ರೇಯಾಂಕಗಳನ್ನು ಪಡೆದುಕೊಂಡಿದ್ದಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Since starting in 2021, our students have already secured THREE university ranks at the VTU level.",
+   "existing_kn": "2021 ರಲ್ಲಿ ಪ್ರಾರಂಭವಾದಾಗಿನಿಂದ, ನಮ್ಮ ವಿದ್ಯಾರ್ಥಿಗಳು ಈಗಾಗಲೇ VTU ಮಟ್ಟದಲ್ಲಿ ಮೂರು ವಿಶ್ವವಿದ್ಯಾನಿಲಯ ಶ್ರೇಣಿಗಳನ್ನು ಪಡೆದುಕೊಂಡಿದ್ದಾರೆ.",
+   "sarvam_kn": "2021 ರಲ್ಲಿ ಪ್ರಾರಂಭವಾದಾಗಿನಿಂದ, ನಮ್ಮ ವಿದ್ಯಾರ್ಥಿನಿಯರು ಈಗಾಗಲೇ VTU ಮಟ್ಟದಲ್ಲಿ ಮೂರು ವಿಶ್ವವಿದ್ಯಾಲಯ ಶ್ರೇಯಾಂಕಗಳನ್ನು ಪಡೆದುಕೊಂಡಿದ್ದಾರೆ.",
+   "back_en_of_candidate": "Since its inception in 2021, our female students have already secured three university rankings at the VTU level.",
+   "back_en_of_existing": "Since its opening in 2021, our students have already achieved three university ranks at the VTU level.",
+   "approved": null
+  },
+  "kn.departments.cse_ds.placement": {
+   "existing_back_translation": "We are building strong connections with analytics firms to ensure our graduates are ready for the most in-demand data roles.",
+   "candidate_back_translation": "We network extensively with analytics firms to ensure our graduates are equipped for the most demanding data roles.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಪದವೀಧರರು (graduates) and candidate ಪದವೀಧರರು (graduates) are byte-identical. Round-trip differs slightly on tense ('are ready' vs 'are equipped') but both are correct.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "We foster strong connections with analytics firms, ensuring our graduates are ready for high-demand data roles"
+   ],
+   "added_clauses": [
+    "ನಮ್ಮ ಪದವೀಧರರು ಹೆಚ್ಚಿನ ಬೇಡಿಕೆಯ ಡೇಟಾ ಪಾತ್ರಗಳಿಗೆ ಸಿದ್ಧರಾಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು, ನಾವು ವಿಶ್ಲೇಷಣಾ ಸಂಸ್ಥೆಗಳೊಂದಿಗೆ ಬಲವಾದ ಸಂಪರ್ಕಗಳನ್ನು ಬೆಳೆಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "We foster strong connections with analytics firms, ensuring our graduates are ready for high-demand data roles.",
+   "existing_kn": "ನಮ್ಮ ಪದವೀಧರರು ಹೆಚ್ಚಿನ ಬೇಡಿಕೆಯ ಡೇಟಾ ಪಾತ್ರಗಳಿಗೆ ಸಿದ್ಧರಾಗಿದ್ದಾರೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳುವ ಮೂಲಕ ನಾವು ವಿಶ್ಲೇಷಣಾ ಸಂಸ್ಥೆಗಳೊಂದಿಗೆ ಬಲವಾದ ಸಂಪರ್ಕಗಳನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳುತ್ತೇವೆ.",
+   "sarvam_kn": "ನಮ್ಮ ಪದವೀಧರರು ಹೆಚ್ಚಿನ ಬೇಡಿಕೆಯ ಡೇಟಾ ಪಾತ್ರಗಳಿಗೆ ಸಿದ್ಧರಾಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು, ನಾವು ವಿಶ್ಲೇಷಣಾ ಸಂಸ್ಥೆಗಳೊಂದಿಗೆ ಬಲವಾದ ಸಂಪರ್ಕಗಳನ್ನು ಬೆಳೆಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "We network extensively with analytics firms to ensure our graduates are equipped for the most demanding data roles.",
+   "back_en_of_existing": "We are building strong connections with analytics firms to ensure our graduates are ready for the most in-demand data roles.",
+   "approved": null
+  },
+  "kn.departments.cse_ds.fees": {
+   "existing_back_translation": "KCET: As per KEA norms | Maintenance: ₹3,00,000/annum",
+   "candidate_back_translation": "KSET: As per KEA Rules | Maintenance: Rs.3,00,000/annum",
+   "classification": "SAFE_CORRECTION_CANDIDATE",
+   "applied_status": "APPLIED_PENDING_INDEPENDENT_REVIEW",
+   "applied": {
+    "old_exact_value": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,00,000/ವರ್ಷ",
+    "new_exact_value": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹3,00,000/ವರ್ಷ",
+    "approved_scope": "Replace only the management-quota terminology. Preserve KCET, KEA, ₹, the department-specific amount ₹3,00,000, the /ವರ್ಷ suffix, the literal `|` pipe separator, and every other character. No other Kannada value, no fee amount, no other language, no TTS, no routing change.",
+    "amount_preservation_result": "PASS — ₹3,00,000 preserved exactly; /ವರ್ಷ preserved; ₹ currency symbol preserved.",
+    "protected_token_result": "PASS — KCET (Latin), KEA (Latin), ₹ (currency), 3,00,000 (Indian number format), /ವರ್ಷ (Kannada year suffix) all preserved byte-for-byte. The literal `|` pipe separator is also preserved (separate TTS-sanitizer deferred workstream).",
+    "runtime_consumer_tested": "backend/services/content/content_unit_resolver.py:resolve_unit(unit_id='cse_ds.fees', language='Kannada', language_code='kn') → routes through _resolve_department_unit → ContentResolver.resolve(ResolveRequest(surface=SURFACE_DEPARTMENT_OVERVIEW, department='cse_ds')) → reads kn.json via load_locale_data_for_lang_key('kn') → returns CanonicalContent section 'fees' whose .body equals the new exact value. Also verified end-to-end via get_unit_descriptor('cse_ds.fees') (registered) and load_locale_data_for_lang_key('kn')['departments']['cse_ds']['fees'] (== new exact value).",
+    "test_file": "backend/tests/test_kannada_safe_pilot_batch2_fee_terminology.py"
+   },
+   "reason": "same triple-defect pattern as cse_aiml.fees: pipe separator (deferred), ನಿರ್ವಹಣೆ terminology defect (pilot-corrected on cse.fees), Sarvam candidate has the same terminology defect plus acronym transliterations. Proposed correction: the CSE-pilot applied form 'KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್: ₹3,00,000/ವರ್ಷ' (amount differs: ₹3,00,000 for cse_ds vs ₹3,50,000 for cse). Currency preserved exactly. Present for approval; do not auto-apply. The pipe is a deferred workstream; the terminology correction stands on its own.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['3,00,000']"
+   },
+   "currency_check": {
+    "status": "PASS",
+    "detail": "currency preserved: ['₹']"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['KCET', 'KEA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET', 'KEA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "KCET: As per KEA norms | Management: ₹3,00,000/year"
+   ],
+   "added_clauses": [
+    "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,00,000/ವರ್ಷ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "FAIL",
+    "detail": "literal '|' in candidate (TTS-unsafe; deferred workstream)"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "KCET: As per KEA norms | Management: ₹3,00,000/year",
+   "existing_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,00,000/ವರ್ಷ",
+   "pre_application_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,00,000/ವರ್ಷ",
+   "current_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹3,00,000/ವರ್ಷ",
+   "sarvam_kn": "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹3,00,000/ವರ್ಷ",
+   "back_en_of_candidate": "KSET: As per KEA Rules | Maintenance: Rs.3,00,000/annum",
+   "back_en_of_existing": "KCET: As per KEA norms | Maintenance: ₹3,00,000/annum",
+   "approved": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹3,00,000/ವರ್ಷ"
+  },
+  "kn.departments.ise.name": {
+   "existing_back_translation": "Information Science",
+   "candidate_back_translation": "Information Science",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical: ಮಾಹಿತಿ ವಿಜ್ಞಾನ ('Information Science').",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Information Science"
+   ],
+   "added_clauses": [
+    "ಮಾಹಿತಿ ವಿಜ್ಞಾನ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Information Science",
+   "existing_kn": "ಮಾಹಿತಿ ವಿಜ್ಞಾನ",
+   "sarvam_kn": "ಮಾಹಿತಿ ವಿಜ್ಞಾನ",
+   "back_en_of_candidate": "Information Science",
+   "back_en_of_existing": "Information Science",
+   "approved": null
+  },
+  "kn.departments.ise.intro": {
+   "existing_back_translation": "Information science links applied computing and software engineering directly to current enterprise needs.",
+   "candidate_back_translation": "Information science currently focuses on applied computing and software engineering, in relation to business needs.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಅನ್ವಯಿಕ ಕಂಪ್ಯೂಟಿಂಗ್ + ಸಾಫ್ಟ್‌ವೇರ್ ಇಂಜಿನಿಯರಿಂಗ್ preserves the English loan-words (matching the project glossary). Candidate ಅನ್ವಯಿಕ ಗಣಕೀಕರಣ + ತಂತ್ರಾಂಶ ಎಂಜಿನಿಯರಿಂಗ್ uses fully Kannada terms. Existing matches the block style. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Information Science focuses on applied computing and software engineering aligned directly with current industry needs"
+   ],
+   "added_clauses": [
+    "ಮಾಹಿತಿ ವಿಜ್ಞಾನವು ಪ್ರಸ್ತುತ ಉದ್ಯಮದ ಅಗತ್ಯಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಅನ್ವಯಿಕ ಗಣಕೀಕರಣ ಮತ್ತು ತಂತ್ರಾಂಶ ಎಂಜಿನಿಯರಿಂಗ್ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Information Science focuses on applied computing and software engineering aligned directly with current industry needs.",
+   "existing_kn": "ಮಾಹಿತಿ ವಿಜ್ಞಾನವು ಅನ್ವಯಿಕ ಕಂಪ್ಯೂಟಿಂಗ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಇಂಜಿನಿಯರಿಂಗ್ ಅನ್ನು ಪ್ರಸ್ತುತ ಉದ್ಯಮದ ಅಗತ್ಯಗಳಿಗೆ ನೇರವಾಗಿ ಜೋಡಿಸುತ್ತದೆ.",
+   "sarvam_kn": "ಮಾಹಿತಿ ವಿಜ್ಞಾನವು ಪ್ರಸ್ತುತ ಉದ್ಯಮದ ಅಗತ್ಯಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಅನ್ವಯಿಕ ಗಣಕೀಕರಣ ಮತ್ತು ತಂತ್ರಾಂಶ ಎಂಜಿನಿಯರಿಂಗ್ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ.",
+   "back_en_of_candidate": "Information science currently focuses on applied computing and software engineering, in relation to business needs.",
+   "back_en_of_existing": "Information science links applied computing and software engineering directly to current enterprise needs.",
+   "approved": null
+  },
+  "kn.departments.ise.hod_voice": {
+   "existing_back_translation": "Under the leadership of Dr. Vrinda Shetty, we encourage faculty and students to actively engage in workshops, internships, and practical problem-solving.",
+   "candidate_back_translation": "Under the leadership of Dr. Vrinda Shetty, we actively encourage faculty and students to engage in workshops, internships, and hands-on problem-solving.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "HOD name ಡಾ. ವೃಂದಾ ಶೆಟ್ಟಿ (Dr. Vrinda Shetty) preserved in both, with honorific 'ಯವರ' (existing) vs 'ಅವರ' (candidate). Both honorific forms are correct Kannada. HOD identity unchanged. The HOD-name script policy remains a deferred workstream. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "FAIL",
+    "detail": "names lost: ['Dr. Vrinda Shetty']"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "Led by Dr",
+    "Vrinda Shetty, we encourage faculty and students to actively engage in workshops, internships, and dynamic problem-solving"
+   ],
+   "added_clauses": [
+    "ಡಾ",
+    "ವೃಂದಾ ಶೆಟ್ಟಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಾವು ಅಧ್ಯಾಪಕರು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಕಾರ್ಯಾಗಾರಗಳು, ಇಂಟರ್ನ್‌ಶಿಪ್‌ಗಳು ಮತ್ತು ಕ್ರಿಯಾತ್ಮಕ ಸಮಸ್ಯೆ ಪರಿಹಾರದಲ್ಲಿ ಸಕ್ರಿಯವಾಗಿ ತೊಡಗಿಸಿಕೊಳ್ಳಲು ಪ್ರೋತ್ಸಾಹಿಸುತ್ತೇವೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Led by Dr. Vrinda Shetty, we encourage faculty and students to actively engage in workshops, internships, and dynamic problem-solving.",
+   "existing_kn": "ಡಾ. ವೃಂದಾ ಶೆಟ್ಟಿಯವರ ನೇತೃತ್ವದಲ್ಲಿ, ಕಾರ್ಯಾಗಾರಗಳು, ಇಂಟರ್ನ್‌ಶಿಪ್‌ಗಳು ಮತ್ತು ಕ್ರಿಯಾತ್ಮಕ ಸಮಸ್ಯೆ-ಪರಿಹಾರಗಳಲ್ಲಿ ಸಕ್ರಿಯವಾಗಿ ತೊಡಗಿಸಿಕೊಳ್ಳಲು ನಾವು ಅಧ್ಯಾಪಕರು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುತ್ತೇವೆ.",
+   "sarvam_kn": "ಡಾ. ವೃಂದಾ ಶೆಟ್ಟಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಾವು ಅಧ್ಯಾಪಕರು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಕಾರ್ಯಾಗಾರಗಳು, ಇಂಟರ್ನ್‌ಶಿಪ್‌ಗಳು ಮತ್ತು ಕ್ರಿಯಾತ್ಮಕ ಸಮಸ್ಯೆ ಪರಿಹಾರದಲ್ಲಿ ಸಕ್ರಿಯವಾಗಿ ತೊಡಗಿಸಿಕೊಳ್ಳಲು ಪ್ರೋತ್ಸಾಹಿಸುತ್ತೇವೆ.",
+   "back_en_of_candidate": "Under the leadership of Dr. Vrinda Shetty, we actively encourage faculty and students to engage in workshops, internships, and hands-on problem-solving.",
+   "back_en_of_existing": "Under the leadership of Dr. Vrinda Shetty, we encourage faculty and students to actively engage in workshops, internships, and practical problem-solving.",
+   "approved": null
+  },
+  "kn.departments.ise.achievements": {
+   "existing_back_translation": "Our dedicated faculty members ensure project-based learning, entrepreneurship, and ethical technological development.",
+   "candidate_back_translation": "Our dedicated faculty ensures project-based learning, entrepreneurial thinking, and ethical technology development.",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate narrows ಅಧ್ಯಾಪಕರು (teachers, gender-neutral) to ಅಧ್ಯಾಪಕಿಯು (the female teacher, with 'ಇ' feminine suffix). The source English 'Our dedicated faculty' is gender-neutral. Round-trip confirms: 'Our dedicated faculty' vs 'Our dedicated (female) faculty'. Block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Our dedicated faculty ensures project-based learning, entrepreneurial thinking, and ethical technical development"
+   ],
+   "added_clauses": [
+    "ನಮ್ಮ ಸಮರ್ಪಿತ ಅಧ್ಯಾಪಕಿಯು ಯೋಜನಾಧಾರಿತ ಕಲಿಕೆ, ಉದ್ಯಮಶೀಲ ಚಿಂತನೆ ಮತ್ತು ನೈತಿಕ ತಾಂತ್ರಿಕ ಅಭಿವೃದ್ಧಿಯನ್ನು ಖಚಿತಪಡಿಸುತ್ತಾರೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Our dedicated faculty ensures project-based learning, entrepreneurial thinking, and ethical technical development.",
+   "existing_kn": "ನಮ್ಮ ಮೀಸಲಾದ ಅಧ್ಯಾಪಕರು ಯೋಜನಾ ಆಧಾರಿತ ಕಲಿಕೆ, ವಾಣಿಜ್ಯೋದ್ಯಮ ಚಿಂತನೆ ಮತ್ತು ನೈತಿಕ ತಾಂತ್ರಿಕ ಅಭಿವೃದ್ಧಿಯನ್ನು ಖಾತ್ರಿಪಡಿಸುತ್ತಾರೆ.",
+   "sarvam_kn": "ನಮ್ಮ ಸಮರ್ಪಿತ ಅಧ್ಯಾಪಕಿಯು ಯೋಜನಾಧಾರಿತ ಕಲಿಕೆ, ಉದ್ಯಮಶೀಲ ಚಿಂತನೆ ಮತ್ತು ನೈತಿಕ ತಾಂತ್ರಿಕ ಅಭಿವೃದ್ಧಿಯನ್ನು ಖಚಿತಪಡಿಸುತ್ತಾರೆ.",
+   "back_en_of_candidate": "Our dedicated faculty ensures project-based learning, entrepreneurial thinking, and ethical technology development.",
+   "back_en_of_existing": "Our dedicated faculty members ensure project-based learning, entrepreneurship, and ethical technological development.",
+   "approved": null
+  },
+  "kn.departments.ise.placement": {
+   "existing_back_translation": "With a strong alumni network, consistent placements in leading IT services and product companies are ensured.",
+   "candidate_back_translation": "The consistent job outlook and strong alumni network are supported by the company's major IT services and products companies.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಪ್ಲೇಸ್‌ಮೆಂಟ್‌ಗಳು preserves the protected token (placements, transliterated) per the project glossary. Candidate ಉದ್ಯೋಗಾವಕಾಶಗಳು ('job opportunities') is a glossary violation — the English source is 'placements', not 'job opportunities'. Existing wins.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "FAIL",
+    "detail": "Latin tokens transliterated: ['IT']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Consistent placements in leading IT service and product companies, supported by strong alumni networking"
+   ],
+   "added_clauses": [
+    "ಪ್ರಮುಖ ಐಟಿ ಸೇವೆ ಮತ್ತು ಉತ್ಪನ್ನ ಕಂಪನಿಗಳಲ್ಲಿ ಸ್ಥಿರವಾದ ಉದ್ಯೋಗಾವಕಾಶಗಳು, ಬಲವಾದ ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ ನೆಟ್‌ವರ್ಕಿಂಗ್‌ನಿಂದ ಬೆಂಬಲಿತವಾಗಿದೆ"
+   ],
+   "terminology_conflicts": [
+    "candidate translates 'placements' to a non-glossary synonym"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "Consistent placements in leading IT service and product companies, supported by strong alumni networking.",
+   "existing_kn": "ಬಲವಾದ ಹಳೆ ವಿದ್ಯಾರ್ಥಿ ಜಾಲದ ಬೆಂಬಲದೊಂದಿಗೆ ಪ್ರಮುಖ IT ಸೇವಾ ಮತ್ತು ಉತ್ಪನ್ನ ಕಂಪನಿಗಳಲ್ಲಿ ಸ್ಥಿರವಾದ ಪ್ಲೇಸ್‌ಮೆಂಟ್‌ಗಳು ಸಿಗುತ್ತವೆ.",
+   "sarvam_kn": "ಪ್ರಮುಖ ಐಟಿ ಸೇವೆ ಮತ್ತು ಉತ್ಪನ್ನ ಕಂಪನಿಗಳಲ್ಲಿ ಸ್ಥಿರವಾದ ಉದ್ಯೋಗಾವಕಾಶಗಳು, ಬಲವಾದ ಹಳೆಯ ವಿದ್ಯಾರ್ಥಿಗಳ ನೆಟ್‌ವರ್ಕಿಂಗ್‌ನಿಂದ ಬೆಂಬಲಿತವಾಗಿದೆ.",
+   "back_en_of_candidate": "The consistent job outlook and strong alumni network are supported by the company's major IT services and products companies.",
+   "back_en_of_existing": "With a strong alumni network, consistent placements in leading IT services and product companies are ensured.",
+   "approved": null
+  },
+  "kn.departments.ise.fees": {
+   "existing_back_translation": "KCET: As per KEA norms; Management Quota: ₹2,50,000/year",
+   "candidate_back_translation": "KSET: As per KEA Rules | Maintenance: Rs.2,50,000/annum",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing already uses the CSE-pilot applied form: 'KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ; ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,50,000/ವರ್ಷ' — protected acronyms in Latin, correct terminology ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ, currency preserved, semicolon separator (NOT pipe, so no TTS-sanitizer issue on this row). Sarvam candidate has the same defects the pilot caught: ಕೆಸಿಇಟಿ, ಕೆಇಎ, ನಿರ್ವಹಣೆ, pipe separator. Existing is already-correct; candidate is the defect. KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['2,50,000']"
+   },
+   "currency_check": {
+    "status": "PASS",
+    "detail": "currency preserved: ['₹']"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['KCET', 'KEA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['KCET', 'KEA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "KCET: As per KEA norms | Management: ₹2,50,000/year"
+   ],
+   "added_clauses": [
+    "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹2,50,000/ವರ್ಷ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "FAIL",
+    "detail": "literal '|' in candidate (TTS-unsafe; deferred workstream)"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 6,
+   "english": "KCET: As per KEA norms | Management: ₹2,50,000/year",
+   "existing_kn": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ; ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ: ₹2,50,000/ವರ್ಷ",
+   "sarvam_kn": "ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ | ನಿರ್ವಹಣೆ: ₹2,50,000/ವರ್ಷ",
+   "back_en_of_candidate": "KSET: As per KEA Rules | Maintenance: Rs.2,50,000/annum",
+   "back_en_of_existing": "KCET: As per KEA norms; Management Quota: ₹2,50,000/year",
+   "approved": null
   }
  }
 }

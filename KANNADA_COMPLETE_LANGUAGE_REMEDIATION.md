@@ -976,4 +976,405 @@ consistency:
 
 ---
 
+## 21. Batch 5 — mechanical review (25 rows: 12 ui + 13 kn)
+
+### 21.1 Scope and method
+
+- 25 production-reachable rows in deterministic inventory order:
+  12 from the tail of `ui.*` (comparison.swipe_hint through
+  action.vice_principal) and 13 from the start of
+  `kn.institution_overview.*` (about through infrastructure[6]).
+- Excluded: 3 ghost keys (ui.session.goodbye/ending/interrupted,
+  classified DEFINED_BUT_UNREACHABLE in section 19), 3 blocked
+  pilot values (ui.status.processing, ui.session.timeout,
+  kn.admissions_and_fees.eligibility), and the 4 deferred
+  workstreams (honorific policy, | in TTS, official fee facts,
+  name-script policy).
+- Each row: 3 Sarvam operations (en→kn, kn→en of candidate, kn→en
+  of existing). Source data in
+  `backend/tools/.cache/kannada_sarvam_batch5_rows.json`.
+- Per-row verdict: 4 input/output fields + 14 structured check
+  fields, computed via `build_structured_evidence()`.
+- 1 row (`kn.institution_overview.affiliations_and_accreditations`)
+  had its Sarvam call fail with `segment too long for one call`
+  (3695 chars) — the value is a Python-dict-as-string, not a
+  natural-language sentence.
+- No production locale values were modified. The 25 entries were
+  added to `backend/tools/kannada_review_decisions.json` with
+  `batch=5`, `approved=None` (no write pending).
+
+### 21.2 Per-row verdicts
+
+| Row | Verdict | Defect |
+|---|---|---|
+| `ui.comparison.swipe_hint` | NATIVE_REVIEW_RECOMMENDED | existing loses 'in sync' rhythm; candidate transliterates 'beat/sync' loan-words. Defer. |
+| `ui.comparison.highlighted` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | both correct; existing uses 'selection', candidate uses 'focus'. Defer; keep existing. |
+| `ui.action.fees` | BLOCKED_LINGUISTIC | candidate transliterates `{department}` to `{ಇಲಾಖೆ}` and adds redundant literal 'ಇಲಾಖೆಗೆ'. Placeholder violation. |
+| `ui.action.documents` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | candidate transliterates `{items}` to `{ಐಟಂಗಳು}` — placeholder violation; reject candidate, keep existing. |
+| `ui.action.location` | NATIVE_REVIEW_RECOMMENDED | word-order choice; existing uses literal English order, candidate uses natural Kannada address order. Existing wins on protected acronym (SVIT in Latin). Defer. |
+| `ui.action.admissions` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | 'ಪ್ರವೇಶಾತಿಯ' (formal compound) vs 'ಪ್ರವೇಶ' (common). Stylistic; keep existing for block consistency. |
+| `ui.action.placements` | BLOCKED_LINGUISTIC | candidate uses 'ನಿಯೋಜನೆ' (deployment) instead of protected-token 'ಪ್ಲೇಸ್‌ಮೆಂಟ್'. Same pattern as Batch 4's training_objectives. |
+| `ui.action.department` | BLOCKED_LINGUISTIC | candidate transliterates `{department}` to `{ಇಲಾಖೆ}` AND uses 'ಇಲಾಖೆಯ' as a redundant literal word. Placeholder violation. |
+| `ui.action.hod` | BLOCKED_LINGUISTIC | same placeholder violation: `{department}` → `{ಇಲಾಖೆ}` plus redundant 'ಇಲಾಖೆಯ'. |
+| `ui.action.college` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | word-order difference only. Block consistency wins. |
+| `ui.action.principal` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | 'ಮಾಹಿತಿ' (info) vs 'ಪ್ರೊಫೈಲ್' (profile). Stylistic; keep existing. |
+| `ui.action.vice_principal` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | same pattern as principal. Block consistency wins. |
+| `kn.institution_overview.about` | BLOCKED_LINGUISTIC | candidate adds `[ಉಲ್ಲೇಖ: 8/9/10/12/13/14]` citation artifacts after every fact. Existing drops them. Citation-artifact deferred workstream. |
+| `kn.institution_overview.vision_and_mission` | BLOCKED_LINGUISTIC | same citation-artifact pattern: candidate adds `[ಉಲ್ಲೇಖ: 86/88/89/90/91]` after each numbered mission. |
+| `kn.institution_overview.affiliations_and_accreditations` | BLOCKED_RUNTIME_STRUCTURE | value is a Python-dict-as-string (not a translatable sentence); Sarvam call failed with 'segment too long for one call: 3695 chars'. Structured-data field, not natural-language. Defer to structured-eligibility-fields workstream. |
+| `kn.institution_overview.additional_details.tagline` | BLOCKED_LINGUISTIC | candidate adds `[ಉಲ್ಲೇಖ: 15]` after the closing quote. |
+| `kn.institution_overview.additional_details.motto` | BLOCKED_LINGUISTIC | candidate adds `[ಉಲ್ಲೇಖ: 16]`. |
+| `kn.institution_overview.additional_details.founded_by` | BLOCKED_LINGUISTIC | candidate adds `[ಉಲ್ಲೇಖ: 11]`. |
+| `kn.institution_overview.additional_details.infrastructure[0..6]` (7 rows) | BLOCKED_LINGUISTIC | each candidate adds `[ಉಲ್ಲೇಖ: 23/24/25/26/27/28/29]`. |
+
+### 21.3 Highlights
+
+- **Placeholder violations (5 of 12 ui.action.*)**: Sarvam
+  transliterates the Latin-script placeholders `{department}`,
+  `{items}` to Kannada-script tokens. This breaks runtime template
+  substitution, which the runtime consumer expects verbatim in
+  Latin. This is the same class of defect as the protected-acronym
+  violations caught in earlier batches, but applied to template
+  placeholders. Recorded as BLOCKED_LINGUISTIC; the candidates
+  would not survive a runtime test.
+- **Citation artifacts (12 of 13 kn.institution_overview.*)**: The
+  English source contains `[cite: N]` markers as inline evidence
+  tags. Sarvam reproduces them in Kannada as `[ಉಲ್ಲೇಖ: N]`. The
+  existing Kannada values drop them. This is a deferred
+  workstream (citation artifacts): the project has not yet decided
+  whether citations should appear in the visitor-facing UI at all,
+  and if so, in what form. Sarvam's candidates are blocked for now
+  because adopting them would lock in one of the deferred
+  decisions.
+- **Structured-data field (1 row)**:
+  `kn.institution_overview.affiliations_and_accreditations` is a
+  Python-dict serialised to a string in the locale file. This
+  cannot be translated as a sentence; it is structured data. The
+  Sarvam call failed at the API level (segment too long). The
+  decision is BLOCKED_RUNTIME_STRUCTURE and the row is referred to
+  the structured-eligibility-fields workstream for the same
+  treatment as `admissions_and_fees.eligibility`.
+- **Stylistic deferrals (2)**: `ui.comparison.swipe_hint` and
+  `ui.action.location` have legitimate stylistic differences
+  between existing and Sarvam candidate; both are recorded as
+  NATIVE_REVIEW_RECOMMENDED.
+
+### 21.4 SAFE_CORRECTION_CANDIDATE count is 0
+
+No SAFE_CORRECTION_CANDIDATE values were produced. The deferred
+workstreams (citation artifacts, structured fields, TTS pipe
+sanitizer, honorific policy) and the placeholder policy blocked
+every candidate that would have changed a value. No approval
+table is needed for Batch 5.
+
+### 21.5 Required output (Batch 5)
+
+- TOTAL PRODUCTION-REACHABLE: 209 (unchanged from Batch 4 close)
+- PREVIOUSLY MECHANICALLY REVIEWED: 90 (15 pilot + 25 B2 + 25 B3
+  + 25 B4)
+- REVIEWED IN BATCH 5: 25
+- KEEP_EXISTING_MECHANICALLY_SUPPORTED: 6
+- SAFE_CORRECTION_CANDIDATES: 0
+- BLOCKED_LINGUISTIC: 16
+- BLOCKED_OFFICIAL_FACT: 0
+- BLOCKED_MISSING_SOURCE: 0
+- BLOCKED_RUNTIME_STRUCTURE: 1
+- NATIVE_REVIEW_RECOMMENDED: 2
+- SARVAM API CALLS: 1 (only the affiliation row needed a fresh
+  call; 36 cache hits from prior batches, plus 1 fresh call for
+  the affiliation row that then errored)
+- CACHE HITS: 36
+- REMAINING PRODUCTION-REACHABLE: 94 (209 − 90 − 25)
+- PRODUCTION FILES CHANGED: 0
+- EVIDENCE FILES CHANGED:
+  `backend/tools/kannada_review_decisions.json` (25 new entries
+  with `batch=5`); this report (section 21 added); new cache file
+  `backend/tools/.cache/kannada_sarvam_batch5_rows.json` (ignored
+  by .gitignore).
+- TESTS RUN: 27 passed (no new executable tooling change in
+  Batch 5; the existing tool-schema test still covers the
+  builder).
+- GIT DIFF CHECK: clean.
+- GIT STATUS: see below; no commit, no push per user instruction.
+
+---
+
+## 22. Batch 5 accounting correction
+
+### 22.1 Affiliation row retry
+
+The Batch 5 affiliation row
+`kn.institution_overview.affiliations_and_accreditations` failed
+its Sarvam call with `segment too long for one call: 3695 chars`
+in the original run. The row was initially classified
+`BLOCKED_RUNTIME_STRUCTURE` based on the structural observation
+that the value is a Python-dict-as-string, **but all three
+mandatory Sarvam operations were missing** (sarvam_kn,
+back_en_of_candidate, back_en_of_existing all `None`). Per the
+rule that a row cannot count as mechanically reviewed without all
+mandatory translation evidence, the original classification was
+provisionally invalid.
+
+The retry (recorded in `affiliation_retry.json`) succeeded by
+translating each dict value key-by-key so each Sarvam segment is
+under the per-call limit, then reassembling:
+
+- 11 fresh API calls (5 en→kn per key + 1 kn→en of full candidate
+  dict + 5 kn→en per existing key)
+- 0 cache hits
+- All 3 mandatory operations now present
+
+With full evidence available, the row was re-classified
+`BLOCKED_LINGUISTIC` on substantive grounds:
+
+- Candidate adds `[ಉಲ್ಲೇಖ: 18/18/19/20/21]` citation artifacts
+  (citation-artifacts deferred workstream)
+- Candidate transliterates protected acronyms VTU to `ವಿ.ಟಿ.ಯು.`
+  and ECE to `ಇಸಿಇ` (protected-acronyms policy); AICTE preserved
+  in Latin (Sarvam's per-value transliteration is inconsistent
+  within a single string)
+- The structural observation (Python-dict-as-string) is preserved
+  as a secondary note but is no longer the primary classification
+
+The row remains in Batch 5's reviewed count; it was never
+returned to the unreviewed queue because the retry succeeded
+before the report commit.
+
+### 22.2 Corrected Batch 5 per-classification counts
+
+| Classification | Count | Notes |
+|---|---|---|
+| KEEP_EXISTING_MECHANICALLY_SUPPORTED | 6 | |
+| SAFE_CORRECTION_CANDIDATE | 0 | |
+| BLOCKED_LINGUISTIC | 17 | was 16; +1 from the corrected affiliation reclassification |
+| BLOCKED_OFFICIAL_FACT | 0 | |
+| BLOCKED_MISSING_SOURCE | 0 | |
+| BLOCKED_RUNTIME_STRUCTURE | 0 | was 1; the affiliation row was reclassified to BLOCKED_LINGUISTIC |
+| NATIVE_REVIEW_RECOMMENDED | 2 | |
+| REVIEW_INCOMPLETE_API_FAILURE | 0 | retry succeeded; no row left incomplete |
+
+Reviewed count: **25** (unchanged). Remaining production-reachable
+pre-Batch-6: **94** (unchanged).
+
+### 22.3 Cumulative unresolved totals (across all reviewed batches)
+
+The user clarified that a reviewed-but-blocked row is "not
+unreviewed" but also "not production-ready". These totals are
+recorded separately from "remaining production-reachable":
+
+- CUMULATIVE BLOCKED_LINGUISTIC: **20** (3 from Batch 4 + 17 from
+  Batch 5)
+- CUMULATIVE BLOCKED_OFFICIAL_FACT: **0**
+- CUMULATIVE BLOCKED_MISSING_SOURCE: **0**
+- CUMULATIVE BLOCKED_RUNTIME_STRUCTURE: **0** (the 1 from Batch 5
+  was reclassified; no new entries)
+- CUMULATIVE NATIVE_REVIEW_RECOMMENDED: **13** (2 from Batch 3 + 9
+  from Batch 4 + 2 from Batch 5)
+
+### 22.4 Cumulative resolved/retained totals
+
+- CUMULATIVE KEEP_EXISTING_MECHANICALLY_SUPPORTED: **49** (7
+  pilot + 25 Batch 2 provisional + 23 Batch 3 + 13 Batch 4 + 6
+  Batch 5 minus 25 Batch 2's MECHANICALLY_REVIEWED_PROVISIONAL
+  which is not counted here as KEEP)
+- CUMULATIVE MECHANICALLY_REVIEWED_PROVISIONAL: **25** (Batch 2
+  only; recorded as a separate category because Batch 2's
+  per-row Sarvam candidates were not stored)
+- CUMULATIVE CORRECTIONS APPLIED: **5** (the 5 pilot values
+  applied in commit c398808)
+- CUMULATIVE BLOCKED PILOT: **3** (ui.status.processing,
+  ui.session.timeout, kn.admissions_and_fees.eligibility; have
+  `approved` in the decisions file but remain unapplied per the
+  standing block)
+- CUMULATIVE SAFE_CORRECTION_CANDIDATE_PENDING: **0** (the 3
+  blocked pilot values are not "pending"; they are explicitly
+  blocked)
+- CUMULATIVE REVIEW_INCOMPLETE_API_FAILURE: **0** (the affiliation
+  retry succeeded)
+
+### 22.5 SARVAM API CALLS / CACHE HITS correction
+
+The original Batch 5 close reported "SARVAM API CALLS: 1" with
+"CACHE HITS: 36". The accurate figure for Batch 5:
+
+- SARVAM API CALLS: **48** (37 from the original driver for the
+  24 non-affiliation rows + 11 from the affiliation retry)
+- CACHE HITS: **36** (24 rows × 1 hit each on the original run's
+  2nd-or-3rd op, contributed by the prior-batch cache)
+
+The "1" figure in the original Batch 5 close was a reporting
+error, not a data error: the driver had emitted
+`api_calls: 37, cache_hits: 36` on stderr, which the report
+rounded down to the affiliation row's 1 fresh call only. The
+totals above supersede it.
+
+---
+
+## 23. Batch 6 — mechanical review (25 rows)
+
+### 23.1 Scope and method
+
+- 25 production-reachable rows in deterministic inventory order
+  following the 25 ui.* + 75 kn.* already-reviewed rows
+  (15 pilot + 25 B2 + 25 B3 + 25 B4 + 25 B5).
+- Composition: 3 entrance-exam labels, 2 fee-structure sentences,
+  1 additional-fees sentence, then 19 department-content rows
+  (cse.name + cse.achievements, plus 6 cse_aiml rows, 6 cse_ds
+  rows, 6 ise rows).
+- Excluded by deferred-workstream filter: rows under
+  `admissions_and_fees.additional_details.admission_and_eligibility.*`
+  (eligibility structured fields workstream), the
+  `admissions_and_fees.fee_structures.ug_management` and
+  `.pg_mba` rows (official fee facts workstream — Python-dict-as-
+  string with ₹ figures and the unresolved ₹3,50,000 vs ₹3,25,000
+  cross-department conflict), and any row whose English source
+  contains `[cite: N]` markers (citation artifacts workstream).
+- Each row: 3 Sarvam operations (en→kn, kn→en of candidate,
+  kn→en of existing). Source data in
+  `backend/tools/.cache/kannada_sarvam_batch6_rows.json`.
+- Per-row verdict: 4 input/output fields + 14 structured check
+  fields, computed via `build_structured_evidence()`.
+- No production locale values were modified. The 25 entries were
+  added to `backend/tools/kannada_review_decisions.json` with
+  `batch=6`, `approved=None` (no write pending).
+
+### 23.2 Per-row verdicts
+
+| Row | Verdict | Defect |
+|---|---|---|
+| `kn.admissions_and_fees.entrance_exams[0]` (KCET) | KEEP_EXISTING_MECHANICALLY_SUPPORTED | Sarvam transliterates KCET → ಕೆಸಿಇಟಿ, round-trip says "KSET" (wrong exam). Existing preserves KCET in Latin. |
+| `kn.admissions_and_fees.entrance_exams[1]` (COMEDK) | KEEP_EXISTING_MECHANICALLY_SUPPORTED | Sarvam transliterates COMEDK → ಕಾಾಮಡ್ಕೆ, round-trip says "Kamadke" (a place, not an exam). Existing preserves COMEDK in Latin. |
+| `kn.admissions_and_fees.entrance_exams[2]` (Management) | KEEP_EXISTING_MECHANICALLY_SUPPORTED | Sarvam returns ನಿರ್ವಹಣೆ ("maintenance") — same terminology defect the pilot fixed. Existing ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ is correct. |
+| `kn.admissions_and_fees.fee_structures.ug_kcet` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | Sarvam transliterates KEA and KCET to Kannada initials. Existing preserves both in Latin. |
+| `kn.admissions_and_fees.fee_structures.additional_fees` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | stylistic; existing uses more formal academic vocabulary (ಶಿಕ್ಷಣ ಶುಲ್ಕ, ವಿಧಿಬದ್ಧ, ಸಂಪರ್ಕಿಸಿ). |
+| `kn.departments.cse.name` | NATIVE_REVIEW_RECOMMENDED | ಕಂಪ್ಯೂಟರ್ (transliterated) vs ಗಣಕ (Kannada noun) for "computer". Defer. |
+| `kn.departments.cse.achievements` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | stylistic; ಲ್ಯಾಬ್ (transliterated) vs ಪ್ರಯೋಗಾಲಯ (Kannada). Existing matches block style. |
+| `kn.departments.cse_aiml.name` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | byte-identical. |
+| `kn.departments.cse_aiml.intro` | NATIVE_REVIEW_RECOMMENDED | ಪ್ರವರ್ತಿಸುತ್ತದೆ (pioneers) + ಟೆಕ್ ಲ್ಯಾಂಡ್‌ಸ್ಕೇಪ್ vs ಮುನ್ನಡೆಸುತ್ತದೆ (leads) + ತಂತ್ರಜ್ಞಾನದ ಭೂದೃಶ್ಯ. Defer. |
+| `kn.departments.cse_aiml.hod_voice` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | HOD name preserved; honorific form differs but both correct. |
+| `kn.departments.cse_aiml.achievements` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | candidate ತಂಡ (team) is wrong meaning for "batch" (graduating class). Defect in candidate. |
+| `kn.departments.cse_aiml.placement` | BLOCKED_LINGUISTIC | **gender narrowing**: candidate ವಿದ್ಯಾರ್ಥಿನಿಯರು (female students) vs existing ವಿದ್ಯಾರ್ಥಿಗಳು (students). |
+| `kn.departments.cse_aiml.fees` | **SAFE_CORRECTION_CANDIDATE** | existing has terminology defect ನಿರ್ವಹಣೆ (maintenance) — same as the pilot-corrected cse.fees defect. **See approval table 23.5.** |
+| `kn.departments.cse_ds.name` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | byte-identical. |
+| `kn.departments.cse_ds.intro` | BLOCKED_LINGUISTIC | **gender narrowing**: candidate ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ (to female students) vs existing ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು (students). |
+| `kn.departments.cse_ds.hod_voice` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | byte-identical. |
+| `kn.departments.cse_ds.achievements` | BLOCKED_LINGUISTIC | **gender narrowing**: candidate ವಿದ್ಯಾರ್ಥಿನಿಯರು (female students) vs existing ವಿದ್ಯಾರ್ಥಿಗಳು (students). |
+| `kn.departments.cse_ds.placement` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | byte-identical. |
+| `kn.departments.cse_ds.fees` | **SAFE_CORRECTION_CANDIDATE** | same triple-defect pattern as cse_aiml.fees. **See approval table 23.5.** |
+| `kn.departments.ise.name` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | byte-identical. |
+| `kn.departments.ise.intro` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | existing preserves English loan-words (ಕಂಪ್ಯೂಟಿಂಗ್, ಸಾಫ್ಟ್‌ವೇರ್, ಇಂಜಿನಿಯರಿಂಗ್) per glossary. |
+| `kn.departments.ise.hod_voice` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | HOD name preserved; honorific form differs but both correct. |
+| `kn.departments.ise.achievements` | BLOCKED_LINGUISTIC | **gender narrowing**: candidate ಅಧ್ಯಾಪಕಿಯು (the female teacher) vs existing ಅಧ್ಯಾಪಕರು (teachers). |
+| `kn.departments.ise.placement` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | existing preserves protected token ಪ್ಲೇಸ್‌ಮೆಂಟ್; candidate ಉದ್ಯೋಗಾವಕಾಶ (job opportunity) drifts. |
+| `kn.departments.ise.fees` | KEEP_EXISTING_MECHANICALLY_SUPPORTED | existing already uses CSE-pilot applied form ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ with semicolon (not pipe). Sarvam candidate has the defects. |
+
+### 23.3 Highlights
+
+- **Gender narrowing recurs (4 of 25 rows)**: Sarvam narrows
+  "students"/"faculty" to "female students"/"female teacher" in
+  `cse_aiml.placement`, `cse_ds.intro`, `cse_ds.achievements`,
+  `ise.achievements`. This is the same class of defect the
+  pilot caught on `cse.placement`. Each row's `gender_narrowing`
+  field is FAIL with the narrowed term in the detail.
+- **Protected-acronym transliterations (3 of 25 rows)**: Sarvam
+  transliterates KCET/COMEDK/KEA in
+  `entrance_exams[0]`, `entrance_exams[1]`, `fee_structures.ug_kcet`,
+  and in the two SAFE_CORRECTION_CANDIDATE fee rows. The
+  existing values preserve the acronyms in Latin per the
+  project glossary; the round-trip back-translation confirms
+  the harm (KCET → ಕೆಸಿಇಟಿ → "KSET" is a different exam).
+- **Terminology defect `ನಿರ್ವಹಣೆ` recurs in 3 fee rows**:
+  `cse_aiml.fees`, `cse_ds.fees` use the same pre-pilot
+  terminology defect that the pilot corrected on `cse.fees`.
+  `ise.fees` already uses the corrected form
+  `ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಕೋಟಾ` (no correction needed). The 2
+  remaining rows are SAFE_CORRECTION_CANDIDATEs presented in
+  the approval table below.
+- **HOD names (3 rows)**: `cse_aiml.hod_voice`,
+  `cse_ds.hod_voice`, `ise.hod_voice` each contain a HOD
+  name. The names are preserved in both existing and Sarvam
+  candidate (Kannada transliteration form, matching the
+  cse pilot). The HOD-name script policy remains a deferred
+  workstream per the pilot.
+
+### 23.4 Cumulative unresolved totals (post-Batch 6)
+
+- CUMULATIVE BLOCKED_LINGUISTIC: **24** (3 B4 + 17 B5 + 4 B6)
+- CUMULATIVE BLOCKED_OFFICIAL_FACT: **0**
+- CUMULATIVE BLOCKED_MISSING_SOURCE: **0**
+- CUMULATIVE BLOCKED_RUNTIME_STRUCTURE: **0**
+- CUMULATIVE NATIVE_REVIEW_RECOMMENDED: **15** (2 B3 + 9 B4 + 2
+  B5 + 2 B6)
+- CUMULATIVE REVIEW_INCOMPLETE_API_FAILURE: **0**
+
+### 23.5 SAFE_CORRECTION_CANDIDATE approval table (2 rows)
+
+The user spec: "If candidates exist, present an approval table
+containing: ID / English / Existing Kannada / Existing
+back-translation / Proposed Kannada / Proposed back-translation
+/ Exact defect / Protected tokens / Display impact / Narration
+impact / Recommendation." These are presented for explicit
+approval; no production value is written until the user
+approves.
+
+| ID | English | Existing Kannada | Existing back-translation | Proposed Kannada | Proposed back-translation |
+|---|---|---|---|---|---|
+| `kn.departments.cse_aiml.fees` | KCET: As per KEA norms \| Management: ₹3,50,000/year | KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ | KCET: As per KEA norms \| Maintenance: ₹3,50,000/year | KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್: ₹3,50,000/ವರ್ಷ | KCET: As per KEA norms \| Management: ₹3,50,000/year |
+| `kn.departments.cse_ds.fees` | KCET: As per KEA norms \| Management: ₹3,00,000/year | KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ನಿರ್ವಹಣೆ: ₹3,00,000/ವರ್ಷ | KCET: As per KEA norms \| Maintenance: ₹3,00,000/year | KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್: ₹3,00,000/ವರ್ಷ | KCET: As per KEA norms \| Management: ₹3,00,000/year |
+
+| ID | Exact defect | Protected tokens | Display impact | Narration impact | Recommendation |
+|---|---|---|---|---|---|
+| `kn.departments.cse_aiml.fees` | ನಿರ್ವಹಣೆ ("maintenance") used for "Management" — same defect the pilot caught on cse.fees and corrected to ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ("management quota") | KCET, KEA, ₹3,50,000, /ವರ್ಷ preserved exactly; pipe `\|` preserved (TTS-sanitizer-deferred workstream) | same length; same line-break; same card layout | same TTS chunking; same narration prepend (`{dept_label} ಶುಲ್ಕ.`) | adopt the CSE-pilot applied form (terminology only); do not touch the pipe; do not touch the currency |
+| `kn.departments.cse_ds.fees` | same `ನಿರ್ವಹಣೆ` terminology defect; amount differs (₹3,00,000) but the same defect | KCET, KEA, ₹3,00,000, /ವರ್ಷ preserved; pipe preserved | same length; same card layout | same TTS chunking | adopt the CSE-pilot applied form (terminology only) |
+
+Per the standing rule, the proposed values are **not auto-
+applied**. They are presented above for the user's explicit
+approval. The cross-department fee-amount fact (₹3,00,000 for
+cse_ds vs ₹3,50,000 for cse and cse_aiml) is recorded but not
+adjudicated; the user's earlier clarification was that
+"different fee amounts across different departments are not
+automatically conflicts" — each row's currency is preserved.
+
+### 23.6 Required output (Batch 6)
+
+- TOTAL PRODUCTION-REACHABLE: 209
+- PREVIOUSLY MECHANICALLY REVIEWED: 115 (15 pilot + 25 B2 + 25
+  B3 + 25 B4 + 25 B5)
+- REVIEWED IN BATCH 6: 25
+- KEEP_EXISTING_MECHANICALLY_SUPPORTED: 17
+- SAFE_CORRECTION_CANDIDATES: 2
+- BLOCKED_LINGUISTIC: 4
+- BLOCKED_OFFICIAL_FACT: 0
+- BLOCKED_MISSING_SOURCE: 0
+- BLOCKED_RUNTIME_STRUCTURE: 0
+- NATIVE_REVIEW_RECOMMENDED: 2
+- REVIEW_INCOMPLETE_API_FAILURE: 0
+- SARVAM API CALLS: 69 (3 ops × 25 rows = 75; 6 cache hits from
+  prior batches)
+- CACHE HITS: 6
+- REMAINING PRODUCTION-REACHABLE: 69 (209 − 115 − 25)
+- CUMULATIVE RESOLVED/RETAINED (KEEP + corrected): 49 + 17 = 66
+- CUMULATIVE CORRECTIONS APPLIED: 5 (the 5 pilot values
+  applied in commit c398808; 2 SAFE_CORRECTION_CANDIDATEs from
+  Batch 6 are presented but not applied)
+- CUMULATIVE BLOCKED: 24 (3 B4 + 17 B5 + 4 B6)
+- CUMULATIVE NATIVE-REVIEW QUEUE: 15 (2 B3 + 9 B4 + 2 B5 + 2 B6)
+- CUMULATIVE API-INCOMPLETE: 0
+- PRODUCTION FILES CHANGED: 0
+- EVIDENCE FILES CHANGED:
+  `backend/tools/kannada_review_decisions.json` (25 new entries
+  with `batch=6`); this report (section 23 added);
+  `backend/tools/kannada_review_decisions.json` (1 row updated
+  with the affiliation retry evidence); new cache file
+  `backend/tools/.cache/kannada_sarvam_batch6_rows.json`
+  (ignored by .gitignore);
+  `backend/tools/.cache/affiliation_retry.json` (ignored).
+- TESTS RUN: 27 passed (no new executable tooling change in
+  Batch 6; the existing tool-schema test still covers the
+  builder).
+- GIT DIFF CHECK: clean.
+- GIT STATUS: see below; no commit, no push per user instruction.
+
+---
+
 End of audit.
