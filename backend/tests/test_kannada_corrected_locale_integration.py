@@ -1,4 +1,43 @@
-"""Regression coverage for the approved 37-row Kannada V2 content import."""
+"""Regression coverage for the approved 37-row Kannada V2 content import.
+
+Historical contract
+-------------------
+The 37-row Kannada V2 workbook was imported in commit 01bf8b6
+("content(kn): import 37 validated Kannada V2 corrections"). This test
+originally asserted a single ``EXPECTED_VALUE_HASHES`` map against the
+live ``backend/data/locales/kn.json`` file.
+
+Post-V2 remediation override
+----------------------------
+After the V2 import, a separate, independently approved Kannada
+remediation pilot (Batch 1) was applied. That pilot corrected exactly
+two of the 37 V2 paths:
+
+  * ``departments.cse.intro``
+  * ``departments.cse.hod_voice``
+
+The remediation was reviewed and approved in
+``KANNADA_PILOT_BATCH1_REVIEW_VERDICT.md``. The two paths above are the
+ONLY V2 paths that legitimately deviate from their V2 workbook values.
+Every other V2 path must remain exactly unchanged.
+
+To preserve the historical evidence and prevent silent overwrites, the
+test contract is now split into two layers:
+
+  1. ``ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS`` — the exact 37 hashes
+     that were committed in 01bf8b6. This is the original, immutable
+     V2 workbook expectation. It is NEVER compared against the live
+     locale JSON; it is the historical record.
+  2. ``APPROVED_POST_V2_REMEDIATION_OVERRIDES`` — an explicit, narrow
+     table of the two paths the V2 remediation pilot is allowed to
+     change, with both the V2 hash and the current approved hash, the
+     reason for the later correction, and a reference to the verdict
+     document.
+
+The live locale JSON must match the V2 hash for all 35 unchanged paths
+and the remediation hash for the 2 overridden paths. No other deviation
+is accepted.
+"""
 
 from __future__ import annotations
 
@@ -18,8 +57,16 @@ from backend.services.tts_text_contract import build_narration_text_contract
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 LOCALE_DIR = REPO_ROOT / "backend" / "data" / "locales"
+VERDICT_DOC = "KANNADA_PILOT_BATCH1_REVIEW_VERDICT.md"
 
-EXPECTED_VALUE_HASHES = {
+# ---------------------------------------------------------------------------
+# Layer 1: original Kannada V2 workbook expectations (commit 01bf8b6).
+# These are the exact 37 hashes imported on 2026-08-26. This map is the
+# historical evidence and is NEVER compared against the live locale JSON
+# directly. It is the source of truth for the V2 baseline that the
+# remediation overrides are measured against.
+# ---------------------------------------------------------------------------
+ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS: dict[str, str] = {
     "institution_overview.about": "b60b60189a15eb29446e565701738617ffbb945a3986669537dcc729dc0b13bd",
     "institution_overview.additional_details.motto": "ffbbb3187fa7ff6fb4f362002b94918b899760125d480f677d787e572d85a29a",
     "institution_overview.additional_details.core_values[0]": "d71c8a12317a4c5990236e718b13fc39dffd8c206d9ec4cfb2cf1cac3560edf7",
@@ -34,6 +81,9 @@ EXPECTED_VALUE_HASHES = {
     "admissions_and_fees.fee_structures.additional_fees": "5ab6faee6b551f89a1bfbfa52df7d84cf2022d246867728a5a28a0023db7e1cb",
     "admissions_and_fees.additional_details.admission_and_eligibility.mba_programs.qualification": "4139545f5080ddbe6d2660655d2e830df5e55bca69c99c5bd4d58702250e530e",
     "admissions_and_fees.additional_details.admission_and_eligibility.mba_programs.expected_cutoff": "2226628bb435bfafa861c74893b25d9b4d8c8f3e019f120238a7f77e32e55e62",
+    # The two paths below were corrected by the post-V2 remediation pilot
+    # (see APPROVED_POST_V2_REMEDIATION_OVERRIDES). The hashes recorded
+    # here are the ORIGINAL V2 hashes, not the current remediation hashes.
     "departments.cse.intro": "be765322db3b6bfb09fcf3702b7fec9fbfcbfbb93a7967d01eeae09a03b84484",
     "departments.cse.hod_voice": "4b2d4b820924f09956dc7d80adfef583b7b184790d0f153783dda7db224b3a5b",
     "departments.cse_cysec.placement": "d78509b086dbdafa7a7e3058bdc2c87acd99255124f6bf7bd24c862290140221",
@@ -60,6 +110,84 @@ EXPECTED_VALUE_HASHES = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Layer 2: explicit, narrow list of the two V2 paths that the separately
+# approved post-V2 remediation pilot (Batch 1) is allowed to override.
+# Each entry records the original V2 hash, the current approved hash, the
+# reason for the later correction, and a pointer to the verdict document.
+# ---------------------------------------------------------------------------
+APPROVED_POST_V2_REMEDIATION_OVERRIDES: dict[str, dict[str, str]] = {
+    "departments.cse.intro": {
+        "locale_file": "backend/data/locales/kn.json",
+        "locale_json_path": "$.departments.cse.intro",
+        "v2_approved_value": (
+            "ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗವು ಅತ್ಯಾಧುನಿಕ "
+            "ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಡಿಜಿಟಲ್ ಕ್ರಾಂತಿಯನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ. ನಾವು "
+            "ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಉನ್ನತ-ಶ್ರೇಣಿಯ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್‌ಗಳನ್ನಾಗಿ "
+            "ಮತ್ತು ಸಿಸ್ಟಮ್ ವಾಸ್ತುಶಿಲ್ಪಿಗಳನ್ನಾಗಿ ರೂಪಿಸುತ್ತೇವೆ."
+        ),
+        "v2_approved_hash": "be765322db3b6bfb09fcf3702b7fec9fbfcbfbb93a7967d01eeae09a03b84484",
+        "current_approved_value": (
+            "ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗವು ಅತ್ಯಾಧುನಿಕ "
+            "ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಡಿಜಿಟಲ್ ಕ್ರಾಂತಿಯನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ. ನಾವು "
+            "ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಉನ್ನತ ದರ್ಜೆಯ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್‌ಗಳಾಗಿ "
+            "ಮತ್ತು ಸಿಸ್ಟಮ್ ಆರ್ಕಿಟೆಕ್ಟ್‌ಗಳಾಗಿ ರೂಪಿಸುತ್ತೇವೆ."
+        ),
+        "current_approved_hash": "1a900761c720558f9edceffbd54aae51d16f7117f4732b3923fdd1d6f0407ceb",
+        "reason": (
+            "Three glossary defects in the V2 value: ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ "
+            "violates the approved glossary (ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್); "
+            "ಸಿಸ್ಟಮ್ ವಾಸ್ತುಶಿಲ್ಪಿಗಳು means 'building architects', the wrong "
+            "sense for a software system architect; ಉನ್ನತ-ಶ್ರೇಣಿಯ carries an "
+            "un-Kannada Latin hyphen. The remediation pilot adopted "
+            "glossary-aligned terms for all three."
+        ),
+        "verdict_reference": VERDICT_DOC,
+    },
+    "departments.cse.hod_voice": {
+        "locale_file": "backend/data/locales/kn.json",
+        "locale_json_path": "$.departments.cse.hod_voice",
+        "v2_approved_value": (
+            "ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿ ಜಾಗತಿಕ "
+            "ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ "
+            "ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ "
+            "ಅಭ್ಯಾಸಗಳಿಗೆ ನಾವು ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ."
+        ),
+        "v2_approved_hash": "4b2d4b820924f09956dc7d80adfef583b7b184790d0f153783dda7db224b3a5b",
+        "current_approved_value": (
+            "ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿಕೋನವು "
+            "ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ "
+            "ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ನಾವು ಪ್ರಾಯೋಗಿಕ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ "
+            "ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ."
+        ),
+        "current_approved_hash": "eafd698fdee1b9f96b9028a5ae91efdf48e4cf383df4865b84f4eae3907c8a80",
+        "reason": (
+            "Added the honorific ಅವರ after the HOD's name (respect form in "
+            "Kannada when naming a person) and restored the dropped "
+            "'hands-on' qualifier (ಪ್ರಾಯೋಗಿಕ) that the V2 value had lost. "
+            "The HOD name ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ is byte-identical to the V2 "
+            "value; the honorific is a respect marker, not a name change."
+        ),
+        "verdict_reference": VERDICT_DOC,
+    },
+}
+
+
+# Derived: the set of paths the remediation pilot is allowed to override.
+APPROVED_OVERRIDE_PATHS: frozenset[str] = frozenset(APPROVED_POST_V2_REMEDIATION_OVERRIDES)
+
+# Derived: the 35 unchanged V2 paths (everything in the V2 workbook
+# that is NOT an approved override). These must remain exactly as V2.
+V2_UNCHANGED_PATHS: frozenset[str] = frozenset(
+    path for path in ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS
+    if path not in APPROVED_OVERRIDE_PATHS
+)
+
+
+def _sha256(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def _get_path(root: object, path: str) -> object:
     current = root
     for key, index in re.findall(r"([^.[\]]+)|\[(\d+)\]", path):
@@ -78,20 +206,105 @@ def _shape(root: object, prefix: str = "$") -> dict[str, str]:
     return result
 
 
+def test_v2_workbook_inventory_has_exactly_37_paths() -> None:
+    """The V2 workbook import brought in exactly 37 paths and no more."""
+    assert len(ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS) == 37
+
+
+def test_v2_workbook_paths_partition_into_unchanged_and_overridden() -> None:
+    """The 37 V2 paths must partition into 35 unchanged + 2 overridden."""
+    assert len(APPROVED_POST_V2_REMEDIATION_OVERRIDES) == 2
+    assert len(V2_UNCHANGED_PATHS) == 35
+    assert V2_UNCHANGED_PATHS.isdisjoint(APPROVED_OVERRIDE_PATHS)
+    assert (
+        frozenset(ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS)
+        == V2_UNCHANGED_PATHS | APPROVED_OVERRIDE_PATHS
+    )
+
+
+def test_approved_overrides_record_v2_and_current_hashes() -> None:
+    """Each override must record both the V2 hash and the current hash,
+    and both must be self-consistent with the recorded values."""
+    for path, entry in APPROVED_POST_V2_REMEDIATION_OVERRIDES.items():
+        # Self-consistency: the recorded V2 hash matches the V2 value.
+        assert _sha256(entry["v2_approved_value"]) == entry["v2_approved_hash"], (
+            path,
+            "v2 hash mismatch",
+        )
+        # Self-consistency: the recorded current hash matches the current value.
+        assert _sha256(entry["current_approved_value"]) == entry["current_approved_hash"], (
+            path,
+            "current hash mismatch",
+        )
+        # The V2 hash for this path must match the V2 workbook expectation.
+        assert ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS[path] == entry["v2_approved_hash"], (
+            path,
+            "v2 hash not aligned with V2 workbook",
+        )
+        # The override must actually be a deviation (otherwise it's not
+        # an override at all and is a silent no-op).
+        assert entry["v2_approved_hash"] != entry["current_approved_hash"], (
+            path,
+            "override records identical hashes — not a real override",
+        )
+        # The override entry must reference the verdict document.
+        assert entry["verdict_reference"] == VERDICT_DOC
+        # The override entry must carry a non-empty reason.
+        assert entry["reason"], path
+        # The override entry must carry both locale_file and locale_json_path.
+        assert entry["locale_file"] == "backend/data/locales/kn.json"
+        assert entry["locale_json_path"] == f"$.{path}"
+
+
 def test_exact_v2_values_and_locale_integrity() -> None:
+    """Live locale must match V2 for the 35 unchanged paths and the
+    remediation hash for the 2 overridden paths. No other deviation is
+    accepted. The original V2 workbook expectations are preserved in
+    ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS and are NOT overwritten."""
     kn = json.loads((LOCALE_DIR / "kn.json").read_text(encoding="utf-8"))
     en = json.loads((LOCALE_DIR / "en.json").read_text(encoding="utf-8"))
 
-    assert len(EXPECTED_VALUE_HASHES) == 37
-    for path, expected_hash in EXPECTED_VALUE_HASHES.items():
+    # 1) The 35 unchanged V2 paths must match the V2 hashes byte-for-byte.
+    for path in sorted(V2_UNCHANGED_PATHS):
         value = _get_path(kn, path)
         assert isinstance(value, str), path
-        assert hashlib.sha256(value.encode("utf-8")).hexdigest() == expected_hash, path
+        assert (
+            _sha256(value) == ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS[path]
+        ), (
+            f"V2-unchanged path {path} drifted from its V2 workbook hash; "
+            f"this is not in the approved override set."
+        )
         assert unicodedata.normalize("NFC", value) == value, path
         assert "\ufffd" not in value, path
         assert not re.search(r"[\u0b80-\u0bff\u0c00-\u0c7f\u0d00-\u0d7f]", value), path
         assert type(_get_path(en, path)) is type(value), path
 
+    # 2) The 2 approved-override paths must match the current approved
+    #    remediation hash. They MUST NOT match the V2 hash (that would
+    #    mean someone reverted the approved remediation).
+    for path, entry in APPROVED_POST_V2_REMEDIATION_OVERRIDES.items():
+        value = _get_path(kn, path)
+        assert isinstance(value, str), path
+        assert _sha256(value) == entry["current_approved_hash"], (
+            f"Approved-override path {path} does not match its current "
+            f"remediation hash; expected {entry['current_approved_hash']}."
+        )
+        # And it must NOT silently match the V2 hash — that would mean
+        # the remediation was reverted without the override record being
+        # updated.
+        assert _sha256(value) != entry["v2_approved_hash"], (
+            f"Approved-override path {path} reverted to its V2 hash; the "
+            f"override record is stale and the live value no longer "
+            f"reflects the approved remediation."
+        )
+        assert unicodedata.normalize("NFC", value) == value, path
+        assert "\ufffd" not in value, path
+        assert not re.search(r"[\u0b80-\u0bff\u0c00-\u0c7f\u0d00-\u0d7f]", value), path
+        assert type(_get_path(en, path)) is type(value), path
+
+    # 3) Locale shape parity between kn and en (this part is unchanged
+    #    from the original contract; the shape is independent of the
+    #    two overridden values).
     kn_shape = _shape(kn)
     en_shape = _shape(en)
     assert len(kn_shape) == len(en_shape) == 613
@@ -102,6 +315,46 @@ def test_exact_v2_values_and_locale_integrity() -> None:
         and path.endswith((".hod_bio", ".hod_bio_source"))
         for path in shape_difference
     )
+
+
+def test_no_unapproved_deviation_from_v2_workbook() -> None:
+    """Every V2 path that is not in the explicit override set must still
+    hold its V2 hash. Catches accidental drift in any of the 35
+    unchanged V2 paths."""
+    kn = json.loads((LOCALE_DIR / "kn.json").read_text(encoding="utf-8"))
+    drifted: list[tuple[str, str, str]] = []
+    for path, v2_hash in ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS.items():
+        if path in APPROVED_OVERRIDE_PATHS:
+            continue  # this path is allowed to have a different value
+        value = _get_path(kn, path)
+        if not isinstance(value, str):
+            drifted.append((path, v2_hash, f"non-string: {type(value).__name__}"))
+            continue
+        actual = _sha256(value)
+        if actual != v2_hash:
+            drifted.append((path, v2_hash, actual))
+    assert not drifted, (
+        "V2 workbook paths drifted without an approved override entry: "
+        + ", ".join(f"{p} (v2={v[:12]}… actual={a[:12]}…)" for p, v, a in drifted)
+    )
+
+
+def test_v2_and_remediation_values_are_not_marked_approved_simultaneously() -> None:
+    """The override record must clearly mark the two values as belonging
+    to different approval events (V2 import vs post-V2 remediation
+    pilot). They are not co-approved."""
+    for path, entry in APPROVED_POST_V2_REMEDIATION_OVERRIDES.items():
+        # Each override has distinct V2 and current fields; their hashes
+        # differ; the verdict reference points to a separate document.
+        assert "v2_approved_hash" in entry
+        assert "current_approved_hash" in entry
+        assert "v2_approved_value" in entry
+        assert "current_approved_value" in entry
+        assert entry["v2_approved_hash"] != entry["current_approved_hash"]
+        # The verdict doc reference must be the remediation verdict,
+        # not the V2 import commit.
+        assert entry["verdict_reference"] == VERDICT_DOC
+        assert VERDICT_DOC != "commit 01bf8b6"
 
 
 def test_protected_id_229_facts_and_acronyms() -> None:
