@@ -289,3 +289,691 @@ TEST FILES ADDED: 3 (plus 4 existing tests strengthened)
 COMMIT/PUSH: NOT PERFORMED
 NATIVE-HUMAN CERTIFICATION: NOT CLAIMED
 ```
+
+## 15. Sarvam-assisted Kannada review — pilot batch
+
+This section records the offline Sarvam-assisted review requested after the remediation above. Sarvam's Translation API is used **only as a review instrument**: it proposes a candidate and a back-translation, and every approved value is stored in the local locale sources. No live translation call was added to any runtime path.
+
+### 15.1 Method and safeguards
+
+| Control | Implementation |
+|---|---|
+| Credential handling | `SARVAM_API_KEY` is read from the environment only (`os.environ`, then the same `.env` load `backend/config/settings.py` uses). The key is never printed, logged, written to a report, fixture or source file. The tool exits with a clear STOP message when the variable is unavailable. |
+| `.env` ignored by Git | Confirmed — `.gitignore:2` matches `.env`. |
+| Review cache | `backend/tools/.cache/` (git-ignored via `.gitignore:43`). Keyed by SHA-256 of model+direction+mode+text so a restart does not repeat paid calls. Contains no credentials and is not imported by any runtime module. |
+| Model / config | `sarvam-translate:v1`, `en-IN` <-> `kn-IN`, **formal** mode for this institutional content. Mayura was not needed for the pilot. |
+| Runtime independence | The tool lives in `backend/tools/` and is imported by nothing in `backend/app` or `backend/services`. Fixed UI, cards, clarifications, errors, narration and session messages continue to resolve from local locale JSON. |
+
+### 15.2 Inventory
+
+| Scope | Count |
+|---|---|
+| `backend/data/locales/ui.json` fixed UI strings (en/kn paired) | 100 |
+| `backend/data/locales/{en,kn}.json` card/fact strings in scope | 124 |
+| ... of those, reviewable | 112 |
+| ... excluded | 12 — 9 protected identity leaves (`name`, `hod_name`, `department_name`, `hod_bio_source`) and 3 raw serialized-dict strings |
+| **Total reviewable population** | **212** |
+| Pilot batch reviewed in this section | 15 |
+
+Rows carrying `SAMPLE_REPLACE_WITH_OFFICIAL` or a missing Kannada value are excluded from translation review: those are owner-data blockers from §5, not language defects, and translating a placeholder would disguise them.
+
+### 15.3 Pilot decision summary
+
+| Source ID | Decision | Sarvam's contribution |
+|---|---|---|
+| `ui.welcome.named_display` | Keep existing | Rejected — would have broken `{name}` |
+| `ui.welcome.general_display` | Keep existing | Confirmed existing (byte-identical) |
+| `ui.language.select` | Keep existing | Confirmed existing (byte-identical) |
+| `ui.status.listening` | Keep existing | Rejected — passive voice |
+| `ui.status.processing` | Revised (hybrid) | Supplied the correct verb stem |
+| `ui.clarification.department` | Keep existing | Rejected — glossary conflict |
+| `ui.error.backend` | Adopt Sarvam | Adopted verbatim |
+| `ui.error.retry` | Keep existing | Rejected — terminology fragmentation |
+| `ui.session.timeout` | Revised (hybrid) | Supplied the correct register for 'session' |
+| `ui.session.thank_you` | Keep existing | Confirmed existing (byte-identical) |
+| `kn.departments.cse.intro` | Revised (hybrid) | Exposed 'building architect' error |
+| `kn.departments.cse.hod_voice` | Revised (hybrid) | Exposed missing honorific + dropped qualifier |
+| `kn.departments.cse.fees` | Revised (terminology only) | Exposed 'Maintenance' error; candidate rejected |
+| `kn.departments.cse.placement` | Revised (terminology only) | Exposed 'eligibility training' error; candidate rejected |
+| `kn.admissions_and_fees.eligibility` | Revised (hybrid) | Exposed ಸಡಲಿಕೆ misspelling + ಯೋಗ್ಯತೆ misuse |
+
+Totals: Adopt Sarvam 1, Keep existing 7, Revised (hybrid) 5, Revised (terminology only) 2 (of 15).
+
+**Sarvam output was accepted verbatim exactly once** (`ui.error.backend`). In 4 rows it supplied a correct term that was merged into a hand-revised value; in 3 rows it independently confirmed the existing value; in the remaining 7 its candidate was rejected in whole or in part. Its highest value was diagnostic — the back-translation, not the candidate, is what exposed the live defects.
+
+### 15.4 Full review table
+
+Columns as specified. `Preserved` is the automated names/numbers/acronyms check against the **Sarvam candidate**; `Meaning preserved` is the reviewer judgement on that candidate. Neither column describes the approved value, which is verified separately in §15.6.
+
+| Source ID | Runtime surface | English source | Existing Kannada | Sarvam Kannada candidate | English back-translation | Names/numbers/acronyms preserved | Meaning preserved | Grammar concerns | Approved Kannada | Decision | Runtime verification |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `ui.welcome.named_display` | wake / language gate / first turn (display+narration) | {name}, welcome.<br>What information would you like today? | {name}, ಸ್ವಾಗತ.<br>ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು? | {ಹೆಸರು}, ಸ್ವಾಗತ.<br>ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು? | {name}, welcome.<br>What information do you need today? | **No** — placeholder drift ['{name}'] -> [] | No — candidate destroys the runtime variable | Existing Kannada is correct. Sarvam translated the interpolation token itself (`{name}` -> `{ಹೆಸರು}`), which would break substitution at runtime. | {name}, ಸ್ವಾಗತ.<br>ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು? | Keep existing | Reachable — `ui_text(kn)` returns the approved value now; no write required |
+| `ui.welcome.general_display` | wake / language gate / first turn (display+narration) | Welcome.<br>What information would you like today? | ಸ್ವಾಗತ.<br>ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು? | ಸ್ವಾಗತ.<br>ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು? | Welcome.<br>What information do you need today? | Yes | Yes | None. Candidate byte-identical to existing — independent confirmation. | ಸ್ವಾಗತ.<br>ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು? | Keep existing | Reachable — `ui_text(kn)` returns the approved value now; no write required |
+| `ui.language.select` | language gate overlay (display+narration) | Select a language. | ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. | ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. | Select the language. | Yes | Yes | None. Candidate byte-identical to existing. | ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. | Keep existing | Reachable — `ui_text(kn)` returns the approved value now; no write required |
+| `ui.status.listening` | orb + status line (display+narration) | Listening… | ಆಲಿಸುತ್ತಿದ್ದೇನೆ… | ಕೇಳಲಾಗುತ್ತಿದೆ... | It is being heard... | Yes (flags: back-translation overlap low (0.00)) | Partial — voice/person changed | Sarvam's ಕೇಳಲಾಗುತ್ತಿದೆ is impersonal passive ('it is being heard') and loses the first-person receptionist voice; it also downgraded the U+2026 ellipsis to three ASCII dots. | ಆಲಿಸುತ್ತಿದ್ದೇನೆ… | Keep existing | Reachable — `ui_text(kn)` returns the approved value now; no write required |
+| `ui.status.processing` | orb + status line (display+narration) | Processing your request… | ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಪರಿಶೀಲಿಸುತ್ತಿದ್ದೇನೆ… | ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ... | Your request is being processed... | Yes | Yes | Existing ಪರಿಶೀಲಿಸುತ್ತಿದ್ದೇನೆ means 'I am verifying' — a meaning drift from 'Processing'. Sarvam's verb stem is correct but its form dropped the first person. | ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುತ್ತಿದ್ದೇನೆ… | Revised (hybrid) | Reachable — `ui_text(kn)` returns the existing value; write pending |
+| `ui.clarification.department` | assistant clarify turn (display+narration) | Which department would you like to know about? | ನೀವು ಯಾವ ವಿಭಾಗದ ಬಗ್ಗೆ ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ? | ನೀವು ಯಾವ ಇಲಾಖೆಯ ಬಗ್ಗೆ ತಿಳಿದುಕೊಳ್ಳಲು ಬಯಸುತ್ತೀರಿ? | Which department do you want to know about? | Yes | Partial — wrong sense of 'department' | Sarvam used ಇಲಾಖೆ (a government department), conflicting with the approved glossary term ವಿಭಾಗ for an academic department. | ನೀವು ಯಾವ ವಿಭಾಗದ ಬಗ್ಗೆ ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ? | Keep existing | Reachable — `ui_text(kn)` returns the approved value now; no write required |
+| `ui.error.backend` | speech / network / service failure turn (display+narration) | The service is temporarily unavailable. Please try again. | ಕ್ಷಮಿಸಿ, ಸೇವೆ ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. | ಸೇವೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. | The service is temporarily unavailable. Please try again. | Yes | Yes | Existing prepended ಕ್ಷಮಿಸಿ, ('Sorry,'), absent from the English source and inconsistent with the other fixed error strings. | ಸೇವೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. | Adopt Sarvam | Reachable — `ui_text(kn)` returns the existing value; write pending |
+| `ui.error.retry` | speech / network / service failure turn (display+narration) | Please try again. | ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. | ದಯವಿಟ್ಟು ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ. | Please try again. | Yes | Yes | None. Sarvam's ಮತ್ತೊಮ್ಮೆ is equally correct but would fragment the retry term reused across the error family. | ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. | Keep existing | Reachable — `ui_text(kn)` returns the approved value now; no write required |
+| `ui.session.timeout` | session chrome and controls (display) | This session has timed out. | ಈ ಅಧಿವೇಶನದ ಸಮಯ ಮೀರಿದೆ. | ಈ ಸೆಷನ್ ಸಮಯ ಮೀರಿಹೋಗಿದೆ. | This session has expired. | Yes | Yes | Existing ಅಧಿವೇಶನ denotes a legislative or conference session — the wrong register for a kiosk visit. | ಈ ಸೆಷನ್‌ನ ಸಮಯ ಮೀರಿದೆ. | Revised (hybrid) | Reachable — `ui_text(kn)` returns the existing value; write pending |
+| `ui.session.thank_you` | session chrome and controls (display) | Thank you. | ಧನ್ಯವಾದಗಳು. | ಧನ್ಯವಾದಗಳು. | Thank you. | Yes | Yes | None. Candidate byte-identical to existing. | ಧನ್ಯವಾದಗಳು. | Keep existing | Reachable — `ui_text(kn)` returns the approved value now; no write required |
+| `kn.departments.cse.intro` | card body / unit narration (display+narration) | The Computer Science & Engineering department leads the digital revolution with a cutting-edge curriculum. We transform students into top-tier software developers and system architects. | ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗವು ಅತ್ಯಾಧುನಿಕ ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಡಿಜಿಟಲ್ ಕ್ರಾಂತಿಯನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ. ನಾವು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಉನ್ನತ-ಶ್ರೇಣಿಯ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್‌ಗಳನ್ನಾಗಿ ಮತ್ತು ಸಿಸ್ಟಮ್ ವಾಸ್ತುಶಿಲ್ಪಿಗಳನ್ನಾಗಿ ರೂಪಿಸುತ್ತೇವೆ. | ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ & ಇಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗವು ಅತ್ಯಾಧುನಿಕ ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಡಿಜಿಟಲ್ ಕ್ರಾಂತಿಗೆ ನೇತೃತ್ವ ವಹಿಸುತ್ತದೆ. ನಾವು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಉನ್ನತ ದರ್ಜೆಯ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್‌ಗಳು ಮತ್ತು ಸಿಸ್ಟಮ್ ಆರ್ಕಿಟೆಕ್ಟ್‌ಗಳಾಗಿ ಪರಿವರ್ತಿಸುತ್ತೇವೆ. | The Department of Computer Science & Engineering leads the digital revolution with cutting-edge curricula. We transform students into top-tier software developers and system architects. | Yes | Yes | Existing had three defects: ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ violates the approved glossary; ಸಿಸ್ಟಮ್ ವಾಸ್ತುಶಿಲ್ಪಿಗಳು means *building* architects; ಉನ್ನತ-ಶ್ರೇಣಿಯ carries an un-Kannada hyphen. Sarvam's ಇಂಜಿನಿಯರಿಂಗ್ spelling and its raw '&' were rejected. | ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗವು ಅತ್ಯಾಧುನಿಕ ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಡಿಜಿಟಲ್ ಕ್ರಾಂತಿಯನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ. ನಾವು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಉನ್ನತ ದರ್ಜೆಯ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್‌ಗಳಾಗಿ ಮತ್ತು ಸಿಸ್ಟಮ್ ಆರ್ಕಿಟೆಕ್ಟ್‌ಗಳಾಗಿ ರೂಪಿಸುತ್ತೇವೆ. | Revised (hybrid) | Reachable — `resolve_unit(cse.overview).body` returns the existing value; write pending |
+| `kn.departments.cse.hod_voice` | card body / unit narration (narration) | Led by Dr. Shashikumar D R, our vision focuses on industry-driven learning tailored for global demands. We prioritize hands-on problem solving and ethical coding practices. | ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿ ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ನಾವು ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ. | ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿಕೋನವು ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಕೈಗಾರಿಕಾ-ಚಾಲಿತ ಕಲಿಕೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ನಾವು ಪ್ರಾಯೋಗಿಕ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ. | Under the leadership of Dr. Shashikumar D.R., our approach focuses on industry-driven learning aligned with global demands. We prioritize practical problem-solving and ethical coding practices. | Yes | Yes | Existing omitted the honorific ಅವರ after a person's name (expected respect form in Kannada) and dropped the 'hands-on' qualifier. Sarvam's ಕೈಗಾರಿಕಾ-ಚಾಲಿತ means 'industrial-driven' — rejected. | ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿಕೋನವು ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ನಾವು ಪ್ರಾಯೋಗಿಕ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ. | Revised (hybrid) | Reachable — `resolve_unit(cse.hod).body` returns the existing value; write pending |
+| `kn.departments.cse.fees` | card body / unit narration (display+narration) | KCET: As per KEA norms \| Management: ₹3,50,000/year | KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ | ಕೆಸಿಇಟಿ: ಕೆಇಎ ನಿಯಮಗಳ ಪ್ರಕಾರ \| ನಿರ್ವಹಣೆ: ₹3,50,000/ವರ್ಷ | KSET: As per KEA Rules \| Maintenance: Rs.3,50,000/annum | **No** — acronym lost ['KCET', 'KEA']; back-translation overlap low (0.00); pipe character is TTS-unsafe | No — exam name and fee label corrupted | Existing ನಿರ್ವಹಣೆ back-translates as 'Maintenance' — a visitor reads a maintenance charge instead of the management quota. Sarvam transliterated the protected acronyms (KCET -> ಕೆಸಿಇಟಿ, KEA -> ಕೆಇಎ); the round trip returned **KSET**, a different exam. It also rewrote ₹ as 'Rs.'. Candidate rejected wholesale. | KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ \| ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್: ₹3,50,000/ವರ್ಷ | Revised (terminology only) | Reachable — `resolve_unit(cse.fees).body` returns the existing value; write pending |
+| `kn.departments.cse.placement` | card body / unit narration (display+narration) | Top recruiters include TCS, Infosys, and Amazon. Students receive rigorous technical and aptitude training. | ಉನ್ನತ ನೇಮಕಾತಿದಾರರಲ್ಲಿ TCS, Infosys ಮತ್ತು Amazon ಸೇರಿವೆ. ವಿದ್ಯಾರ್ಥಿಗಳು ಕಠಿಣ ತಾಂತ್ರಿಕ ಮತ್ತು ಯೋಗ್ಯತೆಯ ತರಬೇತಿಯನ್ನು ಪಡೆಯುತ್ತಾರೆ. | ಟಿ.ಸಿ.ಎಸ್, ಇನ್ಫೋಸಿಸ್ ಮತ್ತು ಅಮೆಜಾನ್ ಪ್ರಮುಖ ನೇಮಕಾತಿದಾರರಲ್ಲಿ ಸೇರಿವೆ. ವಿದ್ಯಾರ್ಥಿನಿಯರು ಕಠಿಣ ತಾಂತ್ರಿಕ ಮತ್ತು ಆಪ್ಟಿಟ್ಯೂಡ್ ತರಬೇತಿಯನ್ನು ಪಡೆಯುತ್ತಾರೆ. | TCS, Infosys, and Amazon are among the major recruiters. Female students receive rigorous technical and aptitude training. | **No** — latin name transliterated ['Amazon', 'Infosys', 'TCS']; back-translation adds narrowing term ['female'] | No — audience narrowed to women | Existing ಯೋಗ್ಯತೆಯ ತರಬೇತಿ reads as 'eligibility training'; aptitude training is ಆಪ್ಟಿಟ್ಯೂಡ್ ತರಬೇತಿ. Sarvam changed ವಿದ್ಯಾರ್ಥಿಗಳು (students) to ವಿದ್ಯಾರ್ಥಿನಿಯರು (**female students**) and transliterated TCS/Infosys/Amazon. Candidate rejected wholesale. | ಉನ್ನತ ನೇಮಕಾತಿದಾರರಲ್ಲಿ TCS, Infosys ಮತ್ತು Amazon ಸೇರಿವೆ. ವಿದ್ಯಾರ್ಥಿಗಳು ಕಠಿಣ ತಾಂತ್ರಿಕ ಮತ್ತು ಆಪ್ಟಿಟ್ಯೂಡ್ ತರಬೇತಿಯನ್ನು ಪಡೆಯುತ್ತಾರೆ. | Revised (terminology only) | Reachable — `resolve_unit(cse.placements).body` returns the existing value; write pending |
+| `kn.admissions_and_fees.eligibility` | card body / unit narration (display+narration) | 10+2 with 45% aggregate [cite: 344] Physics and Mathematics [cite: 345] Chemistry, Biotechnology, Biology, Computer Science, or Electronics [cite: 346] 45% aggregate marks [cite: 348] SC/ST/Category-1/OBC: 40% aggregate marks (with relaxation) [cite: 349] MBA: Graduation with minimum 50% aggregate [cite: 287] | 10+2 ರಲ್ಲಿ ಒಟ್ಟು 45% ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ಗಣಿತ ರಸಾಯನಶಾಸ್ತ್ರ, ಜೈವ ತಂತ್ರಜ್ಞಾನ, ಜೀವಶಾಸ್ತ್ರ, ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಅಥವಾ ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಸಾಮಾನ್ಯ: 45% ಒಟ್ಟು ಅಂಕಗಳು SC/ST/Category-1/OBC: 40% ಒಟ್ಟು ಅಂಕಗಳು (ಸಡಲಿಕೆಯೊಂದಿಗೆ) MBA: ಕನಿಷ್ಠ 50% ಒಟ್ಟು ಯೋಗ್ಯತೆಯೊಂದಿಗೆ ಪದವಿ | 10+2 ರಲ್ಲಿ ಒಟ್ಟು 45% ಅಂಕಗಳೊಂದಿಗೆ [ಉಲ್ಲೇಖ: 344] ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ಗಣಿತ [ಉಲ್ಲೇಖ: 345] ರಸಾಯನಶಾಸ್ತ್ರ, ಜೈವಿಕ ತಂತ್ರಜ್ಞಾನ, ಜೀವಶಾಸ್ತ್ರ, ಗಣಕ ವಿಜ್ಞಾನ ಅಥವಾ ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ [ಉಲ್ಲೇಖ: 346] ಒಟ್ಟು 45% ಅಂಕಗಳು [ಉಲ್ಲೇಖ: 348] SC/ST/ವರ್ಗ-1/OBC: ಒಟ್ಟು 40% ಅಂಕಗಳು (ಸಡಿಲಿಕೆಯೊಂದಿಗೆ) [ಉಲ್ಲೇಖ: 349] MBA: ಕನಿಷ್ಠ 50% ಒಟ್ಟು ಅಂಕಗಳೊಂದಿಗೆ ಪದವಿ [ಉಲ್ಲೇಖ: 287] | With a total of 45% marks in 10+2 [Reference: 344], Physics and Mathematics [Reference: 345], Chemistry, Biotechnology, Biology, Computer Science or Electronics [Reference: 346], with a total of 45% marks [Reference: 348], SC/ST/Category-1/OBC: With a total of 40% marks (with relaxation) [Reference: 349], MBA: With a minimum of 50% total marks in graduation [Reference: 287]. | **No** — latin name transliterated ['Category'] | Partial — citation artifacts reproduced | Existing had four defects: ಯೋಗ್ಯತೆ ('worthiness') used where *aggregate marks* was meant; ಸಡಲಿಕೆ is a misspelling of ಸಡಿಲಿಕೆ; ಜೈವ ತಂತ್ರಜ್ಞಾನ is a truncated form of ಜೈವಿಕ ತಂತ್ರಜ್ಞಾನ; ಅಂಕಗಳು missing after the first 45%. Sarvam reproduced the English `[cite: N]` artifacts as `[ಉಲ್ಲೇಖ: N]` — rejected. | 10+2 ರಲ್ಲಿ ಒಟ್ಟು 45% ಅಂಕಗಳು ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ಗಣಿತ ರಸಾಯನಶಾಸ್ತ್ರ, ಜೈವಿಕ ತಂತ್ರಜ್ಞಾನ, ಜೀವಶಾಸ್ತ್ರ, ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಅಥವಾ ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಸಾಮಾನ್ಯ: 45% ಒಟ್ಟು ಅಂಕಗಳು SC/ST/Category-1/OBC: 40% ಒಟ್ಟು ಅಂಕಗಳು (ಸಡಿಲಿಕೆಯೊಂದಿಗೆ) MBA: ಕನಿಷ್ಠ 50% ಒಟ್ಟು ಅಂಕಗಳೊಂದಿಗೆ ಪದವಿ | Revised (hybrid) | Reachable via `_admissions_slides(kn)` eligibility slide (**not** `resolve_unit`); returns the existing value today; write pending |
+
+### 15.5 Rejection criteria triggered
+
+| Criterion | Rows | Evidence |
+|---|---|---|
+| Name/number/fee/designation/acronym changed | `cse.fees`, `cse.placement` | KCET -> ಕೆಸಿಇಟಿ round-tripped as **KSET**; TCS/Infosys/Amazon transliterated; ₹ rewritten as 'Rs.' |
+| New fact introduced / meaning changed | `cse.placement` | ವಿದ್ಯಾರ್ಥಿಗಳು -> ವಿದ್ಯಾರ್ಥಿನಿಯರು; back-translation read '**Female** students' |
+| Terminology conflicts with approved glossary | `ui.clarification.department`, `ui.error.retry`, `cse.intro` | ಇಲಾಖೆ vs ವಿಭಾಗ; ಮತ್ತೊಮ್ಮೆ vs ಮತ್ತೆ; ಇಂಜಿನಿಯರಿಂಗ್ vs ಎಂಜಿನಿಯರಿಂಗ್ |
+| Back-translation does not match source | `cse.fees` | word overlap 0.00; 'Maintenance' for Management, 'KSET' for KCET |
+| Unsuitable for concise kiosk display | `ui.status.listening` | passive ಕೇಳಲಾಗುತ್ತಿದೆ breaks the first-person status-line voice |
+| Would break the runtime | `ui.welcome.named_display` | interpolation token `{name}` translated to `{ಹೆಸರು}` |
+| Clause disappeared | none in the pilot | line-count and placeholder checks clean on the remaining rows |
+
+### 15.6 Acceptance check on the approved values
+
+The approved Kannada was itself sent back through kn->en and re-checked, so the hand-revised values are held to the same standard as Sarvam's. Command:
+
+```bash
+python -m backend.tools.kannada_sarvam_review --verify-approved
+```
+
+Result: 15/15 verified. Two flags, both benign and explained:
+
+- `kn.departments.cse.fees` — *pipe character is TTS-unsafe*. Pre-existing and confirmed to reach the provider: `sanitize_tts_text` does not strip `|`, and `narrate_unit(cse.fees, 'kn')` returns the separator verbatim. Tracked as a defect in §15.7, not a translation issue.
+- `kn.admissions_and_fees.eligibility` — *number drift*. Expected: the dropped numbers are the `[cite: N]` RAG citation artifacts that the Kannada value correctly strips and the English source still carries (§15.7).
+
+### 15.7 Defects found outside the translation scope
+
+These were surfaced while verifying runtime reachability. They are **not** Kannada translation problems and were not changed in this pilot; each is reported for a decision.
+
+| # | Defect | Evidence | Scope |
+|---|---|---|---|
+| 1 | The English admissions eligibility slide renders RAG citation artifacts to visitors | `_admissions_slides(en)` returns `10+2 with 45% aggregate [cite: 344] ...` — nine `[cite: N]` markers | English locale source; visitor-facing |
+| 2 | The eligibility slide emits its content twice | `_admissions_slides` appends the flat `eligibility` string **and** the structured `be_programs.*` fields, which restate it. 639-char body for 245 chars of content. Reproduces in English and Kannada | `narration_plan.py:878-901`; language-agnostic |
+| 3 | `\|` in fee bodies reaches TTS | `sanitize_tts_text` preserves `\|`; the Kannada spoken fee line is `... ಪ್ರಕಾರ \| ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್: ...` | `unit_narration.py:86-98`; all languages |
+| 4 | HOD identity script is inconsistent | `cse.hod` card body renders ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ while narration renders `Dr. Shashikumar D R` | Kannada locale + narration; needs an owner ruling on script policy for names |
+
+Defect 2 also means the duplicated terms must be corrected in **both** places or the slide will display two spellings of the same word: `ಸಡಲಿಕೆ` appears in the flat `eligibility` string and in `be_programs.requirements_reserved`, and `ಜೈವ ತಂತ್ರಜ್ಞಾನ` in the flat string and in `be_programs.optional_subjects`. Those nested fields are in the inventory and are queued in the `cards` batch.
+
+### 15.8 Review-tool checks
+
+The automated checks are necessary but not sufficient. On `cse.placement` the original check set returned *clean* while the candidate had both transliterated three company names and narrowed the audience to women — caught only by reading the back-translation. Two checks were added before the bulk batches:
+
+- **Latin-name preservation** — Latin tokens the existing Kannada deliberately keeps (TCS, Infosys, Amazon, Category) must survive in the candidate. Acronyms already reported are not double-reported.
+- **Narrowing-term drift** — flags a back-translation that introduces *female/male/girls/boys/women/men/only/must not/cannot* when the English source has none.
+
+An earlier acronym check used substring matching and produced false positives (`TC` inside `TCS`, `CET` inside `KCET`); it now matches on Latin word boundaries.
+
+### 15.9 Status
+
+No production file has been modified by this pilot. `ui.json` and `kn.json` are unchanged; nothing has been committed or pushed. 7 of the 15 approved values are already live (the keep-existing decisions); the remaining 8 are pending a write once the pilot is approved.
+
+Artifacts (none contain credentials):
+
+- `backend/tools/kannada_sarvam_review.py` — the review tool (not imported by runtime)
+- `backend/tools/kannada_review_decisions.json` — per-row decision and rationale
+- `backend/tools/.cache/` — git-ignored translation cache, rows, verification and probe output
+
+## 16. Eligibility-duplication audit (deferred workstream)
+
+This section is **audit-only**. No source file was modified by this audit and no fix
+was attempted. The duplication fix is authorised by condition 3 of the pilot gate but
+is deferred to a separate focused workstream; the eligibility value itself remains
+blocked (see §15.3 and §4 of the pre-batch report). The purpose of this section is
+to enumerate every consumer so the deferred fix can be scoped correctly.
+
+### 16.1 Backend consumers of the flat `eligibility` field
+
+| File:line | Read | Used for |
+|---|---|---|
+| `backend/services/narration_plan.py:879-880` | `rec.get("eligibility")` | Appended as the first `elig_parts` element in `_admissions_slides`, before the structured `be_programs.*` fields. |
+| `backend/services/narration_plan.py:899-901` | `_clean(rec.get("eligibility"))` | Used as the `elig_body` fallback when no structured parts are present. |
+| `backend/tools/kannada_sarvam_review.py:316` | `kn.admissions_and_fees.eligibility` | Diagnostic reading only; review tool, not runtime. |
+| `backend/tools/.cache/gen_pilot_section.py:36,55,110,119,236,356,378,396-397` | same key | Cache and report-generation only; not runtime. |
+| `backend/tests/test_kannada_corrected_locale_integration.py:35-36` | `mba_programs.*` (not flat `eligibility`) | Content-hash test for nested structured fields. |
+
+Only `narration_plan.py:878-901` is a runtime consumer of the flat `eligibility` value.
+
+### 16.2 Backend consumers of structured `be_programs.*`
+
+| File:line | Read | Used for |
+|---|---|---|
+| `backend/services/narration_plan.py:881-891` | `be_programs.qualification`, `compulsory_subjects`, `optional_subjects`, `requirements_general`, `requirements_reserved`, `entrance_exams[]` | Appended to `elig_parts` and `exams` inside `_admissions_slides`. |
+| `backend/services/narration_plan.py:906-909` | `be_programs.entrance_exams[]` | Appended to the entrance-exams slide body (separate from eligibility slide). |
+| `backend/tests/test_kannada_corrected_locale_integration.py:35` | `mba_programs.qualification` (sibling of `be_programs`) | Content-hash regression. |
+
+### 16.3 Frontend consumers of the flat `eligibility` field
+
+| File:line | Read | Used for |
+|---|---|---|
+| `frontend/src/lib/collegeLocaleUtils.ts:407` | `rec.eligibility` | Appended to `eligParts` inside `buildAdmissionsCardsFromLocale` — **same duplication pattern as the backend**. |
+| `frontend/src/lib/collegeLocaleUtils.ts:422-425` | `rec.eligibility` (fallback) | Used as the final `eligibilityBody` fallback when neither structured parts nor the flat value suffice. |
+| `frontend/src/lib/collegeLocaleUtils.ts:62,65,72,79,86,93,100` | `cards.eligibility` etc. (UI labels) | Per-language label for the slide title; does not read the body. |
+| `frontend/src/components/chat/cards/DocumentsBlock.tsx:108` | `'vtu_eligibility'` (key) | Routing keyword for FAQ-suggestion matching; not the body. |
+| `frontend/src/data/faqSuggestions.ts:81` | `'eligibility'` (substring) | Routing keyword; not the body. |
+
+### 16.4 Frontend consumers of structured `be_programs.*`
+
+| File:line | Read | Used for |
+|---|---|---|
+| `frontend/src/lib/collegeLocaleUtils.ts:400-419` | `admission_and_eligibility.be_programs.{qualification, compulsory_subjects, optional_subjects, requirements_general, requirements_reserved}` and `mba_programs.{qualification, expected_cutoff}` | Joined into `eligParts` inside `buildAdmissionsCardsFromLocale`. |
+| `frontend/src/lib/collegeLocaleUtils.ts:431-435` | `be_programs.entrance_exams[]` and `mba_programs.entrance_exams[]` | Appended to the entrance-exams body. |
+
+### 16.5 Display vs narration behavior
+
+- **Display (kiosk card body).** Both the backend and the frontend build an
+  `eligibility` body that joins the flat `eligibility` value with the structured
+  `be_programs.*` fields. The result is shown to the visitor on the admissions
+  slide. A visitor therefore sees each eligibility fact twice — once as a clause
+  in the hand-joined flat string and once as a structured row.
+- **Narration (TTS).** `_admissions_slides` returns tuples consumed by
+  `narration_plan.py:842-846` and rendered as
+  `NarrationSegment(display_text=f"{L[0]}\n{slides[0]}", ...)`. The narration reads
+  out `display_text` literally, including both copies. The frontend equivalent
+  feeds `planToScenes.ts` (transitively, via the `StageSlide.content` field).
+  The TTS sanitiser (`backend/services/tts_text_contract.py`,
+  `unit_narration.py:86-98`) preserves the duplicated text and does not deduplicate
+  by meaning. Spoken output therefore repeats the same fact twice.
+
+### 16.6 Exact duplication observed
+
+For the **Kannada** locale the `eligParts` list built in
+`backend/services/narration_plan.py:878-897` and
+`frontend/src/lib/collegeLocaleUtils.ts:405-421` produces the following clauses
+*in this order* before deduplication:
+
+1. The flat eligibility string (5 clauses joined without sentence punctuation).
+2. `10+2 ರಲ್ಲಿ ಒಟ್ಟು 45%` (be_programs.qualification).
+3. `ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ಗಣಿತ` (be_programs.compulsory_subjects).
+4. `ರಸಾಯನಶಾಸ್ತ್ರ, ಜೈವ ತಂತ್ರಜ್ಞಾನ, ಜೀವಶಾಸ್ತ್ರ, ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಅಥವಾ ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್` (be_programs.optional_subjects).
+5. `ಸಾಮಾನ್ಯ ವರ್ಗ: ಒಟ್ಟು 45% ಅಂಕಗಳು` (be_programs.requirements_general).
+6. `SC/ST/Category-1/OBC: ಒಟ್ಟು 40% ಅಂಕಗಳು (ಸಡಲಿಕೆಯೊಂದಿಗೆ)` (be_programs.requirements_reserved).
+7. `MBA: ಕನಿಷ್ಠ 50% ಒಟ್ಟು ಅಂಕಗಳೊಂದಿಗೆ ಪದವಿ` (mba_programs.qualification).
+
+The existing dedupe (`_dedupe_join` in Python, `dedupeLines` in TypeScript) is
+**line-level**: it removes byte-identical adjacent lines. None of the seven lines
+above are byte-identical to any other, so all seven survive. Clauses 2, 3, 4, 5
+and 6 each restate part of clause 1 in different words; clauses 1 and 7 overlap on
+the MBA 50% content.
+
+`ಸಡಲಿಕೆ` appears in clause 1 and clause 6 — same misspelling in both places.
+`ಜೈವ ತಂತ್ರಜ್ಞಾನ` appears in clause 1 and clause 4 — same truncation in both
+places. Any single-source-of-truth fix must therefore touch both locations, or
+the slide will continue to display two spellings of the same word.
+
+The **English** locale has the same structure (the bug is language-agnostic).
+The English `admissions_and_fees.eligibility` value also contains the RAG
+citation artifacts (`[cite: 344]`, `[cite: 345]`, …) and is reproduced
+identically in `_admissions_slides(en)`. Out of scope for this batch.
+
+### 16.7 Facts that legitimately repeat
+
+Some duplication is content, not bug:
+
+- The 10+2 aggregate `45%` and the general requirement `45%` are the same
+  number representing the same requirement stated at two levels of detail; both
+  should remain.
+- The reserved-category `40%` clause and the `SC/ST/Category-1/OBC: 40%` row in
+  the structured fields are the same fact; one source of truth should hold it.
+- The MBA `50%` clause and the `MBA: 50%` structured row are the same fact;
+  one source of truth should hold it.
+
+Tests in the deferred workstream must distinguish these legitimate repetitions
+from the unintended duplication of the entire preamble. The user has forbidden
+raw token-count tests such as "45% appears once" precisely because the same
+number may represent multiple valid requirements. The correct verification
+shape is **semantic field equality and rendered-section equality**, not
+substring counting.
+
+### 16.8 Proposed single source of truth
+
+For the deferred workstream only. Not authorised to implement in this batch.
+
+- **Authoritative store for the slide body:** `admissions_and_fees.additional_details.admission_and_eligibility.{be_programs, mba_programs}.*`
+  (the structured fields).
+- **Authoritative store for the fallback when the structured fields are
+  missing or empty:** the flat `admissions_and_fees.eligibility` value.
+- **Build order in `_admissions_slides` / `buildAdmissionsCardsFromLocale`:**
+  if structured fields yield any non-empty `elig_parts`, do **not** append the
+  flat value; otherwise use the flat value as a final fallback only. This
+  matches the existing fallback path in the code (lines 899-901 and 422-425)
+  and is the minimum change to remove the duplication.
+- **Non-slide consumers of the flat value:** none currently exist in
+  `backend/services` or `backend/app`. The flat value may therefore be left in
+  the locale JSON for documentation and reviewer use; the only behavior change
+  is the build order in the two slide builders.
+- **Test design:** verify that the eligibility slide body does not contain a
+  clause that is a superset of another clause in the same body, and that every
+  fact appearing in the flat value also appears in the structured fields. Do
+  not assert fixed substring counts.
+
+### 16.9 Open issues carried into the deferred workstream
+
+- The English slide still contains `[cite: N]` RAG citation artifacts in the
+  flat `eligibility` value; fixing those is a separate English RAG workstream
+  (condition 5 of the pilot gate).
+- The `|` character in the eligibility body is not used here, but the same
+  separator appears in fee bodies (out of scope per condition 5).
+- The 11 HOD biographies and 28 sample campus units have no eligibility
+  overlap and are not part of this audit.
+
+---
+
+## 17. Batch 2 — mechanical review (25 ui.json rows)
+
+### 17.1 Scope and method
+
+The 25 next-after-pilot ui.* rows in deterministic inventory order, all
+classified `MECHANICALLY_REVIEWED_PROVISIONAL` after audit revealed that
+the original `KEEP_EXISTING_VERIFIED` label was over-claimed.
+
+Per the user's spec, three Sarvam operations per row are mandatory:
+(1) English source → Sarvam Kannada candidate, (2) candidate → English,
+(3) existing Kannada → English. "Sarvam candidate was worse" is not by
+itself proof that the existing value is correct.
+
+### 17.2 Coverage accounting (Batch 2)
+
+| Bucket | Count |
+|---|---:|
+| TOTAL ORIGINALLY REVIEWABLE | 212 |
+| PILOT REVIEWED | 15 |
+| PILOT CORRECTIONS APPLIED | 5 |
+| BATCH 2 MECHANICALLY REVIEWED | 25 |
+| BATCH 2 PROVISIONALLY RETAINED | 25 |
+| NATIVE/HUMAN CERTIFIED | 0 |
+| REMAINING UNREVIEWED | 172 |
+
+### 17.3 Spot-audit verdict (10 higher-risk rows)
+
+| Classification | Count | Rows |
+|---|---:|---|
+| KEEP_EXISTING_SUPPORTED | 5 | `ui.status.thinking_detail_1`, `ui.status.thinking_detail_2`, `ui.status.thinking_detail_3`, `ui.status.returning_to_sleep`, `ui.error.microphone_denied` |
+| KEEP_EXISTING_PROVISIONAL | 5 | `ui.welcome.name_prompt`, `ui.status.thinking_detail_5`, `ui.status.connectivity_issue`, `ui.clarification.hostel`, `ui.error.no_speech` |
+| CORRECTION_REQUIRED | 0 | — |
+| HUMAN_REVIEW_REQUIRED (blocker) | 0 | — |
+
+### 17.4 Native-review queue (non-blocking)
+
+| Row | Reason |
+|---|---|
+| `ui.welcome.name_prompt` | register/word-choice question |
+| `ui.status.thinking_detail_5` | voice/ellipsis question |
+| `ui.status.connectivity_issue` | voice/tense question |
+| `ui.clarification.hostel` | glossary/word-choice question |
+| `ui.error.no_speech` | phrasing/word-choice question |
+
+Production values are not modified. The queue is for the user's
+separate decision.
+
+### 17.5 Evidence schema note (Batch 2)
+
+The Batch 2 entries in `kannada_review_decisions.json` were written
+with the field set `decision / approved / reason / batch`, plus the
+three Sarvam outputs where the cache supplied them. Structured
+per-row evidence fields listed in section 19 (placeholder check,
+acronym check, etc.) were not recorded for Batch 2 and are
+therefore marked `LEGACY_UNSTRUCTURED` rather than backfilled.
+
+---
+
+## 18. Batch 3 — mechanical review (25 ui.json rows)
+
+### 18.1 Scope
+
+The 25 next-after-Batch-2 ui.* rows in deterministic inventory order.
+The first 25 included 3 ghost keys (`ui.session.goodbye`,
+`ui.session.ending`, `ui.session.interrupted`) that are defined in
+`ui.json` but not consumed by any frontend or backend code; those 3
+were excluded under the production-reachable gate and replaced by the
+next 3 in inventory order (`ui.cards.placements_training`,
+`ui.cards.fees`, `ui.cards.eligibility`). The exclusion of the 3 ghost
+keys is reported separately in section 19.
+
+### 18.2 Method
+
+For every row, three Sarvam operations were performed (en→kn,
+candidate→en, existing→en). The 14 evidence items (placeholder
+preservation, name preservation, number preservation, currency
+preservation, protected-acronym preservation, Latin-company-name
+preservation, gender narrowing, subject/object drift, missing
+clauses, added clauses, terminology conflict, punctuation, display
+suitability, narration suitability) were recorded inside each
+entry's `reason` field, not as structured per-row evidence fields.
+See section 20 for the schema change introduced in Batch 4 that
+upgrades these to structured fields.
+
+### 18.3 Per-row verdicts
+
+| Row | Classification | One-line defect (if any) |
+|---|---|---|
+| `ui.error.voice_unsupported` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | tone-thinning only ("is not available" vs source "is not supported"); Chrome/Edge preserved |
+| `ui.error.voice_failed` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | defect on candidate (breaks family "ಇನ್‌ಪುಟ್" glossary) |
+| `ui.error.voice_timeout` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | register details (tense, possessive) |
+| `ui.error.voice_unrecognized` | `NATIVE_REVIEW_RECOMMENDED` | source first-person vs family passive (deferred) |
+| `ui.error.network` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | defect on candidate ("ಭಾಷಣ" awkward for "speech service") |
+| `ui.error.offline` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | register detail (past-participle form) |
+| `ui.error.empty_response` | `NATIVE_REVIEW_RECOMMENDED` | same family-voice question as voice_unrecognized |
+| `ui.error.invalid_request` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | byte-near-identical to candidate |
+| `ui.error.missing_text` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | disjunction order is order-invariant |
+| `ui.error.audio_unavailable` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | candidate "ಉತ್ಪಾದನೆ" is manufacturing term |
+| `ui.availability.official_fact_blocked` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | existing uses more common verb |
+| `ui.availability.unknown` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | existing voice-thinning, but preserves "placements" glossary term; candidate has two defects (term + added "however") |
+| `ui.availability.missing_source` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | near-identical word order |
+| `ui.session.back` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | existing is the conventional button label |
+| `ui.session.home` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | existing is context-accurate (homepage); candidate is literal (home) |
+| `ui.session.close` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | existing uses honorific form (polite) |
+| `ui.session.retry_connection` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | existing is natural; candidate is more formal |
+| `ui.session.enable_face_display` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | byte-identical |
+| `ui.cards.department` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | candidate is the rejected glossary-violation term "ಇಲಾಖೆ" |
+| `ui.cards.hod_and_vision` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | candidate introduces gender narrowing (feminine singular "ಮುಖ್ಯಸ್ಥೆ") |
+| `ui.cards.achievements` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | byte-identical |
+| `ui.cards.placements` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | existing preserves "Placements" glossary term; candidate translates to "ಉದ್ಯೋಗಾವಕಾಶಗಳು" |
+| `ui.cards.placements_training` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | same as cards.placements |
+| `ui.cards.fees` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | byte-identical |
+| `ui.cards.eligibility` | `KEEP_EXISTING_MECHANICALLY_SUPPORTED` | byte-identical; UI card label, not a structured eligibility field |
+
+### 18.4 Native-review queue (non-blocking)
+
+| Row | Reason |
+|---|---|
+| `ui.error.voice_unrecognized` | first-person vs family-passive voice normalization |
+| `ui.error.empty_response` | first-person vs family-passive voice normalization |
+
+### 18.5 Batch 3 accounting (corrected)
+
+| Bucket | Count |
+|---|---:|
+| TOTAL ORIGINALLY REVIEWABLE | 212 |
+| PREVIOUSLY MECHANICALLY REVIEWED | 40 (15 pilot + 25 batch 2) |
+| REVIEWED THIS BATCH | 25 |
+| KEEP_EXISTING_MECHANICALLY_SUPPORTED | 23 |
+| SAFE_CORRECTION_CANDIDATES | 0 |
+| BLOCKED_LINGUISTIC | 0 |
+| BLOCKED_OFFICIAL_FACT | 0 |
+| BLOCKED_MISSING_SOURCE | 0 |
+| BLOCKED_RUNTIME_STRUCTURE | 0 |
+| NATIVE_REVIEW_RECOMMENDED | 2 |
+| SARVAM API CALLS | 82 |
+| CACHE HITS | 8 |
+| PRODUCTION FILES CHANGED | 0 |
+| EVIDENCE FILES CHANGED | `backend/tools/kannada_review_decisions.json`, this report |
+| TESTS RUN | 0 (no test when no production value changes, per test policy) |
+| GIT DIFF CHECK | clean |
+| REMAINING PRODUCTION-REACHABLE (preliminary) | 144 |
+
+The 144 preliminary remainder uses the inventory-tool count of
+remaining ui.* + card rows minus the 65 already mechanically
+reviewed minus the 3 ghost keys. It is provisional pending the
+reachability audit in section 19.
+
+### 18.6 What this batch did not do
+
+- Did not modify any production locale value.
+- Did not start Batch 4.
+- Did not resolve any deferred question.
+- Did not commit, push, or modify runtime code.
+
+---
+
+## 19. Reachability audit — three ghost-key candidates
+
+### 19.1 Method
+
+Per the user's spec, the audit does not rely only on exact-string
+searches. The three ghost keys
+(`ui.session.goodbye`, `ui.session.ending`, `ui.session.interrupted`)
+were traced through every category listed:
+
+- direct `ui_text` / `uiText` calls (frontend + backend)
+- dynamic key construction (e.g. `f"documents.items.{key}"`)
+- prefix-based lookup
+- session-state mappings
+- WebSocket event mappings
+- frontend locale helpers
+- backend response templates
+- narration plans
+- TTS dispatch
+- React components
+- tests
+- fallback dictionaries
+- JSON iteration
+- key enumeration
+- wildcard or prefix consumers
+- compatibility / legacy code
+
+`ui_text` and frontend `uiText` are both pure exact-path lookups
+(`backend/services/ui_localization.py:30-47`; `frontend/src/localization/uiCopy.ts:10-31`).
+No code path iterates the locale dict by key, no fallback dictionary
+surfaces any `session.*` key, and no WebSocket event or TTS
+dispatch consumes the three ghost strings.
+
+### 19.2 Per-key findings
+
+#### `ui.session.goodbye` (en: "Goodbye." / kn: "ವಿದಾಯ.")
+
+- **Defined source:** `backend/data/locales/ui.json` `en.session.goodbye`,
+  `kn.session.goodbye`
+- **Direct consumers:** none
+- **Indirect consumers:** none
+- **Dynamic consumers:** none
+- **Display consumer:** none
+- **Narration consumer:** none
+- **TTS consumer:** none
+- **WebSocket consumer:** none
+- **Production reachable:** **no**
+- **Evidence:** exact-string search for `session.goodbye` returns 0 hits
+  in any runtime code path. The only references are (a) the locale
+  file itself, and (b) this audit document. A keyword match for
+  `"goodbye"` exists in
+  `backend/services/conversation/policy_router.py:38`
+  (`_SMALL_TALK_HINTS`), but that is a user-input keyword matcher for
+  small-talk recognition — it does not call `ui_text` and does not
+  surface the locale string.
+- **Recommended classification:** `DEFINED_BUT_UNREACHABLE`
+
+#### `ui.session.ending` (en: "This session is ending." / kn: "ಈ ಅಧಿವೇಶನ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತಿದೆ.")
+
+- **Defined source:** `backend/data/locales/ui.json` `en.session.ending`,
+  `kn.session.ending`
+- **Direct consumers:** none
+- **Indirect consumers:** none
+- **Dynamic consumers:** none
+- **Display consumer:** none
+- **Narration consumer:** none
+- **TTS consumer:** none
+- **WebSocket consumer:** none
+- **Production reachable:** **no**
+- **Evidence:** exact-string search for `session.ending` returns 1 hit
+  in any code path: `backend/tests/test_kannada_complete_language_remediation.py:36`
+  as a baseline fixture asserting the locale value. That is `TEST_ONLY`
+  exposure, not production reachability. The "session ending" event in
+  the orchestrator (`backend/app/main.py` around turn finalization) is
+  handled via WebSocket event types (`finalize_turn`,
+  `reject_if_finalized`); it never calls `ui_text("kn", "session.ending")`.
+- **Recommended classification:** `DEFINED_BUT_UNREACHABLE`
+  (the test fixture is a documentation snapshot, not a production
+  consumer)
+
+#### `ui.session.interrupted` (en: "The previous response was interrupted." / kn: "ಹಿಂದಿನ ಉತ್ತರವನ್ನು ನಿಲ್ಲಿಸಲಾಗಿದೆ.")
+
+- **Defined source:** `backend/data/locales/ui.json` `en.session.interrupted`,
+  `kn.session.interrupted`
+- **Direct consumers:** none
+- **Indirect consumers:** none
+- **Dynamic consumers:** none
+- **Display consumer:** none
+- **Narration consumer:** none
+- **TTS consumer:** none
+- **WebSocket consumer:** none
+- **Production reachable:** **no**
+- **Evidence:** exact-string search for `session.interrupted` returns
+  0 hits in any code path. The "interruption" event is handled by the
+  WebSocket `clara_interrupt` event
+  (`backend/app/ws_schemas.py:95`; `frontend/src/hooks/useFaceChannel.ts:138`; `facial-display/src/hooks/useParentChannel.ts:14,52,105-106`)
+  and by `faceChannel.postInterrupt(turnId)` in
+  `frontend/src/screens/ChatScreen.tsx:3970-3972`. None of these
+  paths call `ui_text` for the "session.interrupted" string; they
+  post a structural message and rely on the orb to visually reflect
+  the interrupt state.
+- **Recommended classification:** `DEFINED_BUT_UNREACHABLE`
+
+### 19.3 Inventory impact
+
+All three keys are conclusively unreachable from any production
+runtime path. They are moved to the orphaned-source inventory and
+removed from the production-reachable review count.
+
+| Bucket | Count |
+|---|---:|
+| TOTAL ORIGINALLY REVIEWABLE | 212 |
+| UNREACHABLE CANDIDATES | 3 |
+| PROVISIONAL PRODUCTION-REACHABLE TOTAL | 209 |
+| MECHANICALLY REVIEWED (pilot + batch 2 + batch 3) | 65 |
+| PROVISIONAL REMAINING REACHABLE | 144 |
+| PRODUCTION VALUES CHANGED IN BATCH 3 | 0 |
+
+The 209 total is provisional pending any future key-removal or
+consumer-wiring change.
+
+### 19.4 Decision
+
+The three keys are **not deleted or modified** per the user's spec.
+They remain in `ui.json` so the user can later decide whether to
+(a) wire them to consumers, (b) delete them, or (c) leave them
+unused.
+
+---
+
+## 20. Batch 4 — mechanical review (25 ui.json rows)
+
+### 20.1 Scope and method
+
+- 25 ui.* rows in deterministic inventory order, following the 15
+  pilot + 25 Batch 2 + 25 Batch 3 already-mechanically-reviewed rows
+  and excluding the 3 ghost keys (ui.session.goodbye, ending,
+  interrupted) classified DEFINED_BUT_UNREACHABLE in section 19.
+- Excluded: 3 explicitly-blocked values (ui.status.processing,
+  ui.session.timeout, kn.admissions_and_fees.eligibility) and the
+  4 deferred workstreams.
+- Each row: 3 Sarvam operations (en→kn, kn→en of candidate, kn→en
+  of existing). Source data in
+  `backend/tools/.cache/kannada_sarvam_batch4_rows.json`.
+- Per-row verdict: 4 input/output fields + 14 structured check
+  fields, computed via `build_structured_evidence()` in
+  `backend/tools/kannada_sarvam_review.py`. Anti-fabrication
+  guarantee preserved (no PASS is invented for absent data).
+- No production locale values were modified. The 25 entries were
+  added to `backend/tools/kannada_review_decisions.json` with
+  `batch=4`, `approved=None` (no write pending).
+
+### 20.2 Per-row verdicts
+
+| Row | English source | Existing | Sarvam candidate | Verdict |
+|---|---|---|---|---|
+| `ui.cards.entrance_exams` | Entrance examinations | ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಳು | ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಳು | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.cards.ug_fees` | Undergraduate fee information | ಪದವಿಪೂರ್ವ ಶುಲ್ಕದ ಮಾಹಿತಿ | ಪದವಿಪೂರ್ವ ಶುಲ್ಕದ ಮಾಹಿತಿ | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.cards.pg_fees` | MBA and postgraduate fee information | MBA ಮತ್ತು ಸ್ನಾತಕೋತ್ತರ ಶುಲ್ಕದ ಮಾಹಿತಿ | MBA ಮತ್ತು ಸ್ನಾತಕೋತ್ತರ ಶುಲ್ಕದ ಮಾಹಿತಿ | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.cards.scholarships` | Scholarships | ವಿದ್ಯಾರ್ಥಿವೇತನಗಳು | ವಿದ್ಯಾರ್ಥಿ ವೇತನಗಳು | NATIVE_REVIEW_RECOMMENDED |
+| `ui.cards.training_objectives` | Training and placement objectives | ತರಬೇತಿ ಮತ್ತು ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಉದ್ದೇಶಗಳು | ತರಬೇತಿ ಮತ್ತು ನಿಯೋಜನೆ ಉದ್ದೇಶಗಳು | BLOCKED_LINGUISTIC |
+| `ui.cards.training_programs` | Training programs | ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳು | ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳು | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.cards.summary` | Summary | ಸಂಕ್ಷಿಪ್ತ ಮಾಹಿತಿ | ಸಾರಾಂಶ | NATIVE_REVIEW_RECOMMENDED |
+| `ui.cards.information_unavailable` | Information is not available. | ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. | ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.cards.college_brochure` | College brochure | ಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ | ಕಾಲೇಜು ಕಿರುಪುಸ್ತಕ | NATIVE_REVIEW_RECOMMENDED |
+| `ui.documents.title` | Required documents | ಅಗತ್ಯ ದಾಖಲೆಗಳು | ಬೇಕಾದ ದಾಖಲೆಗಳು | NATIVE_REVIEW_RECOMMENDED |
+| `ui.documents.items.marks_10` | 10th Marks Card | 10ನೇ ತರಗತಿ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್ | 10ನೇ ತರಗತಿಯ ಅಂಕಪಟ್ಟಿ | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.documents.items.marks_12` | 12th / II PUC Marks Card | 12ನೇ ಅಥವಾ ದ್ವಿತೀಯ ಪಿಯುಸಿ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್ | 12ನೇ / ದ್ವಿತೀಯ ಪಿಯುಸಿ ಅಂಕಪಟ್ಟಿ | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.documents.items.rank_allotment` | CET / COMEDK Rank Card + Allotment Letter | CET ಅಥವಾ COMEDK ರ‍್ಯಾಂಕ್ ಕಾರ್ಡ್ ಮತ್ತು ಅಲಾಟ್‌ಮೆಂಟ್ ಲೆಟರ್ | ಸಿಇಟಿ / ಕಾಮೆಡ್ಕೆ ಶ್ರೇಯಾಂಕ ಪತ್ರ + ಹಂಚಿಕೆ ಪತ್ರ | BLOCKED_LINGUISTIC |
+| `ui.documents.items.transfer` | Transfer Certificate (TC) | ಟ್ರಾನ್ಸ್‌ಫರ್ ಸರ್ಟಿಫಿಕೇಟ್ (TC) | ವರ್ಗಾವಣೆ ಪ್ರಮಾಣಪತ್ರ (ಟಿ.ಸಿ.) | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.documents.items.conduct` | Conduct / Character Certificate | ಕಂಡಕ್ಟ್ ಅಥವಾ ಕ್ಯಾರಕ್ಟರ್ ಸರ್ಟಿಫಿಕೇಟ್ | ನಡತೆ / ಚಾರಿತ್ರ್ಯ ಪ್ರಮಾಣಪತ್ರ | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.documents.items.caste_income` | Caste / Income Certificate (if applicable) | ಅಗತ್ಯವಿದ್ದರೆ ಜಾತಿ ಅಥವಾ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ | ಜಾತಿ / ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ (ಅನ್ವಯವಾಗುವಲ್ಲಿ) | NATIVE_REVIEW_RECOMMENDED |
+| `ui.documents.items.aadhaar` | Aadhaar Card Copy | ಆಧಾರ್ ಕಾರ್ಡ್ ಪ್ರತಿ | ಆಧಾರ್ ಕಾರ್ಡ್ ಪ್ರತಿ | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.documents.items.photos` | Passport Size Photos (6–10) | ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು (6–10) | ಪಾಸ್ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು (6-10) | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.documents.items.migration` | Migration Certificate (for other board students) | ಇತರೆ ಬೋರ್ಡ್ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮೈಗ್ರೇಶನ್ ಪ್ರಮಾಣಪತ್ರ | ವಲಸೆ ಪ್ರಮಾಣಪತ್ರ (ಇತರ ಬೋರ್ಡ್ ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ) | BLOCKED_LINGUISTIC |
+| `ui.documents.items.vtu_eligibility` | VTU Eligibility Certificate (if required) | ಅಗತ್ಯವಿದ್ದರೆ VTU ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ | ವಿ.ಟಿ.ಯು. ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ (ಅಗತ್ಯವಿದ್ದಲ್ಲಿ) | NATIVE_REVIEW_RECOMMENDED |
+| `ui.comparison.close` | Close | ಮುಚ್ಚು | ಮುಚ್ಚು | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.comparison.add_program` | Add program | ಕಾರ್ಯಕ್ರಮ ಸೇರಿಸಿ | ಪ್ರೋಗ್ರಾಂ ಸೇರಿಸಿ | NATIVE_REVIEW_RECOMMENDED |
+| `ui.comparison.remove_program` | Remove | ತೆಗೆದುಹಾಕಿ | ತೆಗೆದುಹಾಕಿ | KEEP_EXISTING_MECHANICALLY_SUPPORTED |
+| `ui.comparison.heading` | Program comparison | ಕಾರ್ಯಕ್ರಮಗಳ ಹೋಲಿಕೆ | ಪ್ರೋಗ್ರಾಂ ಹೋಲಿಕೆ | NATIVE_REVIEW_RECOMMENDED |
+| `ui.comparison.select_program` | Select program | ಕಾರ್ಯಕ್ರಮವನ್ನು ಆಯ್ಕೆಮಾಡಿ | ಪ್ರೋಗ್ರಾಂ ಆಯ್ಕೆಮಾಡಿ | NATIVE_REVIEW_RECOMMENDED |
+
+### 20.3 Highlights of the 3 BLOCKED_LINGUISTIC rows
+
+1. **`ui.cards.training_objectives`** — Sarvam's `ನಿಯೋಜನೆ` means
+   "deployment" rather than "placement". The existing value's
+   `ಪ್ಲೇಸ್‌ಮೆಂಟ್` transliteration matches the protected-token
+   policy and the source-English "placement". Sarvam's candidate
+   drifts away from the source meaning and is rejected.
+
+2. **`ui.documents.items.rank_allotment`** — Sarvam transliterates
+   the protected acronyms CET and COMEDK to `ಸಿಇಟಿ` and
+   `ಕಾಮೆಡ್ಕೆ`. The project glossary preserves these in Latin.
+   Additionally, Sarvam's back-translation returns "Ranking
+   Certificate" instead of "Rank Card", which is a semantic drift
+   away from "Rank Card + Allotment Letter". Both signals point to
+   a glossary violation.
+
+3. **`ui.documents.items.migration`** — Sarvam narrows
+   "students" to "female students" via `ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ`. The
+   source English is gender-neutral; the existing value uses the
+   gender-neutral `ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ`. This is the same narrowing
+   bug the pilot caught on `kn.departments.cse.placement` and is
+   rejected for the same reason.
+
+### 20.4 Highlights of the 9 NATIVE_REVIEW_RECOMMENDED rows
+
+These rows have a stylistic or register choice where both the
+existing and Sarvam candidate are correct Kannada. They are
+flagged for a native speaker to decide on project-house-style
+consistency:
+
+- `ui.cards.scholarships` — spacing inside the compound word.
+- `ui.cards.summary` — register ("Summary Information" vs "Summary").
+- `ui.cards.college_brochure` — "manual" vs "handbook" vs "brochure".
+- `ui.documents.title` — "Necessary" vs "Required".
+- `ui.documents.items.caste_income` — word order vs English source.
+- `ui.documents.items.vtu_eligibility` — VTU in Latin vs initials.
+- `ui.comparison.add_program`, `ui.comparison.heading`,
+  `ui.comparison.select_program` — Kannada `ಕಾರ್ಯಕ್ರಮ` vs
+  transliterated `ಪ್ರೋಗ್ರಾಂ` for the noun "program" — same choice
+  across the comparison.* block.
+
+### 20.5 Required output (Batch 4)
+
+- REACHABILITY VERDICT FOR THREE KEYS: all 3
+  DEFINED_BUT_UNREACHABLE (see section 19)
+- FINAL PRODUCTION-REACHABLE TOTAL: 209 (provisional, unchanged
+  from Batch 3 close)
+- ORPHANED/UNREACHABLE TOTAL: 3 (the three ghost keys)
+- PREVIOUSLY MECHANICALLY REVIEWED: 65 (15 pilot + 25 Batch 2 + 25
+  Batch 3)
+- REVIEWED IN BATCH 4: 25
+- KEEP_EXISTING_MECHANICALLY_SUPPORTED: 13
+- SAFE_CORRECTION_CANDIDATES: 0
+- BLOCKED_LINGUISTIC: 3
+- BLOCKED_OFFICIAL_FACT: 0
+- BLOCKED_MISSING_SOURCE: 0
+- BLOCKED_RUNTIME_STRUCTURE: 0
+- NATIVE_REVIEW_RECOMMENDED: 9
+- SARVAM API CALLS: 65 (3 ops × 25 rows; 10 cache hits absorbed
+  from Batch 3 cache)
+- CACHE HITS: 10
+- REMAINING PRODUCTION-REACHABLE: 119 (209 − 65 − 25)
+- PRODUCTION FILES CHANGED: 0
+- EVIDENCE FILES CHANGED: `backend/tools/kannada_review_decisions.json`
+  (25 new entries with `batch=4`); this report (section 20 added).
+- TESTS RUN: 27 passed (3 test files: test_kannada_decision_schema,
+  test_kannada_safe_pilot_batch1_exact_strings,
+  test_kannada_corrected_locale_integration).
+- GIT DIFF CHECK: clean (no production value change).
+- GIT STATUS: see below; no commit, no push per user instruction.
+
+---
+
+End of audit.

@@ -1,0 +1,4157 @@
+{
+ "_note": "Kannada review decisions. Evidence artifact for the Sarvam-assisted review; not imported by the runtime. Approved values are stored in backend/data/locales/{ui,kn}.json - this file records why.",
+ "decisions": {
+  "ui.welcome.named_display": {
+   "decision": "keep_existing",
+   "approved": "{name}, ಸ್ವಾಗತ.\nಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?",
+   "reason": "Sarvam translated the interpolation key itself ({name} -> {ಹೆಸರು}), which would break variable substitution at runtime.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.welcome.general_display": {
+   "decision": "keep_existing",
+   "approved": "ಸ್ವಾಗತ.\nಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?",
+   "reason": "Sarvam candidate is byte-identical to the existing value; independent confirmation.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.language.select": {
+   "decision": "keep_existing",
+   "approved": "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+   "reason": "Sarvam candidate is byte-identical to the existing value.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.listening": {
+   "decision": "keep_existing",
+   "approved": "ಆಲಿಸುತ್ತಿದ್ದೇನೆ…",
+   "reason": "Sarvam's ಕೇಳಲಾಗುತ್ತಿದೆ is impersonal passive ('it is being heard') and loses the first-person receptionist voice; it also downgraded the ellipsis U+2026 to three ASCII dots.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.processing": {
+   "decision": "revised",
+   "approved": "ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುತ್ತಿದ್ದೇನೆ…",
+   "reason": "Existing ಪರಿಶೀಲಿಸುತ್ತಿದ್ದೇನೆ means 'I am verifying', a meaning drift from 'processing'. Took Sarvam's verb stem ಪ್ರಕ್ರಿಯೆಗೊಳಿಸು but kept first person to match ಆಲಿಸುತ್ತಿದ್ದೇನೆ, and kept the U+2026 ellipsis.",
+   "_note": "BLOCKED pending user authorization; not applied in Batch 1.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.clarification.department": {
+   "decision": "keep_existing",
+   "approved": "ನೀವು ಯಾವ ವಿಭಾಗದ ಬಗ್ಗೆ ತಿಳಿಯಲು ಬಯಸುತ್ತೀರಿ?",
+   "reason": "Sarvam used ಇಲಾಖೆ (a government department), which conflicts with the approved glossary term ವಿಭಾಗ for an academic department.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.backend": {
+   "decision": "adopt_sarvam",
+   "approved": "ಸೇವೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "reason": "The existing value prepended ಕ್ಷಮಿಸಿ, ('Sorry,'), which is absent from the English source and inconsistent with the other 15 error strings. Sarvam's candidate back-translates exactly to the source.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.retry": {
+   "decision": "keep_existing",
+   "approved": "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "reason": "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ is the glossary retry term reused across the error family; Sarvam's ಮತ್ತೊಮ್ಮೆ is equally correct but would fragment terminology.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.session.timeout": {
+   "decision": "revised",
+   "approved": "ಈ ಸೆಷನ್‌ನ ಸಮಯ ಮೀರಿದೆ.",
+   "reason": "ಅಧಿವೇಶನ means a legislative or conference session and is the wrong register for a kiosk visit. Took Sarvam's ಸೆಷನ್ but kept the glossary timeout phrase ಸಮಯ ಮೀರಿದೆ rather than Sarvam's ಮೀರಿಹೋಗಿದೆ.",
+   "_note": "BLOCKED pending user authorization; not applied in Batch 1.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.session.thank_you": {
+   "decision": "keep_existing",
+   "approved": "ಧನ್ಯವಾದಗಳು.",
+   "reason": "Sarvam candidate is byte-identical to the existing value.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "kn.departments.cse.intro": {
+   "decision": "revised",
+   "approved": "ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗವು ಅತ್ಯಾಧುನಿಕ ಪಠ್ಯಕ್ರಮದೊಂದಿಗೆ ಡಿಜಿಟಲ್ ಕ್ರಾಂತಿಯನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ. ನಾವು ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಉನ್ನತ ದರ್ಜೆಯ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್‌ಗಳಾಗಿ ಮತ್ತು ಸಿಸ್ಟಮ್ ಆರ್ಕಿಟೆಕ್ಟ್‌ಗಳಾಗಿ ರೂಪಿಸುತ್ತೇವೆ.",
+   "reason": "Three defects in the existing value: ಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ violates the approved glossary (ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್); ಸಿಸ್ಟಮ್ ವಾಸ್ತುಶಿಲ್ಪಿಗಳು means building architects, the wrong sense for a software system architect; ಉನ್ನತ-ಶ್ರೇಣಿಯ carries an un-Kannada hyphen. Sarvam's ಇಂಜಿನಿಯರಿಂಗ್ and its raw '&' were rejected in favour of glossary ಎಂಜಿನಿಯರಿಂಗ್ and ಮತ್ತು.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "kn.departments.cse.hod_voice": {
+   "decision": "revised",
+   "approved": "ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿಕೋನವು ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ನಾವು ಪ್ರಾಯೋಗಿಕ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ.",
+   "reason": "Added the honorific ಅವರ after the HOD's name (respect form is expected when naming a person in Kannada) and restored 'hands-on' (ಪ್ರಾಯೋಗಿಕ), which the existing value dropped. Kept ಉದ್ಯಮಾಧಾರಿತ over Sarvam's ಕೈಗಾರಿಕಾ-ಚಾಲಿತ ('industrial-driven'). Name preserved unchanged.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "kn.departments.cse.fees": {
+   "decision": "revised_terminology_only",
+   "approved": "KCET: KEA ಮಾನದಂಡಗಳ ಪ್ರಕಾರ | ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್: ₹3,50,000/ವರ್ಷ",
+   "reason": "ನಿರ್ವಹಣೆ back-translates as 'Maintenance' - a Kannada visitor reads a maintenance charge instead of the management quota. Replaced with the glossary term ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್. Sarvam's candidate was rejected wholesale: it transliterated the protected acronyms (KCET -> ಕೆಸಿಇಟಿ, KEA -> ಕೆಇಎ) and the round trip returned 'KSET', corrupting the exam name, and it rewrote ₹ as 'Rs.'. The fee amount is untouched: the ₹3,50,000 vs ₹3,25,000 conflict remains an owner blocker.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "kn.departments.cse.placement": {
+   "decision": "revised_terminology_only",
+   "approved": "ಉನ್ನತ ನೇಮಕಾತಿದಾರರಲ್ಲಿ TCS, Infosys ಮತ್ತು Amazon ಸೇರಿವೆ. ವಿದ್ಯಾರ್ಥಿಗಳು ಕಠಿಣ ತಾಂತ್ರಿಕ ಮತ್ತು ಆಪ್ಟಿಟ್ಯೂಡ್ ತರಬೇತಿಯನ್ನು ಪಡೆಯುತ್ತಾರೆ.",
+   "reason": "ಯೋಗ್ಯತೆಯ ತರಬೇತಿ reads as 'eligibility training'; aptitude training is ಆಪ್ಟಿಟ್ಯೂಡ್ ತರಬೇತಿ. Sarvam's candidate was rejected wholesale: it changed ವಿದ್ಯಾರ್ಥಿಗಳು (students) to ವಿದ್ಯಾರ್ಥಿನಿಯರು (female students only), a factual corruption confirmed by the back-translation, and transliterated the protected company names.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "kn.admissions_and_fees.eligibility": {
+   "decision": "revised",
+   "approved": "10+2 ರಲ್ಲಿ ಒಟ್ಟು 45% ಅಂಕಗಳು ಭೌತಶಾಸ್ತ್ರ ಮತ್ತು ಗಣಿತ ರಸಾಯನಶಾಸ್ತ್ರ, ಜೈವಿಕ ತಂತ್ರಜ್ಞಾನ, ಜೀವಶಾಸ್ತ್ರ, ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಅಥವಾ ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಸಾಮಾನ್ಯ: 45% ಒಟ್ಟು ಅಂಕಗಳು SC/ST/Category-1/OBC: 40% ಒಟ್ಟು ಅಂಕಗಳು (ಸಡಿಲಿಕೆಯೊಂದಿಗೆ) MBA: ಕನಿಷ್ಠ 50% ಒಟ್ಟು ಅಂಕಗಳೊಂದಿಗೆ ಪದವಿ",
+   "reason": "Three corrections: '50% aggregate' was rendered ಯೋಗ್ಯತೆ ('worthiness') instead of ಅಂಕಗಳು (marks); ಸಡಲಿಕೆ is a misspelling of ಸಡಿಲಿಕೆ (relaxation), which Sarvam surfaced; ಜೈವ ತಂತ್ರಜ್ಞಾನ is a truncated form of ಜೈವಿಕ ತಂತ್ರಜ್ಞಾನ (Biotechnology). Also added the missing ಅಂಕಗಳು after the first 45%. Sarvam's [ಉಲ್ಲೇಖ: 344] renderings were rejected: those are RAG citation artifacts leaking from the English source, which the Kannada value correctly strips.",
+   "_note": "BLOCKED pending user authorization; not applied in Batch 1. Status of structured eligibility fields is unchanged.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.welcome.general_narration": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?",
+   "reason": "Sarvam candidate is byte-identical to the existing value (back-translation overlap 0.67, no issues). Independent confirmation via fresh Sarvam call (Batch 2).",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.welcome.named_narration": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "{name}, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?",
+   "reason": "Sarvam candidate is byte-identical to the existing value; placeholder {name} preserved exactly (back-translation overlap 0.71, no issues). Independent confirmation via fresh Sarvam call (Batch 2).",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.welcome.name_prompt": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ತಿಳಿಸಿ.",
+   "reason": "Sarvam candidate ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಷ್ಟವಾದ ಹೆಸರನ್ನು ಹೇಳಿ adds 'ಇಷ್ಟವಾದ' (favorite/preferred-liking), a meaning drift: the English 'preferred name' is a registration request, not 'a name you like'. Existing ತಿಳಿಸಿ ('tell me') matches the source meaning.",
+   "native_review_queue": true,
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.language.required": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಮುಂದುವರಿಯಲು ದಯವಿಟ್ಟು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+   "reason": "Sarvam candidate adds ಒಂದು ('a') and uses ಮುಂದುವರೆಯಲು (formal short-form of the verb). Both candidates are valid Kannada, but the existing value is established family terminology and removing ಒಂದು is more idiomatic for the kiosk register. No fact drift; no glossary violation; no protected tokens affected. Conservative choice is to keep existing.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.thinking": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "CLARA ಉತ್ತರವನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತಿದೆ…",
+   "reason": "Sarvam candidate ಕ್ಲಾರಾ ಯೋಚಿಸುತ್ತಿದ್ದಾಳೆ... transliterated the protected brand acronym CLARA to ಕ್ಲಾರಾ, which is a protected-token violation flagged by the preservation checker. Existing keeps CLARA in Latin and uses ಉತ್ತರವನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತಿದೆ (preparing the answer), the established CLARA first-person voice family. Sarvam also downgraded the U+2026 ellipsis to three ASCII dots.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.thinking_title": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "CLARA ಯೋಚಿಸುತ್ತಿದೆ",
+   "reason": "Same as ui.status.thinking: Sarvam transliterated the protected brand acronym CLARA to ಕ್ಲಾರಾ, flagged by the preservation checker. Existing keeps CLARA in Latin.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.thinking_detail_1": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಓದಿ ಸರಿಯಾದ ಮಾಹಿತಿಯನ್ನು ಸಂಗ್ರಹಿಸುತ್ತಿದ್ದೇನೆ...",
+   "reason": "Sarvam back-translation overlap 0.33 (well below 0.45 threshold) - the candidate's round-trip drifts semantically. The English source uses the present continuous 'Reading your question and gathering the right details', but Sarvam's candidate was back-translated as 'Please read through your question to ensure that all information is gathered correctly', a meaning shift. Existing preserves the present-continuous first-person voice consistent with the other status family strings.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.thinking_detail_2": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಉತ್ತರ ನಿಖರವಾಗಿರಲು ಮಾಹಿತಿಯನ್ನು ಪರಿಶೀಲಿಸುತ್ತಿದ್ದೇನೆ...",
+   "reason": "Sarvam back-translation overlap 0.43 (borderline) and the candidate uses ಕ್ಯಾಂಪಸ್ (a Latin transliteration) where the rest of the status family stays in Kannada. Existing is tighter, drops 'campus' (the English source's 'campus information' maps to ಮಾಹಿತಿ since the entire kiosk surface is campus-scoped), and matches the first-person voice.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.thinking_detail_3": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ನಿಮಗಾಗಿ ಸ್ಪಷ್ಟ ಉತ್ತರವನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತಿದ್ದೇನೆ...",
+   "reason": "Sarvam candidate switches from first-person (ಸಿದ್ಧಪಡಿಸುತ್ತಿದ್ದೇನೆ) to impersonal passive (ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ), breaking the receptionist voice contract used by ಆಲಿಸುತ್ತಿದ್ದೇನೆ and the other status family strings. Back-translation overlap 0.67 is acceptable but the voice drift is a real terminology/voice issue.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.thinking_detail_4": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "CLARA ಜ್ಞಾನದಿಂದ ಸಂಬಂಧಿತ ಮಾಹಿತಿಯನ್ನು ಜೋಡಿಸುತ್ತಿದ್ದೇನೆ...",
+   "reason": "Sarvam candidate (CLARA ಜ್ಞಾನದಿಂದ ಸಂಬಂಧಿತ ವಿವರಗಳನ್ನು ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ...) uses ವಿವರಗಳು (details) and ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ (passive) and back-translates to 'CLARA is connecting to relevant details from knowledge', losing the nuance that the source says CLARA is connecting from its own knowledge base, not contacting an external one. Existing is more precise and keeps the first-person voice contract. Back-overlap 1.0 does not change this concern.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.thinking_detail_5": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಇನ್ನೇನು ಸಿದ್ಧ... ಅತ್ಯುತ್ತಮ ಉತ್ತರವನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತಿದ್ದೇನೆ...",
+   "reason": "Existing is shorter (ಇನ್ನೇನು ಸಿದ್ಧ... is the established spoken cadence for the 'almost ready' status across the family) and keeps the first-person voice. Sarvam's ಬಹುತೇಕ ಸಿದ್ಧವಾಗಿದೆ is also correct but introduces a new lexical choice and passive voice. No fact drift; both candidates are correct; existing is the established voice.",
+   "native_review_queue": true,
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.reconnecting": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಮರುಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ…",
+   "reason": "Sarvam candidate is byte-identical except for downgrading the U+2026 ellipsis to three ASCII dots. The pilot decision for ui.status.listening explicitly cited the U+2026 preservation as a reason to keep_existing; the same reasoning applies here for consistency across the status family.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.connection_lost": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಸಂಪರ್ಕ ಕಡಿತಗೊಂಡಿದೆ.",
+   "reason": "Sarvam candidate is byte-identical to the existing value. Independent confirmation via fresh Sarvam call (Batch 2).",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.connectivity_issue": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ವ್ಯವಸ್ಥೆಯಲ್ಲಿ ಸಂಪರ್ಕ ಸಮಸ್ಯೆಯಾಗಿದೆ.",
+   "reason": "Existing ಸಮಸ್ಯೆಯಾಗಿದೆ ('has become a problem') is the established phrasing for system-state messages and reads naturally for the kiosk. Sarvam's ಎದುರಿಸುತ್ತಿದೆ ('is facing') personifies the system in a way that is less idiomatic for a kiosk status line. No fact drift, no glossary violation; voice choice favors existing.",
+   "native_review_queue": true,
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.status.returning_to_sleep": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ನಿದ್ರಾ ಪರದೆಗೆ ಹಿಂತಿರುಗಲಾಗುತ್ತಿದೆ.",
+   "reason": "Existing ನಿದ್ರಾ ಪರದೆ is the established sandhi form ('sleep-screen' as a compound) used elsewhere in the system. Sarvam's ನಿದ್ರೆಯ ಪರದೆ is also valid but introduces a different sandhi style. No fact drift; existing is the established term. Back-translation overlap 1.0 confirms meaning preservation.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.clarification.general": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ವಿವರಿಸಿ.",
+   "reason": "Existing captures the English 'a little more' (ಸ್ವಲ್ಪ), which Sarvam's candidate drops. Sarvam's ಇನ್ನಷ್ಟು ತಿಳಿಸಿ means 'tell me more' and loses the 'a little' qualifier present in the source.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.clarification.hostel": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ನಿಮಗೆ ಹುಡುಗಿಯರ ಹಾಸ್ಟೆಲ್ ಮಾಹಿತಿ ಬೇಕೇ ಅಥವಾ ಹುಡುಗರ ಹಾಸ್ಟೆಲ್ ಮಾಹಿತಿ ಬೇಕೇ?",
+   "reason": "Existing uses ಹಾಸ್ಟೆಲ್ (transliteration), which matches how the term appears in the related clarification surface and other families. Sarvam's ವಸತಿಗೃಹ is a proper Kannada term but a terminology choice that fragments the established register. No fact drift; both are correct. Conservative choice is to keep existing.",
+   "native_review_queue": true,
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.clarification.small_talk": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಕ್ಯಾಂಪಸ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಶ್ನೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡಲು ನಾನು ಇಲ್ಲಿದ್ದೇನೆ. ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?",
+   "reason": "Existing uses the more specific ಕ್ಯಾಂಪಸ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ('campus-related') phrasing, which is more precise for a kiosk context than Sarvam's plain ಕ್ಯಾಂಪಸ್ ಪ್ರಶ್ನೆಗಳಿಗೆ. Sarvam's ಏನು ತಿಳಿಯಲು ಇಷ್ಟ? ('what do you like to know?') drifts to a casual register inconsistent with the rest of the clarification family. Existing matches the first-person ಇಲ್ಲಿದ್ದೇನೆ voice contract used by the other clarification strings.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.clarification.hod_department": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಯಾವ ವಿಭಾಗದ ವಿಭಾಗ ಮುಖ್ಯಸ್ಥರ ಬಗ್ಗೆ ತಿಳಿಯಬೇಕು ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ತಿಳಿಸಿ.",
+   "reason": "Sarvam candidate uses ಇಲಾಖೆ (government department), the same glossary violation the pilot's ui.clarification.department explicitly rejected. Sarvam back-translation overlap 0.33 (well below threshold) confirms the candidate drifts semantically. Existing uses ವಿಭಾಗ (academic department, glossary term).",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.clarification.fees_department": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಯಾವ ವಿಭಾಗದ ಶುಲ್ಕದ ವಿವರಗಳನ್ನು ನೋಡಬೇಕು ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ತಿಳಿಸಿ.",
+   "reason": "Sarvam candidate uses ಇಲಾಖೆ (government department), the same glossary violation rejected in the pilot. Existing uses ವಿಭಾಗ (academic department, glossary term). Back-translation overlap 0.75 is acceptable but the glossary violation is independent of the overlap.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.no_speech": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ನಿಮ್ಮ ಮಾತು ಸ್ಪಷ್ಟವಾಗಿ ಕೇಳಿಸಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಪ್ರಶ್ನೆಯನ್ನು ಮತ್ತೆ ಹೇಳಿ.",
+   "reason": "Sarvam uses ಮತ್ತೊಮ್ಮೆ for 'again'. The pilot's ui.error.retry decision explicitly rejected ಮತ್ತೊಮ್ಮೆ in favour of ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ to keep the error family on consistent 'again' terminology. Adopting ಮತ್ತೊಮ್ಮೆ here would fragment the error family. Existing uses ಮತ್ತೆ, which is the family's chosen term.",
+   "native_review_queue": true,
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.microphone_denied": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಮೈಕ್ರೊಫೋನ್ ಬಳಸಲು ಅನುಮತಿ ದೊರೆತಿಲ್ಲ. ದಯವಿಟ್ಟು ಅನುಮತಿ ನೀಡಿ ಅಥವಾ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "reason": "Existing is shorter and more natural for the kiosk register ('Microphone permission was not obtained' - ದೊರೆತಿಲ್ಲ). Sarvam's ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶವನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ ('Microphone access was denied') is a more formal register shift. Back-translation overlap 0.88 confirms meaning preservation for both. No fact drift; voice choice favors existing.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.microphone_missing": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಮೈಕ್ರೊಫೋನ್ ಕಂಡುಬಂದಿಲ್ಲ. ದಯವಿಟ್ಟು ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "reason": "Both candidates are correct Kannada; existing is shorter and more natural ('Microphone not found'). Sarvam adds ಯಾವುದೇ ('any') which is a minor addition but not wrong. Back-translation overlap 0.83. No fact drift; existing is the established form.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.microphone_blocked": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಬ್ರೌಸರ್ ಧ್ವನಿ ಇನ್‌ಪುಟ್ ಅನ್ನು ನಿರ್ಬಂಧಿಸಿದೆ. ದಯವಿಟ್ಟು ಮೈಕ್ರೊಫೋನ್‌ಗೆ ಅನುಮತಿ ನೀಡಿ ಅಥವಾ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "reason": "Both candidates preserve the protected token ಬ್ರೌಸರ್ (browser) and ಇನ್‌ಪುಟ್ (input). Existing uses ಮೈಕ್ರೊಫೋನ್‌ಗೆ ಅನುಮತಿ (microphone permission, conversational) vs Sarvam's ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶವನ್ನು ಅನುಮತಿಸಿ (allow microphone access, formal). No fact drift; existing is more natural for the kiosk register. Back-overlap 0.91.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.microphone_start": {
+   "decision": "MECHANICALLY_REVIEWED_PROVISIONAL",
+   "batch": 2,
+   "approved": "ಮೈಕ್ರೊಫೋನ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "reason": "Both candidates are equivalent in meaning. Existing uses ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ which is the established glossary retry phrase used across the error family (rejected ಮತ್ತೊಮ್ಮೆ in the pilot's ui.error.retry decision). Adopting Sarvam's ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ keeps the same term here, but Sarvam's ಸಾಧ್ಯವಾಗಲಿಲ್ಲ ('could not be done') is a slightly different framing from existing's ಪ್ರಾರಂಭಿಸಲಾಗಲಿಲ್ಲ ('could not be started'). Existing's phrasing is more specific (it was the start that failed). Back-overlap 0.88.",
+   "placeholder_check": "LEGACY_UNSTRUCTURED",
+   "name_check": "LEGACY_UNSTRUCTURED",
+   "number_check": "LEGACY_UNSTRUCTURED",
+   "currency_check": "LEGACY_UNSTRUCTURED",
+   "acronym_check": "LEGACY_UNSTRUCTURED",
+   "latin_name_check": "LEGACY_UNSTRUCTURED",
+   "gender_narrowing": "LEGACY_UNSTRUCTURED",
+   "subject_object_drift": "LEGACY_UNSTRUCTURED",
+   "missing_clauses": "LEGACY_UNSTRUCTURED",
+   "added_clauses": "LEGACY_UNSTRUCTURED",
+   "terminology_conflicts": "LEGACY_UNSTRUCTURED",
+   "punctuation_assessment": "LEGACY_UNSTRUCTURED",
+   "display_assessment": "LEGACY_UNSTRUCTURED",
+   "narration_assessment": "LEGACY_UNSTRUCTURED",
+   "existing_back_translation": "LEGACY_UNSTRUCTURED",
+   "candidate_back_translation": "LEGACY_UNSTRUCTURED",
+   "classification": "LEGACY_UNSTRUCTURED"
+  },
+  "ui.error.voice_unsupported": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Voice input is not supported in this browser. Please use Chrome or Edge, or type your question.",
+   "existing_kn": "ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಧ್ವನಿ ಇನ್‌ಪುಟ್ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು Chrome ಅಥವಾ Edge ಬಳಸಿ, ಇಲ್ಲವೇ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "sarvam_kn": "ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಧ್ವನಿ ಇನ್‌ಪುಟ್ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ. ದಯವಿಟ್ಟು Chrome ಅಥವಾ Edge ಬಳಸಿ, ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "back_en_of_candidate": "Voice input is not supported in this browser. Please use Chrome or Edge, or type your query.",
+   "back_en_of_existing": "Voice input is not available in this browser. Please use Chrome or Edge, or type your query.",
+   "reason": "Existing back-translates to \"Voice input is not available\" while source is \"is not supported\"; candidate matches source more closely. The drift is tone-thinning (available vs supported), not a meaning change. Both preserve protected tokens Chrome and Edge. No placeholders, names, numbers, or currency. Defect is non-material; correction is not warranted.",
+   "existing_back_translation": "Voice input is not available in this browser. Please use Chrome or Edge, or type your query.",
+   "candidate_back_translation": "Voice input is not supported in this browser. Please use Chrome or Edge, or type your query.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['Chrome', 'Edge']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['Chrome', 'Edge']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Voice input is not supported in this browser",
+    "Please use Chrome or Edge, or type your question"
+   ],
+   "added_clauses": [
+    "ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಧ್ವನಿ ಇನ್‌ಪುಟ್ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ",
+    "ದಯವಿಟ್ಟು Chrome ಅಥವಾ Edge ಬಳಸಿ, ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.voice_failed": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Voice input failed. Please try again or type your question.",
+   "existing_kn": "ಧ್ವನಿ ಇನ್‌ಪುಟ್ ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "sarvam_kn": "ಧ್ವನಿ ಒಳಹರಿವು ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "back_en_of_candidate": "The voice input failed. Please try again or type your query.",
+   "back_en_of_existing": "The voice input failed. Please try again or type a query.",
+   "reason": "Candidate translates \"input\" as \"ಒಳಹರಿವು\" (inflow), breaking family glossary consistency. The error family uses \"ಇನ್‌ಪುಟ್\" (transliteration) for \"input\" (rows 1 and 3 also use ಇನ್‌ಪುಟ್). Existing preserves the family term. No protected tokens, no placeholders, no numbers. Defect is on the candidate, not the existing.",
+   "existing_back_translation": "The voice input failed. Please try again or type a query.",
+   "candidate_back_translation": "The voice input failed. Please try again or type your query.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Voice input failed",
+    "Please try again or type your question"
+   ],
+   "added_clauses": [
+    "ಧ್ವನಿ ಒಳಹರಿವು ವಿಫಲವಾಗಿದೆ",
+    "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.voice_timeout": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Voice recognition timed out. Please try again or type your question.",
+   "existing_kn": "ಧ್ವನಿ ಗುರುತಿಸುವಿಕೆ ಸಮಯ ಮೀರಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "sarvam_kn": "ಧ್ವನಿ ಗುರುತಿಸುವಿಕೆ ಸಮಯ ಮೀರಿತು. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "back_en_of_candidate": "The voice recognition time has exceeded. Please try again or type your query.",
+   "back_en_of_existing": "The voice recognition time has exceeded. Please try again or type a query.",
+   "reason": "Existing and candidate are near-identical. Candidate changes verb tense (ಮೀರಿದೆ -> ಮೀರಿತು) and adds possessive \"ನಿಮ್ಮ\" (your) before ಪ್ರಶ್ನೆ. Both back-translations read the same. No protected tokens, no placeholders, no numbers. Tense and possessive are register details, not meaning changes.",
+   "existing_back_translation": "The voice recognition time has exceeded. Please try again or type a query.",
+   "candidate_back_translation": "The voice recognition time has exceeded. Please try again or type your query.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Voice recognition timed out",
+    "Please try again or type your question"
+   ],
+   "added_clauses": [
+    "ಧ್ವನಿ ಗುರುತಿಸುವಿಕೆ ಸಮಯ ಮೀರಿತು",
+    "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.voice_unrecognized": {
+   "decision": "NATIVE_REVIEW_RECOMMENDED",
+   "batch": 3,
+   "english": "I could not understand the audio. Please try again or type your question.",
+   "existing_kn": "ಧ್ವನಿಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "sarvam_kn": "ನನಗೆ ಆಡಿಯೋ ಅರ್ಥವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "back_en_of_candidate": "I didn't understand the audio. Please try again or type your question.",
+   "back_en_of_existing": "The audio could not be understood. Please try again or type in the question.",
+   "reason": "Source EN is first-person agentive (\"I could not understand the audio\"); existing is passive third-person (\"The audio could not be understood\"); candidate restores the first-person voice (\"I did not understand the audio\"). The other ui.error.* rows (1, 2, 3, 5, 6, 8) are passive, so the existing is family-consistent. The candidate is source-faithful but breaks family voice. The question of family-level voice normalization is deferred; do not apply, flag for native review.",
+   "native_review_queue": true,
+   "existing_back_translation": "The audio could not be understood. Please try again or type in the question.",
+   "candidate_back_translation": "I didn't understand the audio. Please try again or type your question.",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "FAIL",
+    "detail": "first-person drift existing=False candidate=True"
+   },
+   "missing_clauses": [
+    "I could not understand the audio",
+    "Please try again or type your question"
+   ],
+   "added_clauses": [
+    "ನನಗೆ ಆಡಿಯೋ ಅರ್ಥವಾಗಲಿಲ್ಲ",
+    "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.network": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Voice recognition could not reach the speech service. Check the internet connection, then try again.",
+   "existing_kn": "ಧ್ವನಿ ಸೇವೆಯನ್ನು ಸಂಪರ್ಕಿಸಲಾಗಲಿಲ್ಲ. ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "sarvam_kn": "ಧ್ವನಿ ಗುರುತಿಸುವಿಕೆ ಭಾಷಣ ಸೇವೆಯನ್ನು ತಲುಪಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "back_en_of_candidate": "The voice recognition speech service could not be reached. Check your internet connection and try again later.",
+   "back_en_of_existing": "The voice service could not be connected. Check your internet connection and try again later.",
+   "reason": "Source has three nouns (\"voice recognition\", \"speech service\"); existing compresses to \"voice service\" (one noun); candidate preserves all three but uses \"ಭಾಷಣ\" (talk/lecture) for \"speech service\" which is awkward in the kiosk context. Existing is a natural rendering; candidate is more literal but less natural. No protected tokens, no placeholders. Defect is on the candidate, not the existing.",
+   "existing_back_translation": "The voice service could not be connected. Check your internet connection and try again later.",
+   "candidate_back_translation": "The voice recognition speech service could not be reached. Check your internet connection and try again later.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Voice recognition could not reach the speech service",
+    "Check the internet connection, then try again"
+   ],
+   "added_clauses": [
+    "ಧ್ವನಿ ಗುರುತಿಸುವಿಕೆ ಭಾಷಣ ಸೇವೆಯನ್ನು ತಲುಪಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
+    "ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.offline": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "The kiosk is offline. Connect to the internet, then try again.",
+   "existing_kn": "ಕಿಯೋಸ್ಕ್ ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿದೆ. ಇಂಟರ್ನೆಟ್‌ಗೆ ಸಂಪರ್ಕಿಸಿದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "sarvam_kn": "ಕಿಯೋಸ್ಕ್ ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿದೆ. ಇಂಟರ್ನೆಟ್‌ಗೆ ಸಂಪರ್ಕಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "back_en_of_candidate": "The kiosk is offline. Connect to the internet and try again later.",
+   "back_en_of_existing": "The kiosk is offline. Try again after connecting to the internet.",
+   "reason": "Existing uses past-participle form (\"after having connected\") for the source imperative (\"Connect ... then try again\"); candidate uses proper imperative (\"connect to the internet, then\"). Both back-translate the same meaning. The register difference is real but the existing conveys the meaning to a Kannada reader. No protected tokens, no placeholders, no numbers.",
+   "existing_back_translation": "The kiosk is offline. Try again after connecting to the internet.",
+   "candidate_back_translation": "The kiosk is offline. Connect to the internet and try again later.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "The kiosk is offline",
+    "Connect to the internet, then try again"
+   ],
+   "added_clauses": [
+    "ಕಿಯೋಸ್ಕ್ ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿದೆ",
+    "ಇಂಟರ್ನೆಟ್‌ಗೆ ಸಂಪರ್ಕಿಸಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.empty_response": {
+   "decision": "NATIVE_REVIEW_RECOMMENDED",
+   "batch": 3,
+   "english": "I could not prepare a response. Please try again.",
+   "existing_kn": "ಉತ್ತರವನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "sarvam_kn": "ನನಗೆ ಪ್ರತಿಕ್ರಿಯೆ ಸಿದ್ಧಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "back_en_of_candidate": "I was unable to prepare the response. Please try again.",
+   "back_en_of_existing": "The answer was not prepared. Please try again.",
+   "reason": "Source EN is first-person agentive (\"I could not prepare a response\"); existing is passive (\"The answer was not prepared\"); candidate restores first-person (\"I was unable to prepare the response\"). Same family voice normalization question as ui.error.voice_unrecognized. Existing uses \"ಉತ್ತರ\" (answer) for \"response\"; candidate uses \"ಪ್ರತಿಕ್ರಿಯೆ\" (response). Do not apply; flag for native review.",
+   "native_review_queue": true,
+   "existing_back_translation": "The answer was not prepared. Please try again.",
+   "candidate_back_translation": "I was unable to prepare the response. Please try again.",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "FAIL",
+    "detail": "first-person drift existing=False candidate=True"
+   },
+   "missing_clauses": [
+    "I could not prepare a response",
+    "Please try again"
+   ],
+   "added_clauses": [
+    "ನನಗೆ ಪ್ರತಿಕ್ರಿಯೆ ಸಿದ್ಧಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
+    "ದಯವಿಟ್ಟು ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.invalid_request": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "The request could not be processed. Please try again.",
+   "existing_kn": "ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "sarvam_kn": "ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "back_en_of_candidate": "The request could not be processed. Please try again.",
+   "back_en_of_existing": "The request could not be processed. Please try again.",
+   "reason": "Existing and candidate are byte-near-identical; only difference is \"ಮತ್ತೆ\" vs \"ಮತ್ತೊಮ್ಮೆ\" for \"again\" — a register detail, not a meaning change. Both back-translations are identical. No protected tokens, no placeholders, no numbers.",
+   "existing_back_translation": "The request could not be processed. Please try again.",
+   "candidate_back_translation": "The request could not be processed. Please try again.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "The request could not be processed",
+    "Please try again"
+   ],
+   "added_clauses": [
+    "ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
+    "ದಯವಿಟ್ಟು ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.missing_text": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Please type or say a question.",
+   "existing_kn": "ದಯವಿಟ್ಟು ಪ್ರಶ್ನೆಯನ್ನು ಹೇಳಿ ಅಥವಾ ಟೈಪ್ ಮಾಡಿ.",
+   "sarvam_kn": "ದಯವಿಟ್ಟು ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ ಅಥವಾ ಹೇಳಿ.",
+   "back_en_of_candidate": "Please type or speak the question.",
+   "back_en_of_existing": "Please say or type in your question.",
+   "reason": "Source \"type or say\" and existing \"say or type\" are order-flipped disjunctions. Disjunction is order-invariant; meaning is identical. Both back-translations convey the same meaning. No protected tokens, no placeholders, no numbers.",
+   "existing_back_translation": "Please say or type in your question.",
+   "candidate_back_translation": "Please type or speak the question.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Please type or say a question"
+   ],
+   "added_clauses": [
+    "ದಯವಿಟ್ಟು ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ ಅಥವಾ ಹೇಳಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.error.audio_unavailable": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Voice output is temporarily unavailable. The information remains available on screen.",
+   "existing_kn": "ಧ್ವನಿ ಸೇವೆ ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ಮಾಹಿತಿ ಪರದೆಯಲ್ಲಿ ಲಭ್ಯವಿದೆ.",
+   "sarvam_kn": "ಧ್ವನಿ ಉತ್ಪಾದನೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ. ಮಾಹಿತಿಯು ಪರದೆಯ ಮೇಲೆ ಲಭ್ಯವಿರುತ್ತದೆ.",
+   "back_en_of_candidate": "Audio production is temporarily unavailable. Information will be available on the screen.",
+   "back_en_of_existing": "Audio service is temporarily unavailable. Information is available on the screen.",
+   "reason": "Source has \"Voice output\" (output is the noun); existing uses \"ಧ್ವನಿ ಸೇವೆ\" (voice service — drops \"output\" sense, replaces with \"service\"); candidate uses \"ಧ್ವನಿ ಉತ್ಪಾದನೆ\" (voice production — closer to \"voice output\" semantically but \"ಉತ್ಪಾದನೆ\" sounds like a manufacturing term in Kannada). Existing is a defensible family-style rendering; candidate is more literal but less natural. No protected tokens, no placeholders.",
+   "existing_back_translation": "Audio service is temporarily unavailable. Information is available on the screen.",
+   "candidate_back_translation": "Audio production is temporarily unavailable. Information will be available on the screen.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Voice output is temporarily unavailable",
+    "The information remains available on screen"
+   ],
+   "added_clauses": [
+    "ಧ್ವನಿ ಉತ್ಪಾದನೆಯು ತಾತ್ಕಾಲಿಕವಾಗಿ ಲಭ್ಯವಿಲ್ಲ",
+    "ಮಾಹಿತಿಯು ಪರದೆಯ ಮೇಲೆ ಲಭ್ಯವಿರುತ್ತದೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.availability.official_fact_blocked": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "This information has not yet been officially confirmed.\nPlease contact the relevant department for more information.",
+   "existing_kn": "ಈ ಮಾಹಿತಿಯನ್ನು ಇನ್ನೂ ಅಧಿಕೃತವಾಗಿ ದೃಢೀಕರಿಸಲಾಗಿಲ್ಲ.\nಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+   "sarvam_kn": "ಈ ಮಾಹಿತಿಯನ್ನು ಇನ್ನೂ ಅಧಿಕೃತವಾಗಿ ದೃಢಪಡಿಸಲಾಗಿಲ್ಲ.\nಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+   "back_en_of_candidate": "This information has not been officially confirmed yet.\nPlease see the relevant section for more information.",
+   "back_en_of_existing": "This information has not been officially confirmed yet.\nPlease see the relevant section for more information.",
+   "reason": "Existing uses \"ದೃಢೀಕರಿಸಲಾಗಿಲ್ಲ\" (not confirmed — passive past of the standard verb ದೃಢೀಕರಿಸು); candidate uses \"ದೃಢಪಡಿಸಲಾಗಿಲ್ಲ\" (not confirmed — same meaning, different and less common verb ದೃಢಪಡಿಸು). Both back-translate identically. Existing is the more commonly used verb. No protected tokens, no placeholders, no numbers.",
+   "existing_back_translation": "This information has not been officially confirmed yet.\nPlease see the relevant section for more information.",
+   "candidate_back_translation": "This information has not been officially confirmed yet.\nPlease see the relevant section for more information.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "This information has not yet been officially confirmed",
+    "Please contact the relevant department for more information"
+   ],
+   "added_clauses": [
+    "ಈ ಮಾಹಿತಿಯನ್ನು ಇನ್ನೂ ಅಧಿಕೃತವಾಗಿ ದೃಢಪಡಿಸಲಾಗಿಲ್ಲ",
+    "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.availability.unknown": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "I do not currently have reliable information about that. I can help with admissions, departments, placements, fees, facilities, and campus information.",
+   "existing_kn": "ಆ ವಿಷಯದ ಬಗ್ಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಮಾಹಿತಿ ಈಗ ಲಭ್ಯವಿಲ್ಲ. ಪ್ರವೇಶಾತಿ, ವಿಭಾಗಗಳು, ಪ್ಲೇಸ್‌ಮೆಂಟ್, ಶುಲ್ಕ, ಸೌಲಭ್ಯಗಳು ಮತ್ತು ಕ್ಯಾಂಪಸ್ ಮಾಹಿತಿಯಲ್ಲಿ ನಾನು ಸಹಾಯ ಮಾಡಬಲ್ಲೆ.",
+   "sarvam_kn": "ನನ್ನ ಬಳಿ ಸದ್ಯಕ್ಕೆ ಅದರ ಬಗ್ಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಮಾಹಿತಿ ಇಲ್ಲ. ಆದರೆ ನಾನು ಪ್ರವೇಶಗಳು, ವಿಭಾಗಗಳು, ಉದ್ಯೋಗಾವಕಾಶಗಳು, ಶುಲ್ಕಗಳು, ಸೌಲಭ್ಯಗಳು ಮತ್ತು ಕ್ಯಾಂಪಸ್ ಮಾಹಿತಿಯ ಬಗ್ಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ.",
+   "back_en_of_candidate": "I currently do not have reliable information about that. However, I can help with admissions, departments, job opportunities, fees, facilities, and campus information.",
+   "back_en_of_existing": "Reliable information on that subject is currently unavailable. I can assist with admissions, departments, placements, fees, facilities, and campus information.",
+   "reason": "Source is first-person agentive (\"I do not currently have reliable information\"); existing is impersonal (\"Reliable information on that subject is currently unavailable\"); candidate restores first-person (\"I currently do not have reliable information\"). Existing has a voice-thinning issue but preserves the glossary term \"placements\" (transliterated as ಪ್ಲೇಸ್‌ಮೆಂಟ್); candidate translates \"placements\" to \"ಉದ್ಯೋಗಾವಕಾಶಗಳು\" (job opportunities) — breaks the glossary. Candidate also adds \"ಆದರೆ\" (however) which is absent from the source. Existing has one defect (voice), candidate has two (term + added clause). Existing wins.",
+   "existing_back_translation": "Reliable information on that subject is currently unavailable. I can assist with admissions, departments, placements, fees, facilities, and campus information.",
+   "candidate_back_translation": "I currently do not have reliable information about that. However, I can help with admissions, departments, job opportunities, fees, facilities, and campus information.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "PASS",
+    "detail": "first-person consistent existing=True candidate=True"
+   },
+   "missing_clauses": [
+    "I do not currently have reliable information about that",
+    "I can help with admissions, departments, placements, fees, facilities, and campus information"
+   ],
+   "added_clauses": [
+    "ನನ್ನ ಬಳಿ ಸದ್ಯಕ್ಕೆ ಅದರ ಬಗ್ಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಮಾಹಿತಿ ಇಲ್ಲ",
+    "ಆದರೆ ನಾನು ಪ್ರವೇಶಗಳು, ವಿಭಾಗಗಳು, ಉದ್ಯೋಗಾವಕಾಶಗಳು, ಶುಲ್ಕಗಳು, ಸೌಲಭ್ಯಗಳು ಮತ್ತು ಕ್ಯಾಂಪಸ್ ಮಾಹಿತಿಯ ಬಗ್ಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ"
+   ],
+   "terminology_conflicts": [
+    "candidate translates 'placements' to a non-glossary synonym"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.availability.missing_source": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "This information is not available in the approved source.\nPlease contact the relevant department for more information.",
+   "existing_kn": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ.\nಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+   "sarvam_kn": "ಈ ಮಾಹಿತಿಯು ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ.\nಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+   "back_en_of_candidate": "This information is not available from the source.\nPlease see the relevant section for more information.",
+   "back_en_of_existing": "This information is not available in the approved source.\nPlease see the relevant section for more information.",
+   "reason": "Existing and candidate are near-identical; the only difference is noun-phrase word order. Both preserve the glossary term \"approved source\" (ಅನುಮೋದಿತ ಮೂಲ). No protected tokens, no placeholders, no numbers, no missing clauses.",
+   "existing_back_translation": "This information is not available in the approved source.\nPlease see the relevant section for more information.",
+   "candidate_back_translation": "This information is not available from the source.\nPlease see the relevant section for more information.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "This information is not available in the approved source",
+    "Please contact the relevant department for more information"
+   ],
+   "added_clauses": [
+    "ಈ ಮಾಹಿತಿಯು ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ",
+    "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.session.back": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Back",
+   "existing_kn": "ಹಿಂದೆ",
+   "sarvam_kn": "ಹಿಂತಿರುಗಿ",
+   "back_en_of_candidate": "Return",
+   "back_en_of_existing": "In the past",
+   "reason": "Existing \"ಹಿಂದೆ\" is the conventional Kannada UI label for \"back\" (the back-translation \"in the past\" is a Sarvam ambiguity, not a meaning defect). Candidate \"ಹಿಂತಿರುಗಿ\" is a verb phrase (\"return\") which is less suitable for a navigation button. No placeholders, no names, no numbers.",
+   "existing_back_translation": "In the past",
+   "candidate_back_translation": "Return",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Back"
+   ],
+   "added_clauses": [
+    "ಹಿಂತಿರುಗಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.session.home": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Go home",
+   "existing_kn": "ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ",
+   "sarvam_kn": "ಮನೆಗೆ ಹೋಗು.",
+   "back_en_of_candidate": "Go home.",
+   "back_en_of_existing": "Go to the homepage",
+   "reason": "Source \"Go home\" is ambiguous between literal home and homepage; in the production consumer (ChatScreen.tsx:4589) this is a homepage button. Existing \"ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ\" (go to the homepage) is context-accurate. Candidate \"ಮನೆಗೆ ಹೋಗು\" (go home, literal) is wrong in the app context. Existing wins on context accuracy.",
+   "existing_back_translation": "Go to the homepage",
+   "candidate_back_translation": "Go home.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Go home"
+   ],
+   "added_clauses": [
+    "ಮನೆಗೆ ಹೋಗು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.session.close": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Close",
+   "existing_kn": "ಮುಚ್ಚಿ",
+   "sarvam_kn": "ಮುಚ್ಚು",
+   "back_en_of_candidate": "Close",
+   "back_en_of_existing": "Close",
+   "reason": "Existing uses honorific imperative \"ಮುಚ್ಚಿ\" (close, you-honorific); candidate uses plain \"ಮುಚ್ಚು\" (close). For a UI button, the honorific form is the conventional polite form in Kannada. Existing is the conventional polite form; candidate is plain. No placeholders, no numbers.",
+   "existing_back_translation": "Close",
+   "candidate_back_translation": "Close",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Close"
+   ],
+   "added_clauses": [
+    "ಮುಚ್ಚು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.session.retry_connection": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Retry connection",
+   "existing_kn": "ಮತ್ತೆ ಸಂಪರ್ಕಿಸಿ",
+   "sarvam_kn": "ಸಂಪರ್ಕವನ್ನು ಮರುಪ್ರಯತ್ನಿಸಿ",
+   "back_en_of_candidate": "Retry the connection.",
+   "back_en_of_existing": "Contact again",
+   "reason": "Source \"Retry connection\"; existing \"ಮತ್ತೆ ಸಂಪರ್ಕಿಸಿ\" (contact again — natural Kannada button phrasing); candidate \"ಸಂಪರ್ಕವನ್ನು ಮರುಪ್ರಯತ್ನಿಸಿ\" (retry the connection — formal verb). Existing is a natural Kannada button label; candidate is more literal but uses a more formal verb. No placeholders, no numbers, no protected tokens.",
+   "existing_back_translation": "Contact again",
+   "candidate_back_translation": "Retry the connection.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Retry connection"
+   ],
+   "added_clauses": [
+    "ಸಂಪರ್ಕವನ್ನು ಮರುಪ್ರಯತ್ನಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.session.enable_face_display": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Enable face display",
+   "existing_kn": "ಮುಖ ಪ್ರದರ್ಶನವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
+   "sarvam_kn": "ಮುಖ ಪ್ರದರ್ಶನವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ",
+   "back_en_of_candidate": "Enable face display",
+   "back_en_of_existing": "Enable face display",
+   "reason": "Existing and candidate are byte-identical. No defect, no change.",
+   "existing_back_translation": "Enable face display",
+   "candidate_back_translation": "Enable face display",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Enable face display"
+   ],
+   "added_clauses": [
+    "ಮುಖ ಪ್ರದರ್ಶನವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.department": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Department",
+   "existing_kn": "ವಿಭಾಗ",
+   "sarvam_kn": "ಇಲಾಖೆ",
+   "back_en_of_candidate": "Department",
+   "back_en_of_existing": "Division",
+   "reason": "Existing \"ವಿಭಾಗ\" is the glossary-compliant academic-department term established in the pilot. Candidate \"ಇಲಾಖೆ\" is the explicitly rejected government-department term (glossary violation per the pilot test_kannada_safe_pilot_batch1_exact_strings.py). Existing is glossary-compliant; candidate is a glossary violation.",
+   "existing_back_translation": "Division",
+   "candidate_back_translation": "Department",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Department"
+   ],
+   "added_clauses": [
+    "ಇಲಾಖೆ"
+   ],
+   "terminology_conflicts": [
+    "ಇಲಾಖೆ in candidate (rejected glossary term for academic department)"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.hod_and_vision": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Head of Department and vision",
+   "existing_kn": "ವಿಭಾಗ ಮುಖ್ಯಸ್ಥರು ಮತ್ತು ದೃಷ್ಟಿಕೋನ",
+   "sarvam_kn": "ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥೆ ಮತ್ತು ದೂರದೃಷ್ಟಿ",
+   "back_en_of_candidate": "The head of the department and the visionary",
+   "back_en_of_existing": "The head of the department and the perspective",
+   "reason": "Source is gender-neutral (\"Head of Department\"); existing \"ಮುಖ್ಯಸ್ಥರು\" (plural or honorific, gender-neutral) is consistent. Candidate \"ಮುಖ್ಯಸ್ಥೆ\" is the feminine singular form — this is gender narrowing, the exact pattern the pilot explicitly caught in cse.placement (test_cse_placement_preserves_latin_company_names). Existing is gender-neutral and glossary-consistent; candidate introduces gender narrowing.",
+   "existing_back_translation": "The head of the department and the perspective",
+   "candidate_back_translation": "The head of the department and the visionary",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Head of Department and vision"
+   ],
+   "added_clauses": [
+    "ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥೆ ಮತ್ತು ದೂರದೃಷ್ಟಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.achievements": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Achievements",
+   "existing_kn": "ಸಾಧನೆಗಳು",
+   "sarvam_kn": "ಸಾಧನೆಗಳು",
+   "back_en_of_candidate": "Achievements",
+   "back_en_of_existing": "Achievements",
+   "reason": "Existing and candidate are byte-identical. No defect, no change.",
+   "existing_back_translation": "Achievements",
+   "candidate_back_translation": "Achievements",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Achievements"
+   ],
+   "added_clauses": [
+    "ಸಾಧನೆಗಳು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.placements": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Placements",
+   "existing_kn": "ಪ್ಲೇಸ್‌ಮೆಂಟ್‌ಗಳು",
+   "sarvam_kn": "ಉದ್ಯೋಗಾವಕಾಶಗಳು",
+   "back_en_of_candidate": "Employment Opportunities",
+   "back_en_of_existing": "Placements",
+   "reason": "Source \"Placements\" is the glossary-protected term for the CLARA placements card. Existing \"ಪ್ಲೇಸ್‌ಮೆಂಟ್‌ಗಳು\" transliterates the term in Kannada script. Candidate \"ಉದ್ಯೋಗಾವಕಾಶಗಳು\" (job opportunities) translates the term to a different word. The pilot established \"placements\" as a preserved glossary term. Existing preserves the term; candidate is a word substitution.",
+   "existing_back_translation": "Placements",
+   "candidate_back_translation": "Employment Opportunities",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Placements"
+   ],
+   "added_clauses": [
+    "ಉದ್ಯೋಗಾವಕಾಶಗಳು"
+   ],
+   "terminology_conflicts": [
+    "candidate translates 'placements' to a non-glossary synonym"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.placements_training": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Placements and training",
+   "existing_kn": "ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಮತ್ತು ತರಬೇತಿ",
+   "sarvam_kn": "ಉದ್ಯೋಗಾವಕಾಶಗಳು ಮತ್ತು ತರಬೇತಿ",
+   "back_en_of_candidate": "Job opportunities and training",
+   "back_en_of_existing": "Placement and Training",
+   "reason": "Same defect as ui.cards.placements: existing transliterates \"Placements\" (preserves glossary term), candidate translates to \"ಉದ್ಯೋಗಾವಕಾಶಗಳು\" (job opportunities). \"Training\" is rendered identically by both. No placeholders, no numbers, no protected tokens. Existing preserves the term; candidate breaks it.",
+   "existing_back_translation": "Placement and Training",
+   "candidate_back_translation": "Job opportunities and training",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Placements and training"
+   ],
+   "added_clauses": [
+    "ಉದ್ಯೋಗಾವಕಾಶಗಳು ಮತ್ತು ತರಬೇತಿ"
+   ],
+   "terminology_conflicts": [
+    "candidate translates 'placements' to a non-glossary synonym"
+   ],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.fees": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Fee details",
+   "existing_kn": "ಶುಲ್ಕದ ವಿವರಗಳು",
+   "sarvam_kn": "ಶುಲ್ಕದ ವಿವರಗಳು",
+   "back_en_of_candidate": "Fee Details",
+   "back_en_of_existing": "Fee Details",
+   "reason": "Existing and candidate are byte-identical. No defect, no change.",
+   "existing_back_translation": "Fee Details",
+   "candidate_back_translation": "Fee Details",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Fee details"
+   ],
+   "added_clauses": [
+    "ಶುಲ್ಕದ ವಿವರಗಳು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.eligibility": {
+   "decision": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "batch": 3,
+   "english": "Eligibility",
+   "existing_kn": "ಅರ್ಹತೆ",
+   "sarvam_kn": "ಅರ್ಹತೆ",
+   "back_en_of_candidate": "Qualification",
+   "back_en_of_existing": "Qualification",
+   "reason": "Existing and candidate are byte-identical. This is a UI card label (slide title), not a structured eligibility field; it does not touch the eligibility body or the eligibility rendering. No defect, no change.",
+   "existing_back_translation": "Qualification",
+   "candidate_back_translation": "Qualification",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Eligibility"
+   ],
+   "added_clauses": [
+    "ಅರ್ಹತೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   }
+  },
+  "ui.cards.entrance_exams": {
+   "existing_back_translation": "Entrance Exams",
+   "candidate_back_translation": "Entrance Exams",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate are byte-identical; back-translations both 'Entrance Exams'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Entrance examinations"
+   ],
+   "added_clauses": [
+    "ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಳು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Entrance examinations",
+   "existing_kn": "ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಳು",
+   "sarvam_kn": "ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಳು",
+   "back_en_of_candidate": "Entrance Exams",
+   "back_en_of_existing": "Entrance Exams",
+   "approved": null
+  },
+  "ui.cards.ug_fees": {
+   "existing_back_translation": "Information on undergraduate fees.",
+   "candidate_back_translation": "Information on undergraduate fees.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical; back-translations both 'Information on undergraduate fees'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Undergraduate fee information"
+   ],
+   "added_clauses": [
+    "ಪದವಿಪೂರ್ವ ಶುಲ್ಕದ ಮಾಹಿತಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Undergraduate fee information",
+   "existing_kn": "ಪದವಿಪೂರ್ವ ಶುಲ್ಕದ ಮಾಹಿತಿ",
+   "sarvam_kn": "ಪದವಿಪೂರ್ವ ಶುಲ್ಕದ ಮಾಹಿತಿ",
+   "back_en_of_candidate": "Information on undergraduate fees.",
+   "back_en_of_existing": "Information on undergraduate fees.",
+   "approved": null
+  },
+  "ui.cards.pg_fees": {
+   "existing_back_translation": "Information on MBA and postgraduate fees.",
+   "candidate_back_translation": "Information on MBA and postgraduate fees.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical; back-translations both 'Information on MBA and postgraduate fees'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "PASS",
+    "detail": "acronyms preserved: ['MBA']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['MBA']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "MBA and postgraduate fee information"
+   ],
+   "added_clauses": [
+    "MBA ಮತ್ತು ಸ್ನಾತಕೋತ್ತರ ಶುಲ್ಕದ ಮಾಹಿತಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "MBA and postgraduate fee information",
+   "existing_kn": "MBA ಮತ್ತು ಸ್ನಾತಕೋತ್ತರ ಶುಲ್ಕದ ಮಾಹಿತಿ",
+   "sarvam_kn": "MBA ಮತ್ತು ಸ್ನಾತಕೋತ್ತರ ಶುಲ್ಕದ ಮಾಹಿತಿ",
+   "back_en_of_candidate": "Information on MBA and postgraduate fees.",
+   "back_en_of_existing": "Information on MBA and postgraduate fees.",
+   "approved": null
+  },
+  "ui.cards.scholarships": {
+   "existing_back_translation": "Scholarships",
+   "candidate_back_translation": "Scholarships",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing is the compound ವಿದ್ಯಾರ್ಥಿವೇತನಗಳು; candidate splits into ವಿದ್ಯಾರ್ಥಿ ವೇತನಗಳು. Both are acceptable Kannada; spacing is a stylistic choice. No protected tokens, no gender narrowing, no glossary violation. Defer to a native speaker on the project's house style.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Scholarships"
+   ],
+   "added_clauses": [
+    "ವಿದ್ಯಾರ್ಥಿ ವೇತನಗಳು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Scholarships",
+   "existing_kn": "ವಿದ್ಯಾರ್ಥಿವೇತನಗಳು",
+   "sarvam_kn": "ವಿದ್ಯಾರ್ಥಿ ವೇತನಗಳು",
+   "back_en_of_candidate": "Scholarships",
+   "back_en_of_existing": "Scholarships",
+   "approved": null
+  },
+  "ui.cards.training_objectives": {
+   "existing_back_translation": "The purpose of training and placement is",
+   "candidate_back_translation": "The purpose of training and deployment is",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate ನಿಯೋಜನೆ (deployment) does not match glossary term for 'placement' in this context; existing ಪ್ಲೇಸ್‌ಮೆಂಟ್ (transliterated) matches the project's protected-token policy. Sarvam's round-trip returned 'deployment' instead of 'placement' — semantic drift away from the source English.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Training and placement objectives"
+   ],
+   "added_clauses": [
+    "ತರಬೇತಿ ಮತ್ತು ನಿಯೋಜನೆ ಉದ್ದೇಶಗಳು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Training and placement objectives",
+   "existing_kn": "ತರಬೇತಿ ಮತ್ತು ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಉದ್ದೇಶಗಳು",
+   "sarvam_kn": "ತರಬೇತಿ ಮತ್ತು ನಿಯೋಜನೆ ಉದ್ದೇಶಗಳು",
+   "back_en_of_candidate": "The purpose of training and deployment is",
+   "back_en_of_existing": "The purpose of training and placement is",
+   "approved": null
+  },
+  "ui.cards.training_programs": {
+   "existing_back_translation": "Training Programs",
+   "candidate_back_translation": "Training Programs",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical; back-translations both 'Training Programs'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Training programs"
+   ],
+   "added_clauses": [
+    "ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Training programs",
+   "existing_kn": "ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳು",
+   "sarvam_kn": "ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳು",
+   "back_en_of_candidate": "Training Programs",
+   "back_en_of_existing": "Training Programs",
+   "approved": null
+  },
+  "ui.cards.summary": {
+   "existing_back_translation": "Summary Information",
+   "candidate_back_translation": "Summary",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಸಂಕ್ಷಿಪ್ತ ಮಾಹಿತಿ back-translates as 'Summary Information' (more formal); candidate ಸಾರಾಂಶ back-translates as 'Summary' (more concise). Both are correct Kannada for the English 'Summary'. Defer to a native speaker on register/tone for the card label.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Summary"
+   ],
+   "added_clauses": [
+    "ಸಾರಾಂಶ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Summary",
+   "existing_kn": "ಸಂಕ್ಷಿಪ್ತ ಮಾಹಿತಿ",
+   "sarvam_kn": "ಸಾರಾಂಶ",
+   "back_en_of_candidate": "Summary",
+   "back_en_of_existing": "Summary Information",
+   "approved": null
+  },
+  "ui.cards.information_unavailable": {
+   "existing_back_translation": "Information is not available.",
+   "candidate_back_translation": "Information is not available.",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical; back-translations both 'Information is not available'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Information is not available"
+   ],
+   "added_clauses": [
+    "ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "punctuation within tolerance"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Information is not available.",
+   "existing_kn": "ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ.",
+   "sarvam_kn": "ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ.",
+   "back_en_of_candidate": "Information is not available.",
+   "back_en_of_existing": "Information is not available.",
+   "approved": null
+  },
+  "ui.cards.college_brochure": {
+   "existing_back_translation": "College Information Manual",
+   "candidate_back_translation": "College Handbook",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ ('College Information Manual') is verbose; candidate ಕಾಲೇಜು ಕಿರುಪುಸ್ತಕ ('College Handbook') is more concise but uses 'handbook' (ಕಿರುಪುಸ್ತಕ) where English says 'brochure'. Both are reasonable; the choice is register. Defer to a native speaker.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "College brochure"
+   ],
+   "added_clauses": [
+    "ಕಾಲೇಜು ಕಿರುಪುಸ್ತಕ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "College brochure",
+   "existing_kn": "ಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ",
+   "sarvam_kn": "ಕಾಲೇಜು ಕಿರುಪುಸ್ತಕ",
+   "back_en_of_candidate": "College Handbook",
+   "back_en_of_existing": "College Information Manual",
+   "approved": null
+  },
+  "ui.documents.title": {
+   "existing_back_translation": "Necessary documents",
+   "candidate_back_translation": "The required documents",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಅಗತ್ಯ ದಾಖಲೆಗಳು ('Necessary documents') vs candidate ಬೇಕಾದ ದಾಖಲೆಗಳು ('Required documents'). Candidate is closer to the source 'Required documents'. Stylistic, both correct. Defer to a native speaker on house style.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Required documents"
+   ],
+   "added_clauses": [
+    "ಬೇಕಾದ ದಾಖಲೆಗಳು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Required documents",
+   "existing_kn": "ಅಗತ್ಯ ದಾಖಲೆಗಳು",
+   "sarvam_kn": "ಬೇಕಾದ ದಾಖಲೆಗಳು",
+   "back_en_of_candidate": "The required documents",
+   "back_en_of_existing": "Necessary documents",
+   "approved": null
+  },
+  "ui.documents.items.marks_10": {
+   "existing_back_translation": "10th class marks card",
+   "candidate_back_translation": "10th class mark sheet",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing uses 'ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್' (marks card), candidate uses 'ಅಂಕಪಟ್ಟಿ' (marksheet). Both are valid; existing matches the project's protected-token policy of keeping English loan-words when in common use. Back-translations both mean '10th class marks'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['10']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "10th Marks Card"
+   ],
+   "added_clauses": [
+    "10ನೇ ತರಗತಿಯ ಅಂಕಪಟ್ಟಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "10th Marks Card",
+   "existing_kn": "10ನೇ ತರಗತಿ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್",
+   "sarvam_kn": "10ನೇ ತರಗತಿಯ ಅಂಕಪಟ್ಟಿ",
+   "back_en_of_candidate": "10th class mark sheet",
+   "back_en_of_existing": "10th class marks card",
+   "approved": null
+  },
+  "ui.documents.items.marks_12": {
+   "existing_back_translation": "12th or 2nd PUC marks card",
+   "candidate_back_translation": "12th / 2nd PUC marksheet",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "same pattern as marks_10: existing uses 'ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್' (consistent with marks_10). Candidate uses 'ಅಂಕಪಟ್ಟಿ' (more formal). Consistency with marks_10 wins.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "PASS",
+    "detail": "numbers preserved: ['12']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['PUC']"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "12th / II PUC Marks Card"
+   ],
+   "added_clauses": [
+    "12ನೇ / ದ್ವಿತೀಯ ಪಿಯುಸಿ ಅಂಕಪಟ್ಟಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "12th / II PUC Marks Card",
+   "existing_kn": "12ನೇ ಅಥವಾ ದ್ವಿತೀಯ ಪಿಯುಸಿ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್",
+   "sarvam_kn": "12ನೇ / ದ್ವಿತೀಯ ಪಿಯುಸಿ ಅಂಕಪಟ್ಟಿ",
+   "back_en_of_candidate": "12th / 2nd PUC marksheet",
+   "back_en_of_existing": "12th or 2nd PUC marks card",
+   "approved": null
+  },
+  "ui.documents.items.rank_allotment": {
+   "existing_back_translation": "CET or COMEDK Rank Card and Allotment Letter",
+   "candidate_back_translation": "CET/ COMEDK Ranking Certificate + Allotment Certificate",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "existing preserves protected tokens CET and COMEDK in Latin script per the project glossary. Candidate transliterates to ಸಿಇಟಿ and ಕಾಮೆಡ್ಕೆ, which violates the protected-acronyms policy. Sarvam's back-translation 'Ranking Certificate' is also semantically off — the source says 'Rank Card + Allotment Letter'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['CET', 'COMEDK']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['CET', 'COMEDK']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "CET / COMEDK Rank Card + Allotment Letter"
+   ],
+   "added_clauses": [
+    "ಸಿಇಟಿ / ಕಾಮೆಡ್ಕೆ ಶ್ರೇಯಾಂಕ ಪತ್ರ + ಹಂಚಿಕೆ ಪತ್ರ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "CET / COMEDK Rank Card + Allotment Letter",
+   "existing_kn": "CET ಅಥವಾ COMEDK ರ‍್ಯಾಂಕ್ ಕಾರ್ಡ್ ಮತ್ತು ಅಲಾಟ್‌ಮೆಂಟ್ ಲೆಟರ್",
+   "sarvam_kn": "ಸಿಇಟಿ / ಕಾಮೆಡ್ಕೆ ಶ್ರೇಯಾಂಕ ಪತ್ರ + ಹಂಚಿಕೆ ಪತ್ರ",
+   "back_en_of_candidate": "CET/ COMEDK Ranking Certificate + Allotment Certificate",
+   "back_en_of_existing": "CET or COMEDK Rank Card and Allotment Letter",
+   "approved": null
+  },
+  "ui.documents.items.transfer": {
+   "existing_back_translation": "Transfer Certificate (TC)",
+   "candidate_back_translation": "Transfer Certificate (TC)",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಟ್ರಾನ್ಸ್‌ಫರ್ ಸರ್ಟಿಫಿಕೇಟ್ (TC) vs candidate ವರ್ಗಾವಣೆ ಪ್ರಮಾಣಪತ್ರ (ಟಿ.ಸಿ.). Both correct; existing keeps the protected token 'TC' in Latin, which matches project policy. Back-translations both 'Transfer Certificate (TC)'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['TC']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['TC']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Transfer Certificate (TC)"
+   ],
+   "added_clauses": [
+    "ವರ್ಗಾವಣೆ ಪ್ರಮಾಣಪತ್ರ (ಟಿ",
+    "ಸಿ",
+    ")"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Transfer Certificate (TC)",
+   "existing_kn": "ಟ್ರಾನ್ಸ್‌ಫರ್ ಸರ್ಟಿಫಿಕೇಟ್ (TC)",
+   "sarvam_kn": "ವರ್ಗಾವಣೆ ಪ್ರಮಾಣಪತ್ರ (ಟಿ.ಸಿ.)",
+   "back_en_of_candidate": "Transfer Certificate (TC)",
+   "back_en_of_existing": "Transfer Certificate (TC)",
+   "approved": null
+  },
+  "ui.documents.items.conduct": {
+   "existing_back_translation": "Conduct or Character Certificate",
+   "candidate_back_translation": "Conduct/Character Certificate",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಕಂಡಕ್ಟ್ ಅಥವಾ ಕ್ಯಾರಕ್ಟರ್ ಸರ್ಟಿಫಿಕೇಟ್ vs candidate ನಡತೆ / ಚಾರಿತ್ರ್ಯ ಪ್ರಮಾಣಪತ್ರ. Both correct; candidate is more idiomatic but existing matches the broader project style of preserving common English loan-words. Defer to a native speaker on style consistency; default KEEP_EXISTING.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Conduct / Character Certificate"
+   ],
+   "added_clauses": [
+    "ನಡತೆ / ಚಾರಿತ್ರ್ಯ ಪ್ರಮಾಣಪತ್ರ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Conduct / Character Certificate",
+   "existing_kn": "ಕಂಡಕ್ಟ್ ಅಥವಾ ಕ್ಯಾರಕ್ಟರ್ ಸರ್ಟಿಫಿಕೇಟ್",
+   "sarvam_kn": "ನಡತೆ / ಚಾರಿತ್ರ್ಯ ಪ್ರಮಾಣಪತ್ರ",
+   "back_en_of_candidate": "Conduct/Character Certificate",
+   "back_en_of_existing": "Conduct or Character Certificate",
+   "approved": null
+  },
+  "ui.documents.items.caste_income": {
+   "existing_back_translation": "If necessary, a caste or income certificate.",
+   "candidate_back_translation": "Caste/Income certificate (if applicable)",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಅಗತ್ಯವಿದ್ದರೆ ಜಾತಿ ಅಥವಾ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ ('If necessary, caste or income certificate') puts the conditional first; candidate ಜಾತಿ / ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ (ಅನ್ವಯವಾಗುವಲ್ಲಿ) ('Caste/Income certificate (if applicable)') matches the English word order more closely. Stylistic. Defer.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Caste / Income Certificate (if applicable)"
+   ],
+   "added_clauses": [
+    "ಜಾತಿ / ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ (ಅನ್ವಯವಾಗುವಲ್ಲಿ)"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Caste / Income Certificate (if applicable)",
+   "existing_kn": "ಅಗತ್ಯವಿದ್ದರೆ ಜಾತಿ ಅಥವಾ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ",
+   "sarvam_kn": "ಜಾತಿ / ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ (ಅನ್ವಯವಾಗುವಲ್ಲಿ)",
+   "back_en_of_candidate": "Caste/Income certificate (if applicable)",
+   "back_en_of_existing": "If necessary, a caste or income certificate.",
+   "approved": null
+  },
+  "ui.documents.items.aadhaar": {
+   "existing_back_translation": "Aadhaar card copy",
+   "candidate_back_translation": "Aadhaar card copy",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical; back-translations both 'Aadhaar card copy'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['Aadhaar']"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Aadhaar Card Copy"
+   ],
+   "added_clauses": [
+    "ಆಧಾರ್ ಕಾರ್ಡ್ ಪ್ರತಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Aadhaar Card Copy",
+   "existing_kn": "ಆಧಾರ್ ಕಾರ್ಡ್ ಪ್ರತಿ",
+   "sarvam_kn": "ಆಧಾರ್ ಕಾರ್ಡ್ ಪ್ರತಿ",
+   "back_en_of_candidate": "Aadhaar card copy",
+   "back_en_of_existing": "Aadhaar card copy",
+   "approved": null
+  },
+  "ui.documents.items.photos": {
+   "existing_back_translation": "Passport-size photographs (6–10)",
+   "candidate_back_translation": "Passport-sized photographs (6-10)",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು (6–10) vs candidate ಪಾಸ್ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು (6-10). Existing has an en-dash; candidate has a hyphen. The hyphen is the project's standard separator per protected-token policy. KEEP_EXISTING for consistency with the rest of the documents.* block; defer to a native speaker if the en-dash should be unified.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "FAIL",
+    "detail": "numbers en=['6–10'] cand=['6-10']"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Passport Size Photos (6–10)"
+   ],
+   "added_clauses": [
+    "ಪಾಸ್ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು (6-10)"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Passport Size Photos (6–10)",
+   "existing_kn": "ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು (6–10)",
+   "sarvam_kn": "ಪಾಸ್ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು (6-10)",
+   "back_en_of_candidate": "Passport-sized photographs (6-10)",
+   "back_en_of_existing": "Passport-size photographs (6–10)",
+   "approved": null
+  },
+  "ui.documents.items.migration": {
+   "existing_back_translation": "Migration certificate for other board students",
+   "candidate_back_translation": "Migration Certificate (for other board students)",
+   "classification": "BLOCKED_LINGUISTIC",
+   "reason": "candidate ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ ('to female students') is a gender narrowing — the source English says 'other board students' (gender-neutral). Existing ಇತರೆ ಬೋರ್ಡ್ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ is correct. Sarvam's back-translation also confirms the narrowing ('for other board students' → 'for other board female students' in round-trip).",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Migration Certificate (for other board students)"
+   ],
+   "added_clauses": [
+    "ವಲಸೆ ಪ್ರಮಾಣಪತ್ರ (ಇತರ ಬೋರ್ಡ್ ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ)"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Migration Certificate (for other board students)",
+   "existing_kn": "ಇತರೆ ಬೋರ್ಡ್ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮೈಗ್ರೇಶನ್ ಪ್ರಮಾಣಪತ್ರ",
+   "sarvam_kn": "ವಲಸೆ ಪ್ರಮಾಣಪತ್ರ (ಇತರ ಬೋರ್ಡ್ ವಿದ್ಯಾರ್ಥಿನಿಯರಿಗೆ)",
+   "back_en_of_candidate": "Migration Certificate (for other board students)",
+   "back_en_of_existing": "Migration certificate for other board students",
+   "approved": null
+  },
+  "ui.documents.items.vtu_eligibility": {
+   "existing_back_translation": "VTU Eligibility Certificate, if required.",
+   "candidate_back_translation": "V.T.U. Eligibility Certificate (if required)",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಅಗತ್ಯವಿದ್ದರೆ VTU ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ keeps VTU in Latin (protected token); candidate ವಿ.ಟಿ.ಯು. ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ (ಅಗತ್ಯವಿದ್ದಲ್ಲಿ) transliterates to initials with periods. Existing matches project glossary. Defer to a native speaker on VTU representation consistency.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "FAIL",
+    "detail": "acronyms lost: ['VTU']"
+   },
+   "latin_name_check": {
+    "status": "PASS",
+    "detail": "Latin tokens preserved: ['VTU']"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "VTU Eligibility Certificate (if required)"
+   ],
+   "added_clauses": [
+    "ವಿ",
+    "ಟಿ",
+    "ಯು",
+    "ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ (ಅಗತ್ಯವಿದ್ದಲ್ಲಿ)"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "VTU Eligibility Certificate (if required)",
+   "existing_kn": "ಅಗತ್ಯವಿದ್ದರೆ VTU ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ",
+   "sarvam_kn": "ವಿ.ಟಿ.ಯು. ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ (ಅಗತ್ಯವಿದ್ದಲ್ಲಿ)",
+   "back_en_of_candidate": "V.T.U. Eligibility Certificate (if required)",
+   "back_en_of_existing": "VTU Eligibility Certificate, if required.",
+   "approved": null
+  },
+  "ui.comparison.close": {
+   "existing_back_translation": "Close",
+   "candidate_back_translation": "Close",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical; back-translations both 'Close'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Close"
+   ],
+   "added_clauses": [
+    "ಮುಚ್ಚು"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Close",
+   "existing_kn": "ಮುಚ್ಚು",
+   "sarvam_kn": "ಮುಚ್ಚು",
+   "back_en_of_candidate": "Close",
+   "back_en_of_existing": "Close",
+   "approved": null
+  },
+  "ui.comparison.add_program": {
+   "existing_back_translation": "Add the program.",
+   "candidate_back_translation": "Add Program",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "existing ಕಾರ್ಯಕ್ರಮ ಸೇರಿಸಿ (program add, Kannada word) vs candidate ಪ್ರೋಗ್ರಾಂ ಸೇರಿಸಿ (program add, transliterated). Both are correct; the choice is between the Kannada noun and the transliterated one. This pattern repeats in comparison.remove_program and comparison.heading. Defer to a native speaker on consistency across the comparison.* block.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Add program"
+   ],
+   "added_clauses": [
+    "ಪ್ರೋಗ್ರಾಂ ಸೇರಿಸಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Add program",
+   "existing_kn": "ಕಾರ್ಯಕ್ರಮ ಸೇರಿಸಿ",
+   "sarvam_kn": "ಪ್ರೋಗ್ರಾಂ ಸೇರಿಸಿ",
+   "back_en_of_candidate": "Add Program",
+   "back_en_of_existing": "Add the program.",
+   "approved": null
+  },
+  "ui.comparison.remove_program": {
+   "existing_back_translation": "Remove",
+   "candidate_back_translation": "Remove",
+   "classification": "KEEP_EXISTING_MECHANICALLY_SUPPORTED",
+   "reason": "existing and candidate byte-identical; back-translations both 'Remove'.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Remove"
+   ],
+   "added_clauses": [
+    "ತೆಗೆದುಹಾಕಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Remove",
+   "existing_kn": "ತೆಗೆದುಹಾಕಿ",
+   "sarvam_kn": "ತೆಗೆದುಹಾಕಿ",
+   "back_en_of_candidate": "Remove",
+   "back_en_of_existing": "Remove",
+   "approved": null
+  },
+  "ui.comparison.heading": {
+   "existing_back_translation": "Comparison of Programs",
+   "candidate_back_translation": "Program Comparison",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "same pattern as comparison.add_program: existing ಕಾರ್ಯಕ್ರಮಗಳ ಹೋಲಿಕೆ (Kannada) vs candidate ಪ್ರೋಗ್ರಾಂ ಹೋಲಿಕೆ (transliterated). Defer on consistency.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Program comparison"
+   ],
+   "added_clauses": [
+    "ಪ್ರೋಗ್ರಾಮ್ ಹೋಲಿಕೆ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Program comparison",
+   "existing_kn": "ಕಾರ್ಯಕ್ರಮಗಳ ಹೋಲಿಕೆ",
+   "sarvam_kn": "ಪ್ರೋಗ್ರಾಮ್ ಹೋಲಿಕೆ",
+   "back_en_of_candidate": "Program Comparison",
+   "back_en_of_existing": "Comparison of Programs",
+   "approved": null
+  },
+  "ui.comparison.select_program": {
+   "existing_back_translation": "Select the program.",
+   "candidate_back_translation": "Select the program.",
+   "classification": "NATIVE_REVIEW_RECOMMENDED",
+   "reason": "same pattern: existing ಕಾರ್ಯಕ್ರಮವನ್ನು ಆಯ್ಕೆಮಾಡಿ (Kannada) vs candidate ಪ್ರೋಗ್ರಾಂ ಆಯ್ಕೆಮಾಡಿ (transliterated). Defer on consistency with the rest of comparison.*.",
+   "placeholder_check": {
+    "status": "N/A",
+    "detail": "no placeholders in source"
+   },
+   "name_check": {
+    "status": "N/A",
+    "detail": "no detected name runs in source"
+   },
+   "number_check": {
+    "status": "N/A",
+    "detail": "no numbers in source"
+   },
+   "currency_check": {
+    "status": "N/A",
+    "detail": "no currency in source"
+   },
+   "acronym_check": {
+    "status": "N/A",
+    "detail": "no protected acronyms in source"
+   },
+   "latin_name_check": {
+    "status": "N/A",
+    "detail": "no Latin tokens to preserve"
+   },
+   "gender_narrowing": {
+    "status": "N/A",
+    "detail": "no narrowing terms detected"
+   },
+   "subject_object_drift": {
+    "status": "N/A",
+    "detail": "no first-person pronouns in source or no back-translation available"
+   },
+   "missing_clauses": [
+    "Select program"
+   ],
+   "added_clauses": [
+    "ಪ್ರೋಗ್ರಾಂ ಆಯ್ಕೆಮಾಡಿ"
+   ],
+   "terminology_conflicts": [],
+   "punctuation_assessment": {
+    "status": "PASS",
+    "detail": "candidate ends without .?!।"
+   },
+   "display_assessment": {
+    "status": "PASS",
+    "detail": "display suitability not flagged"
+   },
+   "narration_assessment": {
+    "status": "PASS",
+    "detail": "narration suitability not flagged"
+   },
+   "batch": 4,
+   "english": "Select program",
+   "existing_kn": "ಕಾರ್ಯಕ್ರಮವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+   "sarvam_kn": "ಪ್ರೋಗ್ರಾಂ ಆಯ್ಕೆಮಾಡಿ",
+   "back_en_of_candidate": "Select the program.",
+   "back_en_of_existing": "Select the program.",
+   "approved": null
+  }
+ }
+}
