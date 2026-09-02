@@ -99,6 +99,18 @@ from backend.config.settings import (
     TTS_TIMEOUT_S,
     WS_ALLOWED_ORIGINS,
     WS_AUTH_REQUIRED,
+    WS_CONNECTION_EXPENSIVE_BURST,
+    WS_CONNECTION_EXPENSIVE_RATE,
+    WS_CONNECTION_MESSAGE_BURST,
+    WS_CONNECTION_MESSAGE_RATE,
+    WS_IP_CONNECT_BURST,
+    WS_IP_CONNECT_RATE,
+    WS_IP_EXPENSIVE_BURST,
+    WS_IP_EXPENSIVE_RATE,
+    WS_IP_MESSAGE_BURST,
+    WS_IP_MESSAGE_RATE,
+    WS_RATE_LIMIT_MAX_IPS,
+    WS_RATE_LIMIT_STALE_SECONDS,
     WS_TOKEN_SIGNING_SECRET,
     WS_TOKEN_TTL_SECONDS,
 )
@@ -223,6 +235,7 @@ from backend.security.ws_auth import (
     validate_bootstrap_origin,
     validate_websocket_handshake,
 )
+from backend.security.rate_limit import BoundedKeyedRateLimiter, TokenBucket
 from backend.utils.cache import TTLRUCache
 from backend.utils.timing import TurnTiming
 from backend.services.campus_room_match import get_campus_map_json, match_campus_transcript
@@ -236,6 +249,51 @@ from backend.utils.voice_logger import (
 )
 
 logger = logging.getLogger(__name__)
+
+# Client identity deliberately comes from the actual socket peer. Forwarding headers are
+# untrusted unless a deployment-specific trusted-proxy layer normalizes the socket address.
+_ip_connect_limiter = BoundedKeyedRateLimiter(
+    WS_IP_CONNECT_BURST,
+    WS_IP_CONNECT_RATE,
+    stale_after_seconds=WS_RATE_LIMIT_STALE_SECONDS,
+    max_entries=WS_RATE_LIMIT_MAX_IPS,
+)
+_ip_bootstrap_limiter = BoundedKeyedRateLimiter(
+    WS_IP_CONNECT_BURST,
+    WS_IP_CONNECT_RATE,
+    stale_after_seconds=WS_RATE_LIMIT_STALE_SECONDS,
+    max_entries=WS_RATE_LIMIT_MAX_IPS,
+)
+_ip_message_limiter = BoundedKeyedRateLimiter(
+    WS_IP_MESSAGE_BURST,
+    WS_IP_MESSAGE_RATE,
+    stale_after_seconds=WS_RATE_LIMIT_STALE_SECONDS,
+    max_entries=WS_RATE_LIMIT_MAX_IPS,
+)
+_ip_expensive_limiter = BoundedKeyedRateLimiter(
+    WS_IP_EXPENSIVE_BURST,
+    WS_IP_EXPENSIVE_RATE,
+    stale_after_seconds=WS_RATE_LIMIT_STALE_SECONDS,
+    max_entries=WS_RATE_LIMIT_MAX_IPS,
+)
+
+_EXPENSIVE_WS_ACTIONS = frozenset(
+    {
+        "language_gate_prompt",
+        "language_selected",
+        "campus_navigation_tts",
+        "conversation_started",
+        "user_message",
+        "toggle_mic",
+        "mic_start",
+    }
+)
+
+
+def _socket_client_ip(connection: Any) -> str:
+    client = getattr(connection, "client", None)
+    host = getattr(client, "host", None)
+    return str(host or "unknown")
 
 
 def _agent_debug_ndjson(
@@ -3057,6 +3115,10 @@ def websocket_token_bootstrap(request: Request, response: Response) -> dict[str,
         raise HTTPException(status_code=403, detail="Forbidden origin")
     if not WS_TOKEN_SIGNING_SECRET:
         raise HTTPException(status_code=503, detail="WebSocket token signing is unavailable")
+    client_ip = _socket_client_ip(request)
+    if not _ip_bootstrap_limiter.allow(client_ip):
+        logger.warning("WS token bootstrap rate limited: client_ip=%s", client_ip)
+        raise HTTPException(status_code=429, detail="Too many connection attempts")
     token, expires_at = create_hmac_signed_token()
     response.headers["Cache-Control"] = "no-store"
     response.headers["Pragma"] = "no-cache"
@@ -3205,6 +3267,11 @@ def _turn_stale(session: dict[str, Any], turn_marker: int) -> bool:
 
 @app.websocket("/ws/clara")
 async def websocket_clara(websocket: WebSocket):
+    client_ip = _socket_client_ip(websocket)
+    if not _ip_connect_limiter.allow(client_ip):
+        logger.warning("WebSocket connection rate limited: client_ip=%s", client_ip)
+        await websocket.close(code=1008, reason="rate_limited")
+        return
     is_valid, reason = validate_websocket_handshake(websocket)
     if not is_valid:
         logger.warning("Rejected websocket handshake: reason=%s", reason)
@@ -3213,6 +3280,12 @@ async def websocket_clara(websocket: WebSocket):
         return
     await websocket.accept()
     logger.info("WebSocket client connected")
+    connection_message_limiter = TokenBucket(
+        WS_CONNECTION_MESSAGE_BURST, WS_CONNECTION_MESSAGE_RATE
+    )
+    connection_expensive_limiter = TokenBucket(
+        WS_CONNECTION_EXPENSIVE_BURST, WS_CONNECTION_EXPENSIVE_RATE
+    )
     session: dict[str, Any] = {
         "session_generation": 0,
         "wire_seq": 0,
@@ -3237,6 +3310,16 @@ async def websocket_clara(websocket: WebSocket):
 
         while True:
             data = await websocket.receive_text()
+            if not connection_message_limiter.allow() or not _ip_message_limiter.allow(client_ip):
+                logger.warning("WebSocket inbound message rate limited: client_ip=%s", client_ip)
+                payload = build_error_payload(
+                    "RATE_LIMITED",
+                    "Too many requests. Please wait and try again.",
+                    uuid.uuid4().hex[:12],
+                    recoverable=True,
+                )
+                await _ws_send_json(websocket, 5, session, payload)
+                continue
             msg, msg_error = parse_inbound_ws_message(data)
             if msg_error:
                 invalid_turn_id = uuid.uuid4().hex[:12]
@@ -3249,6 +3332,23 @@ async def websocket_clara(websocket: WebSocket):
                 await _ws_send_json(websocket, 5, session, payload)
                 continue
             action = msg.get("action")
+            if action in _EXPENSIVE_WS_ACTIONS and (
+                not connection_expensive_limiter.allow()
+                or not _ip_expensive_limiter.allow(client_ip)
+            ):
+                logger.warning(
+                    "WebSocket expensive operation rate limited: client_ip=%s action=%s",
+                    client_ip,
+                    action,
+                )
+                payload = build_error_payload(
+                    "RATE_LIMITED",
+                    "Too many requests. Please wait and try again.",
+                    uuid.uuid4().hex[:12],
+                    recoverable=True,
+                )
+                await _ws_send_json(websocket, 5, session, payload)
+                continue
             # region agent log
             _agent_debug_ndjson(
                 "WS",

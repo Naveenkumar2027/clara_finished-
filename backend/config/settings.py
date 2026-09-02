@@ -182,6 +182,20 @@ REQUIRE_WS_AUTH_IN_PRODUCTION = os.getenv(
     "REQUIRE_WS_AUTH_IN_PRODUCTION", "true"
 ).strip().lower() in ("1", "true", "yes", "on")
 
+# Process-local token buckets. Values allow normal kiosk bursts while bounding floods.
+WS_CONNECTION_MESSAGE_BURST = max(1, int(os.getenv("WS_CONNECTION_MESSAGE_BURST", "60")))
+WS_CONNECTION_MESSAGE_RATE = max(0.01, float(os.getenv("WS_CONNECTION_MESSAGE_RATE", "1")))
+WS_IP_MESSAGE_BURST = max(1, int(os.getenv("WS_IP_MESSAGE_BURST", "180")))
+WS_IP_MESSAGE_RATE = max(0.01, float(os.getenv("WS_IP_MESSAGE_RATE", "3")))
+WS_CONNECTION_EXPENSIVE_BURST = max(1, int(os.getenv("WS_CONNECTION_EXPENSIVE_BURST", "12")))
+WS_CONNECTION_EXPENSIVE_RATE = max(0.01, float(os.getenv("WS_CONNECTION_EXPENSIVE_RATE", "0.2")))
+WS_IP_EXPENSIVE_BURST = max(1, int(os.getenv("WS_IP_EXPENSIVE_BURST", "30")))
+WS_IP_EXPENSIVE_RATE = max(0.01, float(os.getenv("WS_IP_EXPENSIVE_RATE", "0.5")))
+WS_IP_CONNECT_BURST = max(1, int(os.getenv("WS_IP_CONNECT_BURST", "20")))
+WS_IP_CONNECT_RATE = max(0.01, float(os.getenv("WS_IP_CONNECT_RATE", "0.333333")))
+WS_RATE_LIMIT_MAX_IPS = max(100, int(os.getenv("WS_RATE_LIMIT_MAX_IPS", "5000")))
+WS_RATE_LIMIT_STALE_SECONDS = max(60.0, float(os.getenv("WS_RATE_LIMIT_STALE_SECONDS", "600")))
+
 # Performance/latency tuning
 LLM_MAX_TOKENS = int(os.getenv("LLM_MAX_TOKENS", "100"))
 # Longer spoken comparison: full walkthrough of every section × every program on the card.
