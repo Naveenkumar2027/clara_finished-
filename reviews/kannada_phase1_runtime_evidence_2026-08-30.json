@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-08-29T19:57:37.808Z",
+  "repository": "C:/Users/aashu/OneDrive/Desktop/CLARA FIN/clara_finished-",
+  "url": "http://127.0.0.1:5176/?e2e=1",
+  "cacheDisabled": true,
+  "authoritativeSource": "backend/data/locales/ui.json",
+  "localeKey": "kn.welcome.name_prompt",
+  "backendLocaleValue": "ನಿಮ್ಮನ್ನು ಯಾವ ಹೆಸರಿನಿಂದ ಕರೆಯಬೇಕು?",
+  "visibleDomContainsExactValue": true,
+  "visibleDomText": "ಕ್ಯಾಂಪಸ್ ನ್ಯಾವಿಗೇಶನ್\nಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ\nನಿಮ್ಮನ್ನು ಯಾವ ಹೆಸರಿನಿಂದ ಕರೆಯಬೇಕು?\nಕಾಲೇಜು ಸಂಶೋಧನೆ ಮತ್ತು ನವೀನತೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?\nಸಹಪಠ್ಯ ಮತ್ತು ಪಠ್ಯೇತರ ಚಟುವಟಿಕೆಗಳಿವೆಯೇ?\nಮೆಸ್ ಆಹಾರ ಹೇಗಿದೆ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯವಿದೆಯೇ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಯಾವ ಸೌಲಭ್ಯಗಳಿವೆ?\nಕಾಲೇಜು ಸಂಶೋಧನೆ ಮತ್ತು ನವೀನತೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?\nಸಹಪಠ್ಯ ಮತ್ತು ಪಠ್ಯೇತರ ಚಟುವಟಿಕೆಗಳಿವೆಯೇ?\nಮೆಸ್ ಆಹಾರ ಹೇಗಿದೆ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯವಿದೆಯೇ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಯಾವ ಸೌಲಭ್ಯಗಳಿವೆ?\nಕಾಲೇಜು ಸಂಶೋಧನೆ ಮತ್ತು ನವೀನತೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?\nಸಹಪಠ್ಯ ಮತ್ತು ಪಠ್ಯೇತರ ಚಟುವಟಿಕೆಗಳಿವೆಯೇ?\nಮೆಸ್ ಆಹಾರ ಹೇಗಿದೆ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯವಿದೆಯೇ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಯಾವ ಸೌಲಭ್ಯಗಳಿವೆ?\nಮಾತನಾಡಲು ಪರದೆಯನ್ನು ಸ್ಪರ್ಶಿಸಿ",
+  "websocketFramesContainingValue": [
+    {
+      "state": 5,
+      "payload": {
+        "messages": [
+          {
+            "id": "name_prompt",
+            "role": "clara",
+            "text": "ನಿಮ್ಮನ್ನು ಯಾವ ಹೆಸರಿನಿಂದ ಕರೆಯಬೇಕು?"
+          }
+        ],
+        "isSpeaking": true,
+        "isProcessing": false,
+        "audioBase64": "[REDACTED_AUDIO]",
+        "turn_id": "name_after_language_pick",
+        "session_gen": 0,
+        "wire_seq": 4
+      }
+    }
+  ],
+  "spokenTtsText": [
+    "ನಿಮ್ಮನ್ನು ಯಾವ ಹೆಸರಿನಿಂದ ಕರೆಯಬೇಕು?"
+  ]
+}

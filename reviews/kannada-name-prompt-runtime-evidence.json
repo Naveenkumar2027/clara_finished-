@@ -1,0 +1,1985 @@
+{
+  "url": "http://localhost:5176/?e2e=1",
+  "expectedSource": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ತಿಳಿಸಿ.",
+  "proposedUnapproved": "ದಯವಿಟ್ಟು ನಿಮ್ಮನ್ನು ಯಾವ ಹೆಸರಿನಿಂದ ಕರೆಯಬೇಕೆಂದು ತಿಳಿಸಿ.",
+  "responses": [
+    {
+      "url": "http://localhost:5176/?e2e=1",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/main.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@vite/client",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@react-refresh",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/react.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/App.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/context/LanguageContext.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/vite/dist/client/env.mjs",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/index.css",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/react-dom_client.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-NKU67ILE.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useWebSocket.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/localization/uiCopy.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/typography/scriptTypography.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/debug/interactionDebug.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/session/hardResetTransaction.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/session/visitorSession.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/motion_react.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/store/kiosk/kioskStore.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/store/kiosk/types.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useFaceChannel.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/RuntimeDashboard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/SleepScreen.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/session/languageCodes.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-77XXEOXN.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/outboundCommandDispatcher.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/ChatScreen.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/ttsClipSlots.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ui.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-6QO6Q4YR.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/store/kiosk/stateMachine.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/state.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/kiosk/watchdog.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/conversationRuntimeStore.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/ownership.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/localizationFreeze.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/presentationContract.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/diagnostics.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/settings.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/logo/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/full_text_bg.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/College%20brochure/svit_brochure.pdf?import&url",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/types/chat.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useVoiceAnalyser.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useSpeechRecognition.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/AnimatedAiMessage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/CourseMenuComponent.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/DepartmentCardStage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/DepartmentCardFactory.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/LeadershipOverview.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentFeesCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/PremiumPrincipalCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/PremiumVicePrincipalCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DocumentsBlock.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/Trustees/Trustees.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/lucide-react.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/CampusUnitCard/CampusUnitCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/comparison/DepartmentComparisonCinema.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/bus/BusRoutesFullscreen.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/chat/ChatOrbControl.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/chat/useChatLayoutReducer.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/faq/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/typography/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/reveal/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationCardModel.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/playbackSeek.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/presentationOwnership.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/turnFence.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ui/cardUiLock.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/chat/answerVisibility.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/tts/ackAudio.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/tts/responseTtsScheduler.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/LanguageSelect.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/cardData.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/collegeLocaleUtils.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useCollegeData.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusMapGeometry.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/data/faqSuggestions.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/faceEmotion.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/types.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/logo/college-logo.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CSECard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/AIMLCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/DataScienceCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CyberSecurityCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/ISECard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/ECECard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CivilCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/MechanicalCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/MBACard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/MathematicsCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/PhysicsCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/ChemistryCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/BusinessSystemsCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CanonicalKannadaDepartmentCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/ThreeDVisual.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/PremiumHODCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_cse.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_aiml.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_ece.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_civil.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_mechanical.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_datascience.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_chemistry.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_physics.jpeg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_maths.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/executiveLeadershipLocale.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/Principle%20and%20Vice%20principle/Principle%20image.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/Principle%20and%20Vice%20principle/vice%20principle%20image.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/Trustees/TrusteeCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/Trustees/trusteeLocale.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%201.jpeg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/truste%202.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%203.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%204.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%205.jpeg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%206.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%207.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/CampusUnitCard/campusUnitLocale.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/data/departmentComparison.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/comparison/comparisonCopy.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/data/collegeBusRoutes.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/busRoutesMatch.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/SiriOrb.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/useResponseLayout.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/paginateResponseText.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/faq/useFaqTickerLayout.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/reveal/useAudioPlaybackClock.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/planToScenes.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/presentationTimeline.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationEngine.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationAudioManager.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationController.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/tts/audioValidation.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/localization/clipLocalizedText.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/en.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/hi.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/kn.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ta.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/te.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ml.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusMapTypes.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusDirections.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavigationStage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusMap2D.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavigationMapOnly.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/useCampusMapData.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/matchCampusDestination.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/matchCampusTranscriptApi.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/matchCampusTranscriptLocal.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/getCampusRouteApi.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/legacyCampusIndex.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusDirectionBridge.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusExactRouting.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/faq_answers.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/BaseDepartmentCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/responseLayoutConstants.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/measureResponseText.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavKioskChrome.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/claraHttpBase.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavSidebar.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/DepartmentSlotImage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusPriorityCatalog.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/useDepartmentImages.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/registry.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/loader.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/resolver.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/three.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/assets/campus_hd_1.jpg",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/logo/college-logo.png",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/full_text_bg.png",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/?e2e=1",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/main.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@vite/client",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/react.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/@react-refresh",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/vite/dist/client/env.mjs",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/App.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/context/LanguageContext.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-NKU67ILE.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/index.css",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/react-dom_client.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useWebSocket.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/localization/uiCopy.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/typography/scriptTypography.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/debug/interactionDebug.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/session/hardResetTransaction.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/session/visitorSession.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/store/kiosk/types.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-77XXEOXN.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/store/kiosk/kioskStore.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/SleepScreen.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/session/languageCodes.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/ttsClipSlots.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/outboundCommandDispatcher.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/RuntimeDashboard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useFaceChannel.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ui.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/motion_react.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/ChatScreen.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/store/kiosk/stateMachine.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/state.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/kiosk/watchdog.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/chunk-6QO6Q4YR.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/conversationRuntimeStore.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/ownership.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/localizationFreeze.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/presentationContract.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/diagnostics.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/full_text_bg.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/settings.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/logo/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/College%20brochure/svit_brochure.pdf?import&url",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/types/chat.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useSpeechRecognition.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/CourseMenuComponent.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/AnimatedAiMessage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/DepartmentCardFactory.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/LeadershipOverview.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/DepartmentCardStage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useVoiceAnalyser.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentFeesCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/PremiumPrincipalCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/PremiumVicePrincipalCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/CampusUnitCard/CampusUnitCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DocumentsBlock.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/Trustees/Trustees.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/chat/ChatOrbControl.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/chat/useChatLayoutReducer.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/bus/BusRoutesFullscreen.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/comparison/DepartmentComparisonCinema.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/faq/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/typography/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/reveal/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/playbackSeek.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationCardModel.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/presentationOwnership.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ws/turnFence.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/ui/cardUiLock.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/chat/answerVisibility.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/tts/ackAudio.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/tts/responseTtsScheduler.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/screens/LanguageSelect.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/index.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/hooks/useCollegeData.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/faceEmotion.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/collegeLocaleUtils.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/data/faqSuggestions.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/cardData.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/logo/college-logo.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusMapGeometry.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/runtime/types.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/lucide-react.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CSECard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/AIMLCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/DataScienceCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CyberSecurityCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/ISECard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/ECECard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CivilCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/MechanicalCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/MBACard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/MathematicsCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/PhysicsCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/ChemistryCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/BusinessSystemsCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/CanonicalKannadaDepartmentCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/ThreeDVisual.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/PremiumHODCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_cse.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_aiml.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_ece.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_civil.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_mechanical.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_datascience.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_physics.jpeg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_chemistry.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/hod_maths.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/Principle%20and%20Vice%20principle/Principle%20image.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/Principle%20and%20Vice%20principle/vice%20principle%20image.png?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/executiveLeadershipLocale.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/CampusUnitCard/campusUnitLocale.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/Trustees/TrusteeCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/Trustees/trusteeLocale.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%201.jpeg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/truste%202.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%203.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%204.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%205.jpeg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%206.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/trusties/trustie%207.jpg?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/busRoutesMatch.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/useResponseLayout.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/paginateResponseText.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/data/collegeBusRoutes.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/comparison/comparisonCopy.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusMapTypes.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/data/departmentComparison.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/faq/useFaqTickerLayout.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/planToScenes.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/SiriOrb.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/presentationTimeline.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/reveal/useAudioPlaybackClock.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationAudioManager.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/lib/tts/audioValidation.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationEngine.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/presentation/PresentationController.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavigationStage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusDirections.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/useCampusMapData.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/matchCampusDestination.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/matchCampusTranscriptLocal.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/matchCampusTranscriptApi.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavigationMapOnly.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/legacyCampusIndex.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/getCampusRouteApi.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusDirectionBridge.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusExactRouting.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusMap2D.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/localization/clipLocalizedText.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/kn.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/components/chat/cards/DepartmentCards/BaseDepartmentCard.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/te.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ta.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/hi.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/faq_answers.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/en.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ml.json?import",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/responseLayoutConstants.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/chat/layout/measureResponseText.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavSidebar.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/claraHttpBase.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/useDepartmentImages.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/CampusNavKioskChrome.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/campus-navigation/campusPriorityCatalog.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/DepartmentSlotImage.tsx",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/registry.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/resolver.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/features/departments/images/loader.ts",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/node_modules/.vite/deps/three.js?v=f2213b22",
+      "status": 200,
+      "cacheControl": "max-age=31536000,immutable"
+    },
+    {
+      "url": "http://localhost:5176/assets/campus_hd_1.jpg",
+      "status": 200,
+      "cacheControl": "no-cache"
+    },
+    {
+      "url": "http://localhost:5176/src/assets/logo/college-logo.png",
+      "status": 200,
+      "cacheControl": "no-cache"
+    }
+  ],
+  "console": [
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H5 SleepScreen mounted {location: SleepScreen.tsx:lifecycle, runId: pre-fix}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_RESET, t: 1788012299974}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: null, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H2 route snapshot {location: App.tsx:effectiveState, runId: pre-fix, runtimeSessionKey: 0, effectiveState: 0, wsUiStateHook: 0}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H5 SleepScreen unmounted {location: SleepScreen.tsx:lifecycle, runId: pre-fix}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H5 SleepScreen mounted {location: SleepScreen.tsx:lifecycle, runId: pre-fix}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_RESET, t: 1788012299978}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: null, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H2 route snapshot {location: App.tsx:effectiveState, runId: pre-fix, runtimeSessionKey: 0, effectiveState: 0, wsUiStateHook: 0}"
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "debug",
+      "text": "CLARA WebSocket connected"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H1 pointer tap capture {location: SleepScreen.tsx:pointer, runId: pre-fix, clientX: 400, clientY: 300, countChatScreen: 0}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H2 route snapshot {location: App.tsx:effectiveState, runId: pre-fix, runtimeSessionKey: 0, effectiveState: 5, wsUiStateHook: 5}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H5 SleepScreen unmounted {location: SleepScreen.tsx:lifecycle, runId: pre-fix}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: undefined, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: undefined, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: undefined, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: undefined, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: LOCALE_RELEASE, language: English, t: 1788012314964}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: undefined, generation: 0, language: Kannada, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: undefined, generation: 0, language: Kannada, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: name_after_language_pick, generation: 0, language: Kannada, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H5 SleepScreen mounted {location: SleepScreen.tsx:lifecycle, runId: pre-fix}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_RESET, t: 1788012316795}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: null, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H2 route snapshot {location: App.tsx:effectiveState, runId: pre-fix, runtimeSessionKey: 0, effectiveState: 0, wsUiStateHook: 0}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H5 SleepScreen unmounted {location: SleepScreen.tsx:lifecycle, runId: pre-fix}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H5 SleepScreen mounted {location: SleepScreen.tsx:lifecycle, runId: pre-fix}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_RESET, t: 1788012316798}"
+    },
+    {
+      "type": "debug",
+      "text": "[RUNTIME] {event: RUNTIME_PATCH, turnId: null, generation: 0, language: English, runtimeState: idle}"
+    },
+    {
+      "type": "debug",
+      "text": "[CLARA_AGENT] H2 route snapshot {location: App.tsx:effectiveState, runId: pre-fix, runtimeSessionKey: 0, effectiveState: 0, wsUiStateHook: 0}"
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "debug",
+      "text": "CLARA WebSocket connected"
+    }
+  ],
+  "loadedUrl": "http://localhost:5176/?e2e=1",
+  "scripts": [
+    "http://localhost:5176/@vite/client",
+    "http://localhost:5176/src/main.tsx"
+  ],
+  "renderedMatchesSource": 1,
+  "renderedProposedCount": 0,
+  "chatText": "ಕ್ಯಾಂಪಸ್ ನ್ಯಾವಿಗೇಶನ್\nಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ\nದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ತಿಳಿಸಿ.\nಕಾಲೇಜು ಸಂಶೋಧನೆ ಮತ್ತು ನವೀನತೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?\nಸಹಪಠ್ಯ ಮತ್ತು ಪಠ್ಯೇತರ ಚಟುವಟಿಕೆಗಳಿವೆಯೇ?\nಮೆಸ್ ಆಹಾರ ಹೇಗಿದೆ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯವಿದೆಯೇ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಯಾವ ಸೌಲಭ್ಯಗಳಿವೆ?\nಕಾಲೇಜು ಸಂಶೋಧನೆ ಮತ್ತು ನವೀನತೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?\nಸಹಪಠ್ಯ ಮತ್ತು ಪಠ್ಯೇತರ ಚಟುವಟಿಕೆಗಳಿವೆಯೇ?\nಮೆಸ್ ಆಹಾರ ಹೇಗಿದೆ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯವಿದೆಯೇ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಯಾವ ಸೌಲಭ್ಯಗಳಿವೆ?\nಕಾಲೇಜು ಸಂಶೋಧನೆ ಮತ್ತು ನವೀನತೆಯನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?\nಸಹಪಠ್ಯ ಮತ್ತು ಪಠ್ಯೇತರ ಚಟುವಟಿಕೆಗಳಿವೆಯೇ?\nಮೆಸ್ ಆಹಾರ ಹೇಗಿದೆ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯವಿದೆಯೇ?\nಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಯಾವ ಸೌಲಭ್ಯಗಳಿವೆ?\nಮಾತನಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ",
+  "storage": {
+    "localStorage": {},
+    "sessionStorage": {
+      "clara_visitor_id": "42f3d5b6-6145-431e-bb83-a9ebbf8566ea",
+      "clara_visitor_language": "kn",
+      "clara_visitor_welcome_done": "1"
+    },
+    "language": "kn",
+    "className": "light-chat-container script-typo-kn"
+  },
+  "afterRefreshSourceCount": 0,
+  "afterRefreshStorage": {
+    "localStorage": {},
+    "sessionStorage": {
+      "clara_visitor_id": "2c3ea5c4-ebff-457f-9fc3-dfc3bb8c62ab",
+      "clara_visitor_language": "kn",
+      "clara_visitor_welcome_done": "1"
+    }
+  },
+  "serviceWorkers": [],
+  "newBrowserContextSourceCount": 1,
+  "namePromptFrames": [
+    {
+      "direction": "sent",
+      "json": {
+        "action": "language_selected",
+        "language": "Kannada",
+        "language_code_key": "kn",
+        "visitor_session_id": "2c3ea5c4-ebff-457f-9fc3-dfc3bb8c62ab"
+      },
+      "audioBase64Characters": 0
+    },
+    {
+      "direction": "received",
+      "json": {
+        "state": 5,
+        "payload": {
+          "messages": [
+            {
+              "id": "name_prompt",
+              "role": "clara",
+              "text": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ತಿಳಿಸಿ."
+            }
+          ],
+          "isSpeaking": true,
+          "isProcessing": false,
+          "audioBase64": "<redacted 99344 base64 characters>",
+          "turn_id": "name_after_language_pick",
+          "session_gen": 0,
+          "wire_seq": 4
+        }
+      },
+      "audioBase64Characters": 99344
+    }
+  ]
+}

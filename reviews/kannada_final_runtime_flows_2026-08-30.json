@@ -1,0 +1,584 @@
+{
+  "timestamp": "2026-08-29T20:20:14.023Z",
+  "repository": "C:/Users/aashu/OneDrive/Desktop/CLARA FIN/clara_finished-",
+  "url": "http://127.0.0.1:5176/?e2e=1",
+  "cacheDisabled": true,
+  "authoritativeSources": [
+    "backend/data/locales/ui.json#kn",
+    "backend/data/locales/kn.json"
+  ],
+  "checks": [
+    {
+      "id": "bus_routes_card",
+      "input": "bus routes",
+      "pass": true,
+      "visibleText": "ಕ್ಯಾಂಪಸ್ ನ್ಯಾವಿಗೇಶನ್\nಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ\n🤔\nCLARA ಯೋಚಿಸುತ್ತಿದೆ\nನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಓದಿ, ಸರಿಯಾದ ಮಾಹಿತಿಯನ್ನು ಸಂಗ್ರಹಿಸುತ್ತಿದ್ದೇನೆ…\n...\nSVIT ಖಾಸಗಿ ಕಾಲೇಜೇ ಅಥವಾ ಸರ್ಕಾರಿ ಕಾಲೇಜೇ?\nಇತರೆ ಕಾಲೇಜುಗಳಿಗಿಂತ SVIT ನಲ್ಲಿ ವಿಶೇಷವೇನು?\nSVIT ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವಿಭಾಗ ಯಾವುದು?\nಸಾಫ್ಟ್‌ವೇರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಕೋರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nSVIT ಖಾಸಗಿ ಕಾಲೇಜೇ ಅಥವಾ ಸರ್ಕಾರಿ ಕಾಲೇಜೇ?\nಇತರೆ ಕಾಲೇಜುಗಳಿಗಿಂತ SVIT ನಲ್ಲಿ ವಿಶೇಷವೇನು?\nSVIT ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವಿಭಾಗ ಯಾವುದು?\nಸಾಫ್ಟ್‌ವೇರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಕೋರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nSVIT ಖಾಸಗಿ ಕಾಲೇಜೇ ಅಥವಾ ಸರ್ಕಾರಿ ಕಾಲೇಜೇ?\nಇತರೆ ಕಾಲೇಜುಗಳಿಗಿಂತ SVIT ನಲ್ಲಿ ವಿಶೇಷವೇನು?\nSVIT ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವಿಭಾಗ ಯಾವುದು?\nಸಾಫ್ಟ್‌ವೇರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಕೋರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಮಾತನಾಡಲು ಪರದೆಯನ್ನು ಸ್ಪರ್ಶಿಸಿ",
+      "ttsInput": "ನಮ್ಮ ಕಾಲೇಜಿನ ಬಸ್ ಮಾರ್ಗಗಳು ಇಲ್ಲಿವೆ. ಬಸ್ ಏರುವ ನಿಲ್ದಾಣಗಳು ಮತ್ತು ಸಮಯಗಳನ್ನು ನೋಡಲು ಒಂದು ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      "visibleContainsExactTtsInput": false,
+      "websocket": {
+        "state": 5,
+        "payload": {
+          "messages": [
+            {
+              "id": "user-727470db640a47ea83f55fa221d9c20d",
+              "role": "user",
+              "text": "ಆಶಾ"
+            },
+            {
+              "id": "ready_prompt",
+              "role": "clara",
+              "text": "ಆಶಾ ಅವರೇ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?"
+            },
+            {
+              "id": "user-935a95d434be43c7a7076c169f20eb6b",
+              "role": "user",
+              "text": "bus routes"
+            },
+            {
+              "id": "clara-97b8b2fcf6fb4fa5ab445468cb6d4174",
+              "role": "clara",
+              "text": "ನಮ್ಮ ಕಾಲೇಜಿನ ಬಸ್ ಮಾರ್ಗಗಳು ಇಲ್ಲಿವೆ. ಬಸ್ ಏರುವ ನಿಲ್ದಾಣಗಳು ಮತ್ತು ಸಮಯಗಳನ್ನು ನೋಡಲು ಒಂದು ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+              "isHidden": true,
+              "isCardData": true
+            }
+          ],
+          "isProcessing": false,
+          "isSpeaking": true,
+          "audioPending": false,
+          "turn_id": "b7ffdbafbdcc",
+          "assistantText": "ನಮ್ಮ ಕಾಲೇಜಿನ ಬಸ್ ಮಾರ್ಗಗಳು ಇಲ್ಲಿವೆ. ಬಸ್ ಏರುವ ನಿಲ್ದಾಣಗಳು ಮತ್ತು ಸಮಯಗಳನ್ನು ನೋಡಲು ಒಂದು ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+          "spokenText": "ನಮ್ಮ ಕಾಲೇಜಿನ ಬಸ್ ಮಾರ್ಗಗಳು ಇಲ್ಲಿವೆ. ಬಸ್ ಏರುವ ನಿಲ್ದಾಣಗಳು ಮತ್ತು ಸಮಯಗಳನ್ನು ನೋಡಲು ಒಂದು ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+          "utterance_kind": "assistant_full_reply_chunk_0",
+          "segment_index": 0,
+          "is_final_segment": false,
+          "showCard": "bus_routes",
+          "intent": "BUS_ROUTES",
+          "direct_reply": false,
+          "rag_used": false,
+          "llm_used": false,
+          "tts_cache_hit": true,
+          "llm_cache_hit": true,
+          "audioUnavailable": false,
+          "type": "assistant_audio_update",
+          "audioBase64": "[REDACTED_AUDIO]",
+          "tts_streaming": true,
+          "tts_chunk_index": 0,
+          "tts_total_chars": 103,
+          "tts_total_duration_estimate_ms": 5665,
+          "tts_expected_clip_count": 1,
+          "tts_plan_mode": "answer_short",
+          "tts_metrics": {
+            "tts_requests_per_turn": 0,
+            "tts_retries_per_turn": 0,
+            "tts_chunks_per_turn": 1,
+            "tts_cache_hits_per_turn": 1,
+            "tts_generation_ms": null,
+            "first_audio_ready_ms": 3053.470300003886,
+            "total_audio_ready_ms": null,
+            "tts_plan_mode": "answer_short",
+            "tts_backup_used": false
+          },
+          "language_code_key": "kn",
+          "language_name": "Kannada",
+          "languageCodeKey": "kn",
+          "languageName": "Kannada",
+          "ttsCode": "kn-IN",
+          "debug": {
+            "timings_ms": {
+              "t_user_end_ms": 0.008000008761882782,
+              "t_llm_start_ms": 1930.7398000061512,
+              "t_llm_first_token_ms": 1930.7403000071645,
+              "t_llm_first_sentence_ms": null,
+              "t_llm_end_ms": 1930.7413000017405,
+              "t_tts_start_ms": 3050.288200005889,
+              "t_tts_audio_ready_ms": 3053.470300003886,
+              "t_play_start_ms": 1324.0647000074387,
+              "t_play_end_ms": 1484.0647000074387,
+              "visible_answer_ms": null,
+              "audio_first_ready_ms": 3053.470300003886,
+              "audio_play_start_ms": 1324.0647000074387,
+              "record_end_ms": null,
+              "transcript_ready_ms": 0.008000008761882782,
+              "stt_ms": null,
+              "rag_ms": 0.004400007426738739,
+              "llm_first_token_ms": 1930.7403000071645,
+              "llm_ms": 0.0014999955892562866,
+              "tts_first_ms": null,
+              "tts_ms": null,
+              "play_ms": 160,
+              "ttft_ms": 1323.809300005436,
+              "ttfs_ms": 1324.0647000074387,
+              "ttff_ms": 1323.809300005436,
+              "total_ms": 3053.51590000093
+            },
+            "tts_metrics": {
+              "tts_requests_per_turn": 0,
+              "tts_retries_per_turn": 0,
+              "tts_chunks_per_turn": 1,
+              "tts_cache_hits_per_turn": 1,
+              "tts_generation_ms": null,
+              "first_audio_ready_ms": 3053.470300003886,
+              "total_audio_ready_ms": null,
+              "tts_plan_mode": "answer_short",
+              "tts_backup_used": false
+            }
+          },
+          "session_gen": 2,
+          "wire_seq": 10
+        }
+      }
+    },
+    {
+      "id": "english_acronym_in_kannada_hod",
+      "input": "CSE HOD ಯಾರು?",
+      "pass": true,
+      "visibleText": "ಕ್ಯಾಂಪಸ್ ನ್ಯಾವಿಗೇಶನ್\nಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ\nವಿಭಾಗ ಮುಖ್ಯಸ್ಥರು (HOD) ಮತ್ತು ಧ್ಯೇಯದೃಷ್ಟಿ ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿಕೋನವು ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ನಾವು ಪ್ರಾಯೋಗಿಕ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ.\nDr. Shashikumar D R\nಕಂಪ್ಯೂಟರ್ ವಿಜ್ಞಾನ ಮತ್ತು ಎಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರು\n\nಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ (CSE) ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರು Dr. Shashikumar D R ಅವರು.\n\nCLARA\nವಿಭಾಗ ಮುಖ್ಯಸ್ಥರು (HOD) ಮತ್ತು ಧ್ಯೇಯದೃಷ್ಟಿ ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿಕೋನವು ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ನಾವು ಪ್ರಾಯೋಗಿಕ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ.\nಆಶಾ\nಆಶಾ ಅವರೇ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?\nbus routes\nCSE HOD ಯಾರು?\nಫ್ಯಾಕಲ್ಟಿ ಸದಸ್ಯರಿಗೆ ಎಷ್ಟು ಅನುಭವವಿದೆ?\nಮಾತನಾಡಲು ಪರದೆಯನ್ನು ಸ್ಪರ್ಶಿಸಿ",
+      "ttsInput": "ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ (CSE) ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರು Dr. Shashikumar D R ಅವರು.",
+      "visibleContainsExactTtsInput": true,
+      "websocket": {
+        "state": 5,
+        "payload": {
+          "messages": [
+            {
+              "id": "user-727470db640a47ea83f55fa221d9c20d",
+              "role": "user",
+              "text": "ಆಶಾ"
+            },
+            {
+              "id": "ready_prompt",
+              "role": "clara",
+              "text": "ಆಶಾ ಅವರೇ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?"
+            },
+            {
+              "id": "user-935a95d434be43c7a7076c169f20eb6b",
+              "role": "user",
+              "text": "bus routes"
+            },
+            {
+              "id": "clara-97b8b2fcf6fb4fa5ab445468cb6d4174",
+              "role": "clara",
+              "text": "ನಮ್ಮ ಕಾಲೇಜಿನ ಬಸ್ ಮಾರ್ಗಗಳು ಇಲ್ಲಿವೆ. ಬಸ್ ಏರುವ ನಿಲ್ದಾಣಗಳು ಮತ್ತು ಸಮಯಗಳನ್ನು ನೋಡಲು ಒಂದು ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+              "isHidden": true,
+              "isCardData": true
+            },
+            {
+              "id": "user-6606a008fd064aca8c8716a6a9b2ade3",
+              "role": "user",
+              "text": "CSE HOD ಯಾರು?"
+            },
+            {
+              "id": "clara-56153da1c8904f4cb61529c0be1d0b75",
+              "role": "clara",
+              "text": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+              "isCardData": true,
+              "isHidden": true
+            }
+          ],
+          "isProcessing": false,
+          "isSpeaking": true,
+          "audioPending": false,
+          "turn_id": "f99907b3b64e",
+          "assistantText": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+          "spokenText": "ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ (CSE) ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರು Dr. Shashikumar D R ಅವರು.",
+          "utterance_kind": "assistant_full_reply_chunk_0",
+          "segment_index": 0,
+          "is_final_segment": false,
+          "showCard": "department_overview",
+          "intent": "HOD_PROFILE",
+          "direct_reply": false,
+          "rag_used": false,
+          "llm_used": true,
+          "tts_cache_hit": true,
+          "llm_cache_hit": false,
+          "audioUnavailable": false,
+          "type": "assistant_audio_update",
+          "departmentId": "CSE",
+          "audioBase64": "[REDACTED_AUDIO]",
+          "tts_streaming": true,
+          "tts_chunk_index": 0,
+          "tts_total_chars": 66,
+          "tts_total_duration_estimate_ms": 3630,
+          "tts_expected_clip_count": 1,
+          "tts_plan_mode": "card",
+          "tts_metrics": {
+            "tts_requests_per_turn": 0,
+            "tts_retries_per_turn": 0,
+            "tts_chunks_per_turn": 1,
+            "tts_cache_hits_per_turn": 1,
+            "tts_generation_ms": null,
+            "first_audio_ready_ms": 623.1871000006795,
+            "total_audio_ready_ms": null,
+            "tts_plan_mode": "card",
+            "tts_backup_used": false
+          },
+          "narration_plan": {
+            "turnId": "f99907b3b64e",
+            "mode": "card_narration",
+            "segments": [
+              {
+                "segmentId": "f99907b3b64e:seg:0",
+                "displayText": "ವಿಭಾಗ ಮುಖ್ಯಸ್ಥರು (HOD) ಮತ್ತು ಧ್ಯೇಯದೃಷ್ಟಿ ಡಾ. ಶಶಿಕುಮಾರ್ ಡಿ ಆರ್ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ನಮ್ಮ ದೃಷ್ಟಿಕೋನವು ಜಾಗತಿಕ ಬೇಡಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಉದ್ಯಮಾಧಾರಿತ ಕಲಿಕೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ನಾವು ಪ್ರಾಯೋಗಿಕ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಮತ್ತು ನೈತಿಕ ಕೋಡಿಂಗ್ ಅಭ್ಯಾಸಗಳಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ.",
+                "ttsText": "ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ (CSE) ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರು Dr. Shashikumar D R ಅವರು.",
+                "cardIndex": 0,
+                "cardId": "dept_slide",
+                "isFinalSegment": true,
+                "sectionId": "hod_voice",
+                "unitId": "cse.hod"
+              }
+            ]
+          },
+          "language_code_key": "kn",
+          "language_name": "Kannada",
+          "languageCodeKey": "kn",
+          "languageName": "Kannada",
+          "ttsCode": "kn-IN",
+          "debug": {
+            "timings_ms": {
+              "t_user_end_ms": 0.008699998259544373,
+              "t_llm_start_ms": 620.076700001955,
+              "t_llm_first_token_ms": 620.0773999989033,
+              "t_llm_first_sentence_ms": null,
+              "t_llm_end_ms": 620.0777000039816,
+              "t_tts_start_ms": 620.5437000021338,
+              "t_tts_audio_ready_ms": 623.1871000006795,
+              "t_play_start_ms": 62.40100000053644,
+              "t_play_end_ms": 222.40100000053644,
+              "visible_answer_ms": null,
+              "audio_first_ready_ms": 623.1871000006795,
+              "audio_play_start_ms": 62.40100000053644,
+              "record_end_ms": null,
+              "transcript_ready_ms": 0.008699998259544373,
+              "stt_ms": null,
+              "rag_ms": 1.3792999982833862,
+              "llm_first_token_ms": 620.0773999989033,
+              "llm_ms": 0.0010000020265579224,
+              "tts_first_ms": null,
+              "tts_ms": null,
+              "play_ms": 160,
+              "ttft_ms": 62.19660000503063,
+              "ttfs_ms": 62.40100000053644,
+              "ttff_ms": 62.19660000503063,
+              "total_ms": 623.2331999987364
+            },
+            "tts_metrics": {
+              "tts_requests_per_turn": 0,
+              "tts_retries_per_turn": 0,
+              "tts_chunks_per_turn": 1,
+              "tts_cache_hits_per_turn": 1,
+              "tts_generation_ms": null,
+              "first_audio_ready_ms": 623.1871000006795,
+              "total_audio_ready_ms": null,
+              "tts_plan_mode": "card",
+              "tts_backup_used": false
+            }
+          },
+          "session_gen": 3,
+          "wire_seq": 15
+        }
+      }
+    },
+    {
+      "id": "kannada_follow_up",
+      "input": "ಅವರ ಧ್ಯೇಯದೃಷ್ಟಿ ಏನು?",
+      "pass": true,
+      "visibleText": "ಕ್ಯಾಂಪಸ್ ನ್ಯಾವಿಗೇಶನ್\nಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ\nಆಶಾ ಅವರೇ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?\nSVIT ಖಾಸಗಿ ಕಾಲೇಜೇ ಅಥವಾ ಸರ್ಕಾರಿ ಕಾಲೇಜೇ?\nಇತರೆ ಕಾಲೇಜುಗಳಿಗಿಂತ SVIT ನಲ್ಲಿ ವಿಶೇಷವೇನು?\nSVIT ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವಿಭಾಗ ಯಾವುದು?\nಸಾಫ್ಟ್‌ವೇರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಕೋರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nSVIT ಖಾಸಗಿ ಕಾಲೇಜೇ ಅಥವಾ ಸರ್ಕಾರಿ ಕಾಲೇಜೇ?\nಇತರೆ ಕಾಲೇಜುಗಳಿಗಿಂತ SVIT ನಲ್ಲಿ ವಿಶೇಷವೇನು?\nSVIT ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವಿಭಾಗ ಯಾವುದು?\nಸಾಫ್ಟ್‌ವೇರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಕೋರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nSVIT ಖಾಸಗಿ ಕಾಲೇಜೇ ಅಥವಾ ಸರ್ಕಾರಿ ಕಾಲೇಜೇ?\nಇತರೆ ಕಾಲೇಜುಗಳಿಗಿಂತ SVIT ನಲ್ಲಿ ವಿಶೇಷವೇನು?\nSVIT ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವಿಭಾಗ ಯಾವುದು?\nಸಾಫ್ಟ್‌ವೇರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಕೋರ್ ಉದ್ಯೋಗಗಳಿಗೆ ಯಾವ ವಿಭಾಗ ಉತ್ತಮ?\nಮಾತನಾಡಲು ಪರದೆಯನ್ನು ಸ್ಪರ್ಶಿಸಿ",
+      "ttsInput": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      "visibleContainsExactTtsInput": false,
+      "websocket": {
+        "state": 5,
+        "payload": {
+          "messages": [
+            {
+              "id": "user-727470db640a47ea83f55fa221d9c20d",
+              "role": "user",
+              "text": "ಆಶಾ"
+            },
+            {
+              "id": "ready_prompt",
+              "role": "clara",
+              "text": "ಆಶಾ ಅವರೇ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?"
+            },
+            {
+              "id": "user-935a95d434be43c7a7076c169f20eb6b",
+              "role": "user",
+              "text": "bus routes"
+            },
+            {
+              "id": "clara-97b8b2fcf6fb4fa5ab445468cb6d4174",
+              "role": "clara",
+              "text": "ನಮ್ಮ ಕಾಲೇಜಿನ ಬಸ್ ಮಾರ್ಗಗಳು ಇಲ್ಲಿವೆ. ಬಸ್ ಏರುವ ನಿಲ್ದಾಣಗಳು ಮತ್ತು ಸಮಯಗಳನ್ನು ನೋಡಲು ಒಂದು ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+              "isHidden": true,
+              "isCardData": true
+            },
+            {
+              "id": "user-6606a008fd064aca8c8716a6a9b2ade3",
+              "role": "user",
+              "text": "CSE HOD ಯಾರು?"
+            },
+            {
+              "id": "clara-56153da1c8904f4cb61529c0be1d0b75",
+              "role": "clara",
+              "text": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+              "isCardData": true,
+              "isHidden": true
+            },
+            {
+              "id": "user-3a27da052d9d4f2787ebd8e879feb6bd",
+              "role": "user",
+              "text": "ಅವರ ಧ್ಯೇಯದೃಷ್ಟಿ ಏನು?"
+            },
+            {
+              "id": "clara-d854c78a469e4fb0a8474db85cd04783",
+              "role": "clara",
+              "text": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."
+            }
+          ],
+          "isProcessing": false,
+          "isSpeaking": true,
+          "audioPending": false,
+          "turn_id": "48d52f6871de",
+          "assistantText": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+          "spokenText": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+          "utterance_kind": "assistant_full_reply_chunk_0",
+          "segment_index": 0,
+          "is_final_segment": false,
+          "showCard": null,
+          "intent": "NORMAL_QUERY",
+          "direct_reply": false,
+          "rag_used": false,
+          "llm_used": false,
+          "tts_cache_hit": true,
+          "llm_cache_hit": true,
+          "audioUnavailable": false,
+          "type": "assistant_audio_update",
+          "audioBase64": "[REDACTED_AUDIO]",
+          "tts_streaming": true,
+          "tts_chunk_index": 0,
+          "tts_total_chars": 86,
+          "tts_total_duration_estimate_ms": 4730,
+          "tts_expected_clip_count": 1,
+          "tts_plan_mode": "answer_short",
+          "tts_metrics": {
+            "tts_requests_per_turn": 0,
+            "tts_retries_per_turn": 0,
+            "tts_chunks_per_turn": 1,
+            "tts_cache_hits_per_turn": 1,
+            "tts_generation_ms": null,
+            "first_audio_ready_ms": 548.4715000018477,
+            "total_audio_ready_ms": null,
+            "tts_plan_mode": "answer_short",
+            "tts_backup_used": false
+          },
+          "language_code_key": "kn",
+          "language_name": "Kannada",
+          "languageCodeKey": "kn",
+          "languageName": "Kannada",
+          "ttsCode": "kn-IN",
+          "debug": {
+            "timings_ms": {
+              "t_user_end_ms": 0.013799995183944702,
+              "t_llm_start_ms": 545.2397999987006,
+              "t_llm_first_token_ms": 545.2401999980211,
+              "t_llm_first_sentence_ms": null,
+              "t_llm_end_ms": 545.2406999990344,
+              "t_tts_start_ms": 545.5960999950767,
+              "t_tts_audio_ready_ms": 548.4715000018477,
+              "t_play_start_ms": 82.12269999831915,
+              "t_play_end_ms": 242.12269999831915,
+              "visible_answer_ms": null,
+              "audio_first_ready_ms": 548.4715000018477,
+              "audio_play_start_ms": 82.12269999831915,
+              "record_end_ms": null,
+              "transcript_ready_ms": 0.013799995183944702,
+              "stt_ms": null,
+              "rag_ms": 0.002499990165233612,
+              "llm_first_token_ms": 545.2401999980211,
+              "llm_ms": 0.0009000003337860107,
+              "tts_first_ms": null,
+              "tts_ms": null,
+              "play_ms": 160,
+              "ttft_ms": 81.94590000063181,
+              "ttfs_ms": 82.12269999831915,
+              "ttff_ms": 81.94590000063181,
+              "total_ms": 548.5996999964118
+            },
+            "tts_metrics": {
+              "tts_requests_per_turn": 0,
+              "tts_retries_per_turn": 0,
+              "tts_chunks_per_turn": 1,
+              "tts_cache_hits_per_turn": 1,
+              "tts_generation_ms": null,
+              "first_audio_ready_ms": 548.4715000018477,
+              "total_audio_ready_ms": null,
+              "tts_plan_mode": "answer_short",
+              "tts_backup_used": false
+            }
+          },
+          "session_gen": 4,
+          "wire_seq": 20
+        }
+      }
+    },
+    {
+      "id": "multi_card_comparison",
+      "input": "Compare CSE and ECE",
+      "pass": true,
+      "visibleText": "ಕ್ಯಾಂಪಸ್ ನ್ಯಾವಿಗೇಶನ್\nಕಾಲೇಜಿನ ಮಾಹಿತಿ ಕೈಪಿಡಿ\n🤔\nCLARA ಯೋಚಿಸುತ್ತಿದೆ\nನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಓದಿ, ಸರಿಯಾದ ಮಾಹಿತಿಯನ್ನು ಸಂಗ್ರಹಿಸುತ್ತಿದ್ದೇನೆ…\n...\n\nಕಾರ್ಯಕ್ರಮಗಳ ಹೋಲಿಕೆ\n\nComputer Science & Engineering · Electronics & Communication\nDepartment 1\nComputer Science & Engineering\nInformation Science & Engineering\nCSE (AI & ML)\nCSE (Data Science)\nCSE (Cyber Security)\nCSE (Business Systems)\nElectronics & Communication\nCivil Engineering\nMechanical Engineering\nMBA / Business Studies\nBasic Sciences\nDepartment 2\nComputer Science & Engineering\nInformation Science & Engineering\nCSE (AI & ML)\nCSE (Data Science)\nCSE (Cyber Security)\nCSE (Business Systems)\nElectronics & Communication\nCivil Engineering\nMechanical Engineering\nMBA / Business Studies\nBasic Sciences\nComputer Science & Engineering\n\nನಾಲ್ಕು ವರ್ಷಗಳಲ್ಲಿ ನಿಮ್ಮ ವಿದ್ಯಾರ್ಥಿ ಏನು ಕಲಿಯುತ್ತಾರೆ\n\nಮೂಲ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್\n\nಸಿಸ್ಟಂ, ಡೇಟಾಬೇಸ್, ನೆಟ್‌ವರ್ಕ್\n\nಪ್ರಾಯೋಗಿಕ ಯೋಜನೆಗಳು\n\nElectronics & Communication\n\nನಾಲ್ಕು ವರ್ಷಗಳಲ್ಲಿ ನಿಮ್ಮ ವಿದ್ಯಾರ್ಥಿ ಏನು ಕಲಿಯುತ್ತಾರೆ\n\nಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಮತ್ತು ಸಂವಹನ ಮೂಲಭೂತಗಳು\n\nಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಂ, ಸಿಗ್ನಲ್\n\nಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಸೇತುವೆ\n\nಮಾತನಾಡಲು ಪರದೆಯನ್ನು ಸ್ಪರ್ಶಿಸಿ",
+      "ttsInput": "SVIT ನ CSE ಮತ್ತು ECE ವಿಭಾಗಗಳ ಹೋಲಿಕೆಯನ್ನು ನಿಮಗೆ ತಿಳಿಸುತ್ತೇನೆ.  \n\n**ನಾಲ್ಕು ವರ್ಷಗಳಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿ ಏನು ಕಲಿಯುತ್ತಾರೆ**  \nCSE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಮೂಲ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಸಿಸ್ಟಂ, ಡೇಟಾಬೇಸ್ ಮತ್ತು ನೆಟ್‌ವರ್ಕ್ ವಿಷಯಗಳ ಮೇಲೆ ಗಮನ ಹರಿಸುತ್ತಾರೆ, ಮತ್ತು ನಾಲ್ಕು ವರ್ಷಗಳ ಅವಧಿಯಲ್ಲಿ ಪ್ರಾಯೋಗಿಕ ಯೋಜನೆಗಳ ಮೂಲಕ ತಮ್ಮ ಜ್ಞಾನವನ್ನು ಅನ್ವಯಿಸುತ್ತಾರೆ.  \nECE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಮತ್ತು ಸಂವಹನದ ಮೂಲಭೂತಗಳನ್ನು ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಂ ಮತ್ತು ಸಿಗ್ನಲ್ ಪ್ರೊಸೆಸಿಂಗ್ ವಿಷಯಗಳಲ್ಲಿ ಪರಿಣತಿ ಪಡೆಯುತ್ತಾರೆ, ಮತ್ತು ಹಾರ್ಡ್‌ವೇರ್ ಹಾಗೂ ಸಾಫ್ಟ್‌ವೇರ್ ನಡುವಿನ ಸೇತುವೆಯನ್ನು ನಿರ್ಮಿಸುವ ಪ್ರಾಯೋಗಿಕ ಕೆಲಸಗಳನ್ನು ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ಉದ್ಯೋಗಾವಕಾಶಗಳು**  \nCSE ವಿದ್ಯಾರ್ಥಿಗಳು ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್, ಬ್ಯಾಕೆಂಡ್ ಅಥವಾ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪರ್, ಕ್ಲೌಡ್ ಮತ್ತು ಸಿಸ್ಟಂಸ್ ಎಂಜಿನಿಯರ್ ಮುಂತಾದ ಪಾತ್ರಗಳಲ್ಲಿ ಉದ್ಯೋಗ ಪಡೆಯುತ್ತಾರೆ.  \nECE ವಿದ್ಯಾರ್ಥಿಗಳು ಎಂಬೆಡೆಡ್ ಎಂಜಿನಿಯರ್, ಹಾರ್ಡ್‌ವೇರ್ ಡಿಸೈನರ್, ಟೆಲಿಕಾಂ ಸ್ಪೆಷಲಿಸ್ಟ್, IoT ಎಂಜಿನಿಯರ್, ಪರೀಕ್ಷಾ ಇಂಜಿನಿಯರ್ ಅಥವಾ ವಿನ್ಯಾಸ ಇಂಜಿನಿಯರ್ ಮುಂತಾದ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ವ್ಯಾಪ್ತಿ (ಮುಂದಿನ 5–10 ವರ್ಷಗಳು)**  \nCSE ವಿಭಾಗದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಡಿಜಿಟಲ್ ಪರಿವರ್ತನೆಯ ಬೇಡಿಕೆ ಮುಂದುವರಿಯುವ ನಿರೀಕ್ಷ",
+      "visibleContainsExactTtsInput": false,
+      "websocket": {
+        "state": 5,
+        "payload": {
+          "messages": [
+            {
+              "id": "user-727470db640a47ea83f55fa221d9c20d",
+              "role": "user",
+              "text": "ಆಶಾ"
+            },
+            {
+              "id": "ready_prompt",
+              "role": "clara",
+              "text": "ಆಶಾ ಅವರೇ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?"
+            },
+            {
+              "id": "user-935a95d434be43c7a7076c169f20eb6b",
+              "role": "user",
+              "text": "bus routes"
+            },
+            {
+              "id": "clara-97b8b2fcf6fb4fa5ab445468cb6d4174",
+              "role": "clara",
+              "text": "ನಮ್ಮ ಕಾಲೇಜಿನ ಬಸ್ ಮಾರ್ಗಗಳು ಇಲ್ಲಿವೆ. ಬಸ್ ಏರುವ ನಿಲ್ದಾಣಗಳು ಮತ್ತು ಸಮಯಗಳನ್ನು ನೋಡಲು ಒಂದು ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+              "isHidden": true,
+              "isCardData": true
+            },
+            {
+              "id": "user-6606a008fd064aca8c8716a6a9b2ade3",
+              "role": "user",
+              "text": "CSE HOD ಯಾರು?"
+            },
+            {
+              "id": "clara-56153da1c8904f4cb61529c0be1d0b75",
+              "role": "clara",
+              "text": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+              "isCardData": true,
+              "isHidden": true
+            },
+            {
+              "id": "user-3a27da052d9d4f2787ebd8e879feb6bd",
+              "role": "user",
+              "text": "ಅವರ ಧ್ಯೇಯದೃಷ್ಟಿ ಏನು?"
+            },
+            {
+              "id": "clara-d854c78a469e4fb0a8474db85cd04783",
+              "role": "clara",
+              "text": "ಅನುಮೋದಿತ ಮೂಲದಲ್ಲಿ ಈ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಬಂಧಿತ ವಿಭಾಗವನ್ನು ಸಂಪರ್ಕಿಸಿ."
+            },
+            {
+              "id": "user-9c7e10ca80394f23b3dea63a71b1d168",
+              "role": "user",
+              "text": "Compare CSE and ECE"
+            },
+            {
+              "id": "clara-29c59616e14341a489b6d8545def70bf",
+              "role": "clara",
+              "text": "SVIT ನ CSE ಮತ್ತು ECE ವಿಭಾಗಗಳ ಹೋಲಿಕೆಯನ್ನು ನಿಮಗೆ ತಿಳಿಸುತ್ತೇನೆ.  \n\n**ನಾಲ್ಕು ವರ್ಷಗಳಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿ ಏನು ಕಲಿಯುತ್ತಾರೆ**  \nCSE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಮೂಲ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಸಿಸ್ಟಂ, ಡೇಟಾಬೇಸ್ ಮತ್ತು ನೆಟ್‌ವರ್ಕ್ ವಿಷಯಗಳ ಮೇಲೆ ಗಮನ ಹರಿಸುತ್ತಾರೆ, ಮತ್ತು ನಾಲ್ಕು ವರ್ಷಗಳ ಅವಧಿಯಲ್ಲಿ ಪ್ರಾಯೋಗಿಕ ಯೋಜನೆಗಳ ಮೂಲಕ ತಮ್ಮ ಜ್ಞಾನವನ್ನು ಅನ್ವಯಿಸುತ್ತಾರೆ.  \nECE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಮತ್ತು ಸಂವಹನದ ಮೂಲಭೂತಗಳನ್ನು ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಂ ಮತ್ತು ಸಿಗ್ನಲ್ ಪ್ರೊಸೆಸಿಂಗ್ ವಿಷಯಗಳಲ್ಲಿ ಪರಿಣತಿ ಪಡೆಯುತ್ತಾರೆ, ಮತ್ತು ಹಾರ್ಡ್‌ವೇರ್ ಹಾಗೂ ಸಾಫ್ಟ್‌ವೇರ್ ನಡುವಿನ ಸೇತುವೆಯನ್ನು ನಿರ್ಮಿಸುವ ಪ್ರಾಯೋಗಿಕ ಕೆಲಸಗಳನ್ನು ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ಉದ್ಯೋಗಾವಕಾಶಗಳು**  \nCSE ವಿದ್ಯಾರ್ಥಿಗಳು ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್, ಬ್ಯಾಕೆಂಡ್ ಅಥವಾ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪರ್, ಕ್ಲೌಡ್ ಮತ್ತು ಸಿಸ್ಟಂಸ್ ಎಂಜಿನಿಯರ್ ಮುಂತಾದ ಪಾತ್ರಗಳಲ್ಲಿ ಉದ್ಯೋಗ ಪಡೆಯುತ್ತಾರೆ.  \nECE ವಿದ್ಯಾರ್ಥಿಗಳು ಎಂಬೆಡೆಡ್ ಎಂಜಿನಿಯರ್, ಹಾರ್ಡ್‌ವೇರ್ ಡಿಸೈನರ್, ಟೆಲಿಕಾಂ ಸ್ಪೆಷಲಿಸ್ಟ್, IoT ಎಂಜಿನಿಯರ್, ಪರೀಕ್ಷಾ ಇಂಜಿನಿಯರ್ ಅಥವಾ ವಿನ್ಯಾಸ ಇಂಜಿನಿಯರ್ ಮುಂತಾದ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ವ್ಯಾಪ್ತಿ (ಮುಂದಿನ 5–10 ವರ್ಷಗಳು)**  \nCSE ವಿಭಾಗದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಡಿಜಿಟಲ್ ಪರಿವರ್ತನೆಯ ಬೇಡಿಕೆ ಮುಂದುವರಿಯುವ ನಿರೀಕ್ಷ",
+              "isCardData": true,
+              "isHidden": true
+            }
+          ],
+          "isProcessing": false,
+          "isSpeaking": true,
+          "audioPending": false,
+          "turn_id": "3eccdcb7134f",
+          "assistantText": "SVIT ನ CSE ಮತ್ತು ECE ವಿಭಾಗಗಳ ಹೋಲಿಕೆಯನ್ನು ನಿಮಗೆ ತಿಳಿಸುತ್ತೇನೆ.  \n\n**ನಾಲ್ಕು ವರ್ಷಗಳಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿ ಏನು ಕಲಿಯುತ್ತಾರೆ**  \nCSE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಮೂಲ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಸಿಸ್ಟಂ, ಡೇಟಾಬೇಸ್ ಮತ್ತು ನೆಟ್‌ವರ್ಕ್ ವಿಷಯಗಳ ಮೇಲೆ ಗಮನ ಹರಿಸುತ್ತಾರೆ, ಮತ್ತು ನಾಲ್ಕು ವರ್ಷಗಳ ಅವಧಿಯಲ್ಲಿ ಪ್ರಾಯೋಗಿಕ ಯೋಜನೆಗಳ ಮೂಲಕ ತಮ್ಮ ಜ್ಞಾನವನ್ನು ಅನ್ವಯಿಸುತ್ತಾರೆ.  \nECE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಮತ್ತು ಸಂವಹನದ ಮೂಲಭೂತಗಳನ್ನು ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಂ ಮತ್ತು ಸಿಗ್ನಲ್ ಪ್ರೊಸೆಸಿಂಗ್ ವಿಷಯಗಳಲ್ಲಿ ಪರಿಣತಿ ಪಡೆಯುತ್ತಾರೆ, ಮತ್ತು ಹಾರ್ಡ್‌ವೇರ್ ಹಾಗೂ ಸಾಫ್ಟ್‌ವೇರ್ ನಡುವಿನ ಸೇತುವೆಯನ್ನು ನಿರ್ಮಿಸುವ ಪ್ರಾಯೋಗಿಕ ಕೆಲಸಗಳನ್ನು ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ಉದ್ಯೋಗಾವಕಾಶಗಳು**  \nCSE ವಿದ್ಯಾರ್ಥಿಗಳು ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್, ಬ್ಯಾಕೆಂಡ್ ಅಥವಾ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪರ್, ಕ್ಲೌಡ್ ಮತ್ತು ಸಿಸ್ಟಂಸ್ ಎಂಜಿನಿಯರ್ ಮುಂತಾದ ಪಾತ್ರಗಳಲ್ಲಿ ಉದ್ಯೋಗ ಪಡೆಯುತ್ತಾರೆ.  \nECE ವಿದ್ಯಾರ್ಥಿಗಳು ಎಂಬೆಡೆಡ್ ಎಂಜಿನಿಯರ್, ಹಾರ್ಡ್‌ವೇರ್ ಡಿಸೈನರ್, ಟೆಲಿಕಾಂ ಸ್ಪೆಷಲಿಸ್ಟ್, IoT ಎಂಜಿನಿಯರ್, ಪರೀಕ್ಷಾ ಇಂಜಿನಿಯರ್ ಅಥವಾ ವಿನ್ಯಾಸ ಇಂಜಿನಿಯರ್ ಮುಂತಾದ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ವ್ಯಾಪ್ತಿ (ಮುಂದಿನ 5–10 ವರ್ಷಗಳು)**  \nCSE ವಿಭಾಗದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಡಿಜಿಟಲ್ ಪರಿವರ್ತನೆಯ ಬೇಡಿಕೆ ಮುಂದುವರಿಯುವ ನಿರೀಕ್ಷ",
+          "spokenText": "SVIT ನ CSE ಮತ್ತು ECE ವಿಭಾಗಗಳ ಹೋಲಿಕೆಯನ್ನು ನಿಮಗೆ ತಿಳಿಸುತ್ತೇನೆ.  \n\n**ನಾಲ್ಕು ವರ್ಷಗಳಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿ ಏನು ಕಲಿಯುತ್ತಾರೆ**  \nCSE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಮೂಲ ಪ್ರೋಗ್ರಾಮಿಂಗ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಎಂಜಿನಿಯರಿಂಗ್ ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಸಿಸ್ಟಂ, ಡೇಟಾಬೇಸ್ ಮತ್ತು ನೆಟ್‌ವರ್ಕ್ ವಿಷಯಗಳ ಮೇಲೆ ಗಮನ ಹರಿಸುತ್ತಾರೆ, ಮತ್ತು ನಾಲ್ಕು ವರ್ಷಗಳ ಅವಧಿಯಲ್ಲಿ ಪ್ರಾಯೋಗಿಕ ಯೋಜನೆಗಳ ಮೂಲಕ ತಮ್ಮ ಜ್ಞಾನವನ್ನು ಅನ್ವಯಿಸುತ್ತಾರೆ.  \nECE ವಿಭಾಗದಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಮತ್ತು ಸಂವಹನದ ಮೂಲಭೂತಗಳನ್ನು ಕಲಿಯುತ್ತಾರೆ, ನಂತರ ಎಂಬೆಡೆಡ್ ಸಿಸ್ಟಂ ಮತ್ತು ಸಿಗ್ನಲ್ ಪ್ರೊಸೆಸಿಂಗ್ ವಿಷಯಗಳಲ್ಲಿ ಪರಿಣತಿ ಪಡೆಯುತ್ತಾರೆ, ಮತ್ತು ಹಾರ್ಡ್‌ವೇರ್ ಹಾಗೂ ಸಾಫ್ಟ್‌ವೇರ್ ನಡುವಿನ ಸೇತುವೆಯನ್ನು ನಿರ್ಮಿಸುವ ಪ್ರಾಯೋಗಿಕ ಕೆಲಸಗಳನ್ನು ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ಉದ್ಯೋಗಾವಕಾಶಗಳು**  \nCSE ವಿದ್ಯಾರ್ಥಿಗಳು ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್, ಬ್ಯಾಕೆಂಡ್ ಅಥವಾ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪರ್, ಕ್ಲೌಡ್ ಮತ್ತು ಸಿಸ್ಟಂಸ್ ಎಂಜಿನಿಯರ್ ಮುಂತಾದ ಪಾತ್ರಗಳಲ್ಲಿ ಉದ್ಯೋಗ ಪಡೆಯುತ್ತಾರೆ.  \nECE ವಿದ್ಯಾರ್ಥಿಗಳು ಎಂಬೆಡೆಡ್ ಎಂಜಿನಿಯರ್, ಹಾರ್ಡ್‌ವೇರ್ ಡಿಸೈನರ್, ಟೆಲಿಕಾಂ ಸ್ಪೆಷಲಿಸ್ಟ್, IoT ಎಂಜಿನಿಯರ್, ಪರೀಕ್ಷಾ ಇಂಜಿನಿಯರ್ ಅಥವಾ ವಿನ್ಯಾಸ ಇಂಜಿನಿಯರ್ ಮುಂತಾದ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತಾರೆ.  \n\n**ಭವಿಷ್ಯದ ವ್ಯಾಪ್ತಿ (ಮುಂದಿನ 5–10 ವರ್ಷಗಳು)**  \nCSE ವಿಭಾಗದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಡಿಜಿಟಲ್ ಪರಿವರ್ತನೆಯ ಬೇಡಿಕೆ ಮುಂದುವರಿಯುವ ನಿರೀಕ್ಷ",
+          "utterance_kind": "assistant_full_reply_chunk_0",
+          "segment_index": 0,
+          "is_final_segment": false,
+          "showCard": "department_comparison",
+          "intent": "DEPARTMENT_COMPARISON",
+          "direct_reply": false,
+          "rag_used": false,
+          "llm_used": false,
+          "tts_cache_hit": true,
+          "llm_cache_hit": true,
+          "audioUnavailable": false,
+          "type": "assistant_audio_update",
+          "departmentId": "ECE",
+          "comparisonDepartments": [
+            "cse",
+            "ece"
+          ],
+          "comparisonRecommendFocus": "generic",
+          "comparisonHighlightId": "cse",
+          "audioBase64": "[REDACTED_AUDIO]",
+          "tts_streaming": true,
+          "tts_chunk_index": 0,
+          "tts_total_chars": 1096,
+          "tts_total_duration_estimate_ms": 60280,
+          "tts_expected_clip_count": 5,
+          "tts_plan_mode": "answer_long",
+          "tts_metrics": {
+            "tts_requests_per_turn": 0,
+            "tts_retries_per_turn": 0,
+            "tts_chunks_per_turn": 5,
+            "tts_cache_hits_per_turn": 1,
+            "tts_generation_ms": null,
+            "first_audio_ready_ms": 2542.4766999930143,
+            "total_audio_ready_ms": null,
+            "tts_plan_mode": "answer_long",
+            "tts_backup_used": false
+          },
+          "language_code_key": "kn",
+          "language_name": "Kannada",
+          "languageCodeKey": "kn",
+          "languageName": "Kannada",
+          "ttsCode": "kn-IN",
+          "debug": {
+            "timings_ms": {
+              "t_user_end_ms": 0.009199999272823334,
+              "t_llm_start_ms": 1357.8782999962568,
+              "t_llm_first_token_ms": 1357.878999993205,
+              "t_llm_first_sentence_ms": null,
+              "t_llm_end_ms": 1357.8799999952316,
+              "t_tts_start_ms": 2540.6346999928355,
+              "t_tts_audio_ready_ms": 2542.4766999930143,
+              "t_play_start_ms": 619.1148999929428,
+              "t_play_end_ms": 779.1148999929428,
+              "visible_answer_ms": null,
+              "audio_first_ready_ms": 2542.4766999930143,
+              "audio_play_start_ms": 619.1148999929428,
+              "record_end_ms": null,
+              "transcript_ready_ms": 0.009199999272823334,
+              "stt_ms": null,
+              "rag_ms": 0.0819999948143959,
+              "llm_first_token_ms": 1357.878999993205,
+              "llm_ms": 0.0016999989748001099,
+              "tts_first_ms": null,
+              "tts_ms": null,
+              "play_ms": 160,
+              "ttft_ms": 618.8900999948382,
+              "ttfs_ms": 619.1148999929428,
+              "ttff_ms": 618.8900999948382,
+              "total_ms": 2542.519799992442
+            },
+            "tts_metrics": {
+              "tts_requests_per_turn": 0,
+              "tts_retries_per_turn": 0,
+              "tts_chunks_per_turn": 5,
+              "tts_cache_hits_per_turn": 1,
+              "tts_generation_ms": null,
+              "first_audio_ready_ms": 2542.4766999930143,
+              "total_audio_ready_ms": null,
+              "tts_plan_mode": "answer_long",
+              "tts_backup_used": false
+            }
+          },
+          "session_gen": 5,
+          "wire_seq": 25
+        }
+      }
+    }
+  ]
+}
