@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback, type CSSProperties, type Key } from 'react';
+import { indicLanguageFromText } from '../../lib/indicUtils';
 
 interface AnimatedAiMessageProps {
   key?: Key;
@@ -12,7 +13,29 @@ interface AnimatedAiMessageProps {
   playbackProgress?: number;
 }
 
-export default function AnimatedAiMessage({
+export default function AnimatedAiMessage(props: AnimatedAiMessageProps) {
+  const indicLanguage = indicLanguageFromText(props.text);
+
+  if (indicLanguage) {
+    return (
+      <div
+        className={`indic-message-reveal${props.animate === false ? '' : ' indic-message-reveal--animated'} ${props.className ?? ''}`.trim()}
+        lang={indicLanguage}
+        data-indic-script="true"
+        style={{
+          ...props.style,
+          color: 'inherit',
+        }}
+      >
+        {props.text}
+      </div>
+    );
+  }
+
+  return <AnimatedNonIndicMessage {...props} />;
+}
+
+function AnimatedNonIndicMessage({
   text,
   className = '',
   style,

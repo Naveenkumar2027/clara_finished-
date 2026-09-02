@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import type { PresentationCardModel } from '../../../../features/chat/presentation/PresentationCardModel';
+import { SAMPLE_CONTENT_STATUS, uiText } from '../../../../localization/uiCopy';
 import { campusUnitFromLocale } from './campusUnitLocale';
 
 type CampusUnitCardProps = {
@@ -14,6 +15,11 @@ export default function CampusUnitCard({ card, language }: CampusUnitCardProps) 
   const body = (locale?.body || card.content || '').trim();
   const points = Array.isArray(locale?.points) ? locale!.points!.filter(Boolean) : [];
   const sample = (locale?.content_status || '').trim();
+  const showStatus = Boolean(sample && sample !== SAMPLE_CONTENT_STATUS);
+  const showTypeChip = !['faculty', 'location', 'global_placements', 'admissions'].includes(card.cardType);
+  const typeChip = ['hostel', 'canteen', 'event'].includes(card.cardType)
+    ? uiText(language, `cards.${card.cardType}`)
+    : card.cardType;
 
   return (
     <div
@@ -34,8 +40,8 @@ export default function CampusUnitCard({ card, language }: CampusUnitCardProps) 
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 flex flex-col items-start w-full"
       >
-        <div className="premium-stage-chip">{card.cardType}</div>
-        {sample ? <div className="premium-stage-chip mt-2">{sample}</div> : null}
+        {showTypeChip ? <div className="premium-stage-chip">{typeChip}</div> : null}
+        {showStatus ? <div className="premium-stage-chip mt-2">{sample}</div> : null}
         <h2 className="premium-stage-title" style={{ fontSize: '2.4rem' }}>
           {title}
         </h2>

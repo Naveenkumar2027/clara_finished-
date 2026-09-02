@@ -16,7 +16,7 @@ export default function CourseMenuComponent({
     : ['CSE', 'AIML', 'ISE', 'ECE', 'Mechanical', 'Civil', 'MBA', 'Data Science', 'Cyber Security'];
 
   return (
-    <div className="absolute inset-0 z-50 overflow-y-auto no-scrollbar">
+    <div data-testid="course-menu" className="absolute inset-0 z-50 overflow-y-auto no-scrollbar">
       <div className="w-full max-w-[1240px] mx-auto flex flex-col gap-8 min-h-full py-12 px-6">
         
         {/* Header */}
@@ -31,6 +31,7 @@ export default function CourseMenuComponent({
             return (
               <motion.button
                 key={dept}
+                data-testid={`course-menu-option-${idx}`}
                 layoutId={`dept-${dept}`}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}

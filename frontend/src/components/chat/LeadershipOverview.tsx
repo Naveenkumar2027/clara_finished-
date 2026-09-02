@@ -5,6 +5,8 @@ import type { PresentationCardModel } from '../../features/chat/presentation/Pre
 import ThreeDVisual from './cards/ThreeDVisual';
 import PremiumHODCard from './cards/PremiumHODCard';
 import { useCollegeData } from '../../hooks/useCollegeData';
+import { useLanguage } from '../../context/LanguageContext';
+import { buildDepartmentSlideForUnit } from '../../lib/collegeLocaleUtils';
 import hodCseImg from '../../assets/hod_cse.jpg';
 import hodAimlImg from '../../assets/hod_aiml.jpg';
 import hodEceImg from '../../assets/hod_ece.jpg';
@@ -182,6 +184,7 @@ export default function LeadershipOverview({
   onCardClick?: (idx: number) => void;
 }) {
   const collegeData = useCollegeData();
+  const { language } = useLanguage();
 
   const hodModels = Array.isArray(unitCards)
     ? unitCards.filter((m) => m.cardType === 'hod' && m.unitId)
@@ -231,9 +234,12 @@ export default function LeadershipOverview({
     const roleHolders = collegeData.role_holders?.hod_by_department;
     const row = deptKey ? roleHolders?.[deptKey] : undefined;
     const fallback = deptKey ? HOD_FALLBACK[deptKey] : undefined;
+    const localizedHod = deptKey
+      ? buildDepartmentSlideForUnit(collegeData, `${deptKey}.hod`, language)
+      : null;
     const name = row?.hod_name || fallback?.name;
     const title = row?.hod_title || fallback?.title;
-    const bio = row?.hod_bio || fallback?.bio;
+    const bio = row?.hod_bio || localizedHod?.content || fallback?.bio;
     if (deptKey && name && title && bio) {
       return (
         <div
@@ -247,6 +253,7 @@ export default function LeadershipOverview({
             name={name}
             title={title}
             bio={bio}
+            label={localizedHod?.title}
             portrait={HOD_PORTRAITS[deptKey] ?? placeholderImg}
           />
         </div>

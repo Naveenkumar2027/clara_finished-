@@ -45,6 +45,7 @@ import {
 import { getScriptTypography } from '../features/chat/typography';
 import { resolvePagedPlayback, useAudioPlaybackClock } from '../features/chat/reveal';
 import { usePresentationController } from '../features/chat/presentation';
+import { parseCardNavigationCommand } from '../features/chat/presentation/cardNavigation';
 import {
   departmentIdFromUnitId,
   factoryDepartmentLabelFromJsonKey,
@@ -162,6 +163,7 @@ declare global {
       isDepartmentOverviewStage: boolean;
       isInfoSlideStage: boolean;
       unitIds: string[] | null;
+      cardIds: string[] | null;
       unitCardContents?: Array<{ unitId: string; title: string; content: string }>;
       visibleUnitId?: string | null;
       playhead: number;
@@ -193,11 +195,11 @@ const THINKING_TAGLINES: Record<Language, string[]> = {
     uiText('Kannada', 'status.thinking_detail_5'),
   ],
   Hindi: [
-    'आपके सवाल को पढ़कर सही जानकारी जुटा रही हूँ...',
-    'उत्तर सटीक रहे, इसलिए जानकारी दोबारा जाँच रही हूँ...',
-    'आपके लिए स्पष्ट और सरल उत्तर तैयार कर रही हूँ...',
-    'CLARA ज्ञान से सही बिंदु जोड़ रही हूँ...',
-    'बस अभी... सबसे बेहतर जवाब तैयार है...',
+    uiText('Hindi', 'status.thinking_detail_1'),
+    uiText('Hindi', 'status.thinking_detail_2'),
+    uiText('Hindi', 'status.thinking_detail_3'),
+    uiText('Hindi', 'status.thinking_detail_4'),
+    uiText('Hindi', 'status.thinking_detail_5'),
   ],
   Tamil: [
     'உங்கள் கேள்வியை வாசித்து சரியான தகவலை தொகுத்து வருகிறேன்...',
@@ -225,7 +227,7 @@ const THINKING_TAGLINES: Record<Language, string[]> = {
 const THINKING_TITLE: Record<Language, string> = {
   English: 'CLARA is thinking',
   Kannada: uiText('Kannada', 'status.thinking_title'),
-  Hindi: 'CLARA सोच रही है',
+  Hindi: uiText('Hindi', 'status.thinking_title'),
   Tamil: 'CLARA யோசிக்கிறது',
   Telugu: 'CLARA ఆలోచిస్తోంది',
   Malayalam: 'CLARA ചിന്തിക്കുന്നു',
@@ -282,12 +284,14 @@ const DEPARTMENT_UNIT_CARD_TYPES = new Set([
   'department_fees',
 ]);
 
-const CAMPUS_UNIT_CARD_TYPES = new Set(['hostel', 'canteen', 'event']);
+const CAMPUS_UNIT_CARD_TYPES = new Set([
+  'hostel', 'canteen', 'event', 'faculty', 'location', 'global_placements', 'admissions',
+]);
 
 const INFO_STAGE_CHIPS: Record<Language, { placements: string }> = {
   English: { placements: 'Placements & training' },
   Kannada: { placements: uiText('Kannada', 'cards.placements_training') },
-  Hindi: { placements: 'प्लेसमेंट और प्रशिक्षण' },
+  Hindi: { placements: uiText('Hindi', 'cards.placements_training') },
   Tamil: { placements: 'பிளேஸ்மென்ட் மற்றும் பயிற்சி' },
   Telugu: { placements: 'ప్లేస్‌మెంట్ మరియు శిక్షణ' },
   Malayalam: { placements: 'പ്ലേസ്മെന്റും പരിശീലനവും' },
@@ -316,6 +320,14 @@ type VisibleFaqSuggestion = {
 type NarrationPlan = {
   turnId: string;
   mode: 'card_narration';
+  language?: string;
+  cards?: Array<{
+    cardId: string;
+    departmentId?: string | null;
+    entityId?: string | null;
+    unitId?: string | null;
+  }>;
+  activeIndex?: number;
   segments: {
     segmentId: string;
     displayText: string;
@@ -325,6 +337,7 @@ type NarrationPlan = {
     isFinalSegment: boolean;
     sectionId?: string | null;
     unitId?: string | null;
+    canonicalCardId?: string | null;
   }[];
 };
 
@@ -762,6 +775,7 @@ export default function ChatScreen({
   const savedChatFocusRef = useRef<ChatMessage | null>(null);
   const campusTtsSerialRef = useRef(0);
   const processCampusVoiceTranscriptRef = useRef<(transcript: string) => void>(() => {});
+  const cardNavigationRef = useRef<(idx: number) => void>(() => {});
   const audioPrimedRef = useRef(false);
   const sentenceRevealAbortRef = useRef(0);
   const sentenceRevealKeyRef = useRef<string | null>(null);
@@ -871,6 +885,26 @@ export default function ChatScreen({
         return;
       }
       narrationPlanRef.current = plan as NarrationPlan;
+      const incomingCardModels = presentationCardsFromNarrationSegments(plan.segments);
+      if (incomingCardModels.length > 0) {
+        setUnitBackedCards(incomingCardModels);
+        const allHod = incomingCardModels.every((model) => model.cardType === 'hod');
+        const allFees = incomingCardModels.every((model) => model.cardType === 'department_fees');
+        setIsHodStage(allHod);
+        setIsFeesStage(allFees);
+        if (allHod) {
+          const departments = incomingCardModels.map((model) => model.departmentId);
+          setActiveHodDepartments(departments);
+          setActiveTargetDepartment(departments[0] ?? null);
+        } else {
+          setActiveHodDepartments([]);
+        }
+        if (allFees && incomingCardModels.length === 1) {
+          setActiveFeesDepartmentId(incomingCardModels[0]!.departmentId);
+        } else if (!allFees) {
+          setActiveFeesDepartmentId(null);
+        }
+      }
       const turnId = typeof plan.turnId === 'string' ? plan.turnId : '';
       const incomingUnitIds = unitIdsFromSegments(plan.segments);
       const loadedIds = (presentationRef.current.snapshot.scenes || [])
@@ -1144,6 +1178,17 @@ export default function ChatScreen({
         processCampusVoiceTranscriptRef.current(trimmed);
         return;
       }
+      const cardDirection = parseCardNavigationCommand(trimmed);
+      if (cardDirection && Array.isArray(unitBackedCards) && unitBackedCards.length > 0) {
+        const delta = cardDirection === 'next' ? 1 : -1;
+        const targetIndex = Math.min(
+          unitBackedCards.length - 1,
+          Math.max(0, currentCardIdx + delta),
+        );
+        cardNavigationRef.current(targetIndex);
+        onChatUserActivity?.();
+        return;
+      }
       clearSuggestionLayer();
       if (source === 'VOICE') {
         setSurface('chat');
@@ -1176,7 +1221,7 @@ export default function ChatScreen({
       }
     }
     sendMessage(msg);
-  }, [clearSuggestionLayer, resetTurnPresentationState, sendMessage, onChatUserActivity, isCampusNavigationStage]);
+  }, [clearSuggestionLayer, resetTurnPresentationState, sendMessage, onChatUserActivity, isCampusNavigationStage, unitBackedCards, currentCardIdx]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -2675,8 +2720,12 @@ export default function ChatScreen({
       return;
     }
 
-    if (cardTrigger === 'admissions' || cardTrigger === 'college_overview') {
-      // These intents are answered by the backend LLM as text; no card UI.
+    if (
+      (cardTrigger === 'admissions' || cardTrigger === 'college_overview') &&
+      unitModelsFromPayload.length === 0
+    ) {
+      // Legacy payloads without canonical ContentUnits remain text-only. A
+      // registered admissions/location unit must continue to the shared card queue.
       setCourseMenuOptions([]);
       setIsDepartmentOverviewStage(false);
       setActiveDepartmentId(null);
@@ -2734,7 +2783,11 @@ export default function ChatScreen({
       return;
     }
 
-    if (cardTrigger === 'hod') {
+    // Canonical ContentUnit plans must reach the shared unit-card branch below.
+    // This legacy surface-only branch is only for payloads with no representable
+    // department unit; consuming a real HOD plan here would discard repeated and
+    // mixed card identities before queue/navigation setup.
+    if (cardTrigger === 'hod' && unitModelsFromPayload.length === 0) {
       setIsFeesStage(false);
       setActiveFeesDepartmentId(null);
       setIsDocumentsStage(false);
@@ -2866,7 +2919,7 @@ export default function ChatScreen({
       return;
     }
 
-    if (cardTrigger === 'department_overview' || hasDepartmentPlacementUnit(unitModelsFromPayload)) {
+    if (cardTrigger === 'department_overview' || unitModelsFromPayload.length > 0) {
       // UnitSelector is the sole composition authority. The unitIds on narration_plan
       // decide how many cards exist, in which order, and for which department.
       engageCardUiLock(lastPayloadTurnIdRef.current ?? 'ui-local');
@@ -4121,6 +4174,7 @@ export default function ChatScreen({
 
     setCurrentCardIdx(targetIdx);
   }, []);
+  cardNavigationRef.current = handleCardSelect;
 
   const handleCourseMenuSelect = useCallback(
     (departmentName: string) => {
@@ -4480,6 +4534,9 @@ export default function ChatScreen({
         unitIds: Array.isArray(unitBackedCards)
           ? unitBackedCards.map((m) => m.unitId)
           : departmentOverviewDeckUnitIds,
+        cardIds: Array.isArray(unitBackedCards)
+          ? unitBackedCards.map((m) => m.cardId)
+          : null,
         unitCardContents: Array.isArray(unitBackedCards)
           ? unitBackedCards.map((m) => ({
               unitId: m.unitId,
@@ -4902,6 +4959,14 @@ export default function ChatScreen({
                         ? unitBackedCards.filter((m) => m.cardType === 'hod')
                         : null
                     }
+                  />
+                ) : currentUnitCard?.cardType === 'hod' ? (
+                  <LeadershipOverview
+                    cards={[]}
+                    currentCardIdx={0}
+                    targetDepartment={currentUnitCard.departmentId}
+                    targetDepartments={[currentUnitCard.departmentId]}
+                    unitCards={[currentUnitCard]}
                   />
                 ) : currentUnitCard?.cardType === 'department_fees' || isFeesStage ? (
                   <DepartmentFeesCard

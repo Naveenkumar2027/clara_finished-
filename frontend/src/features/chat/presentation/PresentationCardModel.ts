@@ -27,9 +27,14 @@ export type PresentationCardType =
   | 'hostel'
   | 'canteen'
   | 'event'
+  | 'faculty'
+  | 'location'
+  | 'global_placements'
+  | 'admissions'
   | 'unsupported';
 
 export type PresentationCardModel = {
+  cardId: string;
   unitId: string;
   sectionId: string | null;
   cardType: PresentationCardType;
@@ -42,6 +47,7 @@ export type PresentationCardModel = {
 };
 
 export type NarrationSegmentLike = {
+  canonicalCardId?: string | null;
   unitId?: string | null;
   sectionId?: string | null;
   displayText?: string | null;
@@ -49,10 +55,32 @@ export type NarrationSegmentLike = {
   cardIndex?: number | null;
 };
 
+/** Canonical backend card ID → the one existing renderer configuration. */
+export function cardTypeFromCanonicalCardId(cardId: string): PresentationCardType {
+  switch ((cardId || '').trim().toLowerCase()) {
+    case 'department_overview': return 'overview';
+    case 'hod_profile': return 'hod';
+    case 'achievements': return 'achievements';
+    case 'placements': return 'placements';
+    case 'fees': return 'department_fees';
+    case 'principal_profile': return 'principal';
+    case 'vice_principal_profile': return 'vice_principal';
+    case 'trustees': return 'trustees';
+    case 'hostel': return 'hostel';
+    case 'canteen': return 'canteen';
+    case 'event': return 'event';
+    case 'faculty_list': return 'faculty';
+    case 'location': return 'location';
+    case 'admissions': return 'admissions';
+    default: return 'unsupported';
+  }
+}
+
 /** Entity id from unit identity: `hostel.girls.rooms` → `hostel.girls`, `cse_aiml.hod` → `cse_aiml`. */
 export function departmentIdFromUnitId(unitId: string): string {
   const uid = (unitId || '').trim();
   if (!uid) return '';
+  if (uid.startsWith('college.')) return '';
   if (uid.startsWith('hostel.')) {
     const parts = uid.split('.');
     return parts.length >= 2 ? `${parts[0]}.${parts[1]}` : uid;
@@ -80,6 +108,9 @@ export function cardTypeFromUnitId(unitId: string): PresentationCardType {
   if (uid.startsWith('hostel.')) return 'hostel';
   if (uid.startsWith('canteen.')) return 'canteen';
   if (uid.startsWith('events.')) return 'event';
+  if (uid === 'college.location') return 'location';
+  if (uid === 'college.placements') return 'global_placements';
+  if (uid === 'college.admissions') return 'admissions';
 
   const suffix = uid.split('.').slice(1).join('.');
   if (suffix === 'overview') return 'overview';
@@ -87,6 +118,7 @@ export function cardTypeFromUnitId(unitId: string): PresentationCardType {
   if (suffix === 'achievements') return 'achievements';
   if (suffix === 'placements') return 'placements';
   if (suffix === 'fees') return 'department_fees';
+  if (suffix === 'faculty') return 'faculty';
   return 'unsupported';
 }
 
@@ -131,7 +163,12 @@ export function presentationCardsFromNarrationSegments(
     if (!unitId || seen.has(unitId)) return;
     seen.add(unitId);
 
-    const cardType = cardTypeFromUnitId(unitId);
+    const cardId = typeof seg?.canonicalCardId === 'string' ? seg.canonicalCardId.trim() : '';
+    const cardType = unitId.startsWith('college.')
+      ? cardTypeFromUnitId(unitId)
+      : cardId
+        ? cardTypeFromCanonicalCardId(cardId)
+        : cardTypeFromUnitId(unitId);
     const departmentId = departmentIdFromUnitId(unitId);
     const { title, content } = splitDisplay(seg.displayText);
     const cardIndex =
@@ -140,6 +177,7 @@ export function presentationCardsFromNarrationSegments(
         : out.length;
 
     out.push({
+      cardId: cardId || unitId,
       unitId,
       sectionId:
         typeof seg.sectionId === 'string' && seg.sectionId.trim() ? seg.sectionId.trim() : null,

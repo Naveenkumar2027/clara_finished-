@@ -27,9 +27,12 @@ export {
   presentationCardsFromNarrationSegments,
   departmentIdFromUnitId,
   cardTypeFromUnitId,
+  cardTypeFromCanonicalCardId,
   selectedUnitIds,
 } from './PresentationCardModel';
 export type { PresentationCardModel, PresentationCardType } from './PresentationCardModel';
+export { parseCardNavigationCommand } from './cardNavigation';
+export type { CardNavigationDirection } from './cardNavigation';
 
 export {
   buildTimelineFromPlan,
