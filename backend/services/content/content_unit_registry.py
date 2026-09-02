@@ -16,15 +16,27 @@ from backend.services.content.leadership_units import (
     UNIT_VICE_PRINCIPAL,
 )
 from backend.services.content.campus_units import CAMPUS_UNIT_IDS
+from backend.services.content.global_units import (
+    GLOBAL_ENTITY,
+    TOPIC_ADMISSIONS,
+    TOPIC_LOCATION,
+    TOPIC_PLACEMENTS,
+    UNIT_ADMISSIONS,
+    UNIT_LOCATION,
+    UNIT_PLACEMENTS,
+)
 from backend.services.content.types import (
     SURFACE_ADMISSIONS,
     SURFACE_CANTEEN,
+    SURFACE_COLLEGE,
     SURFACE_DEPARTMENT_FEES,
     SURFACE_DEPARTMENT_OVERVIEW,
     SURFACE_DOCUMENTS,
     SURFACE_EVENT,
+    SURFACE_FACULTY,
     SURFACE_HOSTEL,
     SURFACE_PRINCIPAL,
+    SURFACE_PLACEMENTS,
     SURFACE_TRUSTEES,
     SURFACE_VICE_PRINCIPAL,
     ContentType,
@@ -45,6 +57,7 @@ _FEES_CANONICAL_SOURCE = "backend/services/narration_plan.py#_FEES_AMOUNT_BY_KEY
 _DOCUMENTS_CANONICAL_SOURCE = "backend/services/narration_plan.py#DOCUMENT_ITEMS"
 _CAMPUS_CANONICAL_SOURCE = "backend/data/locales/*.json#campus_units"
 _LEADERSHIP_CANONICAL_SOURCE = "backend/services/narration_plan.py#EXEC_PRINCIPAL|EXEC_VICE + locales role_holders"
+_UI_CANONICAL_SOURCE = "backend/data/locales/ui.json"
 
 
 @dataclass(frozen=True)
@@ -82,7 +95,66 @@ def _department_descriptor(dept_key: str, section_id: str) -> ContentUnitDescrip
     )
 
 
+def _faculty_descriptor(dept_key: str) -> ContentUnitDescriptor:
+    return ContentUnitDescriptor(
+        unit_id=f"{dept_key}.faculty",
+        surface=SURFACE_FACULTY,
+        content_type=ContentType.DEPARTMENT.value,
+        entity_type="department",
+        entity_id=dept_key,
+        context="department",
+        context_id=dept_key,
+        section_id="faculty",
+        unit_suffix="faculty",
+        canonical_source=_UI_CANONICAL_SOURCE,
+        adapter_key="faculty",
+        presentation_role="faculty",
+    )
+
+
 _CONTEXT_SCOPED_DESCRIPTORS: tuple[ContentUnitDescriptor, ...] = (
+    ContentUnitDescriptor(
+        unit_id=UNIT_PLACEMENTS,
+        surface=SURFACE_PLACEMENTS,
+        content_type=ContentType.PLACEMENTS.value,
+        entity_type="global",
+        entity_id=GLOBAL_ENTITY,
+        context="global",
+        context_id=TOPIC_PLACEMENTS,
+        section_id=TOPIC_PLACEMENTS,
+        unit_suffix=TOPIC_PLACEMENTS,
+        canonical_source="backend/data/locales/*.json#placements_and_training",
+        adapter_key="aggregate_surface",
+        presentation_role=TOPIC_PLACEMENTS,
+    ),
+    ContentUnitDescriptor(
+        unit_id=UNIT_ADMISSIONS,
+        surface=SURFACE_ADMISSIONS,
+        content_type=ContentType.ADMISSIONS.value,
+        entity_type="global",
+        entity_id=GLOBAL_ENTITY,
+        context="global",
+        context_id=TOPIC_ADMISSIONS,
+        section_id=TOPIC_ADMISSIONS,
+        unit_suffix=TOPIC_ADMISSIONS,
+        canonical_source="backend/data/locales/*.json#admissions_and_fees",
+        adapter_key="aggregate_surface",
+        presentation_role=TOPIC_ADMISSIONS,
+    ),
+    ContentUnitDescriptor(
+        unit_id=UNIT_LOCATION,
+        surface=SURFACE_COLLEGE,
+        content_type=ContentType.COLLEGE.value,
+        entity_type="global",
+        entity_id=GLOBAL_ENTITY,
+        context="global",
+        context_id=TOPIC_LOCATION,
+        section_id=TOPIC_LOCATION,
+        unit_suffix=TOPIC_LOCATION,
+        canonical_source=_UI_CANONICAL_SOURCE,
+        adapter_key="location",
+        presentation_role=TOPIC_LOCATION,
+    ),
     ContentUnitDescriptor(
         unit_id="fees.overview",
         surface=SURFACE_DEPARTMENT_FEES,
@@ -238,6 +310,8 @@ def _all_descriptors_by_id() -> dict[str, ContentUnitDescriptor]:
         for section_id in _DEPT_SLIDE_SECTION_IDS:
             desc = _department_descriptor(dept_key, section_id)
             out[desc.unit_id] = desc
+        faculty = _faculty_descriptor(dept_key)
+        out[faculty.unit_id] = faculty
     for desc in _CONTEXT_SCOPED_DESCRIPTORS:
         out[desc.unit_id] = desc
     for desc in _LEADERSHIP_DESCRIPTORS:

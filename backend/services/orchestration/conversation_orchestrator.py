@@ -187,6 +187,7 @@ class ConversationOrchestrator:
                 or intel.decision.action == PolicyAction.DIRECT_RESPONSE
             ),
             user_text=text or "",
+            semantic_request=getattr(intel, "semantic_request", None),
         )
         orch_event(
             "PRESENTATION_OK",

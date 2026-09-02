@@ -6,6 +6,8 @@ Never uses substring identity (cse must not match inside cse_ds / CSE Data Scien
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
+from pathlib import Path
 
 from backend.services.answer_generation import (
     _CANONICAL_DEPARTMENT_TO_JSON_KEY,
@@ -47,7 +49,27 @@ def _find_unoccupied(hay: str, needle: str, occupied: list[bool], start: int = 0
         from_idx = idx + 1
 
 
-def department_alias_table() -> list[tuple[str, str]]:
+_LOCALE_ALIAS_LANGUAGES = ("en", "kn", "hi", "ta", "te", "ml")
+_LOCALE_ALIAS_DIR = Path(__file__).resolve().parents[2] / "data" / "locales"
+
+
+def _locale_alias_revision() -> tuple[int, ...]:
+    """Cheap cache key that still honours the locale loader's hot-reload contract."""
+    revisions: list[int] = []
+    for language in _LOCALE_ALIAS_LANGUAGES:
+        try:
+            revisions.append((_LOCALE_ALIAS_DIR / f"{language}.json").stat().st_mtime_ns)
+        except OSError:
+            revisions.append(-1)
+    return tuple(revisions)
+
+
+def department_alias_table() -> tuple[tuple[str, str], ...]:
+    return _department_alias_table_cached(_locale_alias_revision())
+
+
+@lru_cache(maxsize=4)
+def _department_alias_table_cached(_revision: tuple[int, ...]) -> tuple[tuple[str, str], ...]:
     """(variant, json_key) longest-first. Canonical labels included."""
     rows: list[tuple[str, str]] = []
     for e in entries_for(category="DEPARTMENT"):
@@ -64,7 +86,7 @@ def department_alias_table() -> list[tuple[str, str]]:
     # the same regional-token injection as the user haystack is essential for
     # compound names such as ``CSE (ಡೇಟಾ ಸೈನ್ಸ್)``: the complete specialization
     # span must consume the parent CSE token instead of returning both identities.
-    for language in ("en", "kn", "hi", "ta", "te", "ml"):
+    for language in _LOCALE_ALIAS_LANGUAGES:
         locale = load_locale_data_for_lang_key(language)
         departments = locale.get("departments") if isinstance(locale, dict) else None
         if not isinstance(departments, dict):
@@ -86,7 +108,7 @@ def department_alias_table() -> list[tuple[str, str]]:
             continue
         seen.add((v, k))
         out.append((v, k))
-    return out
+    return tuple(out)
 
 
 @dataclass(frozen=True)

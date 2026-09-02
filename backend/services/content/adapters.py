@@ -665,6 +665,11 @@ def adapt_campus_unit(req: ResolveRequest) -> CanonicalContent | None:
     return None
 
 
+def adapt_faculty(req: ResolveRequest) -> CanonicalContent | None:
+    """Faculty resolves per department unit via ContentUnitResolver."""
+    return None
+
+
 ADAPTERS: dict[str, Callable[[ResolveRequest], CanonicalContent | None]] = {
     "department": adapt_department,
     "fees": adapt_fees,
@@ -681,6 +686,7 @@ ADAPTERS: dict[str, Callable[[ResolveRequest], CanonicalContent | None]] = {
     "course_menu": adapt_course_menu,
     "faq": adapt_faq,
     "campus_unit": adapt_campus_unit,
+    "faculty": adapt_faculty,
 }
 
 

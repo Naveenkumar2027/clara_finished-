@@ -15,6 +15,7 @@ from backend.services.content.types import (
     SURFACE_DEPARTMENT_OVERVIEW,
     SURFACE_DOCUMENTS,
     SURFACE_FAQ,
+    SURFACE_FACULTY,
     SURFACE_HOD,
     SURFACE_HOSTEL,
     SURFACE_CANTEEN,
@@ -86,6 +87,14 @@ _REGISTRY: dict[str, ContentOwnerDescriptor] = {
         content_type=ContentType.HOD.value,
         canonical_source="backend/data/locales/*.json#departments.*.hod_voice",
         notes="Matches segment_hod_single input. role_holders.hod_by_department is a parallel UI bio.",
+    ),
+    SURFACE_FACULTY: ContentOwnerDescriptor(
+        surface=SURFACE_FACULTY,
+        owner_id="ui.cards.faculty",
+        adapter_key="faculty",
+        content_type=ContentType.FACULTY.value,
+        canonical_source="backend/data/locales/ui.json#cards.faculty|availability.missing_source",
+        notes="Fact-safe localized faculty card produced by the shared ContentUnit resolver.",
     ),
     SURFACE_PLACEMENTS: ContentOwnerDescriptor(
         surface=SURFACE_PLACEMENTS,

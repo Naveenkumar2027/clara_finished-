@@ -21,6 +21,7 @@ from backend.services.content.types import (
 )
 from backend.services.content.validators import compute_unit_hash, validate_content_unit
 from backend.services.narration_plan import dept_labels, _effective_lang
+from backend.services.ui_localization import ui_text
 from backend.services.answer_generation import (
     load_locale_data_for_lang_key,
     locale_file_id_for_lang_key,
@@ -73,6 +74,10 @@ def resolve_unit(
         unit = _resolve_leadership_unit(descriptor, language=language, language_code=language_code)
     elif descriptor.adapter_key == "campus_unit":
         unit = _resolve_campus_unit(descriptor, language=language, language_code=language_code)
+    elif descriptor.adapter_key in {"faculty", "location"}:
+        unit = _resolve_shared_ui_unit(descriptor, language=language, language_code=language_code)
+    elif descriptor.adapter_key == "aggregate_surface":
+        unit = _resolve_aggregate_surface_unit(descriptor, language=language, language_code=language_code)
     else:
         content_event("CONTENT_UNIT_FAILED", unit_id=unit_id, reason="unsupported_adapter")
         return None
@@ -123,6 +128,93 @@ def _resolve_department_unit(
     return _unit_from_department_content(descriptor, content)
 
 
+def _resolve_shared_ui_unit(
+    descriptor: ContentUnitDescriptor,
+    *,
+    language: str,
+    language_code: str,
+) -> ContentUnit:
+    """Resolve fact-safe shared cards without inventing institutional content."""
+    if descriptor.adapter_key == "faculty":
+        title = ui_text(language_code, "cards.faculty")
+        body = ui_text(language_code, "availability.missing_source").replace("\n", " ")
+    else:
+        title = ui_text(language_code, "cards.location")
+        body = ui_text(language_code, "action.location")
+    unit_hash = compute_unit_hash(
+        unit_id=descriptor.unit_id,
+        context=descriptor.context,
+        context_id=descriptor.context_id,
+        section_id=descriptor.section_id,
+        body=body,
+        language_code=language_code,
+        canonical_source=descriptor.canonical_source,
+    )
+    display = (language or "").strip() or LANGUAGE_KEY_TO_NAME.get(language_code, "English")
+    return ContentUnit(
+        unit_id=descriptor.unit_id,
+        surface=descriptor.surface,
+        content_type=descriptor.content_type,
+        entity_type=descriptor.entity_type,
+        entity_id=descriptor.entity_id,
+        context=descriptor.context,
+        context_id=descriptor.context_id,
+        section_id=descriptor.section_id,
+        title=title,
+        summary=body,
+        body=body,
+        language=display,
+        language_code=language_code,
+        canonical_source=descriptor.canonical_source,
+        source_version=_SOURCE_VERSION,
+        content_hash=unit_hash,
+        metadata={"department": descriptor.entity_id} if descriptor.adapter_key == "faculty" else {},
+        keywords=(descriptor.entity_id, descriptor.unit_suffix),
+        presentation_capabilities=("generic_unit",),
+    )
+
+
+def _resolve_aggregate_surface_unit(
+    descriptor: ContentUnitDescriptor,
+    *,
+    language: str,
+    language_code: str,
+) -> ContentUnit | None:
+    content = ContentResolver().resolve(
+        ResolveRequest(
+            surface=descriptor.surface,
+            language=language,
+            language_code=language_code,
+        )
+    )
+    if content is None:
+        return None
+    label_paths = {
+        "objectives": "cards.training_objectives",
+        "training": "cards.training_programs",
+        "eligibility": "cards.eligibility",
+        "entrance_exams": "cards.entrance_exams",
+    }
+    body = "\n".join(
+        f"{ui_text(language_code, label_paths[section.id])}: {section.body}"
+        if section.id in label_paths
+        else (f"{section.title}: {section.body}" if section.title else section.body)
+        for section in content.sections
+        if section.body
+    ).strip()
+    if not body:
+        body = (content.summary or content.title).strip()
+    title_path = (
+        "cards.placements_training"
+        if descriptor.context_id == "placements"
+        else "cards.admissions"
+    )
+    return _unit_from_aggregate_content(
+        descriptor,
+        content,
+        body=body,
+        title=ui_text(language_code, title_path),
+    )
 def _unit_from_department_content(
     descriptor: ContentUnitDescriptor,
     content: CanonicalContent,
@@ -296,7 +388,12 @@ def _resolve_campus_unit(
     body = str(row.get("body") or "").strip()
     summary = str(row.get("tts_summary") or body or title).strip()
     points = row.get("points") if isinstance(row.get("points"), list) else []
-    if points:
+    if content_status == _SAMPLE_CONTENT_STATUS:
+        blocked = ui_text(language_code, "availability.official_fact_blocked").replace("\n", " ")
+        body = blocked
+        summary = blocked
+        points = []
+    elif points:
         extra = "\n".join(str(p).strip() for p in points if str(p).strip())
         if extra and extra not in body:
             body = f"{body}\n{extra}".strip()

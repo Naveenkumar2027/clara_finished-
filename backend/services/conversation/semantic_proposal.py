@@ -37,10 +37,10 @@ FORBIDDEN_PROPOSAL_KEYS: frozenset[str] = frozenset(
 )
 
 CANONICAL_TOPICS: frozenset[str] = frozenset(
-    {"overview", "hod", "fees", "achievements", "placements"}
+    {"overview", "hod", "faculty", "fees", "achievements", "placements", "location"}
 )
 ATOMIC_CARD_TOPICS: frozenset[str] = frozenset(
-    {"hod", "fees", "achievements", "placements", "principal", "vice_principal", "trustees"}
+    {"hod", "faculty", "fees", "achievements", "placements", "location", "principal", "vice_principal", "trustees"}
 )
 ALLOWED_SCOPES: frozenset[str] = frozenset({"single", "full_department"})
 ALLOWED_CLARIFY_TARGETS: frozenset[str] = frozenset(

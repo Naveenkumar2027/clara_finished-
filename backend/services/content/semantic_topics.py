@@ -7,6 +7,8 @@ import re
 from backend.services.content.semantic_vocab.catalog import (
     SCOPE_FULL,
     TOPIC_ACHIEVEMENTS,
+    TOPIC_CONTACT,
+    TOPIC_FACULTY,
     TOPIC_FEES,
     TOPIC_HOD,
     TOPIC_PLACEMENTS,
@@ -16,7 +18,16 @@ from backend.services.content.semantic_vocab.catalog import (
 )
 from backend.services.content.unicode_text import casefold_keep_scripts
 
-ATOMIC_TOPICS = frozenset({TOPIC_HOD, TOPIC_FEES, TOPIC_PLACEMENTS, TOPIC_ACHIEVEMENTS})
+ATOMIC_TOPICS = frozenset(
+    {
+        TOPIC_HOD,
+        TOPIC_FEES,
+        TOPIC_PLACEMENTS,
+        TOPIC_ACHIEVEMENTS,
+        TOPIC_FACULTY,
+        TOPIC_CONTACT,
+    }
+)
 
 
 def _latinish(s: str) -> bool:

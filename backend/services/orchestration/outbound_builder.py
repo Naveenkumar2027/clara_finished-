@@ -37,6 +37,10 @@ class OutboundResponse:
     comparison_recommend_focus: str | None = None
     comparison_highlight_id: str | None = None
     payload_type: str | None = None  # e.g. assistant_audio_update
+    # Language metadata for multilingual support
+    language_code_key: str | None = None
+    language_name: str | None = None
+    tts_code: str | None = None
 
     def to_ws_payload(
         self,
@@ -66,6 +70,10 @@ class OutboundResponse:
             "llm_used": self.llm_used,
             "tts_cache_hit": self.tts_cache_hit,
             "llm_cache_hit": self.llm_cache_hit,
+            # Language fields
+            "languageCodeKey": self.language_code_key,
+            "languageName": self.language_name,
+            "ttsCode": self.tts_code,
         }
         if self.payload_type:
             payload["type"] = self.payload_type
@@ -111,6 +119,9 @@ def build_template_outbound(
         is_final_segment=True,
         rag_used=False,
         llm_used=False,
+        language_code_key=resolution.language_code_key,
+        language_name=resolution.language,
+        tts_code=resolution.tts_code,
     )
 
 
@@ -128,6 +139,9 @@ def build_faq_outbound(
         utterance_kind="assistant_full_reply",
         rag_used=False,
         llm_used=False,
+        language_code_key=resolution.language_code_key,
+        language_name=resolution.language,
+        tts_code=resolution.tts_code,
     )
 
 
@@ -236,4 +250,7 @@ def build_answer_outbound(
         comparison_recommend_focus=comparison_recommend_focus,
         comparison_highlight_id=comparison_highlight_id,
         payload_type=payload_type,
+        language_code_key=resolution.language_code_key,
+        language_name=resolution.language,
+        tts_code=resolution.tts_code,
     )

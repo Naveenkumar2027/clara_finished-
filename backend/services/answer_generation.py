@@ -7,6 +7,7 @@ import hashlib
 import json
 import logging
 import re
+import copy
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -34,6 +35,19 @@ logger = logging.getLogger(__name__)
 
 _LOCALES_DIR = Path(__file__).resolve().parent.parent / "data" / "locales"
 _locale_data_cache: dict[str, dict[str, Any]] = {}
+_locale_data_mtime: dict[str, int] = {}
+
+# Display name -> file id. Mirrors the same set accepted by
+# ui_localization.ui_language_key. Callers that pass a display name
+# (e.g. session["language"] == "Kannada") get the correct file id.
+_DISPLAY_NAME_TO_FILE_ID = {
+    "english": "en",
+    "kannada": "kn",
+    "hindi": "hi",
+    "tamil": "ta",
+    "telugu": "te",
+    "malayalam": "ml",
+}
 
 # Same order as frontend DEPARTMENT_JSON_KEY_ORDER (kiosk HOD / summary cards).
 DEPARTMENT_JSON_KEY_ORDER: tuple[str, ...] = (
@@ -69,41 +83,160 @@ _CANONICAL_DEPARTMENT_TO_JSON_KEY: dict[str, str] = {
 def locale_file_id_for_lang_key(lang_key: str | None) -> str:
     """Basename (no .json) of the single college-data file: backend/data/locales/<id>.json.
 
-    Allowed ids: en, hi, kn, ta, te, ml only. Unrecognized keys fall back to en.
+    Accepted inputs (case-insensitive, locale-suffix tolerant):
+      - short codes: en, kn, hi, ta, te, ml
+      - locale-suffix variants: kn-IN, kn_IN, en-US
+      - display names: English, Kannada, Hindi, Tamil, Telugu, Malayalam
+      - case-insensitive variants: KN, kannada, KANNADA
+    Unrecognized keys fall back to "en" with a logged warning.
     """
-    lk = (lang_key or "").strip().lower()
+    if lang_key is None:
+        return "en"
+    lk = str(lang_key).strip()
+    if not lk:
+        return "en"
+    if "-" in lk:
+        lk = lk.split("-", 1)[0]
+    if "_" in lk:
+        lk = lk.split("_", 1)[0]
+    low = lk.lower()
     mapping = {
+        "en": "en",
         "hi": "hi",
         "kn": "kn",
         "ta": "ta",
         "te": "te",
         "ml": "ml",
     }
-    return mapping.get(lk, "en")
+    if low in mapping:
+        return mapping[low]
+    if low in _DISPLAY_NAME_TO_FILE_ID:
+        return _DISPLAY_NAME_TO_FILE_ID[low]
+    logger.warning(
+        "locale_file_id_for_lang_key: unknown language identifier %r; "
+        "falling back to 'en'",
+        lang_key,
+    )
+    return "en"
 
 
 def load_locale_data_for_lang_key(lang_key: str | None) -> dict[str, Any]:
-    """Load parsed locale JSON for the session language (cached)."""
+    """Load parsed locale JSON for the session language (cached, defensive).
+
+    Contract:
+      - The returned dict is a fresh deep copy on every call, so
+        callers may mutate it freely without affecting the cache or
+        other consumers.
+      - If the on-disk file has been modified since the last load, the
+        cache is invalidated automatically and the new content is
+        loaded. Use reload_locale_data_for_lang_key() to force a
+        refresh from outside the loader.
+      - An unknown language identifier logs a warning and returns the
+        English locale data (the existing passthrough contract for
+        unknown languages is preserved). Callers that require strict
+        kn-only behavior should call is_valid_locale_file_id() first.
+    """
     locale = locale_file_id_for_lang_key(lang_key)
-    if locale in _locale_data_cache:
-        return _locale_data_cache[locale]
     path = _LOCALES_DIR / f"{locale}.json"
-    if not path.is_file():
+    try:
+        mtime = path.stat().st_mtime_ns
+    except FileNotFoundError:
         logger.warning("Narrator: locale file missing: %s", path)
-        _locale_data_cache[locale] = {}
+        _locale_data_cache.pop(locale, None)
         return {}
+    cached_mtime = _locale_data_mtime.get(locale)
+    if locale in _locale_data_cache and cached_mtime == mtime:
+        # Defensive copy: callers must not see the cached reference.
+        return copy.deepcopy(_locale_data_cache[locale])
     try:
         raw = path.read_text(encoding="utf-8")
         data = json.loads(raw)
         if not isinstance(data, dict):
-            _locale_data_cache[locale] = {}
+            _locale_data_cache.pop(locale, None)
+            _locale_data_mtime.pop(locale, None)
             return {}
         _locale_data_cache[locale] = data
-        return data
+        _locale_data_mtime[locale] = mtime
+        return copy.deepcopy(data)
     except Exception as exc:
         logger.warning("Narrator: could not load %s: %s", path, exc)
-        _locale_data_cache[locale] = {}
+        _locale_data_cache.pop(locale, None)
+        _locale_data_mtime.pop(locale, None)
         return {}
+
+
+def reload_locale_data_for_lang_key(lang_key: str | None) -> dict[str, Any]:
+    """Invalidate the locale cache for the given language and re-read the file.
+
+    Use this when backend/data/locales/<id>.json has been updated and
+    the running process must pick up the new content without a
+    restart. Equivalent to clearing the cache and calling
+    load_locale_data_for_lang_key() again.
+    """
+    locale = locale_file_id_for_lang_key(lang_key)
+    _locale_data_cache.pop(locale, None)
+    _locale_data_mtime.pop(locale, None)
+    return load_locale_data_for_lang_key(lang_key)
+
+
+def is_valid_locale_file_id(lang_key: str | None) -> bool:
+    """Return True iff the identifier normalizes to a known locale file id."""
+    if lang_key is None:
+        return False
+    raw = str(lang_key).strip()
+    if not raw:
+        return False
+    if "-" in raw:
+        raw = raw.split("-", 1)[0]
+    if "_" in raw:
+        raw = raw.split("_", 1)[0]
+    low = raw.lower()
+    return low in {"en", "kn", "hi", "ta", "te", "ml"} or low in _DISPLAY_NAME_TO_FILE_ID
+
+
+def refresh_kn_locale_constants() -> None:
+    """Re-evaluate module-level Kannada constants that were bound at import.
+
+    The module binds values like CONTROLLED_FALLBACK_KN and the
+    "Kannada" entries in *_BY_LANGUAGE dicts to ui_text("kn", ...)
+    at import time. If ui.json is updated, those bindings become
+    stale. This function re-evaluates them against the current
+    ui.json content.
+
+    The dicts are mutated in place so any reference that has been
+    already published (e.g. a global registry) sees the fresh value
+    on its next access.
+    """
+    global CONTROLLED_FALLBACK_KN, FALLBACK_MSG_KN
+    # Force a reload of the ui.json cache so the freshest file is read.
+    try:
+        from backend.services.ui_localization import reload_ui_locales
+        reload_ui_locales()
+    except Exception:
+        pass
+    CONTROLLED_FALLBACK_KN = ui_text(
+        "kn", "availability.missing_source"
+    ).replace("\n", " ")
+    FALLBACK_MSG_KN = ui_text("kn", "error.backend")
+    COURSE_MENU_SPOKEN_PROMPT_BY_LANGUAGE["Kannada"] = ui_text(
+        "kn", "action.course_menu"
+    )
+    BUS_ROUTES_SPOKEN_PROMPT_BY_LANGUAGE["Kannada"] = ui_text(
+        "kn", "action.bus_routes"
+    )
+    UNAVAILABLE_REPLY_BY_LANGUAGE["Kannada"] = ui_text(
+        "kn", "availability.missing_source"
+    ).replace("\n", " ")
+    OFF_TOPIC_REPLY_BY_LANGUAGE["Kannada"] = ui_text(
+        "kn", "availability.off_topic"
+    )
+    PROFILE_REPLY_TEMPLATES["Kannada"]["hod"] = ui_text("kn", "profile.hod")
+    PROFILE_REPLY_TEMPLATES["Kannada"]["trustees"] = ui_text(
+        "kn", "profile.trustees"
+    )
+    PROFILE_REPLY_TEMPLATES["Kannada"]["both"] = ui_text(
+        "kn", "profile.hod_and_trustees"
+    )
 
 
 def department_label_to_json_key(label: str | None) -> str | None:
@@ -539,7 +672,7 @@ COURSE_MENU_OPTIONS = [
 
 COURSE_MENU_SPOKEN_PROMPT_BY_LANGUAGE: dict[str, str] = {
     "English": "Here are the departments available at our college. Please select one.",
-    "Kannada": "ನಮ್ಮ ಕಾಲೇಜಿನಲ್ಲಿ ಲಭ್ಯವಿರುವ ವಿಭಾಗಗಳು ಇಲ್ಲಿವೆ. ದಯವಿಟ್ಟು ಒಂದನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    "Kannada": ui_text("kn", "action.course_menu"),
     "Hindi": "हमारे कॉलेज में उपलब्ध विभाग यहां हैं। कृपया एक चुनें।",
     "Tamil": "எங்கள் கல்லூரியில் உள்ள துறைகள் இங்கே உள்ளன. தயவுசெய்து ஒன்றைத் தேர்வு செய்யுங்கள்.",
     "Telugu": "మా కాలేజీలో అందుబాటులో ఉన్న విభాగాలు ఇవి. దయచేసి ఒకదాన్ని ఎంచుకోండి.",
@@ -548,7 +681,7 @@ COURSE_MENU_SPOKEN_PROMPT_BY_LANGUAGE: dict[str, str] = {
 
 BUS_ROUTES_SPOKEN_PROMPT_BY_LANGUAGE: dict[str, str] = {
     "English": "Here are our college bus routes. Select a route to see pickup stops and timings.",
-    "Kannada": "ನಮ್ಮ ಕಾಲೇಜು ಬಸ್ ಮಾರ್ಗಗಳನ್ನು ತೋರಿಸುತ್ತಿದ್ದೇನೆ. ನಿಲ್ಲುವ ಸ್ಥಳಗಳು ಹಾಗೂ ಸಮಯಕ್ಕಾಗಿ ಮಾರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    "Kannada": ui_text("kn", "action.bus_routes"),
     "Hindi": "यहाँ कॉलेज बस के रूट दिखा रही हूँ। स्टॉप और समय देखने के लिए एक रूट चुनें।",
     "Tamil": "கல்லூரி பேருந்து வழிகளைக் காட்டுகிறேன். நிறுத்தங்கள் மற்றும் நேரத்திற்கு ஒரு வழியைத் தேர்வு செய்யவும்.",
     "Telugu": "కాలేజీ బస్ రూట్లను చూపిస్తున్నాను. స్టాప్లు మరియు సమయాల కోసం ఒక రూట్‌ను ఎంచుకోండి.",
@@ -566,7 +699,7 @@ SUPPORTED_LANGUAGES = ("English", "Kannada", "Hindi", "Tamil", "Telugu", "Malaya
 UNAVAILABLE_REPLY_BY_LANGUAGE: dict[str, str] = {
     "English": "I currently don't have that exact detail. Please contact the admission office for precise information.",
     "Kannada": ui_text("kn", "availability.missing_source").replace("\n", " "),
-    "Hindi": "इस समय मेरे पास वह सटीक जानकारी नहीं है। कृपया सटीक विवरण के लिए एडमिशन ऑफिस से संपर्क करें।",
+    "Hindi": ui_text("hi", "availability.missing_source").replace("\n", " "),
     "Tamil": "அந்த துல்லியமான தகவல் இப்போது என்னிடம் இல்லை. சரியான விவரங்களுக்கு அட்மிஷன் அலுவலகத்தை தொடர்புகொள்ளவும்.",
     "Telugu": "ఆ ఖచ్చితమైన వివరాలు ప్రస్తుతం నా వద్ద లేవు. సరైన సమాచారం కోసం దయచేసి అడ్మిషన్ కార్యాలయాన్ని సంప్రదించండి.",
     "Malayalam": "ആ കൃത്യമായ വിശദാംശം ഇപ്പോൾ എനിക്ക് ലഭ്യമല്ല. ദയവായി കൃത്യമായ വിവരങ്ങൾക്ക് അഡ്മിഷൻ ഓഫീസിനെ സമീപിക്കുക.",
@@ -575,8 +708,8 @@ UNAVAILABLE_REPLY_BY_LANGUAGE: dict[str, str] = {
 # different statement from "I know this topic but not that exact figure".
 OFF_TOPIC_REPLY_BY_LANGUAGE: dict[str, str] = {
     "English": "That's outside what I can help with. I can answer questions about SVIT — admissions, departments, fees, placements, faculty and campus facilities.",
-    "Kannada": "ಅದು ನನ್ನ ಸಹಾಯದ ವ್ಯಾಪ್ತಿಯ ಹೊರಗಿದೆ. ನಾನು SVIT ಬಗ್ಗೆ — ಪ್ರವೇಶ, ವಿಭಾಗಗಳು, ಶುಲ್ಕ, ಪ್ಲೇಸ್‌ಮೆಂಟ್, ಅಧ್ಯಾಪಕರು ಮತ್ತು ಕ್ಯಾಂಪಸ್ ಸೌಲಭ್ಯಗಳ ಬಗ್ಗೆ ಉತ್ತರಿಸಬಲ್ಲೆ.",
-    "Hindi": "वह मेरी सहायता के दायरे से बाहर है। मैं SVIT के बारे में — प्रवेश, विभाग, फीस, प्लेसमेंट, शिक्षक और कैंपस सुविधाओं के बारे में उत्तर दे सकती हूँ।",
+    "Kannada": ui_text("kn", "availability.off_topic"),
+    "Hindi": ui_text("hi", "availability.off_topic"),
     "Tamil": "அது நான் உதவக்கூடிய வரம்பிற்கு வெளியே உள்ளது. SVIT பற்றி — சேர்க்கை, துறைகள், கட்டணம், பிளேஸ்மென்ட், ஆசிரியர்கள் மற்றும் வளாக வசதிகள் பற்றி பதிலளிக்க முடியும்.",
     "Telugu": "అది నేను సహాయం చేయగల పరిధికి వెలుపల ఉంది. SVIT గురించి — ప్రవేశాలు, విభాగాలు, ఫీజులు, ప్లేస్‌మెంట్, అధ్యాపకులు మరియు క్యాంపస్ సౌకర్యాల గురించి నేను సమాధానం ఇవ్వగలను.",
     "Malayalam": "അത് എനിക്ക് സഹായിക്കാൻ കഴിയുന്ന പരിധിക്ക് പുറത്താണ്. SVIT-നെക്കുറിച്ച് — അഡ്മിഷൻ, ഡിപ്പാർട്ട്മെന്റുകൾ, ഫീസ്, പ്ലേസ്മെന്റ്, അധ്യാപകർ, ക്യാമ്പസ് സൗകര്യങ്ങൾ എന്നിവയെക്കുറിച്ച് എനിക്ക് ഉത്തരം നൽകാം.",
@@ -1323,9 +1456,9 @@ PROFILE_REPLY_TEMPLATES: dict[str, dict[str, str]] = {
         "both": "Sure. HOD: {hod}. Trustees: {trustees}.",
     },
     "Kannada": {
-        "hod": "{hod} ಅವರು ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರು.",
-        "trustees": "ಟ್ರಸ್ಟಿಗಳು: {trustees}.",
-        "both": "{hod} ಅವರು ವಿಭಾಗದ ಮುಖ್ಯಸ್ಥರು. ಟ್ರಸ್ಟಿಗಳು: {trustees}.",
+        "hod": ui_text("kn", "profile.hod"),
+        "trustees": ui_text("kn", "profile.trustees"),
+        "both": ui_text("kn", "profile.hod_and_trustees"),
     },
     "Hindi": {
         "hod": "ज़रूर। HOD का नाम: {hod}।",
@@ -2022,6 +2155,12 @@ def _inject_regional_department_tokens(text: str) -> str:
         (r"एआईएमएल", " aiml "),
         (r"डेटा\s*साइंस", " data science "),
         (r"डाटा\s*साइंस", " data science "),
+        # Hindi browser/STT acronym forms. Keep these at the normalization
+        # boundary so typed and spoken input enter the same canonical parser.
+        (r"ई\s*सी\s*ई", " ece "),
+        (r"आई\s*एस\s*ई", " ise "),
+        (r"एम\s*बी\s*ए", " mba "),
+        (r"ए\s*आई\s*(?:(?:और|एवं)\s*)?एम\s*एल", " aiml "),
         (r"साइबर\s*सुरक्षा", " cyber security "),
         (r"साइबर\s*सिक्योरिटी", " cyber security "),
         (r"बिजनेस\s*सिस्टम्स", " business systems "),

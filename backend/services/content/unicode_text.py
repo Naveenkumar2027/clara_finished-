@@ -14,8 +14,12 @@ def strip_punctuation_keep_graphemes(text: str) -> str:
     """Replace punctuation/symbols with spaces; keep letters, marks, digits, &_()-."""
     if not text:
         return ""
+    # Compatibility-normalize STT/IME output without transliterating Indic text.
+    text = unicodedata.normalize("NFKC", text)
     out: list[str] = []
     for ch in text:
+        if ch in {"\u200b", "\u200c", "\u200d", "\ufeff"}:
+            continue
         cat = unicodedata.category(ch)
         if cat[0] in ("L", "N", "M") or ch.isspace() or ch in "&()_-":
             out.append(ch)

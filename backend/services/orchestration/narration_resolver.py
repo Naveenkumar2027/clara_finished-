@@ -17,8 +17,8 @@ from backend.services.content.surface_narration_mapper import (
     map_canonical_content_to_segments,
     map_content_units_to_segments,
 )
-from backend.services.content.semantic_request_parser import parse_semantic_request
 from backend.services.content.unit_selector import resolve_units_for_plan, select_content_units
+from backend.services.content.semantic_request_parser import parse_semantic_request
 from backend.services.content.types import SURFACE_DEPARTMENT_OVERVIEW, ResolveRequest
 from backend.services.presentation.presentation_plan_builder import build_full_department_plan
 from backend.services.narration_plan import build_pre_llm_narration_plan
@@ -49,7 +49,7 @@ def resolve_narration(
 
     # M5.2 UNIT-BACKED: when department_overview card is active, narration is owned by
     # UnitSelector → PresentationPlan (never RAG/LLM). Do not hybridize with fixed decks.
-    if resolution.card_surface == SURFACE_DEPARTMENT_OVERVIEW:
+    if resolution.semantic_request is not None or resolution.card_surface == SURFACE_DEPARTMENT_OVERVIEW:
         if _wants_all_departments_narration(user_text or ""):
             return _legacy_plan(
                 intent=intent,
@@ -59,11 +59,16 @@ def resolve_narration(
                 menu_key=None,
             )
 
-        semantic_request = parse_semantic_request(
-            raw_text=user_text or "",
-            language_code_key=resolution.language_code_key or "en",
-            ci_entities=ents,
-        )
+        semantic_request = resolution.semantic_request
+        if semantic_request is None:
+            # Compatibility for direct resolver callers predating the canonical
+            # orchestration contract. Production turns always carry the request
+            # created by Conversation Intelligence and never enter this branch.
+            semantic_request = parse_semantic_request(
+                raw_text=user_text or "",
+                language_code_key=resolution.language_code_key or "en",
+                ci_entities=ents,
+            )
         if semantic_request is None and not ents.get("from_menu"):
             # Fail closed. An unresolved semantic request must never be answered with a
             # guessed department deck; the response decision clarifies instead.
@@ -73,7 +78,7 @@ def resolve_narration(
         if semantic_request:
             plan = select_content_units(
                 semantic_request,
-                surface=SURFACE_DEPARTMENT_OVERVIEW,
+                surface=resolution.card_surface or SURFACE_DEPARTMENT_OVERVIEW,
             )
             # UnitSelector already fails closed, so any plan it returns is authoritative,
             # including mixed-topic and mixed-department compositions.
@@ -100,7 +105,11 @@ def resolve_narration(
                             language=lang_key,
                             user_text=user_text,
                         )
-                        if dept_res.json_key and len(semantic_request.entities) == 1:
+                        if (
+                            resolution.card_surface == SURFACE_DEPARTMENT_OVERVIEW
+                            and dept_res.json_key
+                            and len(semantic_request.entities) == 1
+                        ):
                             content = ContentResolver().resolve(
                                 ResolveRequest(
                                     surface=SURFACE_DEPARTMENT_OVERVIEW,
@@ -122,13 +131,16 @@ def resolve_narration(
                         )
                         return segs
 
-        # LEGACY FALLBACK only when unit-backed path did not select.
-        return _resolve_department_overview(
-            resolution=resolution,
-            entities=ents,
-            department_label=str(dept).strip() if dept else None,
-            user_text=user_text or "",
-        )
+        # Keep the overview compatibility fallback, but never replace an
+        # unavailable specific unit with a broader department overview.
+        if resolution.card_surface == SURFACE_DEPARTMENT_OVERVIEW:
+            return _resolve_department_overview(
+                resolution=resolution,
+                entities=ents,
+                department_label=str(dept).strip() if dept else None,
+                user_text=user_text or "",
+            )
+        return None
 
     if intent == INTENT_DEPARTMENT_OVERVIEW:
         return _resolve_department_overview(

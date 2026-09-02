@@ -156,6 +156,7 @@ async def run_conversation_intelligence(
         intent_result=intent_result,
         decision=decision,
         response_decision=response_decision,
+        semantic_request=semantic_request,
     )
     log_conversation_intelligence(result, turn_id=turn_id, language=language_name)
     return result

@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Sequence
 
+from backend.services.content.card_registry import department_id_for_unit_id
+
 
 def _segment_public_dict(seg: Any) -> dict[str, Any]:
     if hasattr(seg, "public_dict") and callable(seg.public_dict):
@@ -73,10 +75,31 @@ class PresentationBundle:
     content_hash: str | None = None
 
     def narration_plan_payload(self, turn_id: str) -> dict[str, Any]:
-        """Derive existing WS narration_plan shape (no new fields)."""
+        """Derive the WS plan plus an explicit canonical ordered card queue."""
+        cards: list[dict[str, Any]] = []
+        seen_cards: set[tuple[str, str]] = set()
+        for segment in self.segments:
+            card_id = str(segment.get("canonicalCardId") or "").strip()
+            unit_id = str(segment.get("unitId") or "").strip()
+            if not card_id:
+                continue
+            identity = (card_id, unit_id)
+            if identity in seen_cards:
+                continue
+            seen_cards.add(identity)
+            cards.append(
+                {
+                    "cardId": card_id,
+                    "departmentId": department_id_for_unit_id(unit_id),
+                    "unitId": unit_id or None,
+                }
+            )
         return {
             "turnId": turn_id,
             "mode": "card_narration",
+            "language": self.language_code,
+            "cards": cards,
+            "activeIndex": 0,
             "segments": list(self.segments),
         }
 

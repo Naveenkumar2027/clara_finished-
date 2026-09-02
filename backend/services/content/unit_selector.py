@@ -22,6 +22,7 @@ from backend.services.content.leadership_units import (
     is_leadership_topic,
     unit_id_for_leadership_topic,
 )
+from backend.services.content.global_units import is_global_entity, unit_id_for_global_item
 from backend.services.content.multilingual_terms import (
     TOPIC_ACHIEVEMENTS,
     TOPIC_FEES,
@@ -50,6 +51,7 @@ def _unit_id_for_topic(*, dept_key: str, topic: str) -> str | None:
         TOPIC_FEES: "fees",
         TOPIC_ACHIEVEMENTS: "achievements",
         TOPIC_PLACEMENTS: "placements",
+        "faculty": "faculty",
     }
     suffix = suffix_map.get(topic)
     if not suffix:
@@ -59,6 +61,9 @@ def _unit_id_for_topic(*, dept_key: str, topic: str) -> str | None:
 
 def _unit_id_for_item(*, entity: str, topic: str) -> str | None:
     """Map one (entity, topic) pair to a registered unit id. No pairwise special cases."""
+    if is_global_entity(entity):
+        uid = unit_id_for_global_item(entity, topic)
+        return uid if uid and get_unit_descriptor(uid) is not None else None
     if is_campus_entity(entity) or (entity or "").startswith("events.") or (entity or "").startswith("hostel."):
         uid = unit_id_for_campus_item(entity, topic)
         if uid and get_unit_descriptor(uid) is not None:
@@ -78,6 +83,29 @@ def _unit_id_for_item(*, entity: str, topic: str) -> str | None:
 def unit_id_for_item(*, entity: str, topic: str) -> str | None:
     """Public map of one (entity, topic) pair to a registered unit id."""
     return _unit_id_for_item(entity=entity, topic=topic)
+
+
+def semantic_fallback_reason(semantic_request: SemanticRequest | None) -> str | None:
+    """Explain why deterministic card selection cannot complete.
+
+    Parsing and registration are deliberately separate: a known concept such as
+    ``faculty`` must not become ``overview`` merely because this deployment has no
+    faculty ContentUnit/data.
+    """
+    if semantic_request is None:
+        return "UNKNOWN_INTENT"
+    if semantic_request.confidence not in {"HIGH", "MEDIUM"}:
+        return "LOW_CONFIDENCE"
+    if not semantic_request.unit_items:
+        return "MISSING_CARD_TYPE"
+    if not semantic_request.entities and semantic_request.context == "department":
+        return "MISSING_DEPARTMENT"
+    if any(
+        _unit_id_for_item(entity=entity, topic=topic) is None
+        for entity, topic in semantic_request.unit_items
+    ):
+        return "CARD_NOT_REGISTERED"
+    return None
 
 
 def select_content_units(
@@ -162,4 +190,3 @@ def resolve_units_for_plan(plan: PresentationPlan) -> tuple[ContentUnit, ...]:
         if u is not None:
             resolved.append(u)
     return tuple(resolved)
-

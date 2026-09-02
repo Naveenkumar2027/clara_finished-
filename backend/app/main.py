@@ -429,7 +429,6 @@ def _location_direct_reply(language_key: str) -> str:
     mapping = {
         "en": "SVIT is located in Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064.",
         "hi": "SVIT का स्थान Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064 है।",
-        "kn": "SVIT Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064ರಲ್ಲಿ ಇದೆ.",
         "ta": "SVIT Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064-ல் அமைந்துள்ளது.",
         "te": "SVIT Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064లో ఉంది.",
         "ml": "SVIT Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064-ൽ സ്ഥിതിചെയ്യുന്നു.",
@@ -471,14 +470,12 @@ def _card_direct_reply(intent: str, language_key: str, department: str | None = 
             return ui_text("kn", "action.admissions")
         return {
             "hi": "Admission ki jankari screen par dikha rahi hoon.",
-            "kn": "ಪ್ರವೇಶ ಮಾಹಿತಿ ಪರದೆಯ ಮೇಲೆ ತೋರಿಸುತ್ತಿದ್ದೇನೆ.",
         }.get(language_key, "Showing admissions information on screen.")
     if intent == INTENT_PLACEMENTS:
         if language_key == "kn":
             return ui_text("kn", "action.placements")
         return {
             "hi": "Placement ki jankari screen par dikha rahi hoon.",
-            "kn": "ಪ್ಲೇಸ್ಮೆಂಟ್ ಮಾಹಿತಿ ಪರದೆಯ ಮೇಲೆ ತೋರಿಸುತ್ತಿದ್ದೇನೆ.",
         }.get(language_key, "Showing placement information on screen.")
     if intent == INTENT_DEPARTMENT_OVERVIEW:
         if language_key == "kn":
@@ -497,14 +494,12 @@ def _card_direct_reply(intent: str, language_key: str, department: str | None = 
             return ui_text("kn", "action.principal")
         return {
             "hi": "Principal profile screen par dikha raha hoon.",
-            "kn": "ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಪರದೆಯ ಮೇಲೆ ತೋರಿಸುತ್ತಿದ್ದೇನೆ.",
         }.get(language_key, "Showing the Principal profile on screen.")
     if intent == INTENT_VICE_PRINCIPAL_PROFILE:
         if language_key == "kn":
             return ui_text("kn", "action.vice_principal")
         return {
             "hi": "Vice principal profile screen par dikha raha hoon.",
-            "kn": "ಉಪ ಪ್ರಾಂಶುಪಾಲರ ಪ್ರೊಫೈಲ್ ಪರದೆಯ ಮೇಲೆ ತೋರಿಸುತ್ತಿದ್ದೇನೆ.",
         }.get(language_key, "Showing the Vice Principal profile on screen.")
     return None
 
@@ -747,7 +742,7 @@ async def tts_to_base64_cached(
     if cached:
         if metrics is not None:
             metrics["tts_cache_hits_per_turn"] = int(metrics.get("tts_cache_hits_per_turn") or 0) + 1
-        logger.info(
+        logger.warning(
             "TTS_RESULT turn_id=%s kind=%s source=cache audio_bytes=%d wav_duration_s=%.3f",
             turn_id or "-",
             utterance_kind,
@@ -1297,6 +1292,16 @@ async def process_user_text_and_reply(
         conversation_resolution = orch_result.resolution
         session["_conversation_resolution"] = conversation_resolution
         conv_intel_length_kind = conversation_resolution.length_kind or "normal"
+        semantic_request = getattr(conversation_resolution, "semantic_request", None)
+        logger.info(
+            "[CANONICAL_REQUEST] raw=%r language=%s mode=%s items=%s cards=%s fallback=%s",
+            text,
+            getattr(conversation_resolution, "language_code_key", None),
+            getattr(conversation_resolution, "response_mode", None),
+            getattr(semantic_request, "unit_items", None),
+            getattr(semantic_request, "requested_card_ids", None),
+            getattr(conversation_resolution, "degrade_reason", None),
+        )
         if should_short_circuit(orch_result) and conversation_resolution.short_circuit_reply:
             await _emit_direct_conversation_reply(
                 session,
@@ -2382,9 +2387,12 @@ async def process_user_text_and_reply(
             # Presentation localization contract: selected session language must reach
             # the card UI. This is not a TTS architecture change.
             if session.get("language_code_key"):
-                sess_lang_key, sess_lang_name, _ = resolve_session_language(session)
+                sess_lang_key, sess_lang_name, sess_tts_code = resolve_session_language(session)
                 merged["language_code_key"] = sess_lang_key
                 merged["language_name"] = sess_lang_name
+                merged["languageCodeKey"] = sess_lang_key
+                merged["languageName"] = sess_lang_name
+                merged["ttsCode"] = sess_tts_code
             merged.update(debug_payload(timing))
             return merged
 

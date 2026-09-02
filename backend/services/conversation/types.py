@@ -102,3 +102,6 @@ class ConversationIntelligenceResult:
     # Authoritative CARD / ANSWER / CLARIFY / FALLBACK decision for the turn.
     # Typed as Any to keep this module free of content-layer imports.
     response_decision: Any = None
+    # The single canonical language-independent request built by CI. Card and
+    # narration layers consume this object; they must not reparse raw text.
+    semantic_request: Any = None

@@ -58,3 +58,6 @@ class ConversationResolution:
     canonical_surface: str | None = None
     canonical_content_id: str | None = None
     content_hash: str | None = None
+    # Backend-only immutable understanding contract. It is created once by
+    # Conversation Intelligence and consumed by presentation/narration.
+    semantic_request: Any | None = None

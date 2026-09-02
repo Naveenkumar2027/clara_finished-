@@ -37,6 +37,7 @@ from backend.services.content.types import (
     SURFACE_DEPARTMENT_OVERVIEW,
     SURFACE_DOCUMENTS,
     SURFACE_FAQ,
+    SURFACE_FACULTY,
     SURFACE_HOD,
     SURFACE_PLACEMENTS,
     SURFACE_PRINCIPAL,
@@ -59,6 +60,8 @@ _TRIGGER_ALIASES: dict[str, str] = {
     "vice_principal": SURFACE_VICE_PRINCIPAL,
     "hod": SURFACE_HOD,
     "hod_info": SURFACE_HOD,
+    "faculty": SURFACE_FACULTY,
+    "faculty_list": SURFACE_FACULTY,
     "placements": SURFACE_PLACEMENTS,
     "admissions": SURFACE_ADMISSIONS,
     "trustees": SURFACE_TRUSTEES,
@@ -88,6 +91,15 @@ _INTENT_TO_SURFACE: dict[str, str] = {
     INTENT_COURSE_MENU: SURFACE_COURSE_MENU,
     # Composite: prefer HOD card surface (matches successful CARD emit primary)
     INTENT_HOD_TRUSTEES_PROFILE: SURFACE_HOD,
+}
+
+_SEMANTIC_TOPIC_TO_SURFACE: dict[str, str] = {
+    "overview": SURFACE_DEPARTMENT_OVERVIEW,
+    "hod": SURFACE_HOD,
+    "faculty": SURFACE_FACULTY,
+    "fees": SURFACE_DEPARTMENT_FEES,
+    "placements": SURFACE_PLACEMENTS,
+    "admissions": SURFACE_ADMISSIONS,
 }
 
 
@@ -214,7 +226,22 @@ def select_surface(
             source="faq",
         )
 
-    # 4–16) Intent map (priority order among intents is encoded in _INTENT_TO_SURFACE lookup
+    # Canonical semantic requests are more specific than the legacy CI intent.  For
+    # example, an inherited "ECE fees" follow-up can carry the legacy ADMISSIONS
+    # intent while its canonical topic is unambiguously `fees`.
+    semantic_surface = _SEMANTIC_TOPIC_TO_SURFACE.get(str(topic or "").strip().casefold())
+    if semantic_surface:
+        return _finish(
+            surface=semantic_surface,
+            confidence=0.94,
+            reason=f"semantic_topic:{topic}",
+            department=dept,
+            requested_card=requested_norm,
+            semantic_topic=topic,
+            source="semantic_request",
+        )
+
+    # Intent map (priority order among intents is encoded in _INTENT_TO_SURFACE lookup
     # after callers resolve a single intent). When multiple cues exist, intent is already
     # the winner from CI/main; we map that intent to one surface.
     mapped = intent_to_surface(intent)

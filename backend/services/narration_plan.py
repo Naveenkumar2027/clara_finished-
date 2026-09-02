@@ -34,6 +34,7 @@ from backend.services.answer_generation import (
     _wants_all_departments_narration,
 )
 from backend.config.settings import ENABLE_NARRATION_PLAN as SETTINGS_ENABLE_FLAG
+from backend.services.ui_localization import ui_text
 
 logger = logging.getLogger(__name__)
 
@@ -145,13 +146,13 @@ _FEES_LABELS: dict[str, dict[str, str]] = {
         "officeContact": "Please contact the admission office for precise information.",
     },
     "kn": {
-        "title": "ಶುಲ್ಕ",
-        "description": "ಪ್ರಸ್ತುತ ಅಕಾಡೆಮಿಕ್ ಪ್ರವೇಶಕ್ಕಾಗಿ ವಿಭಾಗವಾರು ವಾರ್ಷಿಕ ಶುಲ್ಕ ಮಾಹಿತಿ.",
-        "selectedDepartment": "ಆಯ್ಕೆ ಮಾಡಿದ ವಿಭಾಗ",
-        "department": "ವಿಭಾಗ",
-        "managementQuotaFee": "ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಕೋಟಾ ಶುಲ್ಕ",
-        "otherQuotas": "ಇತರೆ ಕೋಟಾಗಳು",
-        "officeContact": "ನಿಖರ ಮಾಹಿತಿಗಾಗಿ ಪ್ರವೇಶ ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+        "title": ui_text("kn", "cards.fees"),
+        "description": ui_text("kn", "cards.fee_description"),
+        "selectedDepartment": ui_text("kn", "cards.selected_department"),
+        "department": ui_text("kn", "cards.department"),
+        "managementQuotaFee": ui_text("kn", "cards.management_quota_fee"),
+        "otherQuotas": ui_text("kn", "cards.other_quotas"),
+        "officeContact": ui_text("kn", "cards.admission_office_contact"),
     },
     "hi": {
         "title": "फीस",
@@ -205,16 +206,16 @@ DOCUMENT_ITEMS: dict[str, list[str]] = {
         "VTU Eligibility Certificate (if required)",
     ],
     "kn": [
-        "10ನೇ ತರಗತಿ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್",
-        "12ನೇ ಅಥವಾ ದ್ವಿತೀಯ ಪಿಯುಸಿ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್",
-        "ಸಿಇಟಿ ಅಥವಾ ಕೋಮೆಡ್ಕೆ ರ್ಯಾಂಕ್ ಕಾರ್ಡ್ ಮತ್ತು ಅಲಾಟ್ಮೆಂಟ್ ಲೆಟರ್",
-        "ಟ್ರಾನ್ಸ್‌ಫರ್ ಸರ್ಟಿಫಿಕೆಟ್",
-        "ಕಂಡಕ್ಟ್ ಅಥವಾ ಕ್ಯಾರಕ್ಟರ್ ಸರ್ಟಿಫಿಕೆಟ್",
-        "ಜಾತಿ ಅಥವಾ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ ಅಗತ್ಯವಿದ್ದರೆ",
-        "ಆಧಾರ್ ಕಾರ್ಡ್ ಪ್ರತಿಯೊಂದು",
-        "ಪಾಸ್ಪೋರ್ಟ್ ಸೈಸ್ ಫೋಟೋಗಳು ಆರುರಿಂದ ಹತ್ತು",
-        "ಇತರೆ ಬೋರ್ಡ್ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮೈಗ್ರೇಶನ್ ಪ್ರಮಾಣಪತ್ರ",
-        "ಅಗತ್ಯವಿದ್ದರೆ ವಿ ಟಿ ಯು ಅರ್ಹತಾ ಪ್ರಮಾಣಪತ್ರ",
+        ui_text("kn", "documents.items.marks_10"),
+        ui_text("kn", "documents.items.marks_12"),
+        ui_text("kn", "documents.items.rank_allotment"),
+        ui_text("kn", "documents.items.transfer"),
+        ui_text("kn", "documents.items.conduct"),
+        ui_text("kn", "documents.items.caste_income"),
+        ui_text("kn", "documents.items.aadhaar"),
+        ui_text("kn", "documents.items.photos"),
+        ui_text("kn", "documents.items.migration"),
+        ui_text("kn", "documents.items.vtu_eligibility"),
     ],
     "hi": [
         "दसवीं की मार्क्स कार्ड",
@@ -268,7 +269,7 @@ DOCUMENT_ITEMS: dict[str, list[str]] = {
 
 DOCUMENT_TITLES: dict[str, str] = {
     "en": "Required Documents",
-    "kn": "ಅಗತ್ಯವಿರುವ ದಾಖಲಾತಿಗಳು",
+    "kn": ui_text("kn", "documents.title"),
     "hi": "आवश्यक दस्तावेज़",
     "ta": "தேவையான ஆவணங்கள்",
     "te": "అవసరమైన పత్రాలు",
@@ -426,7 +427,7 @@ def _pick_department_prompt_hod(locale_id: str) -> str:
     lk = _effective_lang(locale_id)
     return {
         "en": "Please say or choose a department to hear the Head of Department and vision.",
-        "kn": "HOD ಮತ್ತು ದೃಷ್ಟಿಕೋನಕ್ಕಾಗಿ ದಯವಿಟ್ಟು ವಿಭಾಗವನ್ನು ಹೆಸರಿಸಿ ಅಥವಾ ಆಯ್ಕೆಮಾಡಿ.",
+        "kn": ui_text("kn", "clarification.hod_card"),
         "hi": "विभाग प्रमुख और विज़न सुनने के लिए कृपया विभाग का नाम बताएं या चुनें।",
         "ta": "தலைமை மற்றும் பார்வைக்கு துறையைச் சொல்லுங்கள் அல்லது தேர்ந்தெடுக்கவும்.",
         "te": "HOD మరియు దృష్టికోసం దయచేసి విభాగం పేరు చెప్పండి లేదా ఎంచుకోండి.",
@@ -438,7 +439,7 @@ def _pick_department_prompt_fees(locale_id: str) -> str:
     lk = _effective_lang(locale_id)
     return {
         "en": "Tap or say a department to focus fees, or listen to the full fee overview on screen.",
-        "kn": "ಶುಲ್ಕಕ್ಕಾಗಿ ವಿಭಾಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ, ಅಥವಾ ಪೂರ್ಣ ಶುಲ್ಕ ಪಟ್ಟಿಯನ್ನು ಪರದೆಯಲ್ಲಿ ನೋಡಿ.",
+        "kn": ui_text("kn", "clarification.fees_card"),
         "hi": "शुल्क के लिए विभाग चुनें, या पूरी सूची स्क्रीन पर देखें।",
         "ta": "கட்டணத்திற்கு துறையைத் தேர்ந்தெடுக்கவும், அல்லது முழு பட்டியலைத் திரையில் பார்க்கவும்.",
         "te": "ఫీజు కోసం విభాగాన్ని ఎంచుకోండి లేదా పూర్తి జాబితాను స్క్రీన్‌లో చూడండి.",
@@ -578,6 +579,8 @@ class NarrationSegment:
     section_id: str | None = None
     # Stable content identity for unit-backed composition/activation (additive for M5.2).
     unit_id: str | None = None
+    # Canonical renderer identity. Never localized and never derived from display text.
+    canonical_card_id: str | None = None
 
     def finalize(self, turn_id: str, index: int, total: int) -> None:
         self.segment_id = f"{turn_id}:seg:{index}"
@@ -603,6 +606,8 @@ class NarrationSegment:
             out["sectionId"] = self.section_id
         if self.unit_id:
             out["unitId"] = self.unit_id
+        if self.canonical_card_id:
+            out["canonicalCardId"] = self.canonical_card_id
         return out
 
 
@@ -659,7 +664,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
     lk = lang_key_effective if lang_key_effective in LANG_KEY_FALLBACK_ORDER else "en"
     dept_w = {
         "en": "Department",
-        "kn": "ವಿಭಾಗ",
+        "kn": ui_text("kn", "cards.department"),
         "hi": "विभाग",
         "ta": "துறை",
         "te": "విభాగం",
@@ -669,7 +674,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
         "department": dept_w.get(lk, dept_w["en"]),
         "hodAndVision": {
             "en": "HOD & Vision",
-            "kn": "HOD ಮತ್ತು ದೃಷ್ಟಿಕೋನ",
+            "kn": ui_text("kn", "cards.hod_and_vision"),
             "hi": "HOD और दृष्टिकोण",
             "ta": "HOD மற்றும் பார்வை",
             "te": "HOD మరియు దృక్పథం",
@@ -677,7 +682,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
         }.get(lk, "HOD & Vision"),
         "achievements": {
             "en": "Achievements",
-            "kn": "ಸಾಧನೆಗಳು",
+            "kn": ui_text("kn", "cards.achievements"),
             "hi": "उपलब्धियां",
             "ta": "சாதனைகள்",
             "te": "సాధనలు",
@@ -685,7 +690,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
         }.get(lk, "Achievements"),
         "placements": {
             "en": "Placements",
-            "kn": "ಉದ್ಯೋಗಾವಕಾಶಗಳು",
+            "kn": ui_text("kn", "cards.placements"),
             "hi": "प्लेसमेंट",
             "ta": "வேலைவாய்ப்பு",
             "te": "ప్లేస్‌మెంట్‌లు",
@@ -693,7 +698,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
         }.get(lk, "Placements"),
         "fees": {
             "en": "Fee Structure",
-            "kn": "ಶುಲ್ಕದ ವಿವರಗಳು",
+            "kn": ui_text("kn", "cards.fees"),
             "hi": "शुल्क संरचना",
             "ta": "கட்டண விவரம்",
             "te": "ఫీజు నిర్మాణం",
@@ -701,7 +706,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
         }.get(lk, "Fee Structure"),
         "leadAndVision": {
             "en": "Leadership & Vision",
-            "kn": "ನಾಯಕತ್ವ ಮತ್ತು ದೃಷ್ಟಿಕೋನ",
+            "kn": ui_text("kn", "cards.leadership_and_vision"),
             "hi": "नेतृत्व और दृष्टिकोण",
             "ta": "தலைமை மற்றும் பார்வை",
             "te": "నాయకత్వం మరియు దృక్పథం",
@@ -709,7 +714,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
         }.get(lk, "Leadership & Vision"),
         "notAvail": {
             "en": "Information not available",
-            "kn": "ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ",
+            "kn": ui_text("kn", "cards.information_unavailable"),
             "hi": "जानकारी उपलब्ध नहीं है",
             "ta": "தகவல் கிடைக்கவில்லை",
             "te": "సమాచారం అందుబాటులో లేదు",
@@ -717,7 +722,7 @@ def dept_labels(lang_key_effective: str) -> dict[str, str]:
         }.get(lk, "Information not available"),
         "unlisted": {
             "en": "This department is not listed in the campus knowledge file yet.",
-            "kn": "ಈ ವಿಭಾಗವು ಕ್ಯಾಂಪಸ್ ಜ್ಞಾನದಲ್ಲಿ ಇನ್ನೂ ಪಟ್ಟಿ ಮಾಡಲಾಗಿಲ್ಲ.",
+            "kn": ui_text("kn", "availability.missing_source").replace("\n", " "),
             "hi": "यह विभाग अभी कैंपस नॉलेज में सूचीबद्ध नहीं है।",
             "ta": "இந்தத் துறை இன்னும் கேம்பஸ் அறிவில் பட்டியலிடப்படவில்லை.",
             "te": "ఈ విభాగం ఇంకా క్యాంపస్ నాలెడ్జ్‌లో జాబితా చేయబడలేదు.",
@@ -857,7 +862,13 @@ def _admissions_slides(data: dict[str, Any], locale_id: str) -> list[tuple[str, 
     }
     L_base = LABELS_MAP["en"][0]
     LANG_LABELS = {
-        "kn": ("ಅರ್ಹತೆ", "ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಳು", "ಯುಜಿ ಶುಲ್ಕ (ಉಲ್ಲೇಖ)", "MBA / ಪಿಜಿ ಶುಲ್ಕ", "ವಿದ್ಯಾರ್ಥಿವೇತನಗಳು"),
+        "kn": (
+            ui_text("kn", "cards.eligibility"),
+            ui_text("kn", "cards.entrance_exams"),
+            ui_text("kn", "cards.ug_fees"),
+            ui_text("kn", "cards.pg_fees"),
+            ui_text("kn", "cards.scholarships"),
+        ),
         "hi": ("पात्रता", "प्रवेश परीक्षाएँ", "यूजी शुल्क (संदर्भ)", "MBA / पीजी शुल्क", "छात्रवृत्तियाँ"),
         "ta": ("தகுதி", "நுழைவுத் தேர்வுகள்", "முதுநிலை முன் கட்டணம்", "MBA / முதுநிலை கட்டணம்", "உதவித்தொகைகள்"),
         "te": ("అర్హత", "ప్రవేశ పరీక్షలు", "యుజి ఫీజు (సూచన)", "MBA / పిజి ఫీజు", "విద్యార్థి వేతనాలు"),
@@ -923,8 +934,6 @@ def _admissions_slides(data: dict[str, Any], locale_id: str) -> list[tuple[str, 
 
     pg_body = _clean(fee_rec.get("pg_mba")) if isinstance(fee_rec, dict) else ""
     if lk == "kn":
-        from backend.services.ui_localization import ui_text
-
         blocked_fees = ui_text("kn", "availability.official_fact_blocked")
         ug_body = blocked_fees
         pg_body = blocked_fees

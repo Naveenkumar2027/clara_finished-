@@ -18,9 +18,10 @@ from backend.services.orchestration.types import ConversationResolution, Present
 from backend.services.content.types import (
     SURFACE_DEPARTMENT_FEES,
     SURFACE_DEPARTMENT_OVERVIEW,
+    SURFACE_FACULTY,
     SURFACE_HOD,
 )
-from backend.services.content.semantic_request_parser import parse_semantic_request
+from backend.services.content.semantic_request import SemanticRequest
 from backend.services.content.unit_selector import select_content_units
 
 # Template-only topics: seal as DIRECT → DETERMINISTIC (never emit under GROQ).
@@ -62,7 +63,7 @@ def _plan_is_m52_representable(plan: Any, semantic_request: Any) -> bool:
 # Surfaces whose content is produced by UnitSelector. On a spoken turn they may only
 # be shown when a unit plan exists; otherwise the turn fails closed to no card.
 _UNIT_BACKED_SURFACES: frozenset[str] = frozenset(
-    {SURFACE_DEPARTMENT_OVERVIEW, SURFACE_HOD, SURFACE_DEPARTMENT_FEES}
+    {SURFACE_DEPARTMENT_OVERVIEW, SURFACE_HOD, SURFACE_FACULTY, SURFACE_DEPARTMENT_FEES}
 )
 
 
@@ -72,6 +73,7 @@ def _apply_unit_plan_authority(
     user_text: str,
     entities: dict[str, Any],
     local_intent: dict[str, Any] | None,
+    semantic_request: SemanticRequest | None,
 ) -> None:
     """
     UnitSelector decides whether this turn has a department card, and which one.
@@ -82,13 +84,12 @@ def _apply_unit_plan_authority(
     - a unit-backed surface with no plan is dropped (fail closed), unless the turn
       came from an explicit UI click, which owns its own deck
     """
-    semantic_request = parse_semantic_request(
-        raw_text=user_text,
-        language_code_key=resolution.language_code_key or "en",
-        ci_entities=entities,
-    )
+    # SurfaceSelector has already chosen the canonical surface.  UnitSelector
+    # validates/selects content for that surface; it must not reinterpret a
+    # specific selection (HOD, fees, etc.) as a department overview.
+    requested_surface = resolution.card_surface or SURFACE_DEPARTMENT_OVERVIEW
     plan = (
-        select_content_units(semantic_request, surface=SURFACE_DEPARTMENT_OVERVIEW)
+        select_content_units(semantic_request, surface=requested_surface)
         if semantic_request is not None
         else None
     )
@@ -97,9 +98,9 @@ def _apply_unit_plan_authority(
         # The unit plan is the card authority for this turn. CI intent families
         # (comparison, course menu, fee-vs-hod ladders) must not veto an explicitly
         # requested composition.
-        resolution.card_surface = SURFACE_DEPARTMENT_OVERVIEW
-        resolution.show_card = SURFACE_DEPARTMENT_OVERVIEW
-        resolution.presentation_type = SURFACE_DEPARTMENT_OVERVIEW
+        resolution.card_surface = requested_surface
+        resolution.show_card = requested_surface
+        resolution.presentation_type = requested_surface
         return
 
     from_click = bool(local_intent) or bool((entities or {}).get("from_menu"))
@@ -120,6 +121,7 @@ def resolve_presentation(
     local_intent: dict[str, Any] | None = None,
     faq_matched: bool = False,
     user_text: str = "",
+    semantic_request: SemanticRequest | None = None,
 ) -> ConversationResolution:
     """
     Single presentationMode for the turn. Unsupported topics never become cards.
@@ -133,6 +135,7 @@ def resolve_presentation(
     resolution.semantic_topic = semantic_topic
     resolution.canonical_entities = dict(entities or {})
     resolution.short_circuit_reply = decision.reply_text
+    resolution.semantic_request = semantic_request
 
     from backend.services.content.campus_units import campus_items_from_text
 
@@ -190,7 +193,9 @@ def resolve_presentation(
         return resolution
 
     # Off-topic / location → DETERMINISTIC templates (never GROQ authority).
-    if intent == INTENT_OFF_TOPIC or semantic_topic in _DETERMINISTIC_TOPICS:
+    if intent == INTENT_OFF_TOPIC or (
+        semantic_topic in _DETERMINISTIC_TOPICS and semantic_request is None
+    ):
         resolution.presentation_mode = PresentationMode.DIRECT.value
         resolution.response_type = "direct"
         resolution.should_call_groq = False
@@ -211,7 +216,7 @@ def resolve_presentation(
             resolution=resolution,
             entities=entities,
             local_intent=local_intent,
-            semantic_topic=semantic_topic,
+            semantic_topic=(semantic_request.topic if semantic_request is not None else semantic_topic),
             user_text=user_text,
             intent=intent,
             faq_matched=faq_matched,
@@ -228,6 +233,7 @@ def resolve_presentation(
             user_text=user_text,
             entities=entities,
             local_intent=local_intent,
+            semantic_request=semantic_request,
         )
         return resolution
 
@@ -262,6 +268,7 @@ def resolve_presentation(
             user_text=user_text,
             entities=entities,
             local_intent=local_intent or {"type": "department_click"},
+            semantic_request=semantic_request,
         )
         return resolution
 

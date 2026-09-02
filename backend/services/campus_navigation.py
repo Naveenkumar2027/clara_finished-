@@ -46,6 +46,9 @@ async def handle_campus_navigation_tts(
         "isProcessing": False,
         "turn_id": turn_id,
         "utterance_kind": CAMPUS_NAVIGATION_TTS_ACTION,
+        "languageName": language,
+        "languageCodeKey": code_key,
+        "ttsCode": lang_code,
     }
     if audio_b64:
         payload["audioBase64"] = audio_b64

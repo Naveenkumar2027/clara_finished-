@@ -15,6 +15,7 @@ class ContentType(str, Enum):
     PRINCIPAL = "principal"
     VICE_PRINCIPAL = "vice_principal"
     HOD = "hod"
+    FACULTY = "faculty"
     PLACEMENTS = "placements"
     ADMISSIONS = "admissions"
     TRUSTEES = "trustees"
@@ -35,6 +36,7 @@ SURFACE_DOCUMENTS = "documents"
 SURFACE_PRINCIPAL = "principal_profile"
 SURFACE_VICE_PRINCIPAL = "vice_principal_profile"
 SURFACE_HOD = "hod"
+SURFACE_FACULTY = "faculty"
 SURFACE_PLACEMENTS = "placements"
 SURFACE_ADMISSIONS = "admissions"
 SURFACE_TRUSTEES = "trustees"
@@ -55,6 +57,7 @@ ALL_SURFACES: frozenset[str] = frozenset(
         SURFACE_PRINCIPAL,
         SURFACE_VICE_PRINCIPAL,
         SURFACE_HOD,
+        SURFACE_FACULTY,
         SURFACE_PLACEMENTS,
         SURFACE_ADMISSIONS,
         SURFACE_TRUSTEES,

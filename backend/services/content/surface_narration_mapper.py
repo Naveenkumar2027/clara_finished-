@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from backend.services.content.content_unit import ContentUnit
+from backend.services.content.card_registry import card_id_for_unit_id
 from backend.services.content.content_unit_registry import list_department_unit_descriptors
 from backend.services.content.content_unit_resolver import build_unit_from_section
 from backend.services.content.diagnostics import content_event
@@ -132,6 +133,7 @@ def map_content_units_to_segments(
                 card_id="dept_slide",
                 section_id=unit.section_id,
                 unit_id=unit.unit_id,
+                canonical_card_id=card_id_for_unit_id(unit.unit_id),
             )
         )
     return segments

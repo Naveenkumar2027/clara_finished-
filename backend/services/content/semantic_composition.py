@@ -12,6 +12,7 @@ which `unit_selector` turns into unitIds.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import re
 
 from backend.services.content.department_identity import (
     DepartmentSpan,
@@ -23,6 +24,12 @@ from backend.services.content.unicode_text import casefold_keep_scripts
 
 # Topics that can be positionally bound to a department inside one utterance.
 PAIRABLE_TOPICS = frozenset(ATOMIC_TOPICS | {TOPIC_OVERVIEW})
+
+_LISTED_DEPARTMENT_OVERVIEW_RE = re.compile(
+    r"(?:\bdepartment|ವಿಭಾಗ|विभाग|విభాగం|துறை|വകുപ്പ്)\s*"
+    r"(?:[,;]|\band\b|ಮತ್ತು|और|आणि|మరియు|மற்றும்|കൂടാതെ)",
+    re.IGNORECASE,
+)
 
 _TOPIC_CATEGORIES = frozenset({"TOPIC", "QUESTION", "ROMANIZED", "CODE-SWITCH"})
 
@@ -76,6 +83,15 @@ def detect_topic_spans(text: str) -> tuple[TopicSpan, ...]:
             for i in range(start, end):
                 occupied[i] = True
             spans.append(TopicSpan(topic=canonical, start=start, end=end))
+
+    # In a list, "CSE department, HOD and fees" explicitly requests the
+    # overview as its first item. Delimiter/conjunction gating avoids treating
+    # ordinary grammar such as "HOD of the department" as another card.
+    listed_overview = _LISTED_DEPARTMENT_OVERVIEW_RE.search(text or "")
+    if listed_overview and not any(span.topic == TOPIC_OVERVIEW for span in spans):
+        prefix = casefold_keep_scripts((text or "")[: listed_overview.start()])
+        start = len(prefix) + (1 if prefix else 0)
+        spans.append(TopicSpan(topic=TOPIC_OVERVIEW, start=start, end=start + 1))
     spans.sort(key=lambda s: s.start)
     return tuple(spans)
 
@@ -158,10 +174,62 @@ def pair_entities_and_topics(
         entity = entity_spans[0].json_key
         return tuple(SemanticItem(entity=entity, topic=t) for t in distinct_topics)
 
-    # N topics and N departments: bind by proximity, and only if the binding is total.
-    if len(distinct_topics) != len(entity_spans):
+    # Multiple departments and multiple topic types: bind each explicit topic
+    # occurrence to its nearest department.  Occurrences matter here, not merely
+    # distinct topic names: "CSE HOD, DS HOD, ECE fees" has three clauses but
+    # only two topic types.  Every named department must receive at least one
+    # topic or the composition remains ambiguous and fails closed.
+    return _bind_occurrences_by_proximity(
+        entity_spans=entity_spans,
+        topic_spans=topic_spans,
+    )
+
+
+def _bind_occurrences_by_proximity(
+    *,
+    entity_spans: tuple[DepartmentSpan, ...],
+    topic_spans: tuple[TopicSpan, ...],
+) -> tuple[SemanticItem, ...] | None:
+    bound: list[tuple[int, TopicSpan]] = []
+    assigned_entities: set[int] = set()
+
+    for topic_span in topic_spans:
+        choice: tuple[int, int, int] | None = None
+        for entity_index, entity_span in enumerate(entity_spans):
+            distance = _distance(
+                topic_span.start,
+                topic_span.end,
+                entity_span.start,
+                entity_span.end,
+            )
+            # On an exact tie, prefer the preceding entity.  This matches normal
+            # "CSE HOD" clause order while remaining deterministic for every script.
+            follows_entity = 0 if entity_span.end <= topic_span.start else 1
+            candidate = (distance, follows_entity, entity_index)
+            if choice is None or candidate < choice:
+                choice = candidate
+        if choice is None:
+            return None
+        entity_index = choice[2]
+        assigned_entities.add(entity_index)
+        bound.append((entity_index, topic_span))
+
+    if len(assigned_entities) != len(entity_spans):
         return None
-    return _bind_by_proximity(entity_spans=entity_spans, topic_spans=topic_spans, topics=distinct_topics)
+
+    out: list[SemanticItem] = []
+    seen: set[tuple[str, str]] = set()
+    for entity_index, topic_span in bound:
+        item = SemanticItem(
+            entity=entity_spans[entity_index].json_key,
+            topic=topic_span.topic,
+        )
+        identity = (item.entity, item.topic)
+        if identity in seen:
+            continue
+        seen.add(identity)
+        out.append(item)
+    return tuple(out) or None
 
 
 def _bind_by_proximity(

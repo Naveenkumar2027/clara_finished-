@@ -10,6 +10,8 @@ TOPIC_HOD = "hod"
 TOPIC_FEES = "fees"
 TOPIC_ACHIEVEMENTS = "achievements"
 TOPIC_PLACEMENTS = "placements"
+TOPIC_FACULTY = "faculty"
+TOPIC_CONTACT = "contact"
 SCOPE_FULL = "full_department"
 SCOPE_SINGLE = "single"
 UNSUPPORTED_BUS = "bus"
@@ -39,6 +41,7 @@ _ENTRIES: tuple[VocabEntry, ...] = (
     VocabEntry("fees", "ml", "ഫീസ്", "TOPIC", "malayalam_script_fee"),
     # --- TOPIC: HOD ---
     VocabEntry("hod", "en", "hod", "TOPIC", "english_topic"),
+    VocabEntry("hod", "en", "h o d", "TOPIC", "english_stt_spaced_acronym"),
     VocabEntry("hod", "en", "hods", "TOPIC", "english_topic_plural"),
     VocabEntry("hod", "en", "head of department", "TOPIC", "english_topic"),
     VocabEntry("hod", "en", "head of the department", "TOPIC", "english_topic"),
@@ -53,9 +56,16 @@ _ENTRIES: tuple[VocabEntry, ...] = (
     VocabEntry("hod", "kn", "ಹೆಚ್ಓಡಿ", "TOPIC", "kannada_stt_hod_spelled"),
     VocabEntry("hod", "kn", "ವಿಭಾಗದ ಹೆಡ್", "TOPIC", "kannada_stt_department_head"),
     VocabEntry("hod", "hi", "विभागाध्यक्ष", "TOPIC", "hindi_locale_hod_title"),
+    VocabEntry("hod", "hi", "विभाग प्रमुख", "TOPIC", "hindi_script_hod"),
+    VocabEntry("hod", "hi", "विभाग के प्रमुख", "TOPIC", "hindi_script_hod_postposition"),
+    VocabEntry("hod", "hi", "एचओडी", "TOPIC", "hindi_stt_hod_spelled"),
+    VocabEntry("hod", "hi", "एच ओ डी", "TOPIC", "hindi_stt_hod_spaced"),
+    VocabEntry("hod", "hi", "होद", "TOPIC", "hindi_stt_hod_phonetic"),
     VocabEntry("hod", "ta", "துறைத் தலைவர்", "TOPIC", "tamil_locale_hod_title"),
     VocabEntry("hod", "te", "విభాగం అధిపతి", "TOPIC", "telugu_locale_hod_title"),
     VocabEntry("hod", "ml", "വിഭാഗത്തിന്റെ മേധാവി", "TOPIC", "malayalam_locale_hod_title"),
+    VocabEntry("hod", "kn", "ಎಚ್ ಓ ಡಿ", "TOPIC", "kannada_stt_hod_spelled"),
+    VocabEntry("hod", "kn", "ಹೆಚ್ ಓ ಡಿ", "TOPIC", "kannada_stt_hod_spelled"),
     VocabEntry("hod", "*", "yaaru", "QUESTION", "kannada_who", "low"),
     VocabEntry("hod", "*", "yaar", "QUESTION", "tamil_who", "low"),
     VocabEntry("hod", "*", "kaun", "QUESTION", "hindi_who", "low"),
@@ -81,6 +91,25 @@ _ENTRIES: tuple[VocabEntry, ...] = (
     VocabEntry("placements", "te", "ప్లేస్‌మెంట్", "TOPIC", "telugu_script_placement"),
     VocabEntry("placements", "ml", "പ്ലേസ്‌മെന്റ്", "TOPIC", "malayalam_script_placement"),
     VocabEntry("placements", "ml", "പ്ലേസ്മെന്റ്", "TOPIC", "malayalam_script_placement"),
+    # These concepts are parsed even when a deployment has no corresponding
+    # ContentUnit. Unit selection can then report CARD_NOT_REGISTERED instead of
+    # silently opening the department overview.
+    VocabEntry("faculty", "en", "faculty", "TOPIC", "english_topic"),
+    VocabEntry("faculty", "en", "teachers", "TOPIC", "english_topic"),
+    VocabEntry("faculty", "kn", "ಬೋಧಕರು", "TOPIC", "kannada_script_faculty"),
+    VocabEntry("faculty", "hi", "शिक्षक", "TOPIC", "hindi_script_faculty"),
+    VocabEntry("faculty", "hi", "अध्यापक", "TOPIC", "hindi_script_faculty"),
+    VocabEntry("faculty", "hi", "फैकल्टी", "TOPIC", "hindi_script_faculty_loanword"),
+    VocabEntry("faculty", "te", "అధ్యాపకులు", "TOPIC", "telugu_script_faculty"),
+    VocabEntry("faculty", "ta", "ஆசிரியர்கள்", "TOPIC", "tamil_script_faculty"),
+    VocabEntry("faculty", "ml", "അധ്യാപകർ", "TOPIC", "malayalam_script_faculty"),
+    VocabEntry("contact", "en", "contact details", "TOPIC", "english_topic"),
+    VocabEntry("contact", "en", "contact", "TOPIC", "english_topic"),
+    VocabEntry("contact", "kn", "ಸಂಪರ್ಕ", "TOPIC", "kannada_script_contact"),
+    VocabEntry("contact", "hi", "संपर्क", "TOPIC", "hindi_script_contact"),
+    VocabEntry("contact", "te", "సంప్రదింపు", "TOPIC", "telugu_script_contact"),
+    VocabEntry("contact", "ta", "தொடர்பு", "TOPIC", "tamil_script_contact"),
+    VocabEntry("contact", "ml", "ബന്ധപ്പെടാൻ", "TOPIC", "malayalam_script_contact"),
     # --- TOPIC: achievements (English-only in Stage A evidence; keep purpose-tagged) ---
     VocabEntry("achievements", "en", "achievements", "TOPIC", "english_topic"),
     VocabEntry("achievements", "en", "achievement", "TOPIC", "english_topic"),
@@ -121,6 +150,7 @@ _ENTRIES: tuple[VocabEntry, ...] = (
     VocabEntry("cse_ds", "en", "datascience", "DEPARTMENT", "compound_identity"),
     VocabEntry("cse_ds", "en", "cse ds", "DEPARTMENT", "compound_identity"),
     VocabEntry("cse_ds", "en", "cse_ds", "DEPARTMENT", "json_key"),
+    VocabEntry("cse_ds", "ml", "ഡാറ്റ സയൻസ്", "DEPARTMENT", "malayalam_common_name"),
     VocabEntry("cse_aiml", "en", "cse ai ml", "DEPARTMENT", "compound_identity"),
     VocabEntry("cse_aiml", "en", "cse (ai & ml)", "DEPARTMENT", "canonical_label"),
     VocabEntry("cse_aiml", "en", "cse aiml", "DEPARTMENT", "compound_identity"),
@@ -140,18 +170,27 @@ _ENTRIES: tuple[VocabEntry, ...] = (
     VocabEntry("cse", "en", "computer science engineering", "DEPARTMENT", "full_name"),
     VocabEntry("cse", "en", "computer science", "DEPARTMENT", "full_name"),
     VocabEntry("cse", "en", "cse", "DEPARTMENT", "acronym"),
+    VocabEntry("cse", "en", "c s e", "DEPARTMENT", "english_stt_spaced_acronym"),
     VocabEntry("cse", "kn", "ಸಿಎಸ್ಇ", "DEPARTMENT", "kannada_script_acronym"),
     VocabEntry("cse", "kn", "ಸಿಎಸ್‌ಇ", "DEPARTMENT", "kannada_script_acronym"),
     VocabEntry("cse", "kn", "ಸಿಎಸ್ ಇ", "DEPARTMENT", "kannada_spaced_acronym"),
     VocabEntry("cse", "hi", "सीएसई", "DEPARTMENT", "hindi_script_acronym"),
     VocabEntry("cse", "hi", "सी एस ई", "DEPARTMENT", "hindi_spaced_acronym"),
+    VocabEntry("cse", "hi", "कंप्यूटर साइंस", "DEPARTMENT", "hindi_common_name"),
     VocabEntry("ise", "en", "information science", "DEPARTMENT", "full_name"),
     VocabEntry("ise", "en", "ise", "DEPARTMENT", "acronym"),
     VocabEntry("ece", "en", "electronics", "DEPARTMENT", "full_name", "medium"),
     VocabEntry("ece", "en", "ece", "DEPARTMENT", "acronym"),
+    VocabEntry("ece", "en", "e c e", "DEPARTMENT", "english_stt_spaced_acronym"),
+    VocabEntry("ece", "hi", "ईसीई", "DEPARTMENT", "hindi_script_acronym"),
+    VocabEntry("ece", "hi", "ई सी ई", "DEPARTMENT", "hindi_spaced_acronym"),
     VocabEntry("civil", "en", "civil", "DEPARTMENT", "acronym"),
     VocabEntry("mechanical", "en", "mechanical", "DEPARTMENT", "full_name"),
+    VocabEntry("mechanical", "hi", "मेकेनिकल", "DEPARTMENT", "hindi_stt_variant"),
+    VocabEntry("mechanical", "hi", "मैकैनिकल", "DEPARTMENT", "hindi_stt_variant"),
     VocabEntry("mba", "en", "mba", "DEPARTMENT", "acronym"),
+    VocabEntry("mba", "hi", "एमबीए", "DEPARTMENT", "hindi_script_acronym"),
+    VocabEntry("mba", "hi", "एम बी ए", "DEPARTMENT", "hindi_spaced_acronym"),
     VocabEntry("basic_sciences", "en", "basic sciences", "DEPARTMENT", "full_name"),
 )
 

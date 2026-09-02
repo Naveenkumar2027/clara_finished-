@@ -42,12 +42,16 @@ from backend.services.answer_generation import (
     maybe_override_intent_with_executive_profile,
 )
 from backend.services.content.campus_units import is_bare_hostel_request, is_campus_entity
+from backend.services.content.global_units import is_global_entity
 from backend.services.content.semantic_composition import detect_topic_spans
 from backend.services.content.semantic_request import SemanticRequest
 from backend.services.content.semantic_topics import cue_in_hay, detect_atomic_topics, is_full_department_scope
 from backend.services.content.semantic_vocab.catalog import (
     TOPIC_ACHIEVEMENTS,
+    TOPIC_CONTACT,
+    TOPIC_FACULTY,
     TOPIC_FEES,
+    TOPIC_HOD,
     TOPIC_PLACEMENTS,
 )
 from backend.services.content.semantic_vocab.institution import institution_cues
@@ -146,7 +150,9 @@ _INSTITUTION_LEXICON: tuple[str, ...] = (
 )
 
 # College-wide placement/achievement talk is ANSWER, not "which department?".
-_COLLEGE_WIDE_ANSWER_TOPICS = frozenset({TOPIC_PLACEMENTS, TOPIC_ACHIEVEMENTS})
+_COLLEGE_WIDE_ANSWER_TOPICS = frozenset(
+    {TOPIC_PLACEMENTS, TOPIC_ACHIEVEMENTS, TOPIC_FACULTY, TOPIC_CONTACT}
+)
 _COLLEGE_WIDE_CARD_INTENTS = frozenset({INTENT_PLACEMENTS, INTENT_COLLEGE_OVERVIEW})
 
 # Off-domain topics CLARA must refuse rather than guess at.
@@ -174,6 +180,27 @@ _EXTERNAL_INSTITUTION_CUES: tuple[re.Pattern[str], ...] = (
     re.compile(r"\b(another|other|different)\s+(college|university|institute|institution)\b", re.I),
     re.compile(r"\b(harvard|mit|stanford|oxford|cambridge|iit|nit|bms|rvce|pes|christ|manipal)\b", re.I),
     re.compile(r"\bwith\s+(any\s+)?other\s+(college|university)\b", re.I),
+)
+
+# Qualitative questions ask for an explanation, not a directory/list card.  These
+# are concept cues shared across languages (not complete-sentence rules).
+_QUALITATIVE_CUES: tuple[str, ...] = (
+    "how", "good", "supportive", "quality", "environment", "scene",
+    "hegide", "hegiddare", "chennag", "ಹೇಗ", "ಚೆನ್ನ",
+    "kaisa", "kaise", "kaisi", "theek", "padhate", "कैस", "ठीक", "पढ़ा",
+    "eppadi", "nalla", "எப்படி", "நல்ல",
+    "ela", "bagunda", "bagunnara", "ఎలా", "బాగు",
+    "engane", "nallatha", "nallathano", "എങ്ങനെ", "നല്ല",
+)
+
+_EXPLICIT_CARD_ACTION_CUES: tuple[str, ...] = (
+    "show", "display", "details", "information", "profile", "list", "tell me about",
+    "torisi", "heli", "ತೋರ", "ಹೇಳ", "ಬಗ್ಗೆ",
+    "dikha", "batao", "bataiye", "jankari", "vivaran", "दिख", "बता", "जानकारी", "विवरण",
+    "kattu", "soll", "காட்டு", "சொல்ல", "பற்றி",
+    "chup", "chepp", "చూప", "చెప్ప", "గురించి",
+    "kani", "parayu", "കാണ", "പറയ", "കുറിച്ച്",
+    "दाखव", "सांगा", "माहिती",
 )
 
 
@@ -216,6 +243,11 @@ def is_external_comparison(text: str) -> bool:
 def has_card_topic_cue(text: str) -> bool:
     """A department-scoped topic word (hod / fees / placements / achievements / overview)."""
     return bool(detect_topic_spans(text or ""))
+
+
+def _has_any_concept_cue(text: str, cues: tuple[str, ...]) -> bool:
+    hay = _hay(text)
+    return any(cue_in_hay(hay, cue) for cue in cues)
 
 
 def _has_atomic_card_topic(
@@ -328,11 +360,49 @@ def resolve_response_decision(
     institution_proposal = (
         proposal is not None and proposal.domain is DomainRelevance.INSTITUTION
     )
+    independently_selectable_items = bool(
+        semantic_request is not None
+        and any(
+            is_campus_entity(entity) or is_global_entity(entity)
+            for entity, _ in semantic_request.unit_items
+        )
+    )
+    request_topics = (
+        {topic for _, topic in semantic_request.unit_items}
+        if semantic_request is not None
+        else set()
+    )
+    qualitative_request = _has_any_concept_cue(raw, _QUALITATIVE_CUES)
+    explicit_card_action = _has_any_concept_cue(raw, _EXPLICIT_CARD_ACTION_CUES)
+
+    # A named faculty entity plus an evaluative modifier asks about teaching
+    # quality. A bare/qualitative college-wide placement question likewise asks
+    # for an answer; explicit show/details actions still open canonical cards.
+    if semantic_request is not None and (
+        (request_topics == {TOPIC_FACULTY} and qualitative_request)
+        or (
+            semantic_request.unit_items == (("college", TOPIC_PLACEMENTS),)
+            and not explicit_card_action
+        )
+    ):
+        return _done(
+            ResponseDecision(
+                mode=ResponseMode.ANSWER,
+                domain_relevance=DomainRelevance.INSTITUTION,
+                confidence=0.82,
+                evidence="qualitative_institution_question",
+            )
+        )
     fee_requires_department = (
         semantic_request is None
         and not has_department_entity
         and TOPIC_FEES in detect_atomic_topics(raw)
         and not has_explicit_admissions_cue(raw)
+    )
+    hod_requires_department = (
+        semantic_request is None
+        and not has_department_entity
+        and TOPIC_HOD in detect_atomic_topics(raw)
     )
 
     # 3b. Evaluative institutional question: entity mention is not automatically CARD.
@@ -343,6 +413,8 @@ def resolve_response_decision(
         and proposal.mode_hint is ResponseMode.ANSWER
         and not atomic
         and not fee_requires_department
+        and not hod_requires_department
+        and not independently_selectable_items
         and (ci_intent or "") not in NON_UNIT_CARD_INTENTS
     ):
         return _done(
@@ -361,6 +433,7 @@ def resolve_response_decision(
         and proposal.items
         and semantic_request is None
         and not fee_requires_department
+        and not hod_requires_department
     ):
         return _done(
             ResponseDecision(
@@ -378,12 +451,9 @@ def resolve_response_decision(
     # 3d. Naming a department inside a faculty/campus question is not an overview card.
     # "Datascience teachers hegiddare?" must ANSWER. "Tell me about Data Science" stays CARD.
     # Hostel / canteen / event units are independently selectable cards.
-    campus_items = False
-    if semantic_request is not None:
-        campus_items = any(is_campus_entity(entity) for entity, _ in semantic_request.unit_items)
     if (
         semantic_request is not None
-        and not campus_items
+        and not independently_selectable_items
         and not _has_atomic_card_topic(semantic_request, None)
         and semantic_request.requested_scope != "full_department"
         and relevance is DomainRelevance.INSTITUTION
@@ -432,6 +502,19 @@ def resolve_response_decision(
     intent = maybe_override_intent_with_executive_profile((ci_intent or "").strip(), raw)
 
     # 6. Department-scoped card intent that never resolved an entity: ask, don't guess.
+    if hod_requires_department:
+        return _done(
+            ResponseDecision(
+                mode=ResponseMode.CLARIFY,
+                clarification_target="department",
+                clarification_reason="missing_department",
+                domain_relevance=DomainRelevance.INSTITUTION,
+                confidence=0.9,
+                evidence="hod_topic_without_department",
+                diagnostics={"fallbackReason": "MISSING_DEPARTMENT"},
+            )
+        )
+
     if intent in DEPARTMENT_CARD_INTENTS and not has_department_entity:
         return _done(
             ResponseDecision(
