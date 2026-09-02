@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  cardTypeFromCanonicalCardId,
   cardTypeFromUnitId,
   departmentIdFromUnitId,
   factoryDepartmentLabelFromJsonKey,
@@ -10,10 +11,20 @@ import {
 } from '../PresentationCardModel';
 
 describe('PresentationCardModel identity helpers', () => {
+  it('maps canonical card IDs independently of localized text and unit shape', () => {
+    expect(cardTypeFromCanonicalCardId('department_overview')).toBe('overview');
+    expect(cardTypeFromCanonicalCardId('hod_profile')).toBe('hod');
+    expect(cardTypeFromCanonicalCardId('fees')).toBe('department_fees');
+    expect(cardTypeFromCanonicalCardId('principal_profile')).toBe('principal');
+    expect(cardTypeFromCanonicalCardId('faculty_list')).toBe('faculty');
+    expect(cardTypeFromCanonicalCardId('location')).toBe('location');
+  });
+
   it('derives departmentId from unitId (never collapses multi-HOD)', () => {
     expect(departmentIdFromUnitId('cse_aiml.hod')).toBe('cse_aiml');
     expect(departmentIdFromUnitId('cse_ds.hod')).toBe('cse_ds');
     expect(departmentIdFromUnitId('cse.fees')).toBe('cse');
+    expect(departmentIdFromUnitId('college.location')).toBe('');
   });
 
   it('maps department unit shapes by unitId, not topic name', () => {
@@ -29,6 +40,10 @@ describe('PresentationCardModel identity helpers', () => {
     expect(cardTypeFromUnitId('hostel.boys.fees')).toBe('hostel');
     expect(cardTypeFromUnitId('canteen.hygiene')).toBe('canteen');
     expect(cardTypeFromUnitId('events.techvidya')).toBe('event');
+    expect(cardTypeFromUnitId('cse.faculty')).toBe('faculty');
+    expect(cardTypeFromUnitId('college.location')).toBe('location');
+    expect(cardTypeFromUnitId('college.placements')).toBe('global_placements');
+    expect(cardTypeFromUnitId('college.admissions')).toBe('admissions');
     expect(cardTypeFromUnitId('cse_bs.overview')).toBe('overview');
     expect(cardTypeFromUnitId('cse_bs.hod')).toBe('hod');
     expect(cardTypeFromUnitId('cse_bs.achievements')).toBe('achievements');
@@ -46,11 +61,16 @@ describe('PresentationCardModel identity helpers', () => {
 describe('presentationCardsFromNarrationSegments — no hidden expansion', () => {
   it('builds N models from N unitIds in order', () => {
     const models = presentationCardsFromNarrationSegments([
-      { unitId: 'cse.overview', sectionId: 'intro', displayText: 'Overview\nBody', cardIndex: 0 },
-      { unitId: 'cse.hod', sectionId: 'hod_voice', displayText: 'HOD\nBody', cardIndex: 1 },
-      { unitId: 'cse.fees', sectionId: 'fees', displayText: 'Fees\nBody', cardIndex: 2 },
+      { canonicalCardId: 'department_overview', unitId: 'cse.overview', sectionId: 'intro', displayText: 'Overview\nBody', cardIndex: 0 },
+      { canonicalCardId: 'hod_profile', unitId: 'cse.hod', sectionId: 'hod_voice', displayText: 'HOD\nBody', cardIndex: 1 },
+      { canonicalCardId: 'fees', unitId: 'cse.fees', sectionId: 'fees', displayText: 'Fees\nBody', cardIndex: 2 },
     ]);
     expect(selectedUnitIds(models)).toEqual(['cse.overview', 'cse.hod', 'cse.fees']);
+    expect(models.map((model) => model.cardId)).toEqual([
+      'department_overview',
+      'hod_profile',
+      'fees',
+    ]);
     expect(models).toHaveLength(3);
   });
 

@@ -18,10 +18,10 @@ describe('Kannada UI authority and display fidelity', () => {
       'ಸ್ವಾಗತ.\nಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?',
     );
     expect(uiText('Kannada', 'welcome.named_narration', { name: 'ಆಶಾ' })).toBe(
-      'ಆಶಾ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?',
+      'ಆಶಾ ಅವರೇ, ಸ್ವಾಗತ. ಇಂದು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?',
     );
     expect(uiText('Kannada', 'status.processing')).toBe(
-      'ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಪರಿಶೀಲಿಸುತ್ತಿದ್ದೇನೆ…',
+      'ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ…',
     );
   });
 
@@ -70,7 +70,7 @@ describe('Kannada UI authority and display fidelity', () => {
 
   it('centralizes Kannada document and comparison copy in the shared contract', () => {
     expect(uiText('Kannada', 'documents.title')).toBe('ಅಗತ್ಯ ದಾಖಲೆಗಳು');
-    expect(uiText('Kannada', 'documents.items.aadhaar')).toBe('ಆಧಾರ್ ಕಾರ್ಡ್ ಪ್ರತಿ');
+    expect(uiText('Kannada', 'documents.items.aadhaar')).toBe('ಆಧಾರ್ ಕಾರ್ಡ್‌ನ ಪ್ರತಿ');
     expect(uiText('Kannada', 'comparison.heading')).toBe('ಕಾರ್ಯಕ್ರಮಗಳ ಹೋಲಿಕೆ');
   });
 });

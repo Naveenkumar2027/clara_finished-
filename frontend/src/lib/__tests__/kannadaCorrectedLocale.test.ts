@@ -7,6 +7,7 @@ import {
   buildDepartmentSlideForUnit,
   buildPlacementCardsFromLocale,
 } from '../collegeLocaleUtils';
+import { PRINCIPAL_COPY, VICE_PRINCIPAL_COPY } from '../executiveLeadershipLocale';
 
 type AuthoritativeKannada = {
   departments: Record<string, {
@@ -22,6 +23,8 @@ type AuthoritativeKannada = {
     };
   };
   role_holders: {
+    principal: { name: string; title: string; profile: string };
+    vice_principal: { name: string; title: string; profile: string };
     trustees: Array<{ designation?: string }>;
     hod_by_department: Record<string, { department_name?: string }>;
   };
@@ -92,6 +95,17 @@ describe('approved Kannada V2 locale integration', () => {
     expect(placement[2]?.content).not.toContain('…');
     expect(placement[2]?.content).toContain(details.objectives[2]);
     expect(placement[2]?.content).toContain(details.training_programs[4]);
+  });
+
+  it('drives Kannada executive cards from the authoritative role-holder locale', () => {
+    const holders = authoritative.role_holders;
+
+    expect(PRINCIPAL_COPY.Kannada.name).toBe(holders.principal.name);
+    expect(PRINCIPAL_COPY.Kannada.title).toBe(holders.principal.title);
+    expect(PRINCIPAL_COPY.Kannada.bio).toBe(holders.principal.profile);
+    expect(VICE_PRINCIPAL_COPY.Kannada.name).toBe(holders.vice_principal.name);
+    expect(VICE_PRINCIPAL_COPY.Kannada.title).toBe(holders.vice_principal.title);
+    expect(VICE_PRINCIPAL_COPY.Kannada.bio).toBe(holders.vice_principal.profile);
   });
 
   it('selects the explicit Kannada font preset', () => {

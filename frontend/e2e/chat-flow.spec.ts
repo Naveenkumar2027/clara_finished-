@@ -248,7 +248,7 @@ test.describe('CLARA chat flow', () => {
       await selectInlineLanguage(page, language);
       await completeInlineGuestNameGate(page);
 
-      await expect(page.getByRole('button', { name: /Voice input|Tap to speak/i })).toBeVisible({ timeout: 15000 });
+      await expect(page.getByTestId('chat-orb')).toBeVisible({ timeout: 15000 });
     });
   }
 });

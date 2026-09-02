@@ -14,6 +14,7 @@ describe('toDepartmentKey', () => {
 
 describe('hodCopyFromUnitCard', () => {
   const knModel: PresentationCardModel = {
+    cardId: 'hod_profile',
     unitId: 'cse_ds.hod',
     sectionId: 'hod_voice',
     cardType: 'hod',
