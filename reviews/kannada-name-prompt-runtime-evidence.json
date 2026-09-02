@@ -159,7 +159,7 @@
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ui.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/ui.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
@@ -709,32 +709,32 @@
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/en.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/en.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/hi.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/hi.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/kn.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/kn.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ta.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/ta.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/te.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/te.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ml.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/ml.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
@@ -804,7 +804,7 @@
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/faq_answers.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/faq_answers.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
@@ -1034,7 +1034,7 @@
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ui.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/ui.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
@@ -1659,7 +1659,7 @@
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/kn.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/kn.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
@@ -1669,32 +1669,32 @@
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/te.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/te.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ta.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/ta.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/hi.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/hi.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/faq_answers.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/faq_answers.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/en.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/en.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
     {
-      "url": "http://localhost:5176/@fs/C:/Users/aashu/OneDrive/Desktop/CLARA%20FIN/clara_finished-/backend/data/locales/ml.json?import",
+      "url": "http://localhost:5176/@fs/REPOSITORY_ROOT/backend/data/locales/ml.json?import",
       "status": 200,
       "cacheControl": "no-cache"
     },
