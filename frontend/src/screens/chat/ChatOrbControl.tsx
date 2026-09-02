@@ -105,7 +105,6 @@ export default function ChatOrbControl({
             compact={isCompactLayout}
             width={targetWidth}
             height={targetHeight}
-            onTap={onTap}
           />
         </motion.div>
 

@@ -5,7 +5,6 @@ export interface HorizontalVoiceAnalyserProps {
   amplitude: number; // 0 to 1 normalized visual amplitude
   frequencyDataRef?: React.RefObject<Uint8Array | null>;
   compact?: boolean;
-  onTap?: () => void;
   width?: number;
   height?: number;
   className?: string;
@@ -37,7 +36,6 @@ export default function HorizontalVoiceAnalyser({
   amplitude,
   frequencyDataRef,
   compact = false,
-  onTap,
   width: propWidth,
   height: propHeight,
   className = '',
@@ -382,22 +380,13 @@ export default function HorizontalVoiceAnalyser({
 
   return (
     <div
-      className={`relative flex items-center justify-center pointer-events-auto cursor-pointer ${className}`}
+      className={`relative flex items-center justify-center pointer-events-none ${className}`}
       style={{
         width: targetWidth,
         height: targetHeight,
         ...style,
       }}
-      onClick={onTap}
-      role="button"
-      tabIndex={0}
-      aria-label={isListening ? 'Voice listening analyser' : 'Voice input'}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onTap?.();
-        }
-      }}
+      aria-hidden="true"
     >
       <canvas
         ref={canvasRef}
