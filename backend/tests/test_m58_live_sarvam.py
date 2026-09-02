@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import base64
+import os
 import time
 import unittest
 
@@ -27,7 +28,18 @@ def _is_riff(b64: str) -> bool:
     return len(raw) >= 12 and raw[:4] == b"RIFF" and raw[8:12] == b"WAVE"
 
 
-@unittest.skipUnless(bool(SARVAM_API_KEY), "SARVAM_API_KEY not configured; live TTS skipped")
+_RUN_LIVE_SARVAM = os.getenv("RUN_LIVE_SARVAM_TESTS", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
+
+
+@unittest.skipUnless(
+    bool(SARVAM_API_KEY) and _RUN_LIVE_SARVAM,
+    "live Sarvam TTS requires SARVAM_API_KEY and RUN_LIVE_SARVAM_TESTS=1",
+)
 class TestM58LiveSarvam(unittest.IsolatedAsyncioTestCase):
     async def test_short_phrases_all_six_languages(self) -> None:
         results: list[dict] = []

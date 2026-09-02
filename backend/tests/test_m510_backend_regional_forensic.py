@@ -121,7 +121,7 @@ class TestM510BackendRegionalForensic(unittest.TestCase):
             record["content_tts_identity"] = {"pass": content_ok, "error": content_error}
             record["first_failed_stage"] = first_failed_stage
             record["final_verdict"] = verdict
-            print("M510_BACKEND_TRACE " + json.dumps(record, ensure_ascii=False, sort_keys=True))
+            print("M510_BACKEND_TRACE " + json.dumps(record, ensure_ascii=True, sort_keys=True))
             if actual_ids != list(expected_ids):
                 failures.append(
                     f"{label}: first failed stage={first_failed_stage}; expected={expected_ids}; actual={actual_ids}"

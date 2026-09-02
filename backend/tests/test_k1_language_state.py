@@ -238,7 +238,10 @@ class TestWebSocketLanguageLifecycle(unittest.TestCase):
                 with patch(
                     "backend.app.main.tts_to_base64_cached",
                     return_value=(fake_audio, {"cache_hit": False}),
-                ) as tts_mock:
+                ) as tts_mock, patch(
+                    "backend.app.main.get_wakeup_language_gate_display_text",
+                    return_value="Good afternoon. I am CLARA, your campus assistant.",
+                ):
                     self._send(ws, {"action": "conversation_started"})
                     greeting = ws.receive_json()
                 payload = greeting.get("payload") or {}
