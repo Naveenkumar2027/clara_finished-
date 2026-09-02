@@ -208,8 +208,36 @@ class TestM53WsUnitIdParity(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(segs[1].get("unitId"), "cse_ds.hod")
         self.assertEqual(segs[2].get("unitId"), "cse.hod")
         self.assertEqual({s.get("sectionId") for s in segs[:3]}, {"hod_voice"})
+        self.assertEqual(
+            [s.get("canonicalCardId") for s in segs[:3]],
+            ["hod_profile", "hod_profile", "hod_profile"],
+        )
+        self.assertEqual(plan.get("language"), "en")
+        self.assertEqual(plan.get("activeIndex"), 0)
+        self.assertEqual(
+            plan.get("cards"),
+            [
+                {"cardId": "hod_profile", "departmentId": "cse_aiml", "unitId": "cse_aiml.hod"},
+                {"cardId": "hod_profile", "departmentId": "cse_ds", "unitId": "cse_ds.hod"},
+                {"cardId": "hod_profile", "departmentId": "cse", "unitId": "cse.hod"},
+            ],
+        )
         self.assertNotEqual(segs[0].get("ttsText"), segs[1].get("ttsText"))
         self.assertNotEqual(segs[1].get("ttsText"), segs[2].get("ttsText"))
+
+    async def test_mixed_kannada_card_contract_is_canonical_and_localized(self) -> None:
+        plan = await self._run_card_turn_plan("data science hod ಯಾರು?", lang_key="kn")
+        self.assertEqual(plan.get("language"), "kn")
+        self.assertEqual(plan.get("activeIndex"), 0)
+        self.assertEqual(
+            plan.get("cards"),
+            [{"cardId": "hod_profile", "departmentId": "cse_ds", "unitId": "cse_ds.hod"}],
+        )
+        segments = [s for s in plan.get("segments") or [] if isinstance(s, dict)]
+        self.assertTrue(segments)
+        self.assertEqual(segments[0].get("canonicalCardId"), "hod_profile")
+        self.assertRegex(str(segments[0].get("displayText") or ""), r"[\u0C80-\u0CFF]")
+        self.assertRegex(str(segments[0].get("ttsText") or ""), r"[\u0C80-\u0CFF]")
 
     async def test_explicit_mixed_composition_ws_order(self) -> None:
         raw = "Data Science overview, AIML HOD and CSE fees"

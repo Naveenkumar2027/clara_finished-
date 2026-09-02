@@ -46,11 +46,12 @@ class TestPhase2DRegistryForensics(unittest.TestCase):
                         self.assertNotIn(banned, lowered)
                     self.assertEqual(segs[0].unit_id, desc.unit_id)
 
-    def test_campus_units_remain_sample(self) -> None:
+    def test_campus_sample_metadata_is_never_exposed(self) -> None:
         for uid in CAMPUS_UNIT_IDS:
             unit = resolve_unit(unit_id=uid, language="en", language_code="en")
             assert unit is not None
-            self.assertIn(SAMPLE_STATUS, unit.body)
+            self.assertNotIn(SAMPLE_STATUS, unit.body)
+            self.assertIn("officially confirmed", unit.body)
 
 
 class TestPhase2DCombinations(unittest.TestCase):

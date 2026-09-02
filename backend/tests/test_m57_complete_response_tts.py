@@ -161,6 +161,10 @@ class TestM57CompleteResponseTts(unittest.IsolatedAsyncioTestCase):
                     await main.process_user_text_and_reply(session, "Are there good labs?", ws, timing)
 
                 final = _final_audio(_unwrap(ws.events))
+                # Verify language metadata
+                self.assertEqual(final.get("languageCodeKey"), lang_key)
+                self.assertEqual(final.get("languageName"), lang_name)
+                self.assertEqual(final.get("ttsCode"), lang_code)
                 self.assertIn(lang_code, seen_codes)
                 self.assertEqual(final.get("tts_audio_queue"), [WAV])
                 self.assertFalse(final["audioUnavailable"])

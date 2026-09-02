@@ -173,6 +173,18 @@ APPROVED_POST_V2_REMEDIATION_OVERRIDES: dict[str, dict[str, str]] = {
 }
 
 
+# AI-reviewed wording introduced by the 2026-08-30 sentence-level linguistic
+# pass. These values are exact production goldens but are deliberately not
+# labelled human-approved.
+AI_LINGUISTIC_REVIEW_VALUES: dict[str, str] = {
+    "departments.mba.hod_voice": "25+ ವರ್ಷಗಳ ಅನುಭವ ಹೊಂದಿರುವ ಡಾ. ಜೋಗೀಶ್ ಡಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ, ಹಣಕಾಸು, HR, IT ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ವಿಶೇಷೀಕರಣಗಳಲ್ಲಿ ಪರಿಣತಿ ನೀಡಲಾಗುತ್ತದೆ.",
+    "placements_and_training.objectives": "1. 100% ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಸಹಾಯ ಮತ್ತು ವೃತ್ತಿಪರ ವೃತ್ತಿ ಮಾರ್ಗದರ್ಶನ ನೀಡುವುದು. 2. ಸಂವಹನ, ಅಭಿಕ್ಷಮತೆ, ತಾಂತ್ರಿಕ ಜ್ಞಾನ ಮತ್ತು ಸಂದರ್ಶನ ಸಿದ್ಧತೆಯಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ತರಬೇತಿ ನೀಡುವುದು. 3. ಇಂಟರ್ನ್‌ಶಿಪ್ ಮತ್ತು ಕ್ಯಾಂಪಸ್ ಪ್ಲೇಸ್‌ಮೆಂಟ್‌ಗಳಿಗಾಗಿ ಬಲವಾದ ಉದ್ಯಮ–ಸಂಸ್ಥೆ ಸಹಭಾಗಿತ್ವಗಳನ್ನು ನಿರ್ಮಿಸುವುದು.",
+    "placements_and_training.training_programs": "1. ಅಭಿಕ್ಷಮತೆ ಮತ್ತು ತಾರ್ಕಿಕ ಚಿಂತನೆ ತರಬೇತಿ. 2. ವಾರಕ್ಕೊಮ್ಮೆ ಮಾದರಿ ಅಭಿಕ್ಷಮತೆ ಮತ್ತು ತಾಂತ್ರಿಕ ಮೌಲ್ಯಮಾಪನಗಳು. 3. ಮೃದು ಕೌಶಲ್ಯಗಳು ಮತ್ತು ಸಂವಹನ ಕೌಶಲ್ಯಗಳು. 4. ತಾಂತ್ರಿಕ ಕೌಶಲ್ಯ ಅಭಿವೃದ್ಧಿ ಕಾರ್ಯಾಗಾರಗಳು (ಕೋರ್ ಕ್ಷೇತ್ರಗಳು, IT ಮತ್ತು ಉದಯೋನ್ಮುಖ ತಂತ್ರಜ್ಞಾನಗಳು). 5. ಮಾದರಿ ಸಂದರ್ಶನಗಳು ಮತ್ತು ಗುಂಪು ಚರ್ಚೆಗಳು.",
+    "placements_and_training.additional_details.objectives[0]": "1. 100% ಪ್ಲೇಸ್‌ಮೆಂಟ್ ಸಹಾಯ ಮತ್ತು ವೃತ್ತಿಪರ ವೃತ್ತಿ ಮಾರ್ಗದರ್ಶನ ನೀಡುವುದು.",
+    "placements_and_training.additional_details.training_programs[1]": "2. ವಾರಕ್ಕೊಮ್ಮೆ ಮಾದರಿ ಅಭಿಕ್ಷಮತೆ ಮತ್ತು ತಾಂತ್ರಿಕ ಮೌಲ್ಯಮಾಪನಗಳು",
+}
+AI_LINGUISTIC_REVIEW_PATHS: frozenset[str] = frozenset(AI_LINGUISTIC_REVIEW_VALUES)
+
 # Derived: the set of paths the remediation pilot is allowed to override.
 APPROVED_OVERRIDE_PATHS: frozenset[str] = frozenset(APPROVED_POST_V2_REMEDIATION_OVERRIDES)
 
@@ -180,7 +192,7 @@ APPROVED_OVERRIDE_PATHS: frozenset[str] = frozenset(APPROVED_POST_V2_REMEDIATION
 # that is NOT an approved override). These must remain exactly as V2.
 V2_UNCHANGED_PATHS: frozenset[str] = frozenset(
     path for path in ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS
-    if path not in APPROVED_OVERRIDE_PATHS
+    if path not in APPROVED_OVERRIDE_PATHS and path not in AI_LINGUISTIC_REVIEW_PATHS
 )
 
 
@@ -212,13 +224,15 @@ def test_v2_workbook_inventory_has_exactly_37_paths() -> None:
 
 
 def test_v2_workbook_paths_partition_into_unchanged_and_overridden() -> None:
-    """The 37 V2 paths must partition into 35 unchanged + 2 overridden."""
+    """The 37 V2 paths partition into preserved, approved, and AI-review sets."""
     assert len(APPROVED_POST_V2_REMEDIATION_OVERRIDES) == 2
-    assert len(V2_UNCHANGED_PATHS) == 35
+    assert len(AI_LINGUISTIC_REVIEW_PATHS) == 5
+    assert len(V2_UNCHANGED_PATHS) == 30
     assert V2_UNCHANGED_PATHS.isdisjoint(APPROVED_OVERRIDE_PATHS)
+    assert V2_UNCHANGED_PATHS.isdisjoint(AI_LINGUISTIC_REVIEW_PATHS)
     assert (
         frozenset(ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS)
-        == V2_UNCHANGED_PATHS | APPROVED_OVERRIDE_PATHS
+        == V2_UNCHANGED_PATHS | APPROVED_OVERRIDE_PATHS | AI_LINGUISTIC_REVIEW_PATHS
     )
 
 
@@ -279,7 +293,14 @@ def test_exact_v2_values_and_locale_integrity() -> None:
         assert not re.search(r"[\u0b80-\u0bff\u0c00-\u0c7f\u0d00-\u0d7f]", value), path
         assert type(_get_path(en, path)) is type(value), path
 
-    # 2) The 2 approved-override paths must match the current approved
+    # 2) AI-reviewed paths must match their explicit sentence goldens.
+    for path, expected in AI_LINGUISTIC_REVIEW_VALUES.items():
+        value = _get_path(kn, path)
+        assert value == expected, path
+        assert unicodedata.normalize("NFC", value) == value, path
+        assert type(_get_path(en, path)) is type(value), path
+
+    # 3) The 2 approved-override paths must match the current approved
     #    remediation hash. They MUST NOT match the V2 hash (that would
     #    mean someone reverted the approved remediation).
     for path, entry in APPROVED_POST_V2_REMEDIATION_OVERRIDES.items():
@@ -302,7 +323,7 @@ def test_exact_v2_values_and_locale_integrity() -> None:
         assert not re.search(r"[\u0b80-\u0bff\u0c00-\u0c7f\u0d00-\u0d7f]", value), path
         assert type(_get_path(en, path)) is type(value), path
 
-    # 3) Locale shape parity between kn and en (this part is unchanged
+    # 4) Locale shape parity between kn and en (this part is unchanged
     #    from the original contract; the shape is independent of the
     #    two overridden values).
     kn_shape = _shape(kn)
@@ -324,7 +345,7 @@ def test_no_unapproved_deviation_from_v2_workbook() -> None:
     kn = json.loads((LOCALE_DIR / "kn.json").read_text(encoding="utf-8"))
     drifted: list[tuple[str, str, str]] = []
     for path, v2_hash in ORIGINAL_KANNADA_V2_WORKBOOK_EXPECTATIONS.items():
-        if path in APPROVED_OVERRIDE_PATHS:
+        if path in APPROVED_OVERRIDE_PATHS or path in AI_LINGUISTIC_REVIEW_PATHS:
             continue  # this path is allowed to have a different value
         value = _get_path(kn, path)
         if not isinstance(value, str):

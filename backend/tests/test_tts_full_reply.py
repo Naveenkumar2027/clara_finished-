@@ -135,7 +135,9 @@ class TestTtsFullReply(unittest.IsolatedAsyncioTestCase):
         ), patch.object(
             main, "_log_turn_metrics", new=lambda *args, **kwargs: None
         ):
-            await main.process_user_text_and_reply(session, "Admissions?", ws, timing, stt_meta=None)
+            await main.process_user_text_and_reply(
+                session, "Is SVIT a private college?", ws, timing, stt_meta=None
+            )
 
         self.assertEqual(len(tts_calls), 1)
         self.assertEqual(tts_calls[0].get("utterance_kind"), "assistant_full_reply")

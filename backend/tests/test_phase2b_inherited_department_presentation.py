@@ -34,7 +34,7 @@ def _assert_department_fees_card(result, department: str) -> None:
     assert resolution.response_mode == "CARD"
     assert resolution.policy == PolicyAction.CARD_PRESENTATION.value
     assert resolution.presentation_mode == PresentationMode.CARD_PRESENTATION.value
-    assert resolution.show_card == "department_overview"
+    assert resolution.show_card == "department_fees"
     assert resolution.should_generate_presentation
     assert result.intel.response_decision.items == ((department, "fees"),)
 
@@ -86,7 +86,7 @@ def test_forged_alias_in_canonical_key_slot_does_not_create_department_card() ->
 def test_multi_card_with_fees_keeps_surface_and_ordered_units() -> None:
     result, _ = _run_turn("CSE achievements and fees and HOD")
 
-    assert result.resolution.show_card == "department_overview"
+    assert result.resolution.show_card == "hod"
     assert result.intel.response_decision.items == (
         ("cse", "achievements"),
         ("cse", "fees"),
@@ -98,7 +98,7 @@ def test_explicit_admissions_fees_still_uses_admissions_surface() -> None:
     result, _ = _run_turn("admission fees enquiry")
 
     assert result.resolution.show_card == "admissions"
-    assert result.intel.response_decision.items == ()
+    assert result.intel.response_decision.items == (("college", "admissions"),)
 
 
 def test_fees_without_department_still_clarifies_without_card() -> None:

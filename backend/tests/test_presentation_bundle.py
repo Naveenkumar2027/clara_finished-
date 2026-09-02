@@ -109,6 +109,34 @@ class BundleImmutabilityTests(unittest.TestCase):
         )
         self.assertNotEqual(a, b)
 
+    def test_ws_card_queue_is_canonical_ordered_and_deduplicated(self):
+        bundle = PresentationBundle(
+            presentation_id="id-cards",
+            language="Kannada",
+            language_code="kn",
+            tts_language="kn-IN",
+            card_surface="department_overview",
+            segments=(
+                {"canonicalCardId": "hod_profile", "unitId": "cse_ds.hod"},
+                {"canonicalCardId": "hod_profile", "unitId": "cse_ds.hod"},
+                {"canonicalCardId": "fees", "unitId": "cse_ds.fees"},
+            ),
+            spoken_summaries=("a", "b", "c"),
+            display_captions=("a", "b", "c"),
+            contract_hash="hash-cards",
+            created_at="2026-01-01T00:00:00+00:00",
+        )
+        plan = bundle.narration_plan_payload("turn-cards")
+        self.assertEqual(plan["language"], "kn")
+        self.assertEqual(plan["activeIndex"], 0)
+        self.assertEqual(
+            plan["cards"],
+            [
+                {"cardId": "hod_profile", "departmentId": "cse_ds", "unitId": "cse_ds.hod"},
+                {"cardId": "fees", "departmentId": "cse_ds", "unitId": "cse_ds.fees"},
+            ],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

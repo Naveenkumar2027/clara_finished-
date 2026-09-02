@@ -155,7 +155,8 @@ class TestKannadaAnswerAndConversation(unittest.TestCase):
         self.assertFalse(_latin_sentences(text))
 
     def test_fallback_and_error_are_kannada(self) -> None:
-        self.assertIn("ಕ್ಷಮಿಸಿ", process_fallback_reply("Kannada"))
+        # Exact wording is governed by the separately approved ui.error.backend
+        # golden; an older draft required an added apology that contradicts it.
         self.assertEqual(process_fallback_reply("Kannada"), ui_text("kn", "error.backend"))
         self.assertEqual(get_unavailable_reply("Kannada"), CONTROLLED_FALLBACK_KN)
         self.assertFalse(_latin_sentences(get_unavailable_reply("Kannada").replace("SVIT", "")))

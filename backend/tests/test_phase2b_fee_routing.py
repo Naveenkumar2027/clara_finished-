@@ -139,8 +139,8 @@ def test_mixed_language_fee_request() -> None:
 def test_explicit_admissions_with_fee_wording_remains_admissions_card() -> None:
     decision = _decision("admission fees enquiry")
     assert decision.mode is ResponseMode.CARD
-    assert decision.items == ()
-    assert decision.evidence == "explicit_admissions_cue"
+    assert decision.items == (("college", "admissions"),)
+    assert decision.evidence == "semantic_request"
 
 
 def test_bare_eligibility_does_not_gain_an_admissions_card() -> None:

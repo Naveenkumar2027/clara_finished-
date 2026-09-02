@@ -170,6 +170,11 @@ class TestM52PresentationOverride(unittest.TestCase):
             answer_source="policy",
             length_kind="normal",
         )
+        semantic_request = parse_semantic_request(
+            raw_text=user_text,
+            language_code_key="en",
+            ci_entities=entities or {"department": "CSE"},
+        )
         return resolve_presentation(
             decision=decision,
             resolution=res,
@@ -177,21 +182,22 @@ class TestM52PresentationOverride(unittest.TestCase):
             semantic_topic=None,
             entities=entities or {"department": "CSE"},
             user_text=user_text,
+            semantic_request=semantic_request,
         )
 
-    def test_fees_intent_overrides_to_department_overview(self) -> None:
+    def test_fees_intent_preserves_department_fees_surface(self) -> None:
         res = self._override(intent=INTENT_DEPARTMENT_FEES, user_text="CSE fees")
-        self.assertEqual(res.card_surface, SURFACE_DEPARTMENT_OVERVIEW)
-        self.assertEqual(res.show_card, SURFACE_DEPARTMENT_OVERVIEW)
+        self.assertEqual(res.card_surface, "department_fees")
+        self.assertEqual(res.show_card, "department_fees")
 
-    def test_multi_hod_overrides_to_department_overview(self) -> None:
+    def test_multi_hod_preserves_hod_surface(self) -> None:
         res = self._override(
             intent=INTENT_HOD_PROFILE,
             user_text="AIML and Data Science HOD",
             entities={},
         )
-        self.assertEqual(res.card_surface, SURFACE_DEPARTMENT_OVERVIEW)
-        self.assertEqual(res.show_card, SURFACE_DEPARTMENT_OVERVIEW)
+        self.assertEqual(res.card_surface, "hod")
+        self.assertEqual(res.show_card, "hod")
 
     def test_representable_hod_plan_wins_over_comparison_intent(self) -> None:
         res = self._override(
@@ -199,8 +205,8 @@ class TestM52PresentationOverride(unittest.TestCase):
             user_text="Who are the HODs of AIML, Data Science and CSE?",
             entities={},
         )
-        self.assertEqual(res.card_surface, SURFACE_DEPARTMENT_OVERVIEW)
-        self.assertEqual(res.show_card, SURFACE_DEPARTMENT_OVERVIEW)
+        self.assertEqual(res.card_surface, "hod")
+        self.assertEqual(res.show_card, "hod")
         self.assertEqual(res.intent, INTENT_DEPARTMENT_COMPARISON)
 
 

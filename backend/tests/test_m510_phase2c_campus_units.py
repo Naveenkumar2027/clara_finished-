@@ -126,7 +126,7 @@ class TestPhase2CLanguages(unittest.TestCase):
 
 
 class TestPhase2CLocalizationAndNarration(unittest.TestCase):
-    def test_every_unit_has_six_language_sample_copy(self) -> None:
+    def test_every_sample_unit_is_blocked_from_production_copy(self) -> None:
         for lang in LANGS:
             for uid in CAMPUS_UNIT_IDS:
                 with self.subTest(lang=lang, uid=uid):
@@ -134,19 +134,27 @@ class TestPhase2CLocalizationAndNarration(unittest.TestCase):
                     self.assertIsNotNone(unit)
                     assert unit is not None
                     self.assertEqual(unit.language_code, lang)
-                    self.assertIn(SAMPLE_STATUS, unit.body)
+                    self.assertNotIn(SAMPLE_STATUS, unit.body)
+                    if lang == "kn":
+                        self.assertIn("ಅಧಿಕೃತವಾಗಿ ದೃಢೀಕರಿಸಲಾಗಿಲ್ಲ", unit.body)
+                    elif lang == "hi":
+                        self.assertIn("आधिकारिक पुष्टि", unit.body)
                     self.assertTrue((unit.metadata or {}).get("tts_summary"))
+                    self.assertNotIn(
+                        SAMPLE_STATUS,
+                        str((unit.metadata or {}).get("tts_summary") or ""),
+                    )
 
-    def test_narration_matches_the_selected_unit(self) -> None:
+    def test_safe_narration_preserves_the_selected_unit_identity(self) -> None:
         rooms = resolve_unit(unit_id="hostel.girls.rooms", language="en", language_code="en")
         food = resolve_unit(unit_id="hostel.girls.food", language="en", language_code="en")
         assert rooms is not None and food is not None
         room_seg = map_content_units_to_segments((rooms,), lang_key="en")[0]
         food_seg = map_content_units_to_segments((food,), lang_key="en")[0]
-        self.assertIn("rooms", (room_seg.tts_text or "").lower())
-        self.assertNotIn("food", (room_seg.tts_text or "").lower())
-        self.assertIn("food", (food_seg.tts_text or "").lower())
-        self.assertNotEqual(room_seg.tts_text, food_seg.tts_text)
+        self.assertEqual(room_seg.unit_id, "hostel.girls.rooms")
+        self.assertEqual(food_seg.unit_id, "hostel.girls.food")
+        self.assertNotIn(SAMPLE_STATUS, room_seg.tts_text or "")
+        self.assertNotIn(SAMPLE_STATUS, food_seg.tts_text or "")
         self.assertNotIn("Showing", room_seg.tts_text or "")
 
     def test_no_silent_fallback_to_another_unit(self) -> None:

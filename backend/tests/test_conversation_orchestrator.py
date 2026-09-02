@@ -104,6 +104,27 @@ class RetryFlagTests(unittest.TestCase):
 
 
 class CardPresentationTests(unittest.TestCase):
+    def test_canonical_semantic_request_is_carried_to_card_resolution(self):
+        async def _run():
+            session = {"language_code_key": "kn", "language_name": "Kannada"}
+            result = await ConversationOrchestrator().run(
+                "data science hod ಯಾರು?",
+                session,
+                defer_narration=True,
+            )
+            self.assertIsNotNone(result.intel.semantic_request)
+            self.assertIs(
+                result.resolution.semantic_request,
+                result.intel.semantic_request,
+                "the card resolver must consume CI's canonical object, not re-parse raw text",
+            )
+            self.assertEqual(
+                result.resolution.semantic_request.requested_card_ids,
+                ("hod_profile",),
+            )
+
+        asyncio.run(_run())
+
     def test_card_sets_generate_presentation(self):
         async def _run():
             session = {"language_code_key": "en", "language_name": "English"}

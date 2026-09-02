@@ -418,6 +418,9 @@ class LowLatencyResponseTests(unittest.IsolatedAsyncioTestCase):
             "comparisonHighlightId",
             "language_code_key",
             "language_name",
+            "languageCodeKey",
+            "languageName",
+            "ttsCode",
         }
         for payload in streaming_payloads + [final_audio]:
             self.assertLessEqual(set(payload.keys()), allowed_keys)
