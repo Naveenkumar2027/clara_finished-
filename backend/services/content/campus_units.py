@@ -154,6 +154,7 @@ _EVENT_CUES: tuple[tuple[str, str], ...] = (
     ("events.sanchalana", "సంచలన"),
     ("events.sanchalana", "സഞ്ചലന"),
     ("events.techvidya", "techvidya"),
+    ("events.techvidya", "techvidyaയെ"),
     ("events.techvidya", "tech vidya"),
     ("events.techvidya", "tech-vidya"),
     ("events.techvidya", "ಟೆಕ್ ವಿದ್ಯಾ"),
