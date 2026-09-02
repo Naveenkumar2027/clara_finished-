@@ -23,7 +23,7 @@ _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, HTTPException, Request, Response, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.clients.provider_clients import (
@@ -99,6 +99,8 @@ from backend.config.settings import (
     TTS_TIMEOUT_S,
     WS_ALLOWED_ORIGINS,
     WS_AUTH_REQUIRED,
+    WS_TOKEN_SIGNING_SECRET,
+    WS_TOKEN_TTL_SECONDS,
 )
 from backend.core.audio_pipeline import get_input_device_info, record_audio, validate_audio_devices
 from backend.core.language_detection import detect_language
@@ -216,7 +218,9 @@ from backend.services.department_comparison_registry import (
     validate_department_ids,
 )
 from backend.security.ws_auth import (
+    create_hmac_signed_token,
     log_ws_auth_configuration_warnings,
+    validate_bootstrap_origin,
     validate_websocket_handshake,
 )
 from backend.utils.cache import TTLRUCache
@@ -3046,6 +3050,23 @@ def health() -> dict[str, str]:
     return {"status": "healthy"}
 
 
+@app.post("/api/ws-token")
+def websocket_token_bootstrap(request: Request, response: Response) -> dict[str, Any]:
+    """Issue a memory-only, short-lived credential for one browser WS handshake."""
+    if not validate_bootstrap_origin(request.headers.get("origin")):
+        raise HTTPException(status_code=403, detail="Forbidden origin")
+    if not WS_TOKEN_SIGNING_SECRET:
+        raise HTTPException(status_code=503, detail="WebSocket token signing is unavailable")
+    token, expires_at = create_hmac_signed_token()
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["Pragma"] = "no-cache"
+    return {
+        "token": token,
+        "expires_at": expires_at,
+        "expires_in": WS_TOKEN_TTL_SECONDS,
+    }
+
+
 @app.get("/ready")
 def ready() -> dict[str, Any]:
     """Dependency readiness for production monitors. Does not expose secrets."""
@@ -3059,6 +3080,7 @@ def ready() -> dict[str, Any]:
         "rag_min_documents": RAG_MIN_DOCUMENTS,
         "rag_ready": False,
         "ws_auth_required": bool(WS_AUTH_REQUIRED),
+        "ws_short_lived_signing_configured": bool(WS_TOKEN_SIGNING_SECRET),
         "ws_allowed_origins_count": len(origins),
         "ws_allowed_origins_locked": bool(origins) and not wildcard_origins,
     }
@@ -3077,6 +3099,7 @@ def ready() -> dict[str, Any]:
     if PRODUCTION_STRICT_READY:
         if REQUIRE_WS_AUTH_IN_PRODUCTION:
             required_checks.append(bool(checks["ws_auth_required"]))
+            required_checks.append(bool(checks["ws_short_lived_signing_configured"]))
         required_checks.append(bool(checks["ws_allowed_origins_locked"]))
 
     ready_ok = all(required_checks)

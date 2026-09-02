@@ -131,6 +131,7 @@ KIOSK_TIMEZONE = os.getenv("KIOSK_TIMEZONE", "Asia/Kolkata").strip() or "Asia/Ko
 WS_AUTH_TOKEN = os.getenv("WS_AUTH_TOKEN", "").strip()
 # Optional HMAC secret for signed, short-lived ws tokens.
 WS_TOKEN_SIGNING_SECRET = os.getenv("WS_TOKEN_SIGNING_SECRET", "").strip()
+WS_TOKEN_TTL_SECONDS = max(60, min(120, int(os.getenv("WS_TOKEN_TTL_SECONDS", "90"))))
 # If WS_AUTH_REQUIRED is unset: require auth only when a credential exists. This avoids a
 # broken default (auth "on" but no token can ever verify) which breaks local WS connects.
 _ws_auth_required_env = os.getenv("WS_AUTH_REQUIRED", "").strip()
@@ -169,6 +170,13 @@ PRODUCTION_STRICT_READY = os.getenv("PRODUCTION_STRICT_READY", "false").strip().
     "true",
     "yes",
     "on",
+)
+# Permanent tokens are a development/test compatibility path only. Strict production
+# always requires a short-lived token signed with WS_TOKEN_SIGNING_SECRET.
+WS_STATIC_TOKEN_ALLOWED = (
+    not PRODUCTION_STRICT_READY
+    and os.getenv("WS_STATIC_TOKEN_ALLOWED", "true").strip().lower()
+    in ("1", "true", "yes", "on")
 )
 REQUIRE_WS_AUTH_IN_PRODUCTION = os.getenv(
     "REQUIRE_WS_AUTH_IN_PRODUCTION", "true"

@@ -91,6 +91,8 @@ class HealthEndpointTests(unittest.TestCase):
             app_main, "REQUIRE_WS_AUTH_IN_PRODUCTION", True
         ), patch.object(app_main, "RAG_MIN_DOCUMENTS", 500), patch.object(
             app_main, "WS_AUTH_REQUIRED", True
+        ), patch.object(
+            app_main, "WS_TOKEN_SIGNING_SECRET", "signing-secret"
         ), patch.object(app_main, "WS_ALLOWED_ORIGINS", ["https://kiosk.example"]), patch.object(
             app_main, "get_rag_document_count", return_value=500
         ):

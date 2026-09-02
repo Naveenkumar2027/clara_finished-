@@ -9,6 +9,7 @@ import {
   unitIdFromPlanSegment,
   type TtsClipSlot,
 } from '../lib/ws/ttsClipSlots';
+import { authenticatedWebSocketUrl } from '../lib/ws/wsTokenBootstrap';
 
 export type ConnectionPhase =
   | 'initial_connecting'
@@ -125,6 +126,10 @@ export function useWebSocket(url: string) {
   const [appliedSessionGen, setAppliedSessionGen] = useState(0);
   const [stalePayloadDropCount, setStalePayloadDropCount] = useState(0);
   const [wireStaleDropCount, setWireStaleDropCount] = useState(0);
+  const [authenticatedUrl, setAuthenticatedUrl] = useState<{
+    generation: number;
+    value: string;
+  } | null>(null);
   const stateRef = useRef<number>(0);
   const reconnectTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const graceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -133,6 +138,28 @@ export function useWebSocket(url: string) {
   const entryRef = useRef<SharedEntry | null>(null);
 
   const showOfflineBanner = connectionPhase === 'offline';
+
+  useEffect(() => {
+    let cancelled = false;
+    setAuthenticatedUrl(null);
+    authenticatedWebSocketUrl(url, fetch, import.meta.env.DEV)
+      .then((value) => {
+        if (!cancelled) setAuthenticatedUrl({ generation: reconnectTrigger, value });
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setIsConnecting(false);
+        connectionPhaseByUrl.set(url, 'offline');
+        notifyPhaseListeners(url);
+        reconnectTimerRef.current = setTimeout(() => {
+          reconnectTimerRef.current = null;
+          setReconnectTrigger((trigger) => trigger + 1);
+        }, MAX_BACKOFF_MS);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [url, reconnectTrigger]);
 
   const bumpSessionGenForReset = useCallback(() => {
     const floor = bumpClientSessionFloor(url);
@@ -161,6 +188,7 @@ export function useWebSocket(url: string) {
   );
 
   useEffect(() => {
+    if (!authenticatedUrl || authenticatedUrl.generation !== reconnectTrigger) return;
     setHasAttemptedConnect(true);
 
     let entry = sharedByUrl.get(url);
@@ -245,7 +273,7 @@ export function useWebSocket(url: string) {
 
     let socket: WebSocket;
     try {
-      socket = new WebSocket(url);
+      socket = new WebSocket(authenticatedUrl.value);
     } catch (err) {
       setIsConnecting(false);
       if ((import.meta as unknown as { env?: { DEV?: boolean } }).env?.DEV)
@@ -528,7 +556,7 @@ export function useWebSocket(url: string) {
       e.onMessage = NOOP;
       entryRef.current = null;
     };
-  }, [url, reconnectTrigger]);
+  }, [url, reconnectTrigger, authenticatedUrl]);
 
   const sendMessage = useCallback((msg: any): boolean => {
     const dispatcher = outboundDispatcherFor(url);
