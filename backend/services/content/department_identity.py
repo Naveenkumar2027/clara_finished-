@@ -17,7 +17,7 @@ from backend.services.answer_generation import (
     load_locale_data_for_lang_key,
 )
 from backend.services.content.semantic_vocab.catalog import entries_for
-from backend.services.content.unicode_text import casefold_keep_scripts
+from backend.services.content.unicode_text import casefold_keep_scripts, latin_token_boundaries_ok
 
 
 def normalize_for_department_match(text: str) -> str:
@@ -39,12 +39,9 @@ def _find_unoccupied(hay: str, needle: str, occupied: list[bool], start: int = 0
             return -1
         end = idx + len(needle)
         if end <= len(occupied) and not any(occupied[idx:end]):
-            if _latinish(needle):
-                left_ok = idx == 0 or not (hay[idx - 1].isalnum() or hay[idx - 1] == "_")
-                right_ok = end >= len(hay) or not (hay[end].isalnum() or hay[end] == "_")
-                if not (left_ok and right_ok):
-                    from_idx = idx + 1
-                    continue
+            if _latinish(needle) and not latin_token_boundaries_ok(hay, idx, end):
+                from_idx = idx + 1
+                continue
             return idx
         from_idx = idx + 1
 

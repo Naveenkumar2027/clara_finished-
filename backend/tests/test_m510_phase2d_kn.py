@@ -80,6 +80,10 @@ class TestKannadaCardTriggers(unittest.TestCase):
             ("cse_ds.hod",),
         )
 
+    def test_kannada_stt_data_science_hod_minister_confusions(self) -> None:
+        self.assertEqual(plan_units("ಡೇಟಾ ಸೈನ್ಸ್ ಸಚಿವರು ಯಾರು", "kn"), ("cse_ds.hod",))
+        self.assertEqual(plan_units("ಡೇಟಾ ಸಂಖ್ಯೆ ಸಚಿವರು ಯಾರು", "kn"), ("cse_ds.hod",))
+
     def test_principal_not_vp(self) -> None:
         self.assertEqual(plan_units("ಪ್ರಾಂಶುಪಾಲರು ಯಾರು", "kn"), ("leadership.principal",))
 

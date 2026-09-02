@@ -2122,6 +2122,7 @@ def _inject_regional_department_tokens(text: str) -> str:
         (r"ಎಎಂಎಲ್", " aiml "),
         (r"ಎ\s*ಎಂ\s*ಎಲ್\s*ಡಿಪಾರ್ಟ್ಮೆಂಟ್", " aiml department "),
         (r"ಡೇಟಾ\s*ಸೈನ್ಸ್", " data science "),
+        (r"ಡೇಟಾ\s*ಸಂಖ್ಯೆ", " data science "),
         # Browser/STT commonly separates each Kannada acronym syllable.
         (r"ಸಿ\s*ಎಸ್\s*ಇ", " cse "),
         (r"ಸಿಎಸ್\s*ಇ", " cse "),

@@ -9,7 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from backend.services.content.semantic_composition import SemanticItem
-from backend.services.content.unicode_text import casefold_keep_scripts
+from backend.services.content.unicode_text import casefold_keep_scripts, latin_token_boundaries_ok
 
 SAMPLE_STATUS = "SAMPLE_REPLACE_WITH_OFFICIAL"
 
@@ -310,12 +310,7 @@ class CampusTopicSpan:
 
 
 def _boundaries_ok(hay: str, start: int, end: int) -> bool:
-    chunk = hay[start:end]
-    if any(ord(ch) > 127 for ch in chunk):
-        return True
-    left_ok = start == 0 or not (hay[start - 1].isalnum() or hay[start - 1] == "_")
-    right_ok = end >= len(hay) or not (hay[end].isalnum() or hay[end] == "_")
-    return left_ok and right_ok
+    return latin_token_boundaries_ok(hay, start, end)
 
 
 def _consume(hay: str, occupied: list[bool], cues: tuple[str, ...], entity: str, family: str) -> list[CampusSpan]:

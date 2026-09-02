@@ -89,6 +89,12 @@ class TestPhase2CSelector(unittest.TestCase):
             ("events.sanchalana", "events.techvidya"),
         )
 
+    def test_latin_event_name_with_indic_case_ending(self) -> None:
+        self.assertEqual(
+            plan_units("TechVidyaയെ കുറിച്ച് പറയൂ", "ml"),
+            ("events.techvidya",),
+        )
+
     def test_no_hidden_cap(self) -> None:
         units = plan_units(
             "Tell me about girls hostel rooms, girls hostel food, girls hostel safety, "

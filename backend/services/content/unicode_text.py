@@ -34,3 +34,18 @@ def collapse_ws(text: str) -> str:
 
 def casefold_keep_scripts(text: str) -> str:
     return collapse_ws(strip_punctuation_keep_graphemes(text or "").casefold())
+
+
+def is_latin_token_char(ch: str) -> bool:
+    """ASCII letters, digits, and underscore — not Indic letters glued to Latin names."""
+    return bool(ch) and ch.isascii() and (ch.isalnum() or ch == "_")
+
+
+def latin_token_boundaries_ok(hay: str, start: int, end: int) -> bool:
+    """Latin cues need Latin word boundaries so ``TechVidyaയെ`` still matches ``techvidya``."""
+    chunk = hay[start:end]
+    if not chunk or any(ord(ch) > 127 for ch in chunk):
+        return True
+    left_ok = start == 0 or not is_latin_token_char(hay[start - 1])
+    right_ok = end >= len(hay) or not is_latin_token_char(hay[end])
+    return left_ok and right_ok

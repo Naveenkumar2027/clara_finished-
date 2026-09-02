@@ -20,7 +20,7 @@ from backend.services.content.department_identity import (
 )
 from backend.services.content.semantic_topics import ATOMIC_TOPICS
 from backend.services.content.semantic_vocab.catalog import TOPIC_OVERVIEW, all_entries
-from backend.services.content.unicode_text import casefold_keep_scripts
+from backend.services.content.unicode_text import casefold_keep_scripts, latin_token_boundaries_ok
 
 # Topics that can be positionally bound to a department inside one utterance.
 PAIRABLE_TOPICS = frozenset(ATOMIC_TOPICS | {TOPIC_OVERVIEW})
@@ -115,17 +115,9 @@ def _find_all_free(hay: str, variant: str, occupied: list[bool]) -> list[tuple[i
     return found
 
 
-def _latinish(s: str) -> bool:
-    return all(ord(ch) < 128 for ch in s)
-
-
 def _boundaries_ok(hay: str, start: int, end: int) -> bool:
-    """Latin cues need word boundaries; Indic scripts match as substrings."""
-    if not _latinish(hay[start:end]):
-        return True
-    left_ok = start == 0 or not (hay[start - 1].isalnum() or hay[start - 1] == "_")
-    right_ok = end >= len(hay) or not (hay[end].isalnum() or hay[end] == "_")
-    return left_ok and right_ok
+    """Latin cues need Latin word boundaries; Indic scripts match as substrings."""
+    return latin_token_boundaries_ok(hay, start, end)
 
 
 def _distance(a_start: int, a_end: int, b_start: int, b_end: int) -> int:
