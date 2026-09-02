@@ -13,6 +13,11 @@ node_modules/
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
 *.so
 .Python
 .venv/
@@ -41,6 +46,7 @@ Thumbs.db
 # Logs and temp
 *.log
 .cache/
+coverage/
 tmp/
 temp/
 backend/tools/latency_gate_latest.json
@@ -54,4 +60,3 @@ playwright-report/
 
 # Local caches / generated
 facial-display/.vite-facial/
-
