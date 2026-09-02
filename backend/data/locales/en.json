@@ -1,7 +1,7 @@
 {
   "institution_overview": {
-    "about": "Sai Vidya Institute of Technology (SVIT) [cite: 8] Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064 [cite: 9] Established: 2008 [cite: 10] Campus: 12 acres [cite: 12] Students: 1,511+ [cite: 13] Faculty: 94+ [cite: 14]",
-    "vision_and_mission": "\"Contribute dedicated, skilled, and intelligent engineers and business administrators to architect a strong India and a globally progressive world.\" [cite: 86] 1. Provide quality education and skill-based training to produce dedicated engineers and managers [cite: 88] 2. Promote research, innovation, and ethical practices by creating a supportive learning environment [cite: 89] 3. Undertake collaborative projects with academia and industry that transform young minds into socially responsible and globally competent professionals [cite: 90] 4. Enhance personality traits and leadership skills that foster entrepreneurship among students [cite: 91]",
+    "about": "Sai Vidya Institute of Technology (SVIT) Rajanukunte, Via Yalahanka, Bengaluru, Karnataka 560 064 Established: 2008 Campus: 12 acres Students: 1,511+ Faculty: 94+",
+    "vision_and_mission": "\"Contribute dedicated, skilled, and intelligent engineers and business administrators to architect a strong India and a globally progressive world.\" 1. Provide quality education and skill-based training to produce dedicated engineers and managers 2. Promote research, innovation, and ethical practices by creating a supportive learning environment 3. Undertake collaborative projects with academia and industry that transform young minds into socially responsible and globally competent professionals 4. Enhance personality traits and leadership skills that foster entrepreneurship among students",
     "affiliations_and_accreditations": "{'university': 'Visvesvaraya Technological University (VTU), Belagavi [cite: 18]', 'technical_approval': 'All India Council for Technical Education (AICTE), New Delhi [cite: 18]', 'government_recognition': 'Government of Karnataka [cite: 19]', 'accreditation': 'NAAC Grade A [cite: 20]', 'nba_accreditation': 'Available for select departments (ECE) [cite: 21]'}",
     "additional_details": {
       "tagline": "\"Learn to Lead\" [cite: 15]",
@@ -293,14 +293,14 @@
     ]
   },
   "admissions_and_fees": {
-    "eligibility": "10+2 with 45% aggregate [cite: 344] Physics and Mathematics [cite: 345] Chemistry, Biotechnology, Biology, Computer Science, or Electronics [cite: 346] 45% aggregate marks [cite: 348] SC/ST/Category-1/OBC: 40% aggregate marks (with relaxation) [cite: 349] MBA: Graduation with minimum 50% aggregate [cite: 287]",
+    "eligibility": "10+2 with 45% aggregate Physics and Mathematics Chemistry, Biotechnology, Biology, Computer Science, or Electronics 45% aggregate marks SC/ST/Category-1/OBC: 40% aggregate marks (with relaxation) MBA: Graduation with minimum 50% aggregate",
     "entrance_exams": [
       "KCET",
       "COMEDK",
       "Management",
-      "KCET [cite: 351]",
-      "COMEDK [cite: 352]",
-      "Management Quota [cite: 353]"
+      "KCET",
+      "COMEDK",
+      "Management Quota"
     ],
     "fee_structures": {
       "ug_kcet": "As per Government/KEA norms. Please contact Admission Block for the latest official KCET fee.",
@@ -308,55 +308,55 @@
       "pg_mba": "{'General MBA': '₹1,55,000-3,10,000 (Total for 2 years) [cite: 383]', 'Specializations (Finance, HR, IT, Marketing)': '₹1,40,000 (Total for 2 years) [cite: 383]'}",
       "additional_fees": "Hostel, examination, and other statutory fees may apply in addition to tuition. Visit the Admission Block for the complete schedule and payment options."
     },
-    "scholarships": "SSP - Post-Metric Scholarship for SC/ST Students [cite: 398] Fee Reimbursement for SC/ST Students [cite: 399] Fee Concession for Category I, II, and III Students [cite: 400] National Scholarship Portal (NSP) - Minority Religion Scholarship [cite: 401] Defence Scholarship [cite: 402]",
+    "scholarships": "SSP - Post-Metric Scholarship for SC/ST Students Fee Reimbursement for SC/ST Students Fee Concession for Category I, II, and III Students National Scholarship Portal (NSP) - Minority Religion Scholarship Defence Scholarship",
     "additional_details": {
       "admission_and_eligibility": {
         "be_programs": {
-          "qualification": "10+2 with 45% aggregate [cite: 344]",
-          "compulsory_subjects": "Physics and Mathematics [cite: 345]",
-          "optional_subjects": "Chemistry, Biotechnology, Biology, Computer Science, or Electronics [cite: 346]",
-          "requirements_general": "45% aggregate marks [cite: 348]",
-          "requirements_reserved": "SC/ST/Category-1/OBC: 40% aggregate marks (with relaxation) [cite: 349]",
+          "qualification": "10+2 with 45% aggregate",
+          "compulsory_subjects": "Physics and Mathematics",
+          "optional_subjects": "Chemistry, Biotechnology, Biology, Computer Science, or Electronics",
+          "requirements_general": "45% aggregate marks",
+          "requirements_reserved": "SC/ST/Category-1/OBC: 40% aggregate marks (with relaxation)",
           "entrance_exams": [
-            "KCET [cite: 351]",
-            "COMEDK [cite: 352]",
-            "Management Quota [cite: 353]"
+            "KCET",
+            "COMEDK",
+            "Management Quota"
           ]
         },
         "mba_programs": {
-          "qualification": "Graduation with minimum 50% aggregate [cite: 287]",
+          "qualification": "Graduation with minimum 50% aggregate",
           "entrance_exams": [
-            "CAT [cite: 355]",
-            "MAT [cite: 356]",
-            "XAT [cite: 357]",
-            "CMAT [cite: 358]",
-            "KMAT [cite: 359]",
-            "PGCET [cite: 360]"
+            "CAT",
+            "MAT",
+            "XAT",
+            "CMAT",
+            "KMAT",
+            "PGCET"
           ],
-          "expected_cutoff": "55-65 percentile (General) [cite: 289]"
+          "expected_cutoff": "55-65 percentile (General)"
         }
       },
       "fees_structure": {
         "management_quota_engineering_annual": {
-          "CSE": "₹3,25,000 [cite: 365]",
-          "CSE (AI & ML)": "₹3,25,000 [cite: 365]",
-          "CSE (Cyber Security)": "₹3,25,000 [cite: 365]",
-          "CSE(Data Science)": "₹3,00,000 [cite: 365]",
-          "CS(Business System)": "₹2,75,000 [cite: 365]",
-          "ECE": "₹2,50,000 [cite: 365]",
-          "Civil Engineering": "₹1,25,000 [cite: 365]",
-          "Mechanical Engineering": "₹1,25,000 [cite: 365]"
+          "CSE": "₹3,25,000",
+          "CSE (AI & ML)": "₹3,25,000",
+          "CSE (Cyber Security)": "₹3,25,000",
+          "CSE(Data Science)": "₹3,00,000",
+          "CS(Business System)": "₹2,75,000",
+          "ECE": "₹2,50,000",
+          "Civil Engineering": "₹1,25,000",
+          "Mechanical Engineering": "₹1,25,000"
         },
         "mba_fees_annual": {
-          "General MBA": "₹1,55,000-3,10,000 (Total for 2 years) [cite: 383]",
-          "Specializations (Finance, HR, IT, Marketing)": "₹1,40,000 (Total for 2 years) [cite: 383]"
+          "General MBA": "₹1,55,000-3,10,000 (Total for 2 years)",
+          "Specializations (Finance, HR, IT, Marketing)": "₹1,40,000 (Total for 2 years)"
         },
         "scholarships": [
-          "SSP - Post-Metric Scholarship for SC/ST Students [cite: 398]",
-          "Fee Reimbursement for SC/ST Students [cite: 399]",
-          "Fee Concession for Category I, II, and III Students [cite: 400]",
-          "National Scholarship Portal (NSP) - Minority Religion Scholarship [cite: 401]",
-          "Defence Scholarship [cite: 402]"
+          "SSP - Post-Metric Scholarship for SC/ST Students",
+          "Fee Reimbursement for SC/ST Students",
+          "Fee Concession for Category I, II, and III Students",
+          "National Scholarship Portal (NSP) - Minority Religion Scholarship",
+          "Defence Scholarship"
         ]
       }
     }
@@ -452,20 +452,20 @@
     }
   },
   "placements_and_training": {
-    "objectives": "1. Provide 100% placement assistance and professional career support [cite: 408] 2. Train students in communication, aptitude, technical knowledge, and interview preparation [cite: 409] 3. Build strong industry-institution partnerships for internships and campus placements [cite: 410]",
-    "training_programs": "1. Aptitude & Logical Reasoning Training [cite: 413] 2. Weekly Mock Aptitude & Technical Assessments [cite: 414] 3. Soft Skills & Communication Skills [cite: 415] 4. Technical Skill Development Workshops (Core, IT, Emerging Technologies) [cite: 416] 5. Mock Interviews & Group Discussions [cite: 417]",
+    "objectives": "1. Provide 100% placement assistance and professional career support 2. Train students in communication, aptitude, technical knowledge, and interview preparation 3. Build strong industry-institution partnerships for internships and campus placements",
+    "training_programs": "1. Aptitude & Logical Reasoning Training 2. Weekly Mock Aptitude & Technical Assessments 3. Soft Skills & Communication Skills 4. Technical Skill Development Workshops (Core, IT, Emerging Technologies) 5. Mock Interviews & Group Discussions",
     "additional_details": {
       "objectives": [
-        "1. Provide 100% placement assistance and professional career support [cite: 408]",
-        "2. Train students in communication, aptitude, technical knowledge, and interview preparation [cite: 409]",
-        "3. Build strong industry-institution partnerships for internships and campus placements [cite: 410]"
+        "1. Provide 100% placement assistance and professional career support",
+        "2. Train students in communication, aptitude, technical knowledge, and interview preparation",
+        "3. Build strong industry-institution partnerships for internships and campus placements"
       ],
       "training_programs": [
-        "1. Aptitude & Logical Reasoning Training [cite: 413]",
-        "2. Weekly Mock Aptitude & Technical Assessments [cite: 414]",
-        "3. Soft Skills & Communication Skills [cite: 415]",
-        "4. Technical Skill Development Workshops (Core, IT, Emerging Technologies) [cite: 416]",
-        "5. Mock Interviews & Group Discussions [cite: 417]"
+        "1. Aptitude & Logical Reasoning Training",
+        "2. Weekly Mock Aptitude & Technical Assessments",
+        "3. Soft Skills & Communication Skills",
+        "4. Technical Skill Development Workshops (Core, IT, Emerging Technologies)",
+        "5. Mock Interviews & Group Discussions"
       ]
     }
   },

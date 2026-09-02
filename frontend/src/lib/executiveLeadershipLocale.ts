@@ -1,4 +1,6 @@
 import type { Language } from '../context/LanguageContext';
+import kannadaLocale from '@college-locales/kn.json';
+import { uiText } from '../localization/uiCopy';
 
 export type ExecutiveLeadershipCopy = {
   label: string;
@@ -6,6 +8,13 @@ export type ExecutiveLeadershipCopy = {
   title: string;
   bio: string;
 };
+
+type KannadaExecutiveRoleHolders = {
+  principal: { name: string; title: string; profile: string };
+  vice_principal: { name: string; title: string; profile: string };
+};
+
+const kannadaExecutives = kannadaLocale.role_holders as KannadaExecutiveRoleHolders;
 
 /** Dr. Manjunath T N — multilingual UI copy aligned with kiosk language. */
 export const PRINCIPAL_COPY: Record<Language, ExecutiveLeadershipCopy> = {
@@ -16,10 +25,10 @@ export const PRINCIPAL_COPY: Record<Language, ExecutiveLeadershipCopy> = {
     bio: 'Dr. Manjunath T N, Principal of Sai Vidya Institute of Technology, is an experienced academic and administrator with strong contributions to engineering education, research promotion, and institutional development, focusing on quality teaching, discipline, and holistic student growth while leading key initiatives that strengthen the college’s academic standards and industry relevance.',
   },
   Kannada: {
-    label: 'ನಾಯಕತ್ವ ಪ್ರೊಫೈಲ್',
-    name: 'ಡಾ. ಮಂಜುನಾಥ್ ಟಿ ಎನ್',
-    title: 'ಪ್ರಾಂಶುಪಾಲರು',
-    bio: 'ಡಾ. ಮಂಜುನಾಥ್ ಟಿ ಎನ್ ಅವರು ಸಾಯಿ ವಿದ್ಯಾ ಇಂಜಿನಿಯರಿಂಗ್ ಕಾಲೇಜಿನ ಪ್ರಾಂಶುಪಾಲರು. ಇಂಜಿನಿಯರಿಂಗ್ ಶಿಕ್ಷಣ, ಸಂಶೋಧನಾ ಉತ್ತೇಜನೆ ಮತ್ತು ಸಂಸ್ಥೆಯ ಬೆಳವಣಿಗೆಯಲ್ಲಿ ಗಣನೀಯ ಕೊಡುಗೆ ನೀಡಿರುವ ಹಿರಿಯ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ಆಡಳಿತಗಾರರು. ಗುಣಮಟ್ಟದ ಬೋಧನೆ, ಶಿಸ್ತು ಮತ್ತು ಸಮಗ್ರ ವಿದ್ಯಾರ್ಥಿ ಬೆಳವಣಿಗೆಯಿಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತಾ, ಶೈಕ್ಷಣಿಕ ಮಾನದಂಡಗಳನ್ನು ಮತ್ತು ಉದ್ಯಮ ಸಂಬಂಧಿತ ಸಂಬಂಧಗಳನ್ನು ಬಲಪಡಿಸುವ ಪ್ರಮುಖ ಚಟುವಟಿಕೆಗಳಿಗೆ ನಾಯಕತ್ವ ವಹಿಸಿದ್ದಾರೆ.',
+    label: uiText('Kannada', 'cards.leadership_profile'),
+    name: kannadaExecutives.principal.name,
+    title: kannadaExecutives.principal.title,
+    bio: kannadaExecutives.principal.profile,
   },
   Hindi: {
     label: 'प्रोफ़ाइल',
@@ -56,10 +65,10 @@ export const VICE_PRINCIPAL_COPY: Record<Language, ExecutiveLeadershipCopy> = {
     bio: 'Dr. Lakshminarayanachari K serves as Vice Principal and Dean Academics at SVIT, supporting academic planning, curriculum implementation, and teaching quality enhancement, while also contributing to research and publications; he plays a key role in coordinating faculty, improving learning outcomes, and aligning academic processes with institutional goals and regulatory requirements.',
   },
   Kannada: {
-    label: 'ನಾಯಕತ್ವ ಪ್ರೊಫೈಲ್',
-    name: 'ಡಾ. ಲಕ್ಷ್ಮಿನಾರಾಯಣಾಚಾರಿ ಕೆ',
-    title: 'ಉಪ ಪ್ರಾಂಶುಪಾಲರು ಹಾಗೂ ಶೈಕ್ಷಣಿಕ ಡೀನ್',
-    bio: 'ಡಾ. ಲಕ್ಷ್ಮಿನಾರಾಯಣಾಚಾರಿ ಕೆ ಅವರು ಎಸ್ವಿಐಟಿಯಲ್ಲಿ ಉಪ ಪ್ರಾಂಶುಪಾಲರು ಮತ್ತು ಶೈಕ್ಷಣಿಕ ಡೀನ್ ಆಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಾರೆ; ಶೈಕ್ಷಣಿಕ ಯೋಜನೆ, ಪಾಠ್ಯಕ್ರಮ ಅನುಷ್ಠಾನ ಮತ್ತು ಬೋಧನೆ ಗುಣಮಟ್ಟವನ್ನು ಮೆರೆಗೆ ತರುವುದಕ್ಕೆ ಬೆಂಬಲ ನೀಡುತ್ತಾರೆ ಮತ್ತು ಸಂಶೋಧನೆ ಹಾಗೂ ಪ್ರಕಟಣೆಗಳಿಗೂ ಕೊಡುಗೆ ನೀಡಿದ್ದಾರೆ. ಫ್ಯಾಕಲ್ಟಿ ಸಮನ್ವಯ, ಕಲಿಕೆಯ ಫಲಿತಾಂಶ ಸುಧಾರಣೆ ಹಾಗೂ ಶೈಕ್ಷಣಿಕ ಪ್ರಕ್ರಿಯೆಗಳನ್ನು ಸಾಂಸ್ಥಿಕ ಗುರಿ ಮತ್ತು ನಿಯಂತ್ರಣ ಅವಶ್ಯಕತೆಗಳೊಂದಿಗೆ ಹೊಂದಿಸುವಲ್ಲಿ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸಿದ್ದಾರೆ.',
+    label: uiText('Kannada', 'cards.leadership_profile'),
+    name: kannadaExecutives.vice_principal.name,
+    title: kannadaExecutives.vice_principal.title,
+    bio: kannadaExecutives.vice_principal.profile,
   },
   Hindi: {
     label: 'प्रोफ़ाइल',

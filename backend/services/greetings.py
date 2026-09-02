@@ -12,7 +12,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 from backend.config.settings import KIOSK_TIMEZONE
-from backend.services.ui_localization import ui_text
+from backend.services.ui_localization import ui_language_key, ui_text
 
 SUPPORTED_LANGUAGES: tuple[str, ...] = ("English", "Kannada", "Hindi", "Tamil", "Telugu", "Malayalam")
 
@@ -244,6 +244,12 @@ def normalize_guest_name(raw: str | None) -> str | None:
 
 
 def get_name_prompt(language: str | None) -> str:
+    # Kannada UI copy is authoritative in ui.json. Resolve it at call time so
+    # load_ui_locales() can detect file changes; storing the resolved text in
+    # _NAME_PROMPTS_BY_LANGUAGE at module import made a running backend serve
+    # stale wording after locale edits.
+    if ui_language_key(language) == "kn":
+        return ui_text("kn", "welcome.name_prompt")
     lang = language if language in _NAME_PROMPTS_BY_LANGUAGE else "English"
     return _NAME_PROMPTS_BY_LANGUAGE.get(lang, _NAME_PROMPTS_BY_LANGUAGE["English"])
 

@@ -15,7 +15,7 @@ export function campusUnitFromLocale(
   );
   const row = data.campus_units?.[unitId];
   if (!row || typeof row !== 'object') return null;
-  if (lang === 'Kannada' && row.content_status === SAMPLE_CONTENT_STATUS) {
+  if (row.content_status === SAMPLE_CONTENT_STATUS) {
     return {
       ...row,
       title: String(row.title || unitId)

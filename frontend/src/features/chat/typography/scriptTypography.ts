@@ -27,7 +27,7 @@ const INDIC_WIDTH = 'min(980px, 88%)';
 const PRESETS: Record<Language, ScriptTypographyPreset> = {
   English: ENGLISH_PRESET,
   Kannada: {
-    fontFamily: '"Noto Sans Kannada", "Noto Sans", sans-serif',
+    fontFamily: '"Noto Sans Kannada", "Nirmala UI", Tunga, sans-serif',
     fontWeight: 600,
     sizeMultiplier: 1,
     lineHeight: 1.52,
@@ -36,7 +36,7 @@ const PRESETS: Record<Language, ScriptTypographyPreset> = {
     cssClass: 'script-typo-kn',
   },
   Tamil: {
-    fontFamily: '"Noto Sans Tamil", "Noto Sans", sans-serif',
+    fontFamily: '"Noto Sans Tamil", "Nirmala UI", Latha, sans-serif',
     fontWeight: 600,
     sizeMultiplier: 1,
     lineHeight: 1.52,
@@ -45,7 +45,7 @@ const PRESETS: Record<Language, ScriptTypographyPreset> = {
     cssClass: 'script-typo-ta',
   },
   Telugu: {
-    fontFamily: '"Noto Sans Telugu", "Noto Sans", sans-serif',
+    fontFamily: '"Noto Sans Telugu", "Nirmala UI", Gautami, sans-serif',
     fontWeight: 600,
     sizeMultiplier: 1,
     lineHeight: 1.55,
@@ -54,7 +54,7 @@ const PRESETS: Record<Language, ScriptTypographyPreset> = {
     cssClass: 'script-typo-te',
   },
   Hindi: {
-    fontFamily: '"Noto Sans Devanagari", "Noto Sans", sans-serif',
+    fontFamily: '"Noto Sans Devanagari", "Nirmala UI", Mangal, sans-serif',
     fontWeight: 600,
     sizeMultiplier: 1,
     lineHeight: 1.5,
@@ -63,7 +63,7 @@ const PRESETS: Record<Language, ScriptTypographyPreset> = {
     cssClass: 'script-typo-hi',
   },
   Malayalam: {
-    fontFamily: '"Noto Sans Malayalam", "Noto Sans", sans-serif',
+    fontFamily: '"Noto Sans Malayalam", "Nirmala UI", Kartika, sans-serif',
     fontWeight: 600,
     sizeMultiplier: 1,
     lineHeight: 1.55,
