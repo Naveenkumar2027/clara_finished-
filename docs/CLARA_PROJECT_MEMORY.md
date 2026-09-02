@@ -159,7 +159,7 @@ Inbound actions currently include:
 - Backend config parser/constants: `backend/config/settings.py`
 - Frontend env (optional local): `frontend/.env.local`
 - Key runtime knobs: voice timeouts, streaming toggles, WS auth, DB credentials, model IDs
-- Production WebSocket auth should use `WS_AUTH_REQUIRED=true`, `WS_AUTH_TOKEN`, and matching `VITE_WS_TOKEN`.
+- Production WebSocket auth uses `WS_AUTH_REQUIRED=true` plus `WS_TOKEN_SIGNING_SECRET`; browsers fetch a short-lived credential from `POST /api/ws-token` and do not embed a permanent token.
 - Production monitors should call `/health` and `/ready`.
 - `PRODUCTION_STRICT_READY=true` makes `/ready` enforce provider keys, RAG availability, `RAG_MIN_DOCUMENTS`, WebSocket auth when required, and non-broad `WS_ALLOWED_ORIGINS`.
 - Default readiness thresholds: `RAG_MIN_DOCUMENTS=500`, `REQUIRE_WS_AUTH_IN_PRODUCTION=true`.

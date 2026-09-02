@@ -15,6 +15,6 @@ View your app in AI Studio: https://ai.studio/apps/d2a5b7e7-c094-4b84-bb4d-a260b
 
 1. Install dependencies:
    `npm install`
-2. Configure optional frontend runtime values in [.env.local](.env.local) (for example `VITE_WS_URL` and `VITE_WS_TOKEN`)
+2. Configure optional frontend runtime values in [.env.local](.env.local) (for example `VITE_WS_URL`). WebSocket credentials are fetched from the backend and kept only in memory.
 3. Run the app:
    `npm run dev`

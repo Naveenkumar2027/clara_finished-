@@ -79,7 +79,8 @@ For production WebSocket auth, also set:
 
 ```text
 WS_AUTH_REQUIRED=true
-WS_AUTH_TOKEN=<strong-shared-token>
+WS_TOKEN_SIGNING_SECRET=<strong-random-signing-secret>
+WS_TOKEN_TTL_SECONDS=90
 PRODUCTION_STRICT_READY=true
 RAG_MIN_DOCUMENTS=500
 REQUIRE_WS_AUTH_IN_PRODUCTION=true
@@ -95,12 +96,16 @@ ENABLE_FIRST_SENTENCE_TTS=true
 ENABLE_TTS_PIPELINING=true
 ```
 
-Then set the same frontend token in `frontend/.env.local`:
+The browser obtains a short-lived token from `POST /api/ws-token`; no permanent
+frontend token is configured. Set only the WebSocket address when needed:
 
 ```text
 VITE_WS_URL=ws://localhost:6969/ws/clara
-VITE_WS_TOKEN=<same-token>
 ```
+
+`WS_AUTH_TOKEN` is retained only for explicitly non-production development or
+test clients. `PRODUCTION_STRICT_READY=true` always rejects it. Rate limits are
+in-memory and process-local; multi-worker deployments need a shared limiter.
 
 ## Backend Setup
 
@@ -249,6 +254,7 @@ Before declaring a release production-ready:
 - `git status --short` contains only intentional release changes
 - `.env` and `frontend/.env.local` are not committed
 - `WS_AUTH_REQUIRED=true` is enabled for non-local deployments
+- `WS_TOKEN_SIGNING_SECRET` is configured and `WS_AUTH_TOKEN` is not used by production
 - `WS_ALLOWED_ORIGINS` is locked to the real frontend origin
 - PostgreSQL is healthy and RAG returns non-empty context
 - Knowledge ingestion has been run after content changes
