@@ -415,10 +415,50 @@ export function useWebSocket(url: string) {
 
         let outgoingPayload = rawPayload;
         const prevPayload = entry!.payload;
+        const incomingType =
+          rawPayload && typeof rawPayload === 'object'
+            ? (rawPayload as { type?: unknown }).type
+            : undefined;
+        const incomingTurn =
+          rawPayload && typeof rawPayload === 'object'
+            ? (rawPayload as { turn_id?: unknown }).turn_id
+            : undefined;
+        const prevTurn =
+          prevPayload && typeof prevPayload === 'object'
+            ? (prevPayload as { turn_id?: unknown }).turn_id
+            : undefined;
+        const isThinkingFrame =
+          incomingType === 'thinking_interlude' ||
+          incomingType === 'thinking_audio' ||
+          incomingType === 'thinking_audio_failed';
         if (
+          isThinkingFrame &&
+          prevPayload &&
+          typeof prevPayload === 'object' &&
+          typeof incomingTurn === 'string' &&
+          incomingTurn === prevTurn
+        ) {
+          const rp = rawPayload as Record<string, unknown>;
+          const pp = prevPayload as Record<string, unknown>;
+          outgoingPayload = {
+            ...pp,
+            type: rp.type,
+            thinking_text: rp.thinking_text ?? pp.thinking_text,
+            guest_name: rp.guest_name !== undefined ? rp.guest_name : pp.guest_name,
+            language_code_key: rp.language_code_key ?? pp.language_code_key,
+            thinkingAudioBase64:
+              incomingType === 'thinking_audio' && typeof rp.audioBase64 === 'string'
+                ? rp.audioBase64
+                : pp.thinkingAudioBase64,
+            thinking_audio_failed:
+              incomingType === 'thinking_audio_failed' ? true : pp.thinking_audio_failed,
+            utterance_kind: rp.utterance_kind ?? pp.utterance_kind,
+            turn_id: rp.turn_id ?? pp.turn_id,
+          } as typeof rawPayload;
+        } else if (
           rawPayload &&
           typeof rawPayload === 'object' &&
-          (rawPayload as { type?: unknown }).type === 'assistant_audio_update' &&
+          incomingType === 'assistant_audio_update' &&
           typeof (rawPayload as { turn_id?: unknown }).turn_id === 'string' &&
           prevPayload &&
           typeof prevPayload === 'object' &&
@@ -468,6 +508,25 @@ export function useWebSocket(url: string) {
                 : Array.isArray(pp.tts_clip_slots)
                   ? pp.tts_clip_slots
                   : rp.tts_clip_slots,
+            } as typeof rawPayload;
+          }
+        }
+
+        if (
+          outgoingPayload &&
+          typeof outgoingPayload === 'object' &&
+          prevPayload &&
+          typeof prevPayload === 'object' &&
+          (outgoingPayload as { turn_id?: unknown }).turn_id ===
+            (prevPayload as { turn_id?: unknown }).turn_id
+        ) {
+          const pp = prevPayload as Record<string, unknown>;
+          const op = outgoingPayload as Record<string, unknown>;
+          if (pp.thinkingAudioBase64 && !op.thinkingAudioBase64) {
+            outgoingPayload = {
+              ...op,
+              thinkingAudioBase64: pp.thinkingAudioBase64,
+              thinking_text: op.thinking_text ?? pp.thinking_text,
             } as typeof rawPayload;
           }
         }

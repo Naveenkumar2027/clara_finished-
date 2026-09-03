@@ -1315,16 +1315,289 @@
   display: none;
 }
 
+/* Full-viewport thinking shell — must NOT live inside .text-container */
+.clara-thinking-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  pointer-events: none;
+  isolation: isolate;
+}
+
 .clara-thinking-stage {
-  width: min(980px, 92%);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 1.25rem;
-  margin: auto; /* Force perfect vertical and horizontal center */
-  color: #0f172a;
+  color: #312e81;
+  isolation: isolate;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.clara-thinking-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 0;
+  background:
+    radial-gradient(ellipse 78% 62% at 50% 44%, rgba(255, 255, 255, 0.94) 0%, rgba(245, 243, 255, 0.72) 42%, rgba(237, 233, 254, 0.45) 68%, transparent 86%),
+    linear-gradient(165deg, #faf8ff 0%, #f3e8ff 38%, #eef2ff 62%, #ecfeff 100%);
+}
+
+.clara-thinking-bloom {
+  position: absolute;
+  width: 42%;
+  height: 42%;
+  border-radius: 50%;
+  filter: blur(42px);
+  opacity: 0.55;
+  animation: clara-think-bloom-drift 11s ease-in-out infinite;
+}
+
+.clara-thinking-bloom-tl {
+  top: -8%;
+  left: -6%;
+  background: radial-gradient(circle, rgba(196, 181, 253, 0.55), transparent 70%);
+}
+
+.clara-thinking-bloom-tr {
+  top: -10%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(165, 243, 252, 0.35), transparent 70%);
+  animation-delay: -3.5s;
+}
+
+.clara-thinking-bloom-bl {
+  bottom: -12%;
+  left: -10%;
+  width: 52%;
+  height: 48%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.42), transparent 72%);
+  animation-delay: -6s;
+}
+
+.clara-thinking-bloom-br {
+  bottom: -14%;
+  right: -12%;
+  width: 54%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.38), transparent 72%);
+  animation-delay: -1.8s;
+}
+
+.clara-thinking-trails {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.clara-thinking-trail-group {
+  transform-origin: center;
+  animation: clara-think-trail-breathe 8.5s ease-in-out infinite;
+  opacity: 1;
+  filter: blur(0.35px);
+}
+
+.clara-thinking-trail-right {
+  animation-delay: -2.8s;
+}
+
+.clara-thinking-dust {
+  animation: clara-think-dust 6.5s ease-in-out infinite;
+}
+
+.clara-thinking-dust-1 { animation-delay: -0.8s; }
+.clara-thinking-dust-2 { animation-delay: -1.6s; }
+.clara-thinking-dust-3 { animation-delay: -2.4s; }
+.clara-thinking-dust-4 { animation-delay: -3.2s; }
+
+.clara-thinking-composition {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.35rem, 2.4vh, 2.35rem);
+  width: 100%;
+  padding: clamp(0.5rem, 1.5vh, 1.25rem) 0.75rem 0.5rem;
+  transform: translateY(-2vh);
+}
+
+.clara-thinking-mark {
+  /* ~180–260px on typical 16:9 kiosk widths */
+  width: clamp(11.25rem, 14.5vw, 16.25rem);
+  height: clamp(11.25rem, 14.5vw, 16.25rem);
+  position: relative;
+  filter: drop-shadow(0 18px 42px rgba(124, 58, 237, 0.28));
+}
+
+.clara-thinking-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.clara-think-atmosphere {
+  animation: clara-think-glow 3.6s ease-in-out infinite;
+  transform-origin: 120px 120px;
+}
+
+.clara-think-orbit-a {
+  transform-origin: 120px 120px;
+  animation: clara-think-spin 9.5s linear infinite;
+}
+
+.clara-think-orbit-b {
+  transform-origin: 120px 120px;
+  animation: clara-think-spin-rev 13s linear infinite;
+}
+
+.clara-think-orbit-c {
+  transform-origin: 120px 120px;
+  animation: clara-think-spin 17s linear infinite;
+}
+
+.clara-think-petals {
+  transform-origin: 120px 120px;
+  animation: clara-think-petal-spin 11s linear infinite;
+}
+
+.clara-think-petal-a {
+  transform-origin: 120px 118px;
+  animation: clara-think-morph 4.8s ease-in-out infinite;
+}
+
+.clara-think-petal-b {
+  transform-origin: 120px 118px;
+  animation: clara-think-morph 5.6s ease-in-out infinite reverse;
+}
+
+.clara-think-petal-c {
+  transform-origin: 120px 118px;
+  animation: clara-think-morph 6.4s ease-in-out infinite;
+  animation-delay: -1.4s;
+}
+
+.clara-think-core-glow {
+  transform-origin: 120px 116px;
+  animation: clara-think-glow 2.8s ease-in-out infinite;
+}
+
+.clara-think-core {
+  transform-origin: 120px 116px;
+  animation: clara-think-breathe 2.8s ease-in-out infinite;
+}
+
+.clara-think-core-spark {
+  animation: clara-think-spark 2.4s ease-in-out infinite;
+}
+
+.clara-think-orbit-particles {
+  transform-origin: 120px 120px;
+  animation: clara-think-spin 7.2s linear infinite;
+}
+
+.clara-think-node {
+  animation: clara-think-node-pulse 3.2s ease-in-out infinite;
+}
+
+.clara-think-node-b { animation-delay: -1.1s; }
+.clara-think-node-c { animation-delay: -2s; }
+
+.clara-thinking-sentence {
+  margin: 0;
+  width: min(1100px, 90vw);
+  max-width: min(1100px, 90vw);
+  font-size: clamp(2.75rem, 3.4vw, 3.75rem);
+  font-weight: 600;
+  color: #2e1065;
+  text-wrap: pretty;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.clara-thinking-name {
+  background: linear-gradient(120deg, #7c3aed 0%, #4f46e5 55%, #0891b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+.clara-thinking-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  width: min(22rem, 48vw);
+  margin-top: 0.15rem;
+}
+
+.clara-thinking-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(167, 139, 250, 0.15) 18%,
+    rgba(124, 58, 237, 0.55) 50%,
+    rgba(167, 139, 250, 0.15) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.35);
+}
+
+.clara-thinking-divider-spark {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  background: radial-gradient(circle, #ffffff 0%, #c4b5fd 42%, transparent 72%);
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+  animation: clara-think-spark 2.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.75));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clara-thinking-bloom,
+  .clara-thinking-trail-group,
+  .clara-thinking-dust,
+  .clara-think-atmosphere,
+  .clara-think-orbit-a,
+  .clara-think-orbit-b,
+  .clara-think-orbit-c,
+  .clara-think-petals,
+  .clara-think-petal-a,
+  .clara-think-petal-b,
+  .clara-think-petal-c,
+  .clara-think-core-glow,
+  .clara-think-core,
+  .clara-think-core-spark,
+  .clara-think-orbit-particles,
+  .clara-think-node,
+  .clara-thinking-divider-spark {
+    animation: none !important;
+  }
 }
 
 .orb-thinking-container {
@@ -1333,34 +1606,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
-}
-
-.clara-thinking-emoji {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  line-height: 1;
-  animation: clara-think-bob 1.6s ease-in-out infinite;
-}
-
-.clara-thinking-title {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.clara-thinking-tagline {
-  font-size: clamp(1.1rem, 2.1vw, 1.6rem);
-  font-weight: 500;
-  line-height: 1.45;
-  color: #334155;
-  max-width: 80%;
-}
-
-.clara-thinking-dots {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: #7c3aed;
-  animation: clara-think-dots 1.2s steps(3, end) infinite;
 }
 
 .word-span {
@@ -1555,9 +1800,17 @@
 }
 
 .bubble-thinking {
-  border: 1px dashed rgba(124, 58, 237, 0.3);
-  color: #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: #1e1b4b;
   font-weight: 600;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* ─── Cinematic Card — Light Premium ─── */
@@ -1722,15 +1975,59 @@
   100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
 }
 
-@keyframes clara-think-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+@keyframes clara-think-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-@keyframes clara-think-dots {
-  0% { opacity: 0.25; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
+@keyframes clara-think-spin-rev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes clara-think-petal-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes clara-think-morph {
+  0%, 100% { transform: scale(1) rotate(-3deg); }
+  50% { transform: scale(1.05, 0.94) rotate(4deg); }
+}
+
+@keyframes clara-think-breathe {
+  0%, 100% { opacity: 0.88; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.14); }
+}
+
+@keyframes clara-think-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.06); }
+}
+
+@keyframes clara-think-spark {
+  0%, 100% { opacity: 0.55; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.18); }
+}
+
+@keyframes clara-think-node-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+@keyframes clara-think-bloom-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.45; }
+  50% { transform: translate3d(2%, -2%, 0) scale(1.06); opacity: 0.7; }
+}
+
+@keyframes clara-think-trail-breathe {
+  0%, 100% { opacity: 0.72; transform: translate3d(0, 0, 0); }
+  50% { opacity: 1; transform: translate3d(0, -1.2%, 0); }
+}
+
+@keyframes clara-think-dust {
+  0%, 100% { opacity: 0.2; transform: translate3d(0, 0, 0); }
+  50% { opacity: 0.85; transform: translate3d(0, -8px, 0); }
 }
 
 /* ─── FAQ Suggestion Carousel ─── */

@@ -94,6 +94,27 @@ import {
 } from '../lib/chat/answerVisibility';
 import { createAckPlayer } from '../lib/tts/ackAudio';
 import { createResponseTtsScheduler } from '../lib/tts/responseTtsScheduler';
+import ThinkingInterlude from '../components/chat/ThinkingInterlude';
+import {
+  attachThinkingSentence,
+  beginThinkingTurn,
+  canStartResponsePlayback,
+  EMPTY_THINKING_GATE,
+  markResponseStarted,
+  markThinkingTtsFailed,
+  markThinkingTtsFinished,
+  markThinkingTtsPlaying,
+  rebindThinkingTurn,
+  resetThinkingGate,
+  shouldBlockResponsePlayback,
+  shouldShowThinkingInterlude,
+  THINKING_TTS_WATCHDOG_MS,
+} from '../features/chat/thinking/thinkingGate';
+import {
+  composeThinkingBridge,
+  thinkingBridgeFallback,
+} from '../features/chat/thinking/thinkingBridge';
+import { createThinkingTtsPlayer } from '../features/chat/thinking/thinkingTtsPlayer';
 import { LANGUAGE_OPTIONS } from './LanguageSelect';
 import { getStaticCardsForTrigger, type CardDataItem } from '../lib/cardData';
 import {
@@ -179,61 +200,6 @@ declare global {
   }
 }
 
-const THINKING_TAGLINES: Record<Language, string[]> = {
-  English: [
-    'Reading your question and gathering the right details...',
-    'Cross-checking campus info so the answer stays accurate...',
-    'Brewing a clear response tailored for you...',
-    'Connecting the dots from CLARA knowledge...',
-    'Almost there... shaping the best possible answer...',
-  ],
-  Kannada: [
-    uiText('Kannada', 'status.thinking_detail_1'),
-    uiText('Kannada', 'status.thinking_detail_2'),
-    uiText('Kannada', 'status.thinking_detail_3'),
-    uiText('Kannada', 'status.thinking_detail_4'),
-    uiText('Kannada', 'status.thinking_detail_5'),
-  ],
-  Hindi: [
-    uiText('Hindi', 'status.thinking_detail_1'),
-    uiText('Hindi', 'status.thinking_detail_2'),
-    uiText('Hindi', 'status.thinking_detail_3'),
-    uiText('Hindi', 'status.thinking_detail_4'),
-    uiText('Hindi', 'status.thinking_detail_5'),
-  ],
-  Tamil: [
-    'உங்கள் கேள்வியை வாசித்து சரியான தகவலை தொகுத்து வருகிறேன்...',
-    'பதில் துல்லியமாக இருக்க தகவலை மறுபரிசீலனை செய்கிறேன்...',
-    'உங்களுக்கான தெளிவான பதிலை தயார் செய்கிறேன்...',
-    'CLARA அறிவில் இருந்து சரியான தகவல்களை இணைக்கிறேன்...',
-    'இன்னும் சில நொடிகளில்... சிறந்த பதில் வருகிறது...',
-  ],
-  Telugu: [
-    'మీ ప్రశ్నను చదివి సరైన వివరాలు సేకరిస్తున్నాను...',
-    'సమాధానం ఖచ్చితంగా ఉండేందుకు సమాచారాన్ని తనిఖీ చేస్తున్నాను...',
-    'మీకు సరళమైన స్పష్టమైన సమాధానం సిద్ధం చేస్తున్నాను...',
-    'CLARA జ్ఞానం నుంచి సరైన అంశాలను కలుపుతున్నాను...',
-    'ఇంకొంచెంలో... మంచి సమాధానం సిద్ధమవుతోంది...',
-  ],
-  Malayalam: [
-    'നിങ്ങളുടെ ചോദ്യത്തിന് അനുയോജ്യമായ വിവരം ശേഖരിക്കുകയാണ്...',
-    'ഉത്തരം കൃത്യമാകാൻ വിവരങ്ങൾ വീണ്ടും പരിശോധിക്കുകയാണ്...',
-    'നിങ്ങൾക്കായി ലളിതവും വ്യക്തവുമായ മറുപടി തയ്യാറാക്കുന്നു...',
-    'CLARA അറിവിൽ നിന്ന് ശരിയായ ഭാഗങ്ങൾ ചേർക്കുന്നു...',
-    'ഇനി കുറച്ച് നിമിഷങ്ങൾ... മികച്ച മറുപടി വരുന്നു...',
-  ],
-};
-
-const THINKING_TITLE: Record<Language, string> = {
-  English: 'CLARA is thinking',
-  Kannada: uiText('Kannada', 'status.thinking_title'),
-  Hindi: uiText('Hindi', 'status.thinking_title'),
-  Tamil: 'CLARA யோசிக்கிறது',
-  Telugu: 'CLARA ఆలోచిస్తోంది',
-  Malayalam: 'CLARA ചിന്തിക്കുന്നു',
-};
-
-const THINKING_EMOJIS = ['🤔', '🧠', '✨', '⚡', '💡'];
 const SPLIT_IDLE_TIMEOUT_MS = 30_000;
 const CARD_AUDIO_START_DELAY_MS = 220;
 const FULL_TEXT_AUDIO_START_DELAY_MS = 0;
@@ -757,9 +723,25 @@ export default function ChatScreen({
     audioUnavailable: payload?.audioUnavailable === true,
     watchdogRecovered: audioPendingTimedOut,
   });
+  const [thinkingGate, setThinkingGate] = useState(EMPTY_THINKING_GATE);
+  const thinkingGateRef = useRef(EMPTY_THINKING_GATE);
+  thinkingGateRef.current = thinkingGate;
+  const [thinkingEpoch, setThinkingEpoch] = useState(0);
+  const thinkingWatchdogRef = useRef<number | null>(null);
+  const guestNameRef = useRef<string | null>(null);
+  const displayMessagesRef = useRef(displayMessages);
+  displayMessagesRef.current = displayMessages;
+  const showThinkingStage = (() => {
+    const gate = thinkingGate;
+    if (gate.turnId) {
+      if (gate.ttsFailed || gate.responseStarted) return false;
+      if (shouldShowThinkingInterlude(gate)) return true;
+      return Boolean(isProcessing) && !gate.ttsFailed;
+    }
+    return isResponsePending;
+  })();
   const [hasGreeted, setHasGreeted] = useState(false);
   const [showUnmuteHint, setShowUnmuteHint] = useState(false);
-  const [thinkingIndex, setThinkingIndex] = useState(0);
   const [pendingAudio, setPendingAudio] = useState<PendingAudio | null>(null);
   const [visuallyFocusedMessage, setVisuallyFocusedMessage] = useState<ChatMessage | null>(null);
   const [sentenceRevealText, setSentenceRevealText] = useState('');
@@ -825,6 +807,7 @@ export default function ChatScreen({
   const audioLockRef = useRef(false);
   const responseTtsSchedulerRef = useRef(createResponseTtsScheduler());
   const ackPlayerRef = useRef(createAckPlayer());
+  const thinkingPlayerRef = useRef(createThinkingTtsPlayer());
   const responseWatchdogTimerRef = useRef<number | null>(null);
   const handleAudioPlaybackRef = useRef<
     | ((
@@ -851,6 +834,8 @@ export default function ChatScreen({
   /** Server `turn_id` for the in-flight assistant reply (claimed from the first current-turn frame). */
   const assistantAudioTurnOwnerRef = useRef<string | null>(null);
   const previousAudioTurnOwnerRef = useRef<string | null>(null);
+  const thinkingAudioPlayedRef = useRef<string | null>(null);
+  const heldResponsePayloadRef = useRef<any | null>(null);
 
   const lastLoadedPresentationTurnRef = useRef<string | null>(null);
 
@@ -1169,6 +1154,153 @@ export default function ChatScreen({
     [clearCardStages, setLayoutMode],
   );
 
+  const bumpThinkingEpoch = useCallback(() => {
+    setThinkingEpoch((n) => n + 1);
+  }, []);
+
+  const clearThinkingWatchdog = useCallback(() => {
+    if (thinkingWatchdogRef.current) {
+      window.clearTimeout(thinkingWatchdogRef.current);
+      thinkingWatchdogRef.current = null;
+    }
+  }, []);
+
+  const armThinkingWatchdog = useCallback((turnId: string) => {
+    clearThinkingWatchdog();
+    thinkingWatchdogRef.current = window.setTimeout(() => {
+      const g = thinkingGateRef.current;
+      if (g.turnId !== turnId || g.ttsFinished || g.ttsFailed) return;
+      thinkingPlayerRef.current?.stop();
+      const next = markThinkingTtsFailed(g, turnId);
+      thinkingGateRef.current = next;
+      setThinkingGate(next);
+      setThinkingEpoch((n) => n + 1);
+      playQueuedClipRef.current(false);
+    }, THINKING_TTS_WATCHDOG_MS);
+  }, [clearThinkingWatchdog]);
+
+  const startThinkingInterlude = useCallback((query: string) => {
+    const tp = thinkingPlayerRef.current;
+    if (tp && typeof tp.reset === 'function') tp.reset();
+    else tp?.stop();
+    heldResponsePayloadRef.current = null;
+    thinkingAudioPlayedRef.current = null;
+    const sentence = composeThinkingBridge({
+      query,
+      language,
+      guestName: guestNameRef.current,
+    }) || thinkingBridgeFallback(language);
+    const turnId = `pending:${Date.now()}`;
+    const next = beginThinkingTurn(thinkingGateRef.current, { turnId, sentence });
+    thinkingGateRef.current = next;
+    setThinkingGate(next);
+    armThinkingWatchdog(turnId);
+  }, [armThinkingWatchdog, language]);
+
+  const abortThinkingInterlude = useCallback(() => {
+    clearThinkingWatchdog();
+    const tp = thinkingPlayerRef.current;
+    if (tp && typeof tp.reset === 'function') tp.reset();
+    else tp?.stop();
+    heldResponsePayloadRef.current = null;
+    thinkingAudioPlayedRef.current = null;
+    const next = resetThinkingGate();
+    thinkingGateRef.current = next;
+    setThinkingGate(next);
+    bumpThinkingEpoch();
+  }, [bumpThinkingEpoch, clearThinkingWatchdog]);
+
+  const scheduleThinkingAudio = useCallback((audioBase64: string, turnId: string, spokenText?: string) => {
+    const attempt = () => {
+      const g = thinkingGateRef.current;
+      if (!g.turnId) return;
+      if (g.ttsFinished || g.ttsFailed || g.responseStarted) return;
+      if (g.turnId !== turnId && !g.turnId.startsWith('pending:')) return;
+      if (thinkingPlayerRef.current?.playing()) return;
+
+      const rebound = rebindThinkingTurn(g, turnId);
+      const withText =
+        spokenText && spokenText.trim()
+          ? attachThinkingSentence(rebound, spokenText)
+          : rebound;
+      const playing = markThinkingTtsPlaying(withText);
+      thinkingGateRef.current = playing;
+      setThinkingGate(playing);
+
+      const canonical = (spokenText || playing.sentence || '').trim();
+      if (import.meta.env.DEV) {
+        console.debug('[clara-thinking-tts]', {
+          event: 'playback_start',
+          thinking_turn_id: turnId,
+          thinking_text_length: canonical.length,
+          thinking_text: canonical,
+          audio_b64_len: audioBase64.length,
+        });
+      }
+      thinkingPlayerRef.current?.play(audioBase64, turnId, { text: canonical });
+    };
+
+    // ACK must finish (or be skipped) before thinking speaks — never clip mid-sentence.
+    if (ackPlayerRef.current.playing()) {
+      ackPlayerRef.current.whenIdle(attempt);
+      return;
+    }
+    attempt();
+  }, []);
+
+  useEffect(() => {
+    const player = createThinkingTtsPlayer({
+      onEnded: (tid) => {
+        if (import.meta.env.DEV) {
+          console.debug('[clara-thinking-tts]', {
+            event: 'playback_ended',
+            thinking_turn_id: tid,
+          });
+        }
+        const next = markThinkingTtsFinished(thinkingGateRef.current, tid);
+        thinkingGateRef.current = next;
+        setThinkingGate(next);
+        if (thinkingWatchdogRef.current) {
+          window.clearTimeout(thinkingWatchdogRef.current);
+          thinkingWatchdogRef.current = null;
+        }
+        setThinkingEpoch((n) => n + 1);
+        playQueuedClipRef.current(false);
+      },
+      onError: (tid) => {
+        if (import.meta.env.DEV) {
+          console.debug('[clara-thinking-tts]', {
+            event: 'playback_error',
+            thinking_turn_id: tid,
+          });
+        }
+        const next = markThinkingTtsFailed(thinkingGateRef.current, tid);
+        thinkingGateRef.current = next;
+        setThinkingGate(next);
+        if (thinkingWatchdogRef.current) {
+          window.clearTimeout(thinkingWatchdogRef.current);
+          thinkingWatchdogRef.current = null;
+        }
+        setThinkingEpoch((n) => n + 1);
+        playQueuedClipRef.current(false);
+      },
+      onStarted: (tid, meta) => {
+        if (import.meta.env.DEV) {
+          console.debug('[clara-thinking-tts]', {
+            event: 'playback_playing',
+            thinking_turn_id: tid,
+            thinking_text_length: meta?.text?.length ?? 0,
+            audio_bytes: meta?.audioBytes,
+          });
+        }
+      },
+    });
+    thinkingPlayerRef.current = player;
+    return () => {
+      player.reset();
+    };
+  }, []);
+
   // Wraps original sendMessage to sniff for intents dynamically on dispatch.
   // Deterministic FAQ answers are resolved by the backend before Groq/RAG.
   const interceptAndSendMessage = useCallback((msg: any, source: 'VOICE' | 'UI' = 'VOICE') => {
@@ -1218,10 +1350,17 @@ export default function ChatScreen({
         text.includes('BACKGROUND_NOISE') || text.includes('**BACKGROUND_NOISE**');
       if (!isBackgroundNoiseDummy) {
         onChatUserActivity?.();
+        const msgs = displayMessagesRef.current;
+        const awaitingName =
+          msgs.some((m: any) => m?.id === 'name_prompt') &&
+          !msgs.some((m: any) => m?.id === 'ready_prompt');
+        if (!inlineLanguageGate && !awaitingName) {
+          startThinkingInterlude(text);
+        }
       }
     }
     sendMessage(msg);
-  }, [clearSuggestionLayer, resetTurnPresentationState, sendMessage, onChatUserActivity, isCampusNavigationStage, unitBackedCards, currentCardIdx]);
+  }, [clearSuggestionLayer, resetTurnPresentationState, sendMessage, onChatUserActivity, isCampusNavigationStage, unitBackedCards, currentCardIdx, inlineLanguageGate, startThinkingInterlude]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -1343,7 +1482,7 @@ export default function ChatScreen({
         audioUnavailable: payload?.audioUnavailable === true,
         audioReady: (hasAudio || hasQueue || hasSlots) && !isWaitingForAudio,
         watchdogRecovered: audioPendingTimedOut,
-      })) {
+      }) && !shouldBlockResponsePlayback(thinkingGateRef.current)) {
         deferredMessagesRef.current = null;
         deferredTurnIdRef.current = null;
         setDisplayMessages(incomingMessages);
@@ -1369,18 +1508,8 @@ export default function ChatScreen({
     payload,
     isPayloadStale,
     audioPendingTimedOut,
+    thinkingEpoch,
   ]);
-
-  useEffect(() => {
-    if (!isResponsePending) {
-      setThinkingIndex(0);
-      return;
-    }
-    const ticker = setInterval(() => {
-      setThinkingIndex(prev => prev + 1);
-    }, 2200);
-    return () => clearInterval(ticker);
-  }, [isResponsePending]);
 
   useEffect(() => {
     setLanguageGateSatisfied(!inlineLanguageGate);
@@ -1658,12 +1787,13 @@ export default function ChatScreen({
     }
     setIsPlayingBackendAudio(false);
     setIsCampusSpeaking(false);
+    abortThinkingInterlude();
     setSurface('chat');
     comparisonLayoutSnapRef.current = null;
     busRoutesDismissedTurnIdRef.current = null;
     setBusRoutesHighlightQuery(null);
     if (onHome) onHome();
-  }, [clearSuggestionLayer, stopTextReveal, stopListening, onHome]);
+  }, [clearSuggestionLayer, stopTextReveal, stopListening, onHome, abortThinkingInterlude]);
 
   const requestCampusTts = useCallback((text: string, key: string) => {
     const cleanText = text.trim();
@@ -1846,20 +1976,47 @@ export default function ChatScreen({
         unitId?: string | null;
       },
     ) => {
+    const playbackChannel =
+      clipMeta?.channel === 'ack' ? 'ack' : clipMeta?.channel === 'response' ? 'response' : 'legacy';
+    const responseTid = String(_turnId || '');
+    if (
+      playbackChannel !== 'ack' &&
+      (shouldBlockResponsePlayback(thinkingGateRef.current) ||
+        thinkingPlayerRef.current?.playing() === true)
+    ) {
+      if (
+        !responseTid ||
+        thinkingGateRef.current.turnId === responseTid ||
+        thinkingGateRef.current.turnId?.startsWith('pending:')
+      ) {
+        return;
+      }
+    }
     // Dedupe by a per-segment key (not just per-turn), because the backend can stream
     // multiple TTS segments for the same `turn_id` (ack + first sentence + remainder).
     if (playedSegmentKeysRef.current.has(segmentKey)) return;
     if (!audioBase64) return;
 
-    const playbackChannel =
-      clipMeta?.channel === 'ack' ? 'ack' : clipMeta?.channel === 'response' ? 'response' : 'legacy';
     if (playbackChannel === 'ack') {
+      const thinkingBusy =
+        thinkingPlayerRef.current?.playing() === true ||
+        (thinkingGateRef.current.ttsPlaying &&
+          !thinkingGateRef.current.ttsFinished &&
+          !thinkingGateRef.current.ttsFailed);
+      if (thinkingBusy) return;
       ackPlayerRef.current.play(audioBase64);
       return;
     }
 
     if (playbackChannel === 'response') {
+      // Stop ACK only — never interrupt thinking TTS; gate already ensures thinking finished.
       ackPlayerRef.current.stop();
+    }
+
+    if (responseTid && canStartResponsePlayback(thinkingGateRef.current, responseTid)) {
+      const started = markResponseStarted(thinkingGateRef.current, responseTid);
+      thinkingGateRef.current = started;
+      setThinkingGate(started);
     }
 
     const tid = typeof _turnId === 'string' ? _turnId : '';
@@ -2281,6 +2438,12 @@ export default function ChatScreen({
     };
 
     const playQueuedClip = (followUp: boolean) => {
+      if (
+        shouldBlockResponsePlayback(thinkingGateRef.current) ||
+        thinkingPlayerRef.current?.playing() === true
+      ) {
+        return;
+      }
       const scheduler = responseTtsSchedulerRef.current;
       const next = scheduler.nextPlayable();
       if (!next) {
@@ -2339,6 +2502,12 @@ export default function ChatScreen({
     if (!payload) return;
     if (isPayloadStale?.(payload)) return;
 
+    if (typeof payload?.guest_name === 'string' && payload.guest_name.trim()) {
+      guestNameRef.current = payload.guest_name.trim();
+    } else if (payload?.guest_name === null) {
+      guestNameRef.current = null;
+    }
+
     if (payload.isProcessing === true && typeof payload.turn_id === 'string' && payload.turn_id.length > 0) {
       const nextOwner = String(payload.turn_id);
       if (assistantAudioTurnOwnerRef.current !== nextOwner) {
@@ -2348,6 +2517,34 @@ export default function ChatScreen({
       }
       if (responseTtsSchedulerRef.current.turnId !== nextOwner) {
         responseTtsSchedulerRef.current.beginTurn(nextOwner);
+      }
+      if (payload.thinking_skip === true) {
+        const tp = thinkingPlayerRef.current;
+        if (tp && typeof tp.reset === 'function') tp.reset();
+        else tp?.stop();
+        const failed = markThinkingTtsFailed(thinkingGateRef.current, nextOwner);
+        thinkingGateRef.current = failed;
+        setThinkingGate(failed);
+        bumpThinkingEpoch();
+      } else if (thinkingGateRef.current.turnId?.startsWith('pending:')) {
+        const rebound = rebindThinkingTurn(thinkingGateRef.current, nextOwner);
+        thinkingGateRef.current = rebound;
+        setThinkingGate(rebound);
+        armThinkingWatchdog(nextOwner);
+      } else if (thinkingGateRef.current.turnId !== nextOwner) {
+        const lastUser = Array.isArray(payload?.messages)
+          ? [...(payload.messages as any[])].reverse().find((m: any) => String(m?.role ?? '').toLowerCase() === 'user')
+          : null;
+        const query = typeof lastUser?.text === 'string' ? lastUser.text : '';
+        const sentence = composeThinkingBridge({
+          query,
+          language,
+          guestName: guestNameRef.current,
+        }) || thinkingBridgeFallback(language);
+        const started = beginThinkingTurn(thinkingGateRef.current, { turnId: nextOwner, sentence });
+        thinkingGateRef.current = started;
+        setThinkingGate(started);
+        armThinkingWatchdog(nextOwner);
       }
     } else if (assistantAudioTurnOwnerRef.current === TURN_FENCE_PENDING) {
       const incomingTid = typeof payload.turn_id === 'string' ? payload.turn_id : '';
@@ -2431,11 +2628,76 @@ export default function ChatScreen({
     const type = payload?.type ?? '';
     const utteranceKind = payload?.utterance_kind ?? '';
     if (type === 'assistant_ack_audio' || utteranceKind === 'ack_earcon') {
+      // Never let ACK start after thinking audio has begun — it clips the bridge on some WebViews.
+      const thinkingBusy =
+        thinkingPlayerRef.current?.playing() === true ||
+        (thinkingGateRef.current.ttsPlaying &&
+          !thinkingGateRef.current.ttsFinished &&
+          !thinkingGateRef.current.ttsFailed);
+      if (thinkingBusy) {
+        return;
+      }
       if (typeof audioBase64 === 'string' && audioBase64.length > 0) {
         ackPlayerRef.current.play(audioBase64);
       }
       return;
     }
+
+    if (typeof payload?.thinking_text === 'string' && payload.thinking_text.trim()) {
+      const rebound = rebindThinkingTurn(thinkingGateRef.current, String(turnId));
+      const withSentence = attachThinkingSentence(rebound, payload.thinking_text);
+      thinkingGateRef.current = withSentence;
+      setThinkingGate(withSentence);
+    }
+
+    const thinkingB64 =
+      (typeof payload?.thinkingAudioBase64 === 'string' && payload.thinkingAudioBase64) ||
+      (type === 'thinking_audio' && typeof audioBase64 === 'string' ? audioBase64 : '');
+    if (thinkingB64 && String(turnId)) {
+      const playKey = `${turnId}:once`;
+      if (thinkingAudioPlayedRef.current !== playKey) {
+        thinkingAudioPlayedRef.current = playKey;
+        const spoken =
+          (typeof payload?.thinking_text === 'string' && payload.thinking_text.trim()) ||
+          thinkingGateRef.current.sentence ||
+          '';
+        scheduleThinkingAudio(thinkingB64, String(turnId), spoken);
+      }
+    }
+    if (type === 'thinking_audio_failed' || payload?.thinking_audio_failed === true) {
+      thinkingPlayerRef.current?.stop();
+      const failed = markThinkingTtsFailed(thinkingGateRef.current, String(turnId));
+      thinkingGateRef.current = failed;
+      setThinkingGate(failed);
+      bumpThinkingEpoch();
+      playQueuedClipRef.current(false);
+      if (type === 'thinking_audio_failed') return;
+    }
+    if (
+      type === 'thinking_interlude' ||
+      type === 'thinking_audio' ||
+      utteranceKind === 'thinking_bridge'
+    ) {
+      if (shouldBlockResponsePlayback(thinkingGateRef.current)) {
+        return;
+      }
+    }
+
+    const blocking = shouldBlockResponsePlayback(thinkingGateRef.current);
+    if (blocking) {
+      const looksLikeAnswer =
+        (Array.isArray(payload?.messages) && payload.messages.length > 0) ||
+        Boolean(payload?.showCard) ||
+        Boolean(payload?.narration_plan) ||
+        Array.isArray(payload?.tts_clip_slots) ||
+        payload?.audioPending === true ||
+        (payload?.isProcessing === false && typeof audioBase64 === 'string' && audioBase64.length > 0);
+      if (looksLikeAnswer) {
+        heldResponsePayloadRef.current = payload;
+      }
+      return;
+    }
+    heldResponsePayloadRef.current = null;
     const segmentIndex = payload?.segment_index ?? 0;
     const isFinalSegment = payload?.is_final_segment ?? true;
     // Small signature so missing metadata cannot cause false collisions.
@@ -3347,6 +3609,10 @@ export default function ChatScreen({
     layoutMode,
     resetTurnPresentationState,
     activeTargetDepartment,
+    thinkingEpoch,
+    language,
+    armThinkingWatchdog,
+    bumpThinkingEpoch,
   ]);
 
   useEffect(() => {
@@ -3431,6 +3697,7 @@ export default function ChatScreen({
   // Start queued audio only after its target layout is visible.
   useEffect(() => {
     if (!pendingAudio) return;
+    if (shouldBlockResponsePlayback(thinkingGateRef.current)) return;
     if (layoutMode !== pendingAudio.targetLayout) return;
     const delayMs =
       pendingAudio.targetLayout === 'SPLIT_CARDS'
@@ -3462,7 +3729,7 @@ export default function ChatScreen({
       );
     }, delayMs);
     return () => clearTimeout(timer);
-  }, [pendingAudio, layoutMode, handleAudioPlayback]);
+  }, [pendingAudio, layoutMode, handleAudioPlayback, thinkingEpoch]);
 
   // Progressive backend TTS: `tts_audio_queue` is merged in useWebSocket; drain clips sequentially.
   useEffect(() => {
@@ -3920,6 +4187,7 @@ export default function ChatScreen({
     layoutMode,
     isPlayingBackendAudio,
     handleAudioPlayback,
+    thinkingEpoch,
   ]);
 
   useEffect(() => {
@@ -4411,10 +4679,6 @@ export default function ChatScreen({
     isPayloadStale,
   ]);
 
-  const languageTaglines = THINKING_TAGLINES[language] ?? THINKING_TAGLINES.English;
-  const thinkingTagline = languageTaglines[thinkingIndex % languageTaglines.length];
-  const thinkingTitle = THINKING_TITLE[language] ?? THINKING_TITLE.English;
-  const thinkingEmoji = THINKING_EMOJIS[thinkingIndex % THINKING_EMOJIS.length];
   const campusCopy = campusLabels(language);
   const selectedCampusDirection = useMemo(
     () => campusDirectionOverride ?? (CAMPUS_DIRECTIONS[selectedCampusIndex] ?? CAMPUS_DIRECTIONS[0])!,
@@ -4652,7 +4916,7 @@ export default function ChatScreen({
       panel.scrollTo({ top: panel.scrollHeight, behavior: 'smooth' });
     });
     return () => cancelAnimationFrame(raf);
-  }, [layoutMode, recentPanelMessages, isResponsePending, thinkingIndex]);
+  }, [layoutMode, recentPanelMessages, isResponsePending]);
 
   return (
     <div className={`light-chat-container ${scriptPreset.cssClass}`} data-testid="chat-screen" lang={languageToCode(language)}>
@@ -4736,6 +5000,25 @@ export default function ChatScreen({
           backgroundRepeat: 'no-repeat',
         }}
       />
+
+      {/* True full-viewport thinking state — outside .text-container / orb zone */}
+      <AnimatePresence>
+        {showThinkingStage ? (
+          <motion.div
+            key="clara-thinking-overlay"
+            className="clara-thinking-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, filter: 'blur(8px)' }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <ThinkingInterlude
+              sentence={thinkingGate.sentence || thinkingBridgeFallback(presentationLanguage)}
+              language={presentationLanguage}
+            />
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       <AnimatePresence mode="wait">
           {/* ─── FULL TEXT MODE ─── */}
@@ -4840,21 +5123,6 @@ export default function ChatScreen({
                           })}
                         </div>
                       </motion.div>
-                    ) : isResponsePending ? (
-                      <motion.div
-                        key="thinking"
-                        initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
-                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                        exit={{ opacity: 0, y: -18, filter: 'blur(10px)' }}
-                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        className="clara-thinking-stage"
-                        data-testid="clara-thinking"
-                      >
-                        <div className="clara-thinking-emoji" aria-hidden>{thinkingEmoji}</div>
-                        <div className="clara-thinking-title">{thinkingTitle}</div>
-                        <div className="clara-thinking-tagline">{thinkingTagline}</div>
-                        <div className="clara-thinking-dots" aria-hidden>...</div>
-                      </motion.div>
                     ) : lastAssistantMsg && isTextMessage(lastAssistantMsg) && !isAwaitingReadyPrompt ? (
                       <motion.div
                         key={lastAssistantMsg.id ?? lastAssistantMsg.text}
@@ -4878,7 +5146,7 @@ export default function ChatScreen({
                   </AnimatePresence>
                 </div>
 
-                {!departmentComparisonOpen ? (
+                {!departmentComparisonOpen && !showThinkingStage ? (
                   <div
                     className="full-text-orb-zone"
                     onPointerDownCapture={(ev) => {
@@ -4896,8 +5164,8 @@ export default function ChatScreen({
                     <div className="chat-orb-stack-below-faq">
                       <ChatOrbControl
                         orbState={orbState}
-                        isProcessing={isResponsePending}
-                        amplitude={orbState === 'listening' ? voiceAnalyser.amplitude : (isResponsePending ? 0.3 : 0.05)}
+                        isProcessing={false}
+                        amplitude={orbState === 'listening' ? voiceAnalyser.amplitude : 0.05}
                         frequencyDataRef={voiceAnalyser.frequencyDataRef}
                         onTap={handleOrbTap}
                         bottomClassName="mt-2 mb-5 w-full text-center"
@@ -5103,22 +5371,17 @@ export default function ChatScreen({
                               style={m.id === 'greeting' ? greetingFontStyle : undefined}
                             />
                       ))}
-                      {isResponsePending && (
-                        <div className="bubble-clara bubble-thinking" data-testid="clara-thinking">
-                          <span aria-hidden>{thinkingEmoji}</span> {thinkingTagline}
-                        </div>
-                      )}
                     </>
                   )}
                 </div>
-                {renderFaqCarousel('panel')}
+                {!showThinkingStage && renderFaqCarousel('panel')}
                 
-                {!isCampusNavigationStage && (
+                {!isCampusNavigationStage && !showThinkingStage && (
                   <motion.div className="chat-orb-stack-below-faq w-full flex justify-center pb-12">
                     <ChatOrbControl
                       orbState={orbState}
-                      isProcessing={isResponsePending}
-                      amplitude={orbState === 'listening' ? voiceAnalyser.amplitude : (isResponsePending ? 0.3 : 0.05)}
+                      isProcessing={false}
+                      amplitude={orbState === 'listening' ? voiceAnalyser.amplitude : 0.05}
                       frequencyDataRef={voiceAnalyser.frequencyDataRef}
                       onTap={handleOrbTap}
                       bottomClassName="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full text-center"
@@ -5132,7 +5395,7 @@ export default function ChatScreen({
 
       {/* Comparison mode: orb lives outside the FULL_TEXT motion wrapper so position:fixed is viewport-anchored
           (transform on layoutId/main would otherwise trap fixed positioning and overlap the panel). */}
-      {layoutMode === 'FULL_TEXT' && departmentComparisonOpen ? (
+      {layoutMode === 'FULL_TEXT' && departmentComparisonOpen && !showThinkingStage ? (
         <>
           <div className="full-text-comparison-faq-layer">
             {renderFaqCarousel('full')}

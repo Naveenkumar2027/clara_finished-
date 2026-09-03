@@ -151,6 +151,7 @@ from backend.services.session_language import (
     should_run_auto_detect,
 )
 from backend.services.conversation import govern_answer_length
+from backend.services.conversation.thinking_bridge import compose_thinking_bridge
 from backend.services.conversation.answer_language import resolve_answer_language
 from backend.services.conversation.intent_confidence import is_card_intent
 from backend.services.orchestration import ConversationOrchestrator, should_short_circuit
@@ -1138,7 +1139,11 @@ async def _complete_guest_name_turn(
 ) -> None:
     """Handle the first user turn after language pick: capture name + send ready_prompt."""
     try:
-        processing_payload: dict[str, Any] = {"isProcessing": True, "turn_id": timing.turn_id}
+        processing_payload: dict[str, Any] = {
+            "isProcessing": True,
+            "turn_id": timing.turn_id,
+            "thinking_skip": True,
+        }
         processing_payload.update(debug_payload(timing))
         await _ws_send_json(websocket, 5, session, processing_payload)
     except Exception as exc:
@@ -1313,6 +1318,102 @@ async def _emit_direct_conversation_reply(
     except Exception as exc:
         logger.warning("Policy direct outbound failed: %s", exc)
 
+
+async def _send_thinking_interlude_text(
+    session: dict[str, Any],
+    text: str,
+    websocket: WebSocket,
+    timing: TurnTiming,
+    turn_gen_marker: int,
+) -> str | None:
+    """Emit the thinking sentence immediately. Returns the sentence, or None on skip/fail."""
+    try:
+        if _turn_stale(session, turn_gen_marker):
+            return None
+        lang_key, _, lang_code = resolve_session_language(session)
+        guest = str(session.get("guest_name") or "").strip() or None
+        sentence = compose_thinking_bridge(text or "", lang_key, guest)
+        session["_thinking_bridge_sentence"] = sentence
+        session["_thinking_bridge_lang_code"] = lang_code
+        interlude = {
+            "type": "thinking_interlude",
+            "thinking_text": sentence,
+            "turn_id": timing.turn_id,
+            "isProcessing": True,
+            "guest_name": guest,
+            "language_code_key": lang_key,
+        }
+        interlude.update(debug_payload(timing))
+        await _ws_send_json(websocket, 5, session, interlude)
+        return sentence
+    except Exception:
+        logger.exception("Thinking interlude text emit failed turn_id=%s", timing.turn_id)
+        return None
+
+
+async def _send_thinking_interlude_audio(
+    session: dict[str, Any],
+    websocket: WebSocket,
+    timing: TurnTiming,
+    turn_gen_marker: int,
+    sentence: str,
+) -> None:
+    """Spoken thinking bridge TTS. Must not block RAG; fail-open if TTS fails."""
+    try:
+        if _turn_stale(session, turn_gen_marker):
+            return
+        lang_code = str(session.get("_thinking_bridge_lang_code") or "")
+        if not lang_code:
+            _, _, lang_code = resolve_session_language(session)
+        guest = str(session.get("guest_name") or "").strip() or None
+        lang_key, _, _ = resolve_session_language(session)
+        audio_b64 = None
+        try:
+            audio_b64, _ = await tts_to_base64_cached(
+                sentence,
+                lang_code,
+                turn_id=timing.turn_id,
+                utterance_kind="thinking_bridge",
+            )
+        except Exception:
+            logger.exception("Thinking-bridge TTS failed turn_id=%s", timing.turn_id)
+        if _turn_stale(session, turn_gen_marker):
+            return
+        if audio_b64:
+            audio_payload = {
+                "type": "thinking_audio",
+                "utterance_kind": "thinking_bridge",
+                "audioBase64": audio_b64,
+                "thinking_text": sentence,
+                "isProcessing": True,
+                "turn_id": timing.turn_id,
+                "guest_name": guest,
+                "language_code_key": lang_key,
+            }
+            audio_payload.update(debug_payload(timing))
+            await _ws_send_json(websocket, 5, session, audio_payload)
+            return
+        fail_payload = {
+            "type": "thinking_audio_failed",
+            "turn_id": timing.turn_id,
+            "isProcessing": True,
+        }
+        fail_payload.update(debug_payload(timing))
+        await _ws_send_json(websocket, 5, session, fail_payload)
+    except Exception:
+        logger.exception("Thinking interlude audio emit failed turn_id=%s", timing.turn_id)
+        try:
+            fail_payload = {
+                "type": "thinking_audio_failed",
+                "turn_id": timing.turn_id,
+                "isProcessing": True,
+            }
+            fail_payload.update(debug_payload(timing))
+            await _ws_send_json(websocket, 5, session, fail_payload)
+        except Exception:
+            pass
+
+
 async def process_user_text_and_reply(
     session: dict[str, Any],
     text: str,
@@ -1330,6 +1431,19 @@ async def process_user_text_and_reply(
     # Detect language before orchestration so CARD localization and ANSWER
     # routing see the same language as TTS. Narration is still deferred.
     await maybe_auto_detect_session_language(session, text, websocket, timing, stt_meta=stt_meta)
+
+    thinking_sentence = await _send_thinking_interlude_text(
+        session, text, websocket, timing, turn_gen_marker
+    )
+    if thinking_sentence:
+        try:
+            session["_thinking_tts_task"] = asyncio.create_task(
+                _send_thinking_interlude_audio(
+                    session, websocket, timing, turn_gen_marker, thinking_sentence
+                )
+            )
+        except Exception:
+            logger.exception("Could not start thinking TTS task")
 
     # Milestone 3: ConversationOrchestrator (M1 CI + localization/presentation + flags).
     conv_intel_length_kind = "normal"

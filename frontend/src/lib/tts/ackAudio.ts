@@ -6,6 +6,8 @@ export type AckPlayer = {
   play: (audioBase64: string) => void;
   stop: () => void;
   playing: () => boolean;
+  /** Register a one-shot listener for when the current ACK finishes or fails. */
+  whenIdle: (cb: () => void) => void;
 };
 
 export function createAckPlayer(opts?: {
@@ -13,9 +15,25 @@ export function createAckPlayer(opts?: {
 }): AckPlayer {
   const AudioCtor = opts?.AudioCtor ?? (typeof Audio !== 'undefined' ? Audio : undefined);
   let current: HTMLAudioElement | null = null;
+  let idleWaiters: Array<() => void> = [];
+
+  const flushIdle = () => {
+    const waiters = idleWaiters;
+    idleWaiters = [];
+    for (const cb of waiters) {
+      try {
+        cb();
+      } catch {
+        // ignore
+      }
+    }
+  };
 
   const stop = () => {
-    if (!current) return;
+    if (!current) {
+      flushIdle();
+      return;
+    }
     try {
       current.onended = null;
       current.onerror = null;
@@ -26,6 +44,7 @@ export function createAckPlayer(opts?: {
       // ignore
     }
     current = null;
+    flushIdle();
   };
 
   return {
@@ -37,15 +56,25 @@ export function createAckPlayer(opts?: {
       current = audio;
       audio.onended = () => {
         if (current === audio) current = null;
+        flushIdle();
       };
       audio.onerror = () => {
         if (current === audio) current = null;
+        flushIdle();
       };
       void audio.play().catch(() => {
         if (current === audio) current = null;
+        flushIdle();
       });
     },
     stop,
     playing: () => current !== null && !current.paused,
+    whenIdle(cb: () => void) {
+      if (!current || current.paused) {
+        cb();
+        return;
+      }
+      idleWaiters.push(cb);
+    },
   };
 }
