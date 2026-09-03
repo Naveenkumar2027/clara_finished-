@@ -166,6 +166,9 @@ class TestM58ResponseTts(unittest.IsolatedAsyncioTestCase):
             main, "tts_to_base64_cached", new=AsyncMock(side_effect=_fake_tts)
         ):
             await main.process_user_text_and_reply(session, user_text, ws, timing)
+            task = session.get("_thinking_tts_task")
+            if task is not None:
+                await task
         return _unwrap(ws.events), calls
 
     async def test_short_answer_is_one_tts_request_per_language(self) -> None:
@@ -196,7 +199,9 @@ class TestM58ResponseTts(unittest.IsolatedAsyncioTestCase):
                     lang=("kn", "Kannada", "kn-IN"),
                 )
                 self.assertTrue(calls)
-                self.assertEqual(calls[0]["language_code"], "kn-IN")
+                answer_calls = [c for c in calls if c.get("utterance_kind") != "thinking_bridge"]
+                self.assertTrue(answer_calls)
+                self.assertEqual(answer_calls[0]["language_code"], "kn-IN")
                 self.assertTrue(_final(payloads)["messages"][-1]["text"])
 
     async def test_long_answer_streams_first_clip_before_later_clips(self) -> None:

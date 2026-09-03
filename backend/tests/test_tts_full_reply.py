@@ -12,6 +12,27 @@ def _empty_rag_context(*_args, **_kwargs) -> str:
     return ""
 
 
+async def _await_thinking_tts(session: dict) -> None:
+    """Drain the background thinking-bridge TTS task so assertions are deterministic."""
+    task = session.get("_thinking_tts_task")
+    if task is not None:
+        await task
+
+
+def _answer_tts_calls(tts_calls: list[dict]) -> list[dict]:
+    return [c for c in tts_calls if c.get("utterance_kind") != "thinking_bridge"]
+
+
+def _answer_payloads(events: list[dict]) -> list[dict]:
+    payloads = [e.get("payload", {}) for e in events if isinstance(e, dict)]
+    return [
+        p
+        for p in payloads
+        if p.get("type") not in {"thinking_interlude", "thinking_audio", "thinking_audio_failed"}
+        and p.get("utterance_kind") != "thinking_bridge"
+    ]
+
+
 class _FakeWebSocket:
     def __init__(self) -> None:
         self.events: list[dict] = []
@@ -77,14 +98,16 @@ class TestTtsFullReply(unittest.IsolatedAsyncioTestCase):
             main, "_log_turn_metrics", new=lambda *args, **kwargs: None
         ):
             await main.process_user_text_and_reply(session, "What are library timings?", ws, timing, stt_meta=None)
+            await _await_thinking_tts(session)
 
-        self.assertEqual(len(tts_calls), 2, "TTS should be called for first sentence and remainder only")
-        self.assertEqual(tts_calls[0]["text"], first_sentence)
-        self.assertEqual(tts_calls[0].get("utterance_kind"), "assistant_first_sentence")
-        self.assertEqual(tts_calls[1]["text"], "On Saturdays it is open from 9 AM to 5 PM.")
-        self.assertEqual(tts_calls[1].get("utterance_kind"), "assistant_remaining_reply")
+        answer_calls = _answer_tts_calls(tts_calls)
+        self.assertEqual(len(answer_calls), 2, "TTS should be called for first sentence and remainder only")
+        self.assertEqual(answer_calls[0]["text"], first_sentence)
+        self.assertEqual(answer_calls[0].get("utterance_kind"), "assistant_first_sentence")
+        self.assertEqual(answer_calls[1]["text"], "On Saturdays it is open from 9 AM to 5 PM.")
+        self.assertEqual(answer_calls[1].get("utterance_kind"), "assistant_remaining_reply")
 
-        payloads = [e.get("payload", {}) for e in ws.events if isinstance(e, dict)]
+        payloads = _answer_payloads(ws.events)
         first_payloads = [p for p in payloads if p.get("type") == "assistant_first_sentence_audio"]
         self.assertEqual(len(first_payloads), 1)
         self.assertEqual(first_payloads[0].get("audioBase64"), fake_first_audio)
@@ -138,10 +161,12 @@ class TestTtsFullReply(unittest.IsolatedAsyncioTestCase):
             await main.process_user_text_and_reply(
                 session, "Is SVIT a private college?", ws, timing, stt_meta=None
             )
+            await _await_thinking_tts(session)
 
-        self.assertEqual(len(tts_calls), 1)
-        self.assertEqual(tts_calls[0].get("utterance_kind"), "assistant_full_reply")
-        final_payload = [e.get("payload", {}) for e in ws.events][-1]
+        answer_calls = _answer_tts_calls(tts_calls)
+        self.assertEqual(len(answer_calls), 1)
+        self.assertEqual(answer_calls[0].get("utterance_kind"), "assistant_full_reply")
+        final_payload = _answer_payloads(ws.events)[-1]
         self.assertEqual(final_payload.get("segment_index"), 0)
         self.assertTrue(final_payload.get("is_final_segment"))
         assistant_text = final_payload.get("assistantText")
@@ -192,8 +217,12 @@ class TestTtsFullReply(unittest.IsolatedAsyncioTestCase):
             main, "_log_turn_metrics", new=lambda *args, **kwargs: None
         ):
             await main.process_user_text_and_reply(session, user_text, ws, timing, stt_meta=None)
+            await _await_thinking_tts(session)
 
-        self.assertEqual([c.get("utterance_kind") for c in tts_calls], ["assistant_first_sentence", "assistant_remaining_reply"])
+        self.assertEqual(
+            [c.get("utterance_kind") for c in _answer_tts_calls(tts_calls)],
+            ["assistant_first_sentence", "assistant_remaining_reply"],
+        )
 
 
 if __name__ == "__main__":
