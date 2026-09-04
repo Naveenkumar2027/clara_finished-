@@ -1998,12 +1998,14 @@ export default function ChatScreen({
     if (!audioBase64) return;
 
     if (playbackChannel === 'ack') {
-      const thinkingBusy =
+      const g = thinkingGateRef.current;
+      const thinkingActive =
         thinkingPlayerRef.current?.playing() === true ||
-        (thinkingGateRef.current.ttsPlaying &&
-          !thinkingGateRef.current.ttsFinished &&
-          !thinkingGateRef.current.ttsFailed);
-      if (thinkingBusy) return;
+        (Boolean(g.turnId) &&
+          !g.ttsFinished &&
+          !g.ttsFailed &&
+          !g.responseStarted);
+      if (thinkingActive) return;
       ackPlayerRef.current.play(audioBase64);
       return;
     }
@@ -2628,13 +2630,16 @@ export default function ChatScreen({
     const type = payload?.type ?? '';
     const utteranceKind = payload?.utterance_kind ?? '';
     if (type === 'assistant_ack_audio' || utteranceKind === 'ack_earcon') {
-      // Never let ACK start after thinking audio has begun — it clips the bridge on some WebViews.
-      const thinkingBusy =
+      // Never let ACK race with thinking TTS — second Audio clips the bridge on some WebViews.
+      // Skip whenever this turn still has an active thinking gate (not only while audio plays).
+      const g = thinkingGateRef.current;
+      const thinkingActive =
         thinkingPlayerRef.current?.playing() === true ||
-        (thinkingGateRef.current.ttsPlaying &&
-          !thinkingGateRef.current.ttsFinished &&
-          !thinkingGateRef.current.ttsFailed);
-      if (thinkingBusy) {
+        (Boolean(g.turnId) &&
+          !g.ttsFinished &&
+          !g.ttsFailed &&
+          !g.responseStarted);
+      if (thinkingActive) {
         return;
       }
       if (typeof audioBase64 === 'string' && audioBase64.length > 0) {

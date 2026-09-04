@@ -15,46 +15,40 @@ import {
 import { composeThinkingBridge, inferThinkingTopic, thinkingBridgeFallback } from '../thinkingBridge';
 
 describe('thinking bridge language and name', () => {
-  it('uses the current language, not English, for Kannada', () => {
+  it('uses the current language fallback, not English, for Kannada', () => {
     const s = composeThinkingBridge({ query: 'ಶುಲ್ಕ ಎಷ್ಟು', language: 'Kannada' });
     expect(s).toMatch(/[\u0C80-\u0CFF]/);
     expect(s.toLowerCase()).not.toContain('processing');
     expect(s.toLowerCase()).not.toContain('let me');
   });
 
-  it('includes the guest name only for warm college-style bridges', () => {
+  it('keeps optimistic FE bridge neutral until backend semantic text arrives', () => {
     const named = composeThinkingBridge({
       query: 'How good is the college?',
       language: 'English',
       guestName: 'Rahul',
     });
-    expect(named).toContain('Rahul');
-    const fees = composeThinkingBridge({
-      query: 'What is the fee?',
-      language: 'English',
-      guestName: 'Rahul',
-    });
-    expect(fees).not.toContain('Rahul');
-    expect(fees.toLowerCase()).toContain('fee');
+    // Frontend no longer invents topic templates; backend owns contextual text.
+    expect(named.toLowerCase()).not.toContain('department head');
+    expect(named.toLowerCase()).not.toContain('processing');
   });
 
-  it('omits the name when none was collected', () => {
-    const s = composeThinkingBridge({ query: 'How good is the college?', language: 'English' });
-    expect(s).not.toMatch(/Rahul|Naveen/);
+  it('omits fabricated entity claims in the optimistic fallback', () => {
+    const s = composeThinkingBridge({ query: 'Who is the principal?', language: 'English' });
+    expect(s.toLowerCase()).not.toContain('department head');
   });
 
-  it('keeps sentences short and non-factual', () => {
+  it('keeps fallback sentences short and non-factual', () => {
     const s = composeThinkingBridge({ query: 'Tell me about placements.', language: 'English' });
     const words = s.split(/\s+/).filter(Boolean);
-    expect(words.length).toBeGreaterThanOrEqual(6);
+    expect(words.length).toBeGreaterThanOrEqual(4);
     expect(words.length).toBeLessThanOrEqual(16);
     expect(s.toLowerCase()).not.toContain('excellent placements');
   });
 
-  it('maps hod / bus / documents intents', () => {
-    expect(inferThinkingTopic('Who is the HOD?')).toBe('hod');
-    expect(inferThinkingTopic('What about the buses?')).toBe('transport');
-    expect(inferThinkingTopic('What documents do I need?')).toBe('admissions');
+  it('does not classify topics on the frontend anymore', () => {
+    expect(inferThinkingTopic('Who is the HOD?')).toBe('general');
+    expect(inferThinkingTopic('What about the buses?')).toBe('general');
   });
 
   it('fallback is language-aware', () => {

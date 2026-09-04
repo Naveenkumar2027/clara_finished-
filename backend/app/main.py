@@ -1325,6 +1325,8 @@ async def _send_thinking_interlude_text(
     websocket: WebSocket,
     timing: TurnTiming,
     turn_gen_marker: int,
+    *,
+    semantic_request: Any | None = None,
 ) -> str | None:
     """Emit the thinking sentence immediately. Returns the sentence, or None on skip/fail."""
     try:
@@ -1332,7 +1334,13 @@ async def _send_thinking_interlude_text(
             return None
         lang_key, _, lang_code = resolve_session_language(session)
         guest = str(session.get("guest_name") or "").strip() or None
-        sentence = compose_thinking_bridge(text or "", lang_key, guest)
+        sentence = compose_thinking_bridge(
+            text or "",
+            lang_key,
+            guest,
+            semantic_request=semantic_request,
+            session=session,
+        )
         session["_thinking_bridge_sentence"] = sentence
         session["_thinking_bridge_lang_code"] = lang_code
         interlude = {
@@ -1432,8 +1440,29 @@ async def process_user_text_and_reply(
     # routing see the same language as TTS. Narration is still deferred.
     await maybe_auto_detect_session_language(session, text, websocket, timing, stt_meta=stt_meta)
 
+    # Fast semantic pass (same parser as CARD/ANSWER — no LLM). Thinking bridge
+    # must see this BEFORE templates; RAG/orchestrator still run in parallel after.
+    lang_key_for_think, _, _ = resolve_session_language(session)
+    thinking_semantic = None
+    try:
+        from backend.services.conversation.thinking_bridge import build_thinking_semantic_request
+
+        thinking_semantic = build_thinking_semantic_request(
+            text or "",
+            lang_key_for_think,
+            session,
+        )
+    except Exception:
+        logger.exception("Thinking semantic parse failed turn_id=%s", timing.turn_id)
+        thinking_semantic = None
+
     thinking_sentence = await _send_thinking_interlude_text(
-        session, text, websocket, timing, turn_gen_marker
+        session,
+        text,
+        websocket,
+        timing,
+        turn_gen_marker,
+        semantic_request=thinking_semantic,
     )
     if thinking_sentence:
         try:
@@ -1523,7 +1552,9 @@ async def process_user_text_and_reply(
             }
             early_partial_payload.update(debug_payload(timing))
             await _ws_send_json(websocket, 5, session, early_partial_payload)
-        if ENABLE_ACK_EARCON:
+        # ACK must not race with thinking TTS (second Audio clips the bridge start).
+        # When a thinking sentence is active for this turn, skip the earcon entirely.
+        if ENABLE_ACK_EARCON and not thinking_sentence:
             ack_audio_b64 = _get_ack_earcon_base64()
             if not timing.has("play_start"):
                 timing.mark("play_start")

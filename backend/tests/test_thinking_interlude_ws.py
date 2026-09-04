@@ -27,7 +27,7 @@ class ThinkingInterludeWsTests(unittest.IsolatedAsyncioTestCase):
 
         with patch.object(main, "LOW_LATENCY_VOICE_MODE", True), patch.object(
             main, "KIOSK_COMPLETE_RESPONSE_TTS", True
-        ), patch.object(main, "ENABLE_ACK_EARCON", False), patch.object(
+        ), patch.object(main, "ENABLE_ACK_EARCON", True), patch.object(
             main, "ENABLE_EARLY_PARTIAL_TEXT", False
         ), patch.object(
             main, "maybe_auto_detect_session_language", new=AsyncMock(side_effect=_no_auto_language)
@@ -38,7 +38,7 @@ class ThinkingInterludeWsTests(unittest.IsolatedAsyncioTestCase):
         ), patch.object(main, "get_relevant_context", return_value="faculty context"), patch.object(
             main, "split_tts_chunks", side_effect=_partition_tts_chunks
         ), patch.object(main, "tts_to_base64_cached", new=AsyncMock(side_effect=_fake_tts)):
-            await main.process_user_text_and_reply(session, "How good is the college?", ws, timing)
+            await main.process_user_text_and_reply(session, "Who is the principal?", ws, timing)
             task = session.get("_thinking_tts_task")
             if task is not None:
                 await task
@@ -47,7 +47,11 @@ class ThinkingInterludeWsTests(unittest.IsolatedAsyncioTestCase):
         types = [p.get("type") for p in payloads]
         self.assertIn("thinking_interlude", types)
         interlude = next(p for p in payloads if p.get("type") == "thinking_interlude")
-        self.assertIn("Rahul", interlude.get("thinking_text") or "")
+        thinking_text = (interlude.get("thinking_text") or "").lower()
+        self.assertIn("principal", thinking_text)
+        self.assertNotIn("department head", thinking_text)
         self.assertEqual(interlude.get("language_code_key"), "en")
         self.assertEqual(types[0], "thinking_interlude")
         self.assertIn("thinking_audio", types)
+        # Thinking turns must not emit ACK (prevents first-word clip race).
+        self.assertNotIn("assistant_ack_audio", types)
